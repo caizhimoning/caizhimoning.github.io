@@ -234,8 +234,6 @@ function toggleTheme() {
       var configured = GLOBAL_CONFIG.root;
       return configured.slice(-1) === '/' ? configured : configured + '/';
     }
-    var pathname = window.location.pathname || '/';
-    if (pathname.indexOf('/project') === 0) return '/project/';
     return '/';
   }
 
