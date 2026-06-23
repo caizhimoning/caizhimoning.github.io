@@ -859,7 +859,7 @@ function toggleTheme() {
   }
 
   function preloadSceneBackgrounds() {
-    ['/project/img/bg-day-sakura.png', '/project/img/bg-night-overpass.png'].forEach(function (src) {
+    [rootPath() + 'img/bg-day-sakura.png', rootPath() + 'img/bg-night-overpass.png'].forEach(function (src) {
       var img = new Image();
       img.src = src;
     });
