@@ -761,9 +761,29 @@ function toggleTheme() {
     updateWeatherPanelVisibility();
   }
 
+  function initCardAuthorSidebar() {
+    var cardInfo = document.querySelector('#aside-content .card-info');
+    if (!cardInfo) return;
+
+    var btn = cardInfo.querySelector('#card-info-btn');
+    if (btn) btn.href = resolveSiteUrl('about/');
+
+    var siteData = cardInfo.querySelector('.site-data');
+    if (!siteData) return;
+    var links = siteData.querySelectorAll('a');
+    if (links.length < 3) return;
+
+    var dynamicLink = links[2];
+    dynamicLink.href = resolveSiteUrl('dynamics/');
+    var headline = dynamicLink.querySelector('.headline');
+    if (!headline || headline.textContent.trim() === '分类') {
+      if (headline) headline.textContent = '动态';
+    }
+  }
+
   /* ===== 语言切换 ===== */
   var LANG_MAP = {
-    '文章': 'Articles', '项目': 'Projects', '动态': 'Moments',
+    '文章': 'Articles', '项目': 'Projects', '动态': 'Moments', '分类': 'Moments',
     '专题': 'Domains', '标签': 'Tags', '关于我': 'About', '最新博客': 'Latest Posts',
     '热门项目': 'Hot Projects', '切换 English': 'Switch 中文',
     '切换夜间模式': 'Switch Dark Mode', '切换日间模式': 'Switch Light Mode',
@@ -779,7 +799,7 @@ function toggleTheme() {
     localStorage.setItem('blog-lang', isZh ? 'en' : 'zh');
 
     var map = isZh ? LANG_MAP : LANG_MAP_REV;
-    document.querySelectorAll('#nav .site-page span, .section-header h2, .drawer-item span, .drawer-title, .explore-btn, .view-more, #drawer-lang-label').forEach(function (el) {
+    document.querySelectorAll('#nav .site-page span, .section-header h2, .drawer-item span, .drawer-title, .explore-btn, .view-more, #drawer-lang-label, #aside-content .card-info .headline').forEach(function (el) {
       var text = el.textContent.trim();
       if (map[text]) el.textContent = map[text];
     });
@@ -2145,6 +2165,7 @@ function toggleTheme() {
   }
 
   function init() {
+    initCardAuthorSidebar();
     initPostTocAside();
     initSocialLinkConfirm();
     preloadSceneBackgrounds();
