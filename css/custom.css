@@ -3,8 +3,8 @@
  */
 
 :root {
-  --bg-day-image: url('/project/img/bg-day-sakura.png');
-  --bg-night-image: url('/project/img/bg-night-overpass.png');
+  --bg-day-image: url('/img/bg-day-sakura.png');
+  --bg-night-image: url('/img/bg-night-overpass.png');
   --paper-panel: #fff6f4;
   --paper-panel-mid: rgba(255, 248, 246, 0.96);
   --paper-content: rgba(255, 247, 245, 0.84);
