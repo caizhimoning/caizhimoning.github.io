@@ -1,0 +1,664 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>理论力学（Ⅰ）· 静力学 | Moning's Blog</title><meta name="author" content="caizhimoning"><meta name="copyright" content="caizhimoning"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="总览 → 理论力学（Ⅰ）学习笔记 · 运动学 → 理论力学（Ⅰ）· 运动学   目录   章 节 跳转到    1 静力学公理和物体的受力分析  [第一章 静力学公理和物体的受力分析](#第一章 静力学公理和物体的受力分析)    §1-1 静力学公理 [§1-1 静力学公理](#§1-1 静力学公理)    §1-2 约束和约束力 [§1-2 约束和约束力](#§1-2 约束和约束力)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="理论力学（Ⅰ）· 静力学">
+<meta property="og:url" content="http://caizhimoning.github.io/project/2026/06/08/tm-hit-8-vol1-statics/index.html">
+<meta property="og:site_name" content="Moning&#39;s Blog">
+<meta property="og:description" content="总览 → 理论力学（Ⅰ）学习笔记 · 运动学 → 理论力学（Ⅰ）· 运动学   目录   章 节 跳转到    1 静力学公理和物体的受力分析  [第一章 静力学公理和物体的受力分析](#第一章 静力学公理和物体的受力分析)    §1-1 静力学公理 [§1-1 静力学公理](#§1-1 静力学公理)    §1-2 约束和约束力 [§1-2 约束和约束力](#§1-2 约束和约束力)">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=800&q=80">
+<meta property="article:published_time" content="2026-06-08T09:31:26.000Z">
+<meta property="article:modified_time" content="2026-06-23T07:26:25.899Z">
+<meta property="article:author" content="caizhimoning">
+<meta property="article:tag" content="理论力学">
+<meta property="article:tag" content="静力学">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=800&q=80"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "理论力学（Ⅰ）· 静力学",
+  "url": "http://caizhimoning.github.io/project/2026/06/08/tm-hit-8-vol1-statics/",
+  "image": "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=800&q=80",
+  "datePublished": "2026-06-08T09:31:26.000Z",
+  "dateModified": "2026-06-23T07:26:25.899Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "caizhimoning",
+      "url": "http://caizhimoning.github.io/project"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/project/img/favicon.svg"><link rel="canonical" href="http://caizhimoning.github.io/project/2026/06/08/tm-hit-8-vol1-statics/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/project/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&amp;family=Noto+Serif+SC:wght@500;600;700&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/project/',
+  algolia: undefined,
+  localSearch: {"path":"/project/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"pagination":{"enable":true,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'medium_zoom',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: true,
+  islazyloadPlugin: true,
+  isAnchor: false,
+  percent: {
+    toc: false,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '理论力学（Ⅰ）· 静力学',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/project/css/layout.css"><link rel="stylesheet" href="/project/css/custom.css"><link rel="stylesheet" href="/project/css/archive.css"><link rel="stylesheet" href="/project/css/projects.css"><link rel="stylesheet" href="/project/css/post-toc.css"><link rel="stylesheet" href="/project/css/post-tag-panel.css"><meta name="generator" content="Hexo 8.1.2"><script id="post-tag-index-data" type="application/json">{"posts":[{"path":"/2026/06/11/em-li-2021-fundamentals/","title":"弹性力学（李刚）· 绪论与基本方程","tags":["弹性力学","李刚"]},{"path":"/2026/06/11/em-li-2021-space-torsion/","title":"弹性力学（李刚）· 空间问题与扭转","tags":["弹性力学","空间问题","扭转"]},{"path":"/2026/06/11/em-li-2021-variational-fem/","title":"弹性力学（李刚）· 能量原理与有限元","tags":["弹性力学","变分法","有限元"]},{"path":"/2026/06/11/em-li-2021/","title":"弹性力学学习笔记（李刚 · 2021）","tags":["弹性力学","李刚","科学出版社"]},{"path":"/2026/06/11/em-xu-vol1-plane-solution/","title":"弹性力学（徐芝纶上册）· 平面问题解答","tags":["弹性力学","复变函数"]},{"path":"/2026/06/11/em-xu-vol1-plane-theory/","title":"弹性力学（徐芝纶上册）· 绪论与平面理论","tags":["弹性力学","徐芝纶"]},{"path":"/2026/06/11/em-li-2021-plane/","title":"弹性力学（李刚）· 平面问题","tags":["弹性力学","平面问题"]},{"path":"/2026/06/11/em-xu-vol1-space-torsion-energy/","title":"弹性力学（徐芝纶上册）· 空间·扭转·能量·波","tags":["弹性力学","弹性波"]},{"path":"/2026/06/11/em-xu-vol1-temperature-fdm/","title":"弹性力学（徐芝纶上册）· 温度应力与差分法","tags":["弹性力学","热应力"]},{"path":"/2026/06/11/em-xu-vol1/","title":"弹性力学学习笔记（徐芝纶 · 上册）","tags":["弹性力学","徐芝纶","高等教育出版社"]},{"path":"/2026/06/11/fm-wu-ch01-field/","title":"流体力学（吴望一）· 场论与张量","tags":["流体力学","场论"]},{"path":"/2026/06/11/em-xu-vol2/","title":"弹性力学学习笔记（徐芝纶 · 下册）","tags":["弹性力学","薄板","壳体"]},{"path":"/2026/06/11/fm-wu-ch02-03/","title":"流体力学（吴望一）· 基本概念与方程组","tags":["流体力学"]},{"path":"/2026/06/11/fm-wu-ch04-07/","title":"流体力学（吴望一）· 涡旋·静力学·理想流","tags":["流体力学","伯努利"]},{"path":"/2026/06/11/em-xu-vol2-shell/","title":"弹性力学（徐芝纶下册）· 壳体理论","tags":["弹性力学","壳体"]},{"path":"/2026/06/11/fm-wu-ch08-10/","title":"流体力学（吴望一）· 波浪·黏性·气体动力学","tags":["流体力学","气体动力学"]},{"path":"/2026/06/11/fm-wu/","title":"流体力学学习笔记（吴望一）","tags":["流体力学","吴望一","北京大学出版社"]},{"path":"/2026/06/11/em-xu-vol2-plate/","title":"弹性力学（徐芝纶下册）· 薄板问题","tags":["弹性力学","薄板"]},{"path":"/2026/06/11/tm-hit-8-vol2-analytical/","title":"理论力学（Ⅱ）· 分析力学基础","tags":["理论力学","分析力学","拉格朗日方程"]},{"path":"/2026/06/11/tm-hit-8-vol2-collision/","title":"理论力学（Ⅱ）· 碰撞","tags":["理论力学","碰撞","恢复因数"]},{"path":"/2026/06/11/tm-hit-8-vol2-gyroscope/","title":"理论力学（Ⅱ）· 定点运动与陀螺","tags":["理论力学","陀螺仪","定点运动"]},{"path":"/2026/06/11/tm-hit-8-vol2-non-inertial/","title":"理论力学（Ⅱ）· 非惯性系中的质点动力学","tags":["理论力学","非惯性系","科氏力"]},{"path":"/2026/06/11/tm-hit-8-vol2-variable-mass/","title":"理论力学（Ⅱ）· 变质量动力学","tags":["理论力学","变质量","火箭方程"]},{"path":"/2026/06/11/tm-hit-8-vol2-vibration/","title":"理论力学（Ⅱ）· 机械振动基础","tags":["理论力学","机械振动","固有频率"]},{"path":"/2026/06/11/tm-hit-8-vol2/","title":"理论力学（Ⅱ）学习笔记","tags":["理论力学","哈尔滨工业大学","第8版"]},{"path":"/2026/06/10/machine-learning/","title":"机器学习课程学习笔记","tags":["机器学习","监督学习","深度学习","数学基础"]},{"path":"/2026/06/09/wsl-setting/","title":"WSL 常用设置：Linux 应用打开 Windows 浏览器","tags":["WSL2","Obsidian","浏览器"]},{"path":"/2026/06/09/obsidian-plugins/","title":"Obsidian 社区插件与本库选用","tags":["Obsidian","插件"]},{"path":"/2026/06/06/obsidian-setting/","title":"Obsidian 设置：字体、外观与 Properties","tags":["WSL2","Obsidian","设置"]},{"path":"/2026/06/08/tm-hit-8-vol1-dynamics/","title":"理论力学（Ⅰ）· 动力学","tags":["理论力学","动力学"]},{"path":"/2026/06/08/tm-hit-8-vol1-kinematics/","title":"理论力学（Ⅰ）· 运动学","tags":["理论力学","运动学"]},{"path":"/2026/06/08/tm-hit-8-vol1-statics/","title":"理论力学（Ⅰ）· 静力学","tags":["理论力学","静力学"]},{"path":"/2026/06/08/tm-hit-8-vol1/","title":"理论力学（Ⅰ）学习笔记","tags":["理论力学","哈尔滨工业大学","第8版"]},{"path":"/2026/06/07/cursor-guide/","title":"Cursor 使用入门：AGENTS.md、Rules 与 WSL 全局约定","tags":["Cursor","AI","工作流","WSL2"]},{"path":"/2026/06/06/markdown-syntax/","title":"Markdown 语法入门","tags":["Markdown","写作","语法"]},{"path":"/2026/06/05/zotero-guide/","title":"Zotero 使用指南","tags":["ai生成","学术写作","Zotero","文献管理"]},{"path":"/2026/06/05/abaqus-python/","title":"Abaqus Python 使用入门","tags":["ai生成","Abaqus","仿真","Python"]},{"path":"/2026/06/05/abaqus-install/","title":"Abaqus 安装与许可配置","tags":["ai生成","Abaqus","仿真","安装"]},{"path":"/2026/06/05/latex-syntax/","title":"LaTeX 语法入门","tags":["ai生成","LaTeX","学术写作","排版"]},{"path":"/2026/06/05/hardware-ram-slots/","title":"内存条安装：插槽位置与双通道规则","tags":["ai生成","装机","内存","双通道"]},{"path":"/2026/06/05/hardware-pc-build/","title":"DIY 装机流程：从配件到点亮","tags":["ai生成","装机","DIY"]},{"path":"/2026/06/05/hardware-storage/","title":"存储选购：固态、机械硬盘与接口","tags":["ai生成","装机","存储","SSD","NVMe"]},{"path":"/2026/06/05/hardware-cooler/","title":"散热器选购：风冷、水冷与机箱风扇","tags":["ai生成","装机","散热器","风冷","水冷"]},{"path":"/2026/06/05/hardware-case/","title":"机箱选购：规格、风道与兼容性","tags":["ai生成","机箱","装机","散热"]},{"path":"/2026/06/05/hardware-psu/","title":"电源选购：功率、认证与模组","tags":["ai生成","装机","电源","PSU"]},{"path":"/2026/06/05/hardware-ram/","title":"内存选购：DDR4 / DDR5、品牌与频率","tags":["ai生成","装机","内存","RAM","DDR5"]},{"path":"/2026/06/05/hardware-motherboard/","title":"主板选购：芯片组、命名与平台搭配","tags":["ai生成","装机","Intel","AMD","主板"]},{"path":"/2026/06/05/hardware-gpu/","title":"显卡选购：品牌、命名与性能分级","tags":["ai生成","装机","AMD","GPU","显卡","NVIDIA"]},{"path":"/2026/06/05/hardware-cpu/","title":"CPU 选购：品牌、命名与性能分级","tags":["ai生成","装机","CPU","Intel","AMD"]},{"path":"/2026/06/05/ssh-basics/","title":"SSH 基础：远程登录与密钥认证","tags":["GitHub","Linux","SSH","安全"]},{"path":"/2026/06/05/git-basics/","title":"Git 基础：版本管理与常用操作","tags":["Linux","Git","版本控制"]},{"path":"/2026/06/05/hexo-github-publish/","title":"Hexo 博客发布 GitHub 与自动化","tags":["Hexo","GitHub","部署"]},{"path":"/2026/06/05/obsidian-win-wsl-install/","title":"Obsidian 在 Windows 与 WSL2 中的安装与库路径选择","tags":["安装","WSL2","Obsidian","Windows"]},{"path":"/2026/06/05/wsl2-install/","title":"WSL2 安装与首次配置","tags":["安装","WSL2","Windows"]},{"path":"/2026/06/05/wsl2-basic-commands/","title":"WSL2 基本命令","tags":["WSL2","Windows","命令行"]},{"path":"/2026/06/05/cursor-agent-reading-order/","title":"Agent 读库顺序与 Reuse（草案）","tags":["Cursor","AI","工作流","知识管理"]},{"path":"/2026/06/04/obsidian-guide/","title":"Obsidian 学习与用法手册","tags":["知识管理","Hexo","WSL2","Obsidian"]},{"path":"/2026/06/03/linux-filesystem/","title":"Linux 文件系统","tags":["Linux","文件系统"]},{"path":"/2026/06/01/welcome-to-my-blog/","title":"欢迎来到我的博客","tags":["欢迎","博客"]}]}</script><script id="post-header-meta" type="application/json">{"title":"理论力学（Ⅰ）· 静力学","subtitle":"哈工大第8版 · 第 1–4 章","series":"mechanics","seriesPath":"","author":"","readTime":"","date":"2026-06-08","updated":"2026-06-23","tags":[{"name":"理论力学","path":"tags/理论力学/"},{"name":"静力学","path":"tags/静力学/"}],"categories":[],"cover":"https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=800&q=80"}</script></head><body><div class="bg-animation" id="web_bg" style="background: transparent;"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/project/img/avatar.svg" onerror="this.onerror=null;this.src='/project/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/project/archives/"><div class="headline">文章</div><div class="length-num">59</div></a><a href="/project/tags/"><div class="headline">标签</div><div class="length-num">101</div></a><a href="/project/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/project/archives/"><i class="fa-fw fas fa-book-open"></i><span> 文章</span></a></div><div class="menus_item"><a class="site-page" href="/project/projects/"><i class="fa-fw fas fa-code-branch"></i><span> 项目</span></a></div><div class="menus_item"><a class="site-page" href="/project/dynamics/"><i class="fa-fw fas fa-comment-dots"></i><span> 动态</span></a></div><div class="menus_item"><a class="site-page" href="/project/domain/"><i class="fa-fw fas fa-layer-group"></i><span> 专题</span></a></div><div class="menus_item"><a class="site-page" href="/project/about/"><i class="fa-fw fas fa-user"></i><span> 关于我</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img fixed" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/project/"><img class="site-icon" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/project/img/logo.svg" alt="Logo"></a><a class="nav-page-title" href="/project/"><span class="site-name">理论力学（Ⅰ）· 静力学</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/project/archives/"><i class="fa-fw fas fa-book-open"></i><span> 文章</span></a></div><div class="menus_item"><a class="site-page" href="/project/projects/"><i class="fa-fw fas fa-code-branch"></i><span> 项目</span></a></div><div class="menus_item"><a class="site-page" href="/project/dynamics/"><i class="fa-fw fas fa-comment-dots"></i><span> 动态</span></a></div><div class="menus_item"><a class="site-page" href="/project/domain/"><i class="fa-fw fas fa-layer-group"></i><span> 专题</span></a></div><div class="menus_item"><a class="site-page" href="/project/about/"><i class="fa-fw fas fa-user"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">理论力学（Ⅰ）· 静力学</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon far fa-calendar-alt"></i><span class="post-meta-label">发表于</span><time datetime="2026-06-08T09:31:26.000Z" title="发表于 2026-06-08 17:31:26">2026-06-08</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="container post-content" id="article-container"><blockquote>
+<p>总览 → <a href="/project/2026/06/08/tm-hit-8-vol1/">理论力学（Ⅰ）学习笔记</a> · 运动学 → <a href="/project/2026/06/08/tm-hit-8-vol1-kinematics/">理论力学（Ⅰ）· 运动学</a></p>
+</blockquote>
+<hr>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><table>
+<thead>
+<tr>
+<th>章</th>
+<th>节</th>
+<th>跳转到</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>1</strong> 静力学公理和物体的受力分析</td>
+<td></td>
+<td>[第一章 静力学公理和物体的受力分析](#第一章 静力学公理和物体的受力分析)</td>
+</tr>
+<tr>
+<td></td>
+<td>§1-1 静力学公理</td>
+<td>[§1-1 静力学公理](#§1-1 静力学公理)</td>
+</tr>
+<tr>
+<td></td>
+<td>§1-2 约束和约束力</td>
+<td>[§1-2 约束和约束力](#§1-2 约束和约束力)</td>
+</tr>
+<tr>
+<td></td>
+<td>§1-3 物体的受力分析和受力图</td>
+<td>[§1-3 物体的受力分析和受力图](#§1-3 物体的受力分析和受力图)</td>
+</tr>
+<tr>
+<td></td>
+<td>§1-4 力学模型与力学简图</td>
+<td>[§1-4 力学模型与力学简图](#§1-4 力学模型与力学简图)</td>
+</tr>
+<tr>
+<td><strong>2</strong> 平面力系</td>
+<td></td>
+<td>[第二章 平面力系](#第二章 平面力系)</td>
+</tr>
+<tr>
+<td></td>
+<td>§2-1 平面汇交力系</td>
+<td>[§2-1 平面汇交力系](#§2-1 平面汇交力系)</td>
+</tr>
+<tr>
+<td></td>
+<td>§2-2 平面力对点之矩 · 平面力偶</td>
+<td>[§2-2 平面力对点之矩 · 平面力偶](#§2-2 平面力对点之矩 · 平面力偶)</td>
+</tr>
+<tr>
+<td></td>
+<td>§2-3 平面任意力系的简化</td>
+<td>[§2-3 平面任意力系的简化](#§2-3 平面任意力系的简化)</td>
+</tr>
+<tr>
+<td></td>
+<td>§2-4 平面任意力系的平衡条件和平衡方程</td>
+<td>[§2-4 平面任意力系的平衡条件和平衡方程](#§2-4 平面任意力系的平衡条件和平衡方程)</td>
+</tr>
+<tr>
+<td></td>
+<td>§2-5 物体系的平衡 · 静定和超静定问题</td>
+<td>[§2-5 物体系的平衡 · 静定和超静定问题](#§2-5 物体系的平衡 · 静定和超静定问题)</td>
+</tr>
+<tr>
+<td></td>
+<td>§2-6 平面简单桁架的内力计算</td>
+<td>[§2-6 平面简单桁架的内力计算](#§2-6 平面简单桁架的内力计算)</td>
+</tr>
+<tr>
+<td><strong>3</strong> 空间力系</td>
+<td></td>
+<td>[第三章 空间力系](#第三章 空间力系)</td>
+</tr>
+<tr>
+<td></td>
+<td>§3-1 空间汇交力系</td>
+<td>[§3-1 空间汇交力系](#§3-1 空间汇交力系)</td>
+</tr>
+<tr>
+<td></td>
+<td>§3-2 力对点的矩和力对轴的矩</td>
+<td>[§3-2 力对点的矩和力对轴的矩](#§3-2 力对点的矩和力对轴的矩)</td>
+</tr>
+<tr>
+<td></td>
+<td>§3-3 空间力偶</td>
+<td>[§3-3 空间力偶](#§3-3 空间力偶)</td>
+</tr>
+<tr>
+<td></td>
+<td>§3-4 空间任意力系向一点简化</td>
+<td>[§3-4 空间任意力系向一点简化](#§3-4 空间任意力系向一点简化)</td>
+</tr>
+<tr>
+<td></td>
+<td>§3-5 空间任意力系平衡方程</td>
+<td>[§3-5 空间任意力系平衡方程](#§3-5 空间任意力系平衡方程)</td>
+</tr>
+<tr>
+<td></td>
+<td>§3-6 重心</td>
+<td>[§3-6 重心](#§3-6 重心)</td>
+</tr>
+<tr>
+<td><strong>4</strong> 摩擦</td>
+<td></td>
+<td>[第四章 摩擦](#第四章 摩擦)</td>
+</tr>
+<tr>
+<td></td>
+<td>§4-1 滑动摩擦</td>
+<td>[§4-1 滑动摩擦](#§4-1 滑动摩擦)</td>
+</tr>
+<tr>
+<td></td>
+<td>§4-2 摩擦角和自锁现象</td>
+<td>[§4-2 摩擦角和自锁现象](#§4-2 摩擦角和自锁现象)</td>
+</tr>
+<tr>
+<td></td>
+<td>§4-3 考虑摩擦时物体的平衡问题</td>
+<td>[§4-3 考虑摩擦时物体的平衡问题](#§4-3 考虑摩擦时物体的平衡问题)</td>
+</tr>
+<tr>
+<td></td>
+<td>§4-4 滚动摩阻的概念</td>
+<td>[§4-4 滚动摩阻的概念](#§4-4 滚动摩阻的概念)</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="第一章-静力学公理和物体的受力分析"><a href="#第一章-静力学公理和物体的受力分析" class="headerlink" title="第一章 静力学公理和物体的受力分析"></a>第一章 静力学公理和物体的受力分析</h2><h3 id="§1-1-静力学公理"><a href="#§1-1-静力学公理" class="headerlink" title="§1-1 静力学公理"></a>§1-1 静力学公理</h3><h4 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h4><ul>
+<li><strong>力</strong>：物体间相互机械作用的可度量效应；作用于刚体时只改变运动状态。力是矢量，记 $\mathbf{F}$ 或 $(F_x, F_y, F_z)$。度量单位：N（牛）。</li>
+<li><strong>刚体</strong>：变形可忽略，体内任意两点距离保持不变的物体。</li>
+<li><strong>平衡</strong>：刚体相对惯性参考系静止或作匀速直线平动。</li>
+<li><strong>力系</strong>：作用在刚体上的一组力。</li>
+<li><strong>等效力系</strong>：对同一刚体产生相同运动效应的两个力系互换。</li>
+<li><strong>合力 &#x2F; 分力</strong>：与力系等效的一个力称合力；合力所代换的各力称分力。</li>
+</ul>
+<h4 id="力的表示"><a href="#力的表示" class="headerlink" title="力的表示"></a>力的表示</h4><ul>
+<li><strong>作用线</strong>：力沿其作用方向的直线。</li>
+<li><strong>作用点</strong>：力作用在刚体上的位置。</li>
+<li><strong>力矢</strong>：有向线段表示，起点可沿作用线移动（对刚体等效）。</li>
+</ul>
+<h4 id="静力学公理（教材共-5-条）"><a href="#静力学公理（教材共-5-条）" class="headerlink" title="静力学公理（教材共 5 条）"></a>静力学公理（教材共 5 条）</h4><p><strong>公理 1（二力平衡公理）</strong><br>刚体受两个力作用而平衡的必要充分条件是：两力<strong>等值、反向、共线</strong>。</p>
+<p><strong>公理 2（加减平衡力系公理）</strong><br>在已知力系上加上或减去任意平衡力系，不改变原力系对刚体的等效作用。</p>
+<p><strong>公理 3（力的平行四边形定律）</strong><br>作用于同一点的两力，其合力 $\mathbf{F}_R$ 以两力矢为邻边所作平行四边形的对角线表示，作用点仍在该点：</p>
+<p>$$\mathbf{F}_R &#x3D; \mathbf{F}_1 + \mathbf{F}_2$$</p>
+<p><strong>公理 4（共面汇交力系的平衡）</strong><br>若各力作用线汇交于一点，则该汇交力系平衡的必要充分条件是合力为零（力多边形自行封闭）。</p>
+<p><strong>公理 5（刚化公理）</strong><br>变形体在力系作用下处于平衡，若将变形体刚化，则平衡状态保持不变。</p>
+<h4 id="推论（由公理导出，非公理）"><a href="#推论（由公理导出，非公理）" class="headerlink" title="推论（由公理导出，非公理）"></a>推论（由公理导出，非公理）</h4><p><strong>推论 1（力的可传性）</strong><br>作用于刚体上某点的力，可沿其作用线移至刚体内任意另一点，不改变对刚体的效应。（由公理 1、2 导出）</p>
+<p><strong>推论 2（三力平衡汇交定理）</strong><br>刚体受三个力作用而平衡，若其中两力的作用线汇交于一点，则第三力的作用线必过该汇交点。</p>
+<p><strong>推论 3（二力构件）</strong><br>只受两个力作用的刚体平衡时，两力必等值、反向、共线；构件受力沿两端铰连线方向。</p>
+<hr>
+<h3 id="§1-2-约束和约束力"><a href="#§1-2-约束和约束力" class="headerlink" title="§1-2 约束和约束力"></a>§1-2 约束和约束力</h3><h4 id="基本概念-1"><a href="#基本概念-1" class="headerlink" title="基本概念"></a>基本概念</h4><ul>
+<li><strong>自由体</strong>：位移不受限制的物体。</li>
+<li><strong>非自由体 &#x2F; 约束体</strong>：位移受限制的物体。</li>
+<li><strong>约束</strong>：限制物体某些位移的条件或物体。</li>
+<li><strong>约束力（约束反力）</strong>：约束对物体的反作用，属于被动力。</li>
+<li><strong>主动力</strong>：重力、推力、压力等，一般已知或可设。</li>
+</ul>
+<h4 id="常见约束及其约束力"><a href="#常见约束及其约束力" class="headerlink" title="常见约束及其约束力"></a>常见约束及其约束力</h4><table>
+<thead>
+<tr>
+<th>约束</th>
+<th>限制的运动</th>
+<th>约束力特征</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>光滑面</strong></td>
+<td>沿公法线方向位移</td>
+<td>沿接触处公法线，指向物体；记 $F_N$</td>
+</tr>
+<tr>
+<td><strong>光滑圆柱铰链（销钉）</strong></td>
+<td>相对转动</td>
+<td>过铰心，方向未知；用 $F_x, F_y$（平面）或 $F_x, F_y, F_z$（空间）</td>
+</tr>
+<tr>
+<td><strong>光滑固定铰支座</strong></td>
+<td>平动</td>
+<td>同铰链，分解为两个正交分力</td>
+</tr>
+<tr>
+<td><strong>滚动支座（活动铰）</strong></td>
+<td>法向位移</td>
+<td>沿支承面法线，一个力</td>
+</tr>
+<tr>
+<td><strong>固定端</strong></td>
+<td>平动与转动</td>
+<td>约束力 $\mathbf{F}$ 与约束力偶 $\mathbf{M}$</td>
+</tr>
+<tr>
+<td><strong>无重柔索</strong></td>
+<td>沿索伸长方向</td>
+<td>沿索，拉力，不能受压</td>
+</tr>
+<tr>
+<td><strong>二力杆</strong></td>
+<td>—</td>
+<td>力沿杆轴线</td>
+</tr>
+</tbody></table>
+<h4 id="光滑铰链约束力的两种画法"><a href="#光滑铰链约束力的两种画法" class="headerlink" title="光滑铰链约束力的两种画法"></a>光滑铰链约束力的两种画法</h4><p>平面铰链：可用一对正交分力 $F_x, F_y$，或沿杆件方向的力与另一未知力；最终计算结果与画法无关。</p>
+<hr>
+<h3 id="§1-3-物体的受力分析和受力图"><a href="#§1-3-物体的受力分析和受力图" class="headerlink" title="§1-3 物体的受力分析和受力图"></a>§1-3 物体的受力分析和受力图</h3><h4 id="受力分析步骤"><a href="#受力分析步骤" class="headerlink" title="受力分析步骤"></a>受力分析步骤</h4><ol>
+<li>确定<strong>研究对象</strong>（取分离体）。</li>
+<li>分析作用在研究对象上的<strong>外力</strong>（主动力 + 约束力）。</li>
+<li>画<strong>受力图</strong>：画出全部外力；内力不画。</li>
+</ol>
+<h4 id="画受力图注意"><a href="#画受力图注意" class="headerlink" title="画受力图注意"></a>画受力图注意</h4><ul>
+<li>只画<strong>研究对象所受</strong>的力，不画它对其他物体作用的力。</li>
+<li>同一作用力与反作用力分别画在各自研究对象上。</li>
+<li>二力构件受力必沿两铰连线。</li>
+<li>刚化同一铰链处多个构件时，铰链对构件的力才画在该构件上。</li>
+</ul>
+<hr>
+<h3 id="§1-4-力学模型与力学简图"><a href="#§1-4-力学模型与力学简图" class="headerlink" title="§1-4 力学模型与力学简图"></a>§1-4 力学模型与力学简图</h3><ul>
+<li><strong>质点</strong>：几何尺寸可忽略，质量集中于一点。</li>
+<li><strong>刚体</strong>：不计变形。</li>
+<li><strong>力学简图</strong>：用理想约束（铰、光滑面、固定端等）代替实际连接，用集中力或分布力表示载荷。</li>
+</ul>
+<hr>
+<h2 id="第二章-平面力系"><a href="#第二章-平面力系" class="headerlink" title="第二章 平面力系"></a>第二章 平面力系</h2><h3 id="§2-1-平面汇交力系"><a href="#§2-1-平面汇交力系" class="headerlink" title="§2-1 平面汇交力系"></a>§2-1 平面汇交力系</h3><h4 id="基本概念-2"><a href="#基本概念-2" class="headerlink" title="基本概念"></a>基本概念</h4><p><strong>平面汇交力系</strong>：各力作用线位于同一平面内且汇交于一点。</p>
+<h4 id="合成"><a href="#合成" class="headerlink" title="合成"></a>合成</h4><p><strong>几何法</strong>：力多边形法则。依次作力三角形，合力 $\mathbf{F}_R$ 从起点指向终点。</p>
+<p><strong>解析法</strong><br>建立直角坐标系 $Oxy$，各力投影：</p>
+<p>$$F_{ix} &#x3D; F_i \cos\theta_i, \quad F_{iy} &#x3D; F_i \sin\theta_i$$</p>
+<p>合力投影：</p>
+<p>$$F_{Rx} &#x3D; \sum F_{ix}, \quad F_{Ry} &#x3D; \sum F_{iy}$$</p>
+<p>合力大小与方向：</p>
+<p>$$F_R &#x3D; \sqrt{F_{Rx}^2 + F_{Ry}^2}, \quad \cos\theta &#x3D; \frac{F_{Rx}}{F_R}, \quad \sin\theta &#x3D; \frac{F_{Ry}}{F_R}$$</p>
+<h4 id="平衡"><a href="#平衡" class="headerlink" title="平衡"></a>平衡</h4><p><strong>几何条件</strong>：力多边形自行封闭。</p>
+<p><strong>平衡方程</strong>（必要且充分）：</p>
+<p>$$\sum F_x &#x3D; 0, \quad \sum F_y &#x3D; 0$$</p>
+<p>独立方程数 2，最多求 2 个未知量。</p>
+<p><strong>投影式另一写法</strong>：</p>
+<p>$$\sum F_i \cos\alpha_i &#x3D; 0, \quad \sum F_i \sin\alpha_i &#x3D; 0$$</p>
+<p>其中 $\alpha_i$ 为力与 $x$ 轴夹角。</p>
+<hr>
+<h3 id="§2-2-平面力对点之矩-·-平面力偶"><a href="#§2-2-平面力对点之矩-·-平面力偶" class="headerlink" title="§2-2 平面力对点之矩 · 平面力偶"></a>§2-2 平面力对点之矩 · 平面力偶</h3><h4 id="力对点之矩"><a href="#力对点之矩" class="headerlink" title="力对点之矩"></a>力对点之矩</h4><p><strong>定义</strong>：力 $\mathbf{F}$ 对点 $O$ 之矩为代数量 $M_O(F)$，等于力的大小与力臂 $h$ 的乘积：</p>
+<p>$$M_O(F) &#x3D; \pm F \cdot h$$</p>
+<ul>
+<li><strong>力臂</strong> $h$：点 $O$ 到力作用线的垂直距离。</li>
+<li><strong>正负号</strong>：力使物体绕 $O$ 逆时针转动为正，顺时针为负。</li>
+</ul>
+<p><strong>解析式</strong>（力作用点 $A(x,y)$，力 $F_x, F_y$）：</p>
+<p>$$M_O(F) &#x3D; x F_y - y F_x$$</p>
+<h4 id="合力矩定理"><a href="#合力矩定理" class="headerlink" title="合力矩定理"></a>合力矩定理</h4><p>平面力系中，合力对平面内任一点之矩，等于各分力对同一点之矩的代数和：</p>
+<p>$$M_O(\mathbf{F}_R) &#x3D; \sum M_O(\mathbf{F}_i)$$</p>
+<h4 id="力偶"><a href="#力偶" class="headerlink" title="力偶"></a>力偶</h4><p><strong>力偶</strong>：等值、反向、不共线的两平行力 $\mathbf{F}$ 与 $\mathbf{F}’$ 组成的力系。</p>
+<p><strong>力偶矩</strong> $M$（代数量）：</p>
+<p>$$M &#x3D; F \cdot d$$</p>
+<p>$d$ 为两力作用线间距离（力偶臂）。</p>
+<p><strong>性质</strong></p>
+<ol>
+<li>力偶对刚体只产生转动效应，无平动效应。</li>
+<li>力偶对任意点取力矩都等于力偶矩，不因矩心的改变而改变。。</li>
+<li>只要保持力偶矩不变，力偶可在其作用面内任意移转，且可以同时改变力偶中力的大小与力偶臂的长短，对刚体的作用效果不变。</li>
+<li>同向同平面力偶可合成：$M &#x3D; \sum M_i$。</li>
+</ol>
+<h4 id="平面力偶系的合成与平衡"><a href="#平面力偶系的合成与平衡" class="headerlink" title="平面力偶系的合成与平衡"></a>平面力偶系的合成与平衡</h4><p>合成：$M &#x3D; \sum M_i$</p>
+<p>平衡的充要条件：所有各力偶矩对代数和等于零。<br>方程：</p>
+<p>$$\sum M &#x3D; 0$$</p>
+<hr>
+<h3 id="§2-3-平面任意力系的简化"><a href="#§2-3-平面任意力系的简化" class="headerlink" title="§2-3 平面任意力系的简化"></a>§2-3 平面任意力系的简化</h3><h4 id="力的平移定理"><a href="#力的平移定理" class="headerlink" title="力的平移定理"></a>力的平移定理</h4><p>平面内作用在刚体上点 $A$ 的力 $\mathbf{F}$，可平移到另一点 $B$，但必须附加一力偶，其矩等于原力对 $B$ 点之矩：</p>
+<p>$$M_B &#x3D; M_B(\mathbf{F}) &#x3D; F \cdot d$$</p>
+<p>$d$ 为 $B$ 到原力作用线的距离。</p>
+<h4 id="向一点简化"><a href="#向一点简化" class="headerlink" title="向一点简化"></a>向一点简化</h4><p>平面任意力系向 $O$ 点简化，得：</p>
+<ul>
+<li><strong>主矢</strong> $\mathbf{F}_R’$：</li>
+</ul>
+<p>$$F_{Rx}’ &#x3D; \sum F_{ix}, \quad F_{Ry}’ &#x3D; \sum F_{iy}, \quad F_R’ &#x3D; \sqrt{F_{Rx}’^2 + F_{Ry}’^2}$$</p>
+<p>主矢与简化中心<strong>无关</strong>。</p>
+<ul>
+<li><strong>主矩</strong> $M_O$：</li>
+</ul>
+<p>$$M_O &#x3D; \sum M_O(\mathbf{F}_i)$$</p>
+<p>主矩一般与简化中心有关。</p>
+<h4 id="简化结果"><a href="#简化结果" class="headerlink" title="简化结果"></a>简化结果</h4><p>| 情况  | 条件                         | 最简力系                                    |<br>| — | ————————– | ————————- —  ——– |<br>| 平衡  | $F_R’ &#x3D; 0,\ M_O &#x3D; 0$       | 零                                        |<br>| 合力偶 | $F_R’ &#x3D; 0,\ M_O \neq 0$    | 力偶矩 $M &#x3D; M_O$             |<br>| 合力  | $F_R’ \neq 0,\ M_O &#x3D; 0$    | 合力过 $O$                                  |<br>| 合力  | $F_R’ \neq 0,\ M_O \neq 0$ | 合力，作用线距 $O$ 为 $d &#x3D; \frac{  M_O  }{F_R’}$ |</p>
+<p>合力作用线位置：在主矩转向一侧，距 $O$ 点 $d$。</p>
+<h4 id="主矩的基点无关量"><a href="#主矩的基点无关量" class="headerlink" title="主矩的基点无关量"></a>主矩的基点无关量</h4><p>对任意两点 $O$、$O’$：</p>
+<p>$$M_{O’} &#x3D; M_O + M_{O’}(\mathbf{F}_R’)$$</p>
+<p>当 $F_R’ \neq 0$ 时，存在使 $M_O &#x3D; 0$ 的简化中心（合力作用线上）。</p>
+<h4 id="固定端约束力"><a href="#固定端约束力" class="headerlink" title="固定端约束力"></a>固定端约束力</h4><p>固定端约束可简化为：约束力 $\mathbf{F}$ 与约束力偶 $M$。</p>
+<hr>
+<h3 id="§2-4-平面任意力系的平衡条件和平衡方程"><a href="#§2-4-平面任意力系的平衡条件和平衡方程" class="headerlink" title="§2-4 平面任意力系的平衡条件和平衡方程"></a>§2-4 平面任意力系的平衡条件和平衡方程</h3><h4 id="平衡的必要充分条件"><a href="#平衡的必要充分条件" class="headerlink" title="平衡的必要充分条件"></a>平衡的必要充分条件</h4><p>主矢为零且对任一点主矩为零：</p>
+<p>$$F_R’ &#x3D; 0, \quad M_O &#x3D; 0$$</p>
+<h4 id="基本形式"><a href="#基本形式" class="headerlink" title="基本形式"></a>基本形式</h4><p>$$\sum F_x &#x3D; 0, \quad \sum F_y &#x3D; 0, \quad \sum M_O(F_i) &#x3D; 0$$</p>
+<p>三个独立方程，可求三个未知量。</p>
+<h4 id="二矩式"><a href="#二矩式" class="headerlink" title="二矩式"></a>二矩式</h4><p>$$\sum F_x &#x3D; 0 \quad (\text{或 } \sum F_y &#x3D; 0)$$</p>
+<p>$$\sum M_A &#x3D; 0, \quad \sum M_B &#x3D; 0$$</p>
+<p><strong>限制条件</strong>：$A$、$B$ 连线不得垂直于投影轴（否则方程不独立）。</p>
+<h4 id="三矩式"><a href="#三矩式" class="headerlink" title="三矩式"></a>三矩式</h4><p>$$\sum M_A &#x3D; 0, \quad \sum M_B &#x3D; 0, \quad \sum M_C &#x3D; 0$$</p>
+<p><strong>限制条件</strong>：$A$、$B$、$C$ 三点不得共线。</p>
+<h4 id="平面平行力系"><a href="#平面平行力系" class="headerlink" title="平面平行力系"></a>平面平行力系</h4><p>![[Snipaste_2026-06-09_17-52-34.png]]<br>各力作用线相互平行。独立平衡方程 2 个（若不限于投影）或 3 个中的两个独立形式：</p>
+<p>$$\sum F_y &#x3D; 0, \quad \sum M_O &#x3D; 0$$</p>
+<p>或</p>
+<p>$$\sum F_y &#x3D; 0, \quad \sum M_A &#x3D; 0, \quad \sum M_B &#x3D; 0$$</p>
+<p>（$A$、$B$ 连线不与各力平行）</p>
+<hr>
+<h3 id="§2-5-物体系的平衡-·-静定和超静定问题"><a href="#§2-5-物体系的平衡-·-静定和超静定问题" class="headerlink" title="§2-5 物体系的平衡 · 静定和超静定问题"></a>§2-5 物体系的平衡 · 静定和超静定问题</h3><h4 id="外力与内力"><a href="#外力与内力" class="headerlink" title="外力与内力"></a>外力与内力</h4><ul>
+<li><strong>外力</strong>：研究对象以外物体对其作用力（含支座约束力）。</li>
+<li><strong>内力</strong>：研究对象内部各物体间相互作用力，成对出现。</li>
+</ul>
+<h4 id="物体系平衡方程"><a href="#物体系平衡方程" class="headerlink" title="物体系平衡方程"></a>物体系平衡方程</h4><p>整个系统平衡时，任一部分均平衡。可对整体或任一子系统列平衡方程。</p>
+<h4 id="静定与超静定"><a href="#静定与超静定" class="headerlink" title="静定与超静定"></a>静定与超静定</h4><ul>
+<li><strong>静定问题</strong>：全部未知约束力个数 &#x3D; 独立平衡方程个数。</li>
+<li><strong>超静定（静不定）问题</strong>：未知约束力个数 &gt; 独立平衡方程个数，差值称为<strong>超静定次数</strong>。</li>
+</ul>
+<hr>
+<h3 id="§2-6-平面简单桁架的内力计算"><a href="#§2-6-平面简单桁架的内力计算" class="headerlink" title="§2-6 平面简单桁架的内力计算"></a>§2-6 平面简单桁架的内力计算</h3><h4 id="桁架理想假设"><a href="#桁架理想假设" class="headerlink" title="桁架理想假设"></a>桁架理想假设</h4><ol>
+<li>杆均为直杆，自重不计。</li>
+<li>节点为光滑铰链。</li>
+<li>载荷作用于节点。</li>
+<li>各杆轴线汇交于节点。</li>
+</ol>
+<h4 id="杆件内力"><a href="#杆件内力" class="headerlink" title="杆件内力"></a>杆件内力</h4><p>杆件对节点的作用力沿杆轴线，称<strong>杆内力</strong>。拉力为正，压力为负。</p>
+<h4 id="节点法"><a href="#节点法" class="headerlink" title="节点法"></a>节点法</h4><p>取节点为研究对象，列平面汇交力系平衡：</p>
+<p>$$\sum F_x &#x3D; 0, \quad \sum F_y &#x3D; 0$$</p>
+<h4 id="截面法"><a href="#截面法" class="headerlink" title="截面法"></a>截面法</h4><p>用假想截面截断桁架，取其中一部分为研究对象，列平面任意力系平衡求指定杆内力。</p>
+<h4 id="零杆判断（三杆节点）"><a href="#零杆判断（三杆节点）" class="headerlink" title="零杆判断（三杆节点）"></a>零杆判断（三杆节点）</h4><p>无外力作用的节点，若有两杆共线，则第三杆为零杆（内力为零）。</p>
+<hr>
+<h2 id="第三章-空间力系"><a href="#第三章-空间力系" class="headerlink" title="第三章 空间力系"></a>第三章 空间力系</h2><h3 id="§3-1-空间汇交力系"><a href="#§3-1-空间汇交力系" class="headerlink" title="§3-1 空间汇交力系"></a>§3-1 空间汇交力系</h3><h4 id="合成-1"><a href="#合成-1" class="headerlink" title="合成"></a>合成</h4><p>$$\mathbf{F}_R &#x3D; \sum \mathbf{F}_i$$</p>
+<p>$$F_{Rx} &#x3D; \sum F_{ix},\quad F_{Ry} &#x3D; \sum F_{iy},\quad F_{Rz} &#x3D; \sum F_{iz}$$</p>
+<p>$$F_R &#x3D; \sqrt{F_{Rx}^2 + F_{Ry}^2 + F_{Rz}^2}$$</p>
+<h4 id="平衡方程"><a href="#平衡方程" class="headerlink" title="平衡方程"></a>平衡方程</h4><p>$$\sum F_x &#x3D; 0, \quad \sum F_y &#x3D; 0, \quad \sum F_z &#x3D; 0$$</p>
+<hr>
+<h3 id="§3-2-力对点的矩和力对轴的矩"><a href="#§3-2-力对点的矩和力对轴的矩" class="headerlink" title="§3-2 力对点的矩和力对轴的矩"></a>§3-2 力对点的矩和力对轴的矩</h3><h4 id="力对点的矩（力矩矢量）"><a href="#力对点的矩（力矩矢量）" class="headerlink" title="力对点的矩（力矩矢量）"></a>力对点的矩（力矩矢量）</h4><p>![[Snipaste_2026-06-10_14-42-46.png]]<br>力 $\mathbf{F}$ 作用点相对 $O$ 的位矢 $\mathbf{r}$，力对 $O$ 之矩：</p>
+<p>$$\mathbf{M}_O(\mathbf{F}) &#x3D; \mathbf{r} \times \mathbf{F}$$</p>
+<p>大小：</p>
+<p>$$|\mathbf{M}_O(\mathbf{F})| &#x3D; F \cdot h &#x3D; |\mathbf{r}| \cdot |\mathbf{F}| \cdot \sin\theta$$</p>
+<p>方向：垂直于 $\mathbf{r}$ 与 $\mathbf{F}$ 构成的平面，按右手定则。</p>
+<p><strong>用行列式计算</strong>（$\mathbf{r}&#x3D;(x,y,z)$，$\mathbf{F}&#x3D;(F_x,F_y,F_z)$）：</p>
+<p>$$\mathbf{M}_O(\mathbf{F}) &#x3D; \begin{vmatrix} \mathbf{i} &amp; \mathbf{j} &amp; \mathbf{k} \ x &amp; y &amp; z \ F_x &amp; F_y &amp; F_z \end{vmatrix}$$</p>
+<h4 id="合力矩定理-1"><a href="#合力矩定理-1" class="headerlink" title="合力矩定理"></a>合力矩定理</h4><p>$$\mathbf{M}_O(\mathbf{F}_R) &#x3D; \sum \mathbf{M}_O(\mathbf{F}_i)$$</p>
+<h4 id="力对轴的矩"><a href="#力对轴的矩" class="headerlink" title="力对轴的矩"></a>力对轴的矩</h4><p>力对坐标轴 $x, y, z$ 之矩等于力矩矢量在该轴上的投影：<br>$$M_x(\mathbf{F})  &#x3D; \mathbf{M}<em>O(\mathbf{F</em>{xy}})&#x3D;\pm F_{xy} h$$<br>按照右手定则，拇指与z轴一致时为z正<br>$$M_x(\mathbf{F}) &#x3D; [\mathbf{M}_O(\mathbf{F})]_x &#x3D; y F_z - z F_y$$</p>
+<p>$$M_y(\mathbf{F}) &#x3D; z F_x - x F_z$$</p>
+<p>$$M_z(\mathbf{F}) &#x3D; x F_y - y F_x$$</p>
+<p><strong>一般轴</strong>：力对任意轴 $l$ 之矩 &#x3D; $\mathbf{M}_O(\mathbf{F})$ 在 $l$ 上的投影。</p>
+<p><strong>力与轴相交或平行</strong>：$M_l(\mathbf{F}) &#x3D; 0$。</p>
+<hr>
+<h3 id="§3-3-空间力偶"><a href="#§3-3-空间力偶" class="headerlink" title="§3-3 空间力偶"></a>§3-3 空间力偶</h3><h4 id="力偶矩矢量"><a href="#力偶矩矢量" class="headerlink" title="力偶矩矢量"></a>力偶矩矢量</h4><p>空间力偶矩 $\mathbf{M}$ 为矢量：</p>
+<ul>
+<li>大小 $|\mathbf{M}| &#x3D; F d$</li>
+<li>方向垂直于力偶作用面，按右手定则</li>
+</ul>
+<h4 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h4><ol>
+<li>力偶矩矢为自由矢量，空间力偶可以平移到与其作用面平行的任意平面上而不改变力偶对刚体的作用效果。</li>
+<li>力偶矩矢与简化中心无关。</li>
+<li>同向同空间力偶系合成：$\mathbf{M} &#x3D; \sum \mathbf{M}_i$。</li>
+</ol>
+<h4 id="平衡-1"><a href="#平衡-1" class="headerlink" title="平衡"></a>平衡</h4><p>$$\sum \mathbf{M}<em>i &#x3D; 0 \quad \Leftrightarrow \quad \sum M</em>{ix} &#x3D; 0,\ \sum M_{iy} &#x3D; 0,\ \sum M_{iz} &#x3D; 0$$</p>
+<hr>
+<h3 id="§3-4-空间任意力系向一点简化"><a href="#§3-4-空间任意力系向一点简化" class="headerlink" title="§3-4 空间任意力系向一点简化"></a>§3-4 空间任意力系向一点简化</h3><h4 id="主矢与主矩"><a href="#主矢与主矩" class="headerlink" title="主矢与主矩"></a>主矢与主矩</h4><p>$$\mathbf{F}_R’ &#x3D; \sum \mathbf{F}_i$$</p>
+<p>$$\mathbf{M}_O &#x3D; \sum \mathbf{M}_O(\mathbf{F}_i)$$</p>
+<p>主矢与简化中心无关；主矩 $\mathbf{M}<em>O$ 与简化中心有关。<br>求主矢大小方向:<br>$$F’<em>R &#x3D; \sqrt{\left(\sum F</em>{ix}\right)^2 + \left(\sum F</em>{iy}\right)^2 + \left(\sum F_{iz}\right)^2}<br>$$<br>$$\cos(F’<em>R, \boldsymbol{i}) &#x3D; \frac{\sum F</em>{ix}}{F’_R}, \quad<br>\cos(F’<em>R, \boldsymbol{j}) &#x3D; \frac{\sum F</em>{iy}}{F’_R}, \quad<br>\cos(F’<em>R, \boldsymbol{k}) &#x3D; \frac{\sum F</em>{iz}}{F’_R}$$</p>
+<p>求主矩大小方向:<br>$$M_O &#x3D; \sqrt{\left(\sum M_{ix}\right)^2 + \left(\sum M_{iy}\right)^2 + \left(\sum M_{iz}\right)^2}$$</p>
+<p>$$\cos(M_O, \boldsymbol{i}) &#x3D; \frac{\sum M_{ix}}{M_O}, \quad<br>\cos(M_O, \boldsymbol{j}) &#x3D; \frac{\sum M_{iy}}{M_O}, \quad<br>\cos(M_O, \boldsymbol{k}) &#x3D; \frac{\sum M_{iz}}{M_O}$$<br>对 $O’$ 点：</p>
+<p>$$\mathbf{M}_{O’} &#x3D; \mathbf{M}<em>O + \mathbf{M}</em>{O’}(\mathbf{F}_R’) &#x3D; \mathbf{M}<em>O + \mathbf{r}</em>{OO’} \times \mathbf{F}_R’$$</p>
+<h4 id="空间任意力系简化结果分析"><a href="#空间任意力系简化结果分析" class="headerlink" title="空间任意力系简化结果分析"></a>空间任意力系简化结果分析</h4><table>
+<thead>
+<tr>
+<th>情况</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$\mathbf{F}_R’ &#x3D; 0,\ \mathbf{M}_O &#x3D; 0$</td>
+<td>平衡</td>
+</tr>
+<tr>
+<td>$\mathbf{F}_R’ &#x3D; 0,\ \mathbf{M}_O \neq 0$</td>
+<td>合力偶</td>
+</tr>
+<tr>
+<td>$\mathbf{F}_R’ \neq 0,\ \mathbf{M}_O &#x3D; 0$</td>
+<td>合力</td>
+</tr>
+<tr>
+<td>$\mathbf{F}_R’ \neq 0,\ \mathbf{M}_O \neq 0$，且 $\mathbf{F}_R’ \cdot \mathbf{M}_O &#x3D; 0$</td>
+<td>合力</td>
+</tr>
+<tr>
+<td>$\mathbf{F}_R’ \neq 0,\ \mathbf{M}_O \neq 0$，且 $\mathbf{F}_R’ \cdot \mathbf{M}_O \neq 0$</td>
+<td><strong>力螺旋</strong></td>
+</tr>
+</tbody></table>
+<h4 id="力螺旋"><a href="#力螺旋" class="headerlink" title="力螺旋"></a>力螺旋</h4><p>合力 $\mathbf{F}_R’$ 与合力偶矩 $\mathbf{M}_O$ 不垂直时，最简力系为沿某轴线的一个力与一力偶，力偶矩矢量与力共线。其中力的作用线垂直于力偶的作用面</p>
+<p><strong>不变量</strong>：主矩在沿主矢方向的分量 $M_a &#x3D; \mathbf{M}_O \cdot \mathbf{e}_R$（$\mathbf{e}_R$ 沿 $\mathbf{F}_R’$ 单位矢量）与简化中心无关。</p>
+<hr>
+<h3 id="§3-5-空间任意力系平衡方程"><a href="#§3-5-空间任意力系平衡方程" class="headerlink" title="§3-5 空间任意力系平衡方程"></a>§3-5 空间任意力系平衡方程</h3><h4 id="基本方程（六个独立方程）"><a href="#基本方程（六个独立方程）" class="headerlink" title="基本方程（六个独立方程）"></a>基本方程（六个独立方程）</h4><p>$$\sum F_x &#x3D; 0, \quad \sum F_y &#x3D; 0, \quad \sum F_z &#x3D; 0$$</p>
+<p>$$\sum M_x &#x3D; 0, \quad \sum M_y &#x3D; 0, \quad \sum M_z &#x3D; 0$$</p>
+<p>空间任意力系平衡的必要充分条件：主矢 $\mathbf{F}_R’ &#x3D; 0$ 且对任一点主矩 $\mathbf{M}_O &#x3D; 0$。</p>
+<h4 id="空间平行力系"><a href="#空间平行力系" class="headerlink" title="空间平行力系"></a>空间平行力系</h4><p>独立平衡方程 3 个，例如：</p>
+<p>$$\sum F_z &#x3D; 0, \quad \sum M_x &#x3D; 0, \quad \sum M_y &#x3D; 0$$</p>
+<hr>
+<h3 id="§3-6-重心"><a href="#§3-6-重心" class="headerlink" title="§3-6 重心"></a>§3-6 重心</h3><h4 id="基本概念-3"><a href="#基本概念-3" class="headerlink" title="基本概念"></a>基本概念</h4><ul>
+<li><strong>重力</strong>：地球对物体的吸引力。工程中常将物体各微元重力视为<strong>平行力系</strong>。</li>
+<li><strong>重心</strong>：该平行力系的合力作用点，记 $C$。刚体上重心的位置与刚体在空间中的方位无关。</li>
+<li><strong>形心</strong>：几何体的几何中心，由几何尺寸决定。</li>
+<li><strong>质心</strong>：质量分布的中心。</li>
+</ul>
+<p><strong>均质刚体</strong>：重心、形心、质心重合。</p>
+<h4 id="重心的坐标公式（质点系-离散体）"><a href="#重心的坐标公式（质点系-离散体）" class="headerlink" title="重心的坐标公式（质点系 &#x2F; 离散体）"></a>重心的坐标公式（质点系 &#x2F; 离散体）</h4><p>各微元重量为 $P_i$，作用点坐标 $(x_i, y_i, z_i)$，总重 $P &#x3D; \sum P_i$，重心坐标：</p>
+<p>$$x_C &#x3D; \frac{\sum P_i x_i}{P}, \quad y_C &#x3D; \frac{\sum P_i y_i}{P}, \quad z_C &#x3D; \frac{\sum P_i z_i}{P}$$</p>
+<p>矢量形式：</p>
+<p>$$\mathbf{r}_C &#x3D; \frac{\sum P_i \mathbf{r}_i}{\sum P_i}$$</p>
+<h4 id="连续体的重心（积分形式）"><a href="#连续体的重心（积分形式）" class="headerlink" title="连续体的重心（积分形式）"></a>连续体的重心（积分形式）</h4><p>微元重量 $dP &#x3D; \gamma , dV$（$\gamma$ 为容重），总重 $P &#x3D; \int_V \gamma , dV$：</p>
+<p>$$x_C &#x3D; \frac{1}{P} \int_V x , \gamma , dV, \quad y_C &#x3D; \frac{1}{P} \int_V y , \gamma , dV, \quad z_C &#x3D; \frac{1}{P} \int_V z , \gamma , dV$$</p>
+<p>若用质量表示（$\rho$ 为密度，$m &#x3D; \int_V \rho , dV$）：</p>
+<p>$$x_C &#x3D; \frac{1}{m} \int_V x \rho , dV$$</p>
+<p>（$y_C$、$z_C$ 同理。）</p>
+<h4 id="均质物体的形心公式"><a href="#均质物体的形心公式" class="headerlink" title="均质物体的形心公式"></a>均质物体的形心公式</h4><p>$\gamma &#x3D; \text{常数}$ 时，$P &#x3D; \gamma V$，重心即<strong>形心</strong>：</p>
+<p>$$x_C &#x3D; \frac{1}{V} \int_V x , dV, \quad y_C &#x3D; \frac{1}{V} \int_V y , dV, \quad z_C &#x3D; \frac{1}{V} \int_V z , dV$$</p>
+<p><strong>均质等厚薄板</strong>（面积 $A$）：</p>
+<p>$$x_C &#x3D; \frac{1}{A} \int_A x , dA, \quad y_C &#x3D; \frac{1}{A} \int_A y , dA$$</p>
+<p><strong>均质细棒</strong>（弧长 $L$）：</p>
+<p>$$x_C &#x3D; \frac{1}{L} \int_L x , dl, \quad y_C &#x3D; \frac{1}{L} \int_L y , dl$$</p>
+<h4 id="对称性"><a href="#对称性" class="headerlink" title="对称性"></a>对称性</h4><p>若物体具有对称面、对称轴或对称中心，则重心必在对称面、对称轴或对称中心上。</p>
+<h4 id="组合体重心的求法"><a href="#组合体重心的求法" class="headerlink" title="组合体重心的求法"></a>组合体重心的求法</h4><p>将复杂物体分成若干简单部分，各部分重量 $P_i$，重心坐标 $(x_i, y_i, z_i)$：</p>
+<p><strong>分割法</strong>：</p>
+<p>$$x_C &#x3D; \frac{\sum P_i x_i}{\sum P_i}, \quad y_C &#x3D; \frac{\sum P_i y_i}{\sum P_i}, \quad z_C &#x3D; \frac{\sum P_i z_i}{\sum P_i}$$</p>
+<p><strong>负重量法（挖空补偿法）</strong><br>物体可看作完整基本体减去挖去部分。挖去部分重量取<strong>负值</strong>代入上式：</p>
+<p>$$x_C &#x3D; \frac{\sum P_i x_i}{\sum P_i}$$</p>
+<p>其中挖去部分 $P_j &lt; 0$。</p>
+<p>均质组合体亦可用体积（或面积）代重量：</p>
+<p>$$x_C &#x3D; \frac{\sum V_i x_i}{\sum V_i}$$</p>
+<p>（有挖空时 $V_j$ 取负。）</p>
+<h4 id="合力矩定理求重心"><a href="#合力矩定理求重心" class="headerlink" title="合力矩定理求重心"></a>合力矩定理求重心</h4><p>重力平行力系对某轴之矩等于各分重力对该轴之矩的代数和。对 $y$ 轴取矩：</p>
+<p>$$P \cdot x_C &#x3D; \sum P_i x_i \quad \Rightarrow \quad x_C &#x3D; \frac{\sum P_i x_i}{P}$$</p>
+<p>（对 $x$ 轴、$z$ 轴同理可得 $y_C$、$z_C$。）</p>
+<h4 id="常见均质简单图形的形心（平面）"><a href="#常见均质简单图形的形心（平面）" class="headerlink" title="常见均质简单图形的形心（平面）"></a>常见均质简单图形的形心（平面）</h4><table>
+<thead>
+<tr>
+<th>图形</th>
+<th>形心位置</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>矩形</td>
+<td>对角线交点</td>
+</tr>
+<tr>
+<td>三角形</td>
+<td>各边中线的交点，距底边 $h&#x2F;3$</td>
+</tr>
+<tr>
+<td>半圆形（半径 $R$）</td>
+<td>对称轴上，距直径 $\dfrac{4R}{3\pi}$</td>
+</tr>
+<tr>
+<td>四分之一圆</td>
+<td>各对称边界距边 $\dfrac{4R}{3\pi}$</td>
+</tr>
+<tr>
+<td>扇形（圆心角 $\theta$，半径 $R$）</td>
+<td>对称轴上，距圆心 $\dfrac{2R\sin(\theta&#x2F;2)}{3\theta&#x2F;2}$（$\theta$ 为弧度）</td>
+</tr>
+<tr>
+<td>![[Snipaste_2026-06-10_17-41-54.png]]</td>
+<td></td>
+</tr>
+<tr>
+<td>![[Snipaste_2026-06-10_17-42-11.png]]</td>
+<td></td>
+</tr>
+</tbody></table>
+<h4 id="用实验求重心"><a href="#用实验求重心" class="headerlink" title="用实验求重心"></a>用实验求重心</h4><p><strong>悬挂法</strong>：两次悬挂，两次重力作用线（铅垂线）的交点即重心在平面图上的投影；对空间薄板至少需三次悬挂。</p>
+<hr>
+<h2 id="第四章-摩擦"><a href="#第四章-摩擦" class="headerlink" title="第四章 摩擦"></a>第四章 摩擦</h2><h3 id="§4-1-滑动摩擦"><a href="#§4-1-滑动摩擦" class="headerlink" title="§4-1 滑动摩擦"></a>§4-1 滑动摩擦</h3><h4 id="库仑摩擦定律"><a href="#库仑摩擦定律" class="headerlink" title="库仑摩擦定律"></a>库仑摩擦定律</h4><p><strong>静滑动摩擦</strong>：摩擦力 $F_s$ 方向与相对滑动趋势相反，大小满足</p>
+<p>$$0 \leq F_s \leq F_{s,\max}$$</p>
+<p><strong>最大静摩擦力</strong>：</p>
+<p>$$F_{s,\max} &#x3D; f_s N$$</p>
+<p>$f_s$：静摩擦系数；$N$：法向约束力。</p>
+<p><strong>动滑动摩擦</strong>：滑动时</p>
+<p>$$F_k &#x3D; f_k N$$</p>
+<p>$f_k$：动摩擦系数，一般 $f_k &lt; f_s$。</p>
+<hr>
+<h3 id="§4-2-摩擦角和自锁现象"><a href="#§4-2-摩擦角和自锁现象" class="headerlink" title="§4-2 摩擦角和自锁现象"></a>§4-2 摩擦角和自锁现象</h3><h4 id="全约束力"><a href="#全约束力" class="headerlink" title="全约束力"></a>全约束力</h4><p>法向约束力 $N$ 与摩擦力 $F$ 的合力 $\mathbf{F}_R$ 称全约束力。</p>
+<h4 id="摩擦角"><a href="#摩擦角" class="headerlink" title="摩擦角"></a>摩擦角</h4><p>静摩擦时全约束力与法线夹角 $\varphi$ 满足 $\tan\varphi &#x3D; F&#x2F;N$。</p>
+<p><strong>摩擦角</strong> $\varphi_f$（临界状态）：</p>
+<p>$$\tan \varphi_f &#x3D; f_s$$</p>
+<p>最大全约束力与法线夹角即为 $\varphi_f$。</p>
+<h4 id="自锁"><a href="#自锁" class="headerlink" title="自锁"></a>自锁</h4><p>若主动力合力 $\mathbf{F}_P$ 的作用线与法线夹角 $\theta \leq \varphi_f$，则无论力多大，物体保持相对静止——<strong>自锁</strong>。</p>
+<p>斜面自锁则是斜面的倾角小于等于材料的摩擦角<br>自锁条件：</p>
+<p>$$\theta \leq \varphi_f \quad \Leftrightarrow \quad \tan\theta \leq f_s$$</p>
+<hr>
+<h3 id="§4-3-考虑摩擦时物体的平衡问题"><a href="#§4-3-考虑摩擦时物体的平衡问题" class="headerlink" title="§4-3 考虑摩擦时物体的平衡问题"></a>§4-3 考虑摩擦时物体的平衡问题</h3><p>平衡时摩擦力为未知量，除平衡方程外还须：</p>
+<p>$$F_s \leq f_s N$$</p>
+<p><strong>临界平衡</strong>：$F_s &#x3D; f_s N$，可求使系统平衡或开始滑动的极值载荷。</p>
+<p>解题时须先假设滑动趋势以定摩擦力方向，若结果 $F_s &lt; 0$ 则方向假设相反。</p>
+<hr>
+<h3 id="§4-4-滚动摩阻的概念"><a href="#§4-4-滚动摩阻的概念" class="headerlink" title="§4-4 滚动摩阻的概念"></a>§4-4 滚动摩阻的概念</h3><h4 id="滚动摩阻"><a href="#滚动摩阻" class="headerlink" title="滚动摩阻"></a>滚动摩阻</h4><p>物体滚动时，接触处有阻碍滚动的<strong>滚动摩阻力偶</strong> $M$，其矩满足</p>
+<p>$$0 \leq M \leq M_{\max}$$</p>
+<p>$$M_{\max} &#x3D; \delta N$$<br>实验表明:最大滚动摩阻力偶矩M与滚子半径无关，与支承面的正压力成正比<br>$\delta$：<strong>滚动摩阻系数</strong>（长度量纲，单位 m 或 mm）。<br>![[Snipaste_2026-06-10_19-46-44.png]]<br>$$F_{\text{滑}} &#x3D; F_{\max} &#x3D; f_s F_N &#x3D; f_s P $$</p>
+<h4 id="与滑动摩擦比较"><a href="#与滑动摩擦比较" class="headerlink" title="与滑动摩擦比较"></a>与滑动摩擦比较</h4><p>滚动时接触处无宏观滑动，一般 $\delta \ll f_s$（量级上），故滚动比滑动省力。</p>
+<hr>
+<h2 id="相关"><a href="#相关" class="headerlink" title="相关"></a>相关</h2><ul>
+<li><a href="/project/2026/06/08/tm-hit-8-vol1/">理论力学（Ⅰ）学习笔记</a>、<a href="/project/2026/06/08/tm-hit-8-vol1-kinematics/">理论力学（Ⅰ）· 运动学</a></li>
+<li><a href="/project/series/mechanics/">mechanics</a></li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://caizhimoning.github.io/project">caizhimoning</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://caizhimoning.github.io/project/2026/06/08/tm-hit-8-vol1-statics/">http://caizhimoning.github.io/project/2026/06/08/tm-hit-8-vol1-statics/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://caizhimoning.github.io/project" target="_blank">Moning's Blog</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&amp;fit=crop&amp;w=800&amp;q=80" data-sites="wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/project/2026/06/08/tm-hit-8-vol1-kinematics/" title="理论力学（Ⅰ）· 运动学"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://images.unsplash.com/photo-1522441815192-d9f04eb0615c?auto=format&amp;fit=crop&amp;w=800&amp;q=80" onerror="onerror=null;src='/project/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">理论力学（Ⅰ）· 运动学</div></div><div class="info-2"><div class="info-item-1"> 总览 → 理论力学（Ⅰ）学习笔记 · 静力学 → 理论力学（Ⅰ）· 静力学 · 动力学 → 理论力学（Ⅰ）· 动力学   运动学是研究物体运动的几何性质的科学。 目录   章 节 跳转到    5 点的运动学  [第五章 点的运动学...</div></div></div></a><a class="pagination-related" href="/project/2026/06/08/tm-hit-8-vol1/" title="理论力学（Ⅰ）学习笔记"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&amp;fit=crop&amp;w=800&amp;q=80" onerror="onerror=null;src='/project/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">理论力学（Ⅰ）学习笔记</div></div><div class="info-2"><div class="info-item-1">本书笔记对应哈尔滨工业大学理论力学教研室编《理论力学》（第8版）（Ⅰ）（高等教育出版社，2016，ISBN 978-7-04-045992-0）。教材为静力学、运动学、动力学基础篇，一般中等学时专业以本册为主；第（Ⅱ）册专题笔记见 理...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/project/2026/06/11/tm-hit-8-vol2-collision/" title="理论力学（Ⅱ）· 碰撞"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=800&q=80" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-06-11</div><div class="info-item-2">理论力学（Ⅱ）· 碰撞</div></div><div class="info-2"><div class="info-item-1"> 总览 → 理论力学（Ⅱ）学习笔记 · 前置 → [[tm-hit-8-vol1-dynamics#第十章 动量定理]]   目录   节 跳转到    §3-1 碰撞的分类 · 碰撞问题的简化 [§3-1 碰撞的分类 · 碰撞问题的...</div></div></div></a><a class="pagination-related" href="/project/2026/06/11/tm-hit-8-vol2-vibration/" title="理论力学（Ⅱ）· 机械振动基础"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=800&q=80" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-06-11</div><div class="info-item-2">理论力学（Ⅱ）· 机械振动基础</div></div><div class="info-2"><div class="info-item-1"> 总览 → 理论力学（Ⅱ）学习笔记 · 前置 → [[tm-hit-8-vol1-dynamics#第十二章 动能定理]]   目录   节 跳转到    §4-1 单自由度系统的自由振动 [§4-1 单自由度系统的自由振动](#§4...</div></div></div></a><a class="pagination-related" href="/project/2026/06/11/tm-hit-8-vol2-variable-mass/" title="理论力学（Ⅱ）· 变质量动力学"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=800&q=80" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-06-11</div><div class="info-item-2">理论力学（Ⅱ）· 变质量动力学</div></div><div class="info-2"><div class="info-item-1"> 总览 → 理论力学（Ⅱ）学习笔记 · 前置 → [[tm-hit-8-vol1-dynamics#第十章 动量定理]]   目录   节 跳转到    §6-1 变质量质点的运动微分方程 [§6-1 变质量质点的运动微分方程](#§...</div></div></div></a><a class="pagination-related" href="/project/2026/06/11/tm-hit-8-vol2-gyroscope/" title="理论力学（Ⅱ）· 定点运动与陀螺"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=800&q=80" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-06-11</div><div class="info-item-2">理论力学（Ⅱ）· 定点运动与陀螺</div></div><div class="info-2"><div class="info-item-1"> 总览 → 理论力学（Ⅱ）学习笔记 · 前置 → [[tm-hit-8-vol1-kinematics#第六章 刚体的简单运动]]   目录   节 跳转到    §5-1 刚体绕定点运动的运动学描述 [§5-1 刚体绕定点运动的运动...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95"><span class="toc-number">1.</span> <span class="toc-text">目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E9%9D%99%E5%8A%9B%E5%AD%A6%E5%85%AC%E7%90%86%E5%92%8C%E7%89%A9%E4%BD%93%E7%9A%84%E5%8F%97%E5%8A%9B%E5%88%86%E6%9E%90"><span class="toc-number">2.</span> <span class="toc-text">第一章 静力学公理和物体的受力分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A71-1-%E9%9D%99%E5%8A%9B%E5%AD%A6%E5%85%AC%E7%90%86"><span class="toc-number">2.1.</span> <span class="toc-text">§1-1 静力学公理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">2.1.1.</span> <span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%9B%E7%9A%84%E8%A1%A8%E7%A4%BA"><span class="toc-number">2.1.2.</span> <span class="toc-text">力的表示</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9D%99%E5%8A%9B%E5%AD%A6%E5%85%AC%E7%90%86%EF%BC%88%E6%95%99%E6%9D%90%E5%85%B1-5-%E6%9D%A1%EF%BC%89"><span class="toc-number">2.1.3.</span> <span class="toc-text">静力学公理（教材共 5 条）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%A8%E8%AE%BA%EF%BC%88%E7%94%B1%E5%85%AC%E7%90%86%E5%AF%BC%E5%87%BA%EF%BC%8C%E9%9D%9E%E5%85%AC%E7%90%86%EF%BC%89"><span class="toc-number">2.1.4.</span> <span class="toc-text">推论（由公理导出，非公理）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A71-2-%E7%BA%A6%E6%9D%9F%E5%92%8C%E7%BA%A6%E6%9D%9F%E5%8A%9B"><span class="toc-number">2.2.</span> <span class="toc-text">§1-2 约束和约束力</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5-1"><span class="toc-number">2.2.1.</span> <span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%BA%A6%E6%9D%9F%E5%8F%8A%E5%85%B6%E7%BA%A6%E6%9D%9F%E5%8A%9B"><span class="toc-number">2.2.2.</span> <span class="toc-text">常见约束及其约束力</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%89%E6%BB%91%E9%93%B0%E9%93%BE%E7%BA%A6%E6%9D%9F%E5%8A%9B%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%94%BB%E6%B3%95"><span class="toc-number">2.2.3.</span> <span class="toc-text">光滑铰链约束力的两种画法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A71-3-%E7%89%A9%E4%BD%93%E7%9A%84%E5%8F%97%E5%8A%9B%E5%88%86%E6%9E%90%E5%92%8C%E5%8F%97%E5%8A%9B%E5%9B%BE"><span class="toc-number">2.3.</span> <span class="toc-text">§1-3 物体的受力分析和受力图</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%97%E5%8A%9B%E5%88%86%E6%9E%90%E6%AD%A5%E9%AA%A4"><span class="toc-number">2.3.1.</span> <span class="toc-text">受力分析步骤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%BB%E5%8F%97%E5%8A%9B%E5%9B%BE%E6%B3%A8%E6%84%8F"><span class="toc-number">2.3.2.</span> <span class="toc-text">画受力图注意</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A71-4-%E5%8A%9B%E5%AD%A6%E6%A8%A1%E5%9E%8B%E4%B8%8E%E5%8A%9B%E5%AD%A6%E7%AE%80%E5%9B%BE"><span class="toc-number">2.4.</span> <span class="toc-text">§1-4 力学模型与力学简图</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E5%B9%B3%E9%9D%A2%E5%8A%9B%E7%B3%BB"><span class="toc-number">3.</span> <span class="toc-text">第二章 平面力系</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A72-1-%E5%B9%B3%E9%9D%A2%E6%B1%87%E4%BA%A4%E5%8A%9B%E7%B3%BB"><span class="toc-number">3.1.</span> <span class="toc-text">§2-1 平面汇交力系</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5-2"><span class="toc-number">3.1.1.</span> <span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%88%E6%88%90"><span class="toc-number">3.1.2.</span> <span class="toc-text">合成</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B9%B3%E8%A1%A1"><span class="toc-number">3.1.3.</span> <span class="toc-text">平衡</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A72-2-%E5%B9%B3%E9%9D%A2%E5%8A%9B%E5%AF%B9%E7%82%B9%E4%B9%8B%E7%9F%A9-%C2%B7-%E5%B9%B3%E9%9D%A2%E5%8A%9B%E5%81%B6"><span class="toc-number">3.2.</span> <span class="toc-text">§2-2 平面力对点之矩 · 平面力偶</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%9B%E5%AF%B9%E7%82%B9%E4%B9%8B%E7%9F%A9"><span class="toc-number">3.2.1.</span> <span class="toc-text">力对点之矩</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%88%E5%8A%9B%E7%9F%A9%E5%AE%9A%E7%90%86"><span class="toc-number">3.2.2.</span> <span class="toc-text">合力矩定理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%9B%E5%81%B6"><span class="toc-number">3.2.3.</span> <span class="toc-text">力偶</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B9%B3%E9%9D%A2%E5%8A%9B%E5%81%B6%E7%B3%BB%E7%9A%84%E5%90%88%E6%88%90%E4%B8%8E%E5%B9%B3%E8%A1%A1"><span class="toc-number">3.2.4.</span> <span class="toc-text">平面力偶系的合成与平衡</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A72-3-%E5%B9%B3%E9%9D%A2%E4%BB%BB%E6%84%8F%E5%8A%9B%E7%B3%BB%E7%9A%84%E7%AE%80%E5%8C%96"><span class="toc-number">3.3.</span> <span class="toc-text">§2-3 平面任意力系的简化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%9B%E7%9A%84%E5%B9%B3%E7%A7%BB%E5%AE%9A%E7%90%86"><span class="toc-number">3.3.1.</span> <span class="toc-text">力的平移定理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%91%E4%B8%80%E7%82%B9%E7%AE%80%E5%8C%96"><span class="toc-number">3.3.2.</span> <span class="toc-text">向一点简化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%80%E5%8C%96%E7%BB%93%E6%9E%9C"><span class="toc-number">3.3.3.</span> <span class="toc-text">简化结果</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BB%E7%9F%A9%E7%9A%84%E5%9F%BA%E7%82%B9%E6%97%A0%E5%85%B3%E9%87%8F"><span class="toc-number">3.3.4.</span> <span class="toc-text">主矩的基点无关量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%BA%E5%AE%9A%E7%AB%AF%E7%BA%A6%E6%9D%9F%E5%8A%9B"><span class="toc-number">3.3.5.</span> <span class="toc-text">固定端约束力</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A72-4-%E5%B9%B3%E9%9D%A2%E4%BB%BB%E6%84%8F%E5%8A%9B%E7%B3%BB%E7%9A%84%E5%B9%B3%E8%A1%A1%E6%9D%A1%E4%BB%B6%E5%92%8C%E5%B9%B3%E8%A1%A1%E6%96%B9%E7%A8%8B"><span class="toc-number">3.4.</span> <span class="toc-text">§2-4 平面任意力系的平衡条件和平衡方程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B9%B3%E8%A1%A1%E7%9A%84%E5%BF%85%E8%A6%81%E5%85%85%E5%88%86%E6%9D%A1%E4%BB%B6"><span class="toc-number">3.4.1.</span> <span class="toc-text">平衡的必要充分条件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%BD%A2%E5%BC%8F"><span class="toc-number">3.4.2.</span> <span class="toc-text">基本形式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C%E7%9F%A9%E5%BC%8F"><span class="toc-number">3.4.3.</span> <span class="toc-text">二矩式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%89%E7%9F%A9%E5%BC%8F"><span class="toc-number">3.4.4.</span> <span class="toc-text">三矩式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B9%B3%E9%9D%A2%E5%B9%B3%E8%A1%8C%E5%8A%9B%E7%B3%BB"><span class="toc-number">3.4.5.</span> <span class="toc-text">平面平行力系</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A72-5-%E7%89%A9%E4%BD%93%E7%B3%BB%E7%9A%84%E5%B9%B3%E8%A1%A1-%C2%B7-%E9%9D%99%E5%AE%9A%E5%92%8C%E8%B6%85%E9%9D%99%E5%AE%9A%E9%97%AE%E9%A2%98"><span class="toc-number">3.5.</span> <span class="toc-text">§2-5 物体系的平衡 · 静定和超静定问题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%96%E5%8A%9B%E4%B8%8E%E5%86%85%E5%8A%9B"><span class="toc-number">3.5.1.</span> <span class="toc-text">外力与内力</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%89%A9%E4%BD%93%E7%B3%BB%E5%B9%B3%E8%A1%A1%E6%96%B9%E7%A8%8B"><span class="toc-number">3.5.2.</span> <span class="toc-text">物体系平衡方程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9D%99%E5%AE%9A%E4%B8%8E%E8%B6%85%E9%9D%99%E5%AE%9A"><span class="toc-number">3.5.3.</span> <span class="toc-text">静定与超静定</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A72-6-%E5%B9%B3%E9%9D%A2%E7%AE%80%E5%8D%95%E6%A1%81%E6%9E%B6%E7%9A%84%E5%86%85%E5%8A%9B%E8%AE%A1%E7%AE%97"><span class="toc-number">3.6.</span> <span class="toc-text">§2-6 平面简单桁架的内力计算</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A1%81%E6%9E%B6%E7%90%86%E6%83%B3%E5%81%87%E8%AE%BE"><span class="toc-number">3.6.1.</span> <span class="toc-text">桁架理想假设</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9D%86%E4%BB%B6%E5%86%85%E5%8A%9B"><span class="toc-number">3.6.2.</span> <span class="toc-text">杆件内力</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8A%82%E7%82%B9%E6%B3%95"><span class="toc-number">3.6.3.</span> <span class="toc-text">节点法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%88%AA%E9%9D%A2%E6%B3%95"><span class="toc-number">3.6.4.</span> <span class="toc-text">截面法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9B%B6%E6%9D%86%E5%88%A4%E6%96%AD%EF%BC%88%E4%B8%89%E6%9D%86%E8%8A%82%E7%82%B9%EF%BC%89"><span class="toc-number">3.6.5.</span> <span class="toc-text">零杆判断（三杆节点）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%A9%BA%E9%97%B4%E5%8A%9B%E7%B3%BB"><span class="toc-number">4.</span> <span class="toc-text">第三章 空间力系</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A73-1-%E7%A9%BA%E9%97%B4%E6%B1%87%E4%BA%A4%E5%8A%9B%E7%B3%BB"><span class="toc-number">4.1.</span> <span class="toc-text">§3-1 空间汇交力系</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%88%E6%88%90-1"><span class="toc-number">4.1.1.</span> <span class="toc-text">合成</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B9%B3%E8%A1%A1%E6%96%B9%E7%A8%8B"><span class="toc-number">4.1.2.</span> <span class="toc-text">平衡方程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A73-2-%E5%8A%9B%E5%AF%B9%E7%82%B9%E7%9A%84%E7%9F%A9%E5%92%8C%E5%8A%9B%E5%AF%B9%E8%BD%B4%E7%9A%84%E7%9F%A9"><span class="toc-number">4.2.</span> <span class="toc-text">§3-2 力对点的矩和力对轴的矩</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%9B%E5%AF%B9%E7%82%B9%E7%9A%84%E7%9F%A9%EF%BC%88%E5%8A%9B%E7%9F%A9%E7%9F%A2%E9%87%8F%EF%BC%89"><span class="toc-number">4.2.1.</span> <span class="toc-text">力对点的矩（力矩矢量）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%88%E5%8A%9B%E7%9F%A9%E5%AE%9A%E7%90%86-1"><span class="toc-number">4.2.2.</span> <span class="toc-text">合力矩定理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%9B%E5%AF%B9%E8%BD%B4%E7%9A%84%E7%9F%A9"><span class="toc-number">4.2.3.</span> <span class="toc-text">力对轴的矩</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A73-3-%E7%A9%BA%E9%97%B4%E5%8A%9B%E5%81%B6"><span class="toc-number">4.3.</span> <span class="toc-text">§3-3 空间力偶</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%9B%E5%81%B6%E7%9F%A9%E7%9F%A2%E9%87%8F"><span class="toc-number">4.3.1.</span> <span class="toc-text">力偶矩矢量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%A7%E8%B4%A8"><span class="toc-number">4.3.2.</span> <span class="toc-text">性质</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B9%B3%E8%A1%A1-1"><span class="toc-number">4.3.3.</span> <span class="toc-text">平衡</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A73-4-%E7%A9%BA%E9%97%B4%E4%BB%BB%E6%84%8F%E5%8A%9B%E7%B3%BB%E5%90%91%E4%B8%80%E7%82%B9%E7%AE%80%E5%8C%96"><span class="toc-number">4.4.</span> <span class="toc-text">§3-4 空间任意力系向一点简化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BB%E7%9F%A2%E4%B8%8E%E4%B8%BB%E7%9F%A9"><span class="toc-number">4.4.1.</span> <span class="toc-text">主矢与主矩</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A9%BA%E9%97%B4%E4%BB%BB%E6%84%8F%E5%8A%9B%E7%B3%BB%E7%AE%80%E5%8C%96%E7%BB%93%E6%9E%9C%E5%88%86%E6%9E%90"><span class="toc-number">4.4.2.</span> <span class="toc-text">空间任意力系简化结果分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%9B%E8%9E%BA%E6%97%8B"><span class="toc-number">4.4.3.</span> <span class="toc-text">力螺旋</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A73-5-%E7%A9%BA%E9%97%B4%E4%BB%BB%E6%84%8F%E5%8A%9B%E7%B3%BB%E5%B9%B3%E8%A1%A1%E6%96%B9%E7%A8%8B"><span class="toc-number">4.5.</span> <span class="toc-text">§3-5 空间任意力系平衡方程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%96%B9%E7%A8%8B%EF%BC%88%E5%85%AD%E4%B8%AA%E7%8B%AC%E7%AB%8B%E6%96%B9%E7%A8%8B%EF%BC%89"><span class="toc-number">4.5.1.</span> <span class="toc-text">基本方程（六个独立方程）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A9%BA%E9%97%B4%E5%B9%B3%E8%A1%8C%E5%8A%9B%E7%B3%BB"><span class="toc-number">4.5.2.</span> <span class="toc-text">空间平行力系</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A73-6-%E9%87%8D%E5%BF%83"><span class="toc-number">4.6.</span> <span class="toc-text">§3-6 重心</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5-3"><span class="toc-number">4.6.1.</span> <span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%87%8D%E5%BF%83%E7%9A%84%E5%9D%90%E6%A0%87%E5%85%AC%E5%BC%8F%EF%BC%88%E8%B4%A8%E7%82%B9%E7%B3%BB-%E7%A6%BB%E6%95%A3%E4%BD%93%EF%BC%89"><span class="toc-number">4.6.2.</span> <span class="toc-text">重心的坐标公式（质点系 &#x2F; 离散体）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9E%E7%BB%AD%E4%BD%93%E7%9A%84%E9%87%8D%E5%BF%83%EF%BC%88%E7%A7%AF%E5%88%86%E5%BD%A2%E5%BC%8F%EF%BC%89"><span class="toc-number">4.6.3.</span> <span class="toc-text">连续体的重心（积分形式）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9D%87%E8%B4%A8%E7%89%A9%E4%BD%93%E7%9A%84%E5%BD%A2%E5%BF%83%E5%85%AC%E5%BC%8F"><span class="toc-number">4.6.4.</span> <span class="toc-text">均质物体的形心公式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%B9%E7%A7%B0%E6%80%A7"><span class="toc-number">4.6.5.</span> <span class="toc-text">对称性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%84%E5%90%88%E4%BD%93%E9%87%8D%E5%BF%83%E7%9A%84%E6%B1%82%E6%B3%95"><span class="toc-number">4.6.6.</span> <span class="toc-text">组合体重心的求法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%88%E5%8A%9B%E7%9F%A9%E5%AE%9A%E7%90%86%E6%B1%82%E9%87%8D%E5%BF%83"><span class="toc-number">4.6.7.</span> <span class="toc-text">合力矩定理求重心</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E5%9D%87%E8%B4%A8%E7%AE%80%E5%8D%95%E5%9B%BE%E5%BD%A2%E7%9A%84%E5%BD%A2%E5%BF%83%EF%BC%88%E5%B9%B3%E9%9D%A2%EF%BC%89"><span class="toc-number">4.6.8.</span> <span class="toc-text">常见均质简单图形的形心（平面）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%A8%E5%AE%9E%E9%AA%8C%E6%B1%82%E9%87%8D%E5%BF%83"><span class="toc-number">4.6.9.</span> <span class="toc-text">用实验求重心</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E6%91%A9%E6%93%A6"><span class="toc-number">5.</span> <span class="toc-text">第四章 摩擦</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A74-1-%E6%BB%91%E5%8A%A8%E6%91%A9%E6%93%A6"><span class="toc-number">5.1.</span> <span class="toc-text">§4-1 滑动摩擦</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BA%93%E4%BB%91%E6%91%A9%E6%93%A6%E5%AE%9A%E5%BE%8B"><span class="toc-number">5.1.1.</span> <span class="toc-text">库仑摩擦定律</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A74-2-%E6%91%A9%E6%93%A6%E8%A7%92%E5%92%8C%E8%87%AA%E9%94%81%E7%8E%B0%E8%B1%A1"><span class="toc-number">5.2.</span> <span class="toc-text">§4-2 摩擦角和自锁现象</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%A8%E7%BA%A6%E6%9D%9F%E5%8A%9B"><span class="toc-number">5.2.1.</span> <span class="toc-text">全约束力</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%91%A9%E6%93%A6%E8%A7%92"><span class="toc-number">5.2.2.</span> <span class="toc-text">摩擦角</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E9%94%81"><span class="toc-number">5.2.3.</span> <span class="toc-text">自锁</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A74-3-%E8%80%83%E8%99%91%E6%91%A9%E6%93%A6%E6%97%B6%E7%89%A9%E4%BD%93%E7%9A%84%E5%B9%B3%E8%A1%A1%E9%97%AE%E9%A2%98"><span class="toc-number">5.3.</span> <span class="toc-text">§4-3 考虑摩擦时物体的平衡问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A74-4-%E6%BB%9A%E5%8A%A8%E6%91%A9%E9%98%BB%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-number">5.4.</span> <span class="toc-text">§4-4 滚动摩阻的概念</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%BB%9A%E5%8A%A8%E6%91%A9%E9%98%BB"><span class="toc-number">5.4.1.</span> <span class="toc-text">滚动摩阻</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8E%E6%BB%91%E5%8A%A8%E6%91%A9%E6%93%A6%E6%AF%94%E8%BE%83"><span class="toc-number">5.4.2.</span> <span class="toc-text">与滑动摩擦比较</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3"><span class="toc-number">6.</span> <span class="toc-text">相关</span></a></li></ol></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/project/js/utils.js?v=5.5.4"></script><script src="/project/js/main.js?v=5.5.4"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@19.1.3/dist/lazyload.iife.min.js"></script><div class="js-pjax"></div><script src="/project/js/sakura.js"></script><script src="/project/js/rain.js"></script><script src="/project/js/custom.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="可搜索标题、标签以及文章内任意内容" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/project/js/search/local-search.js?v=5.5.4"></script></div></div></body></html>

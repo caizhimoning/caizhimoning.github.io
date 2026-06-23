@@ -1,0 +1,268 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>弹性力学（徐芝纶上册）· 平面问题解答 | Moning's Blog</title><meta name="author" content="caizhimoning"><meta name="copyright" content="caizhimoning"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="总览 → 弹性力学学习笔记（徐芝纶 · 上册） · 前置 → 弹性力学（徐芝纶上册）· 绪论与平面理论   目录   章 跳转到    第三章 直角坐标解答 [第三章 平面问题的直角坐标解答](#第三章 平面问题的直角坐标解答)   第四章 极坐标解答 [第四章 平面问题的极坐标解答](#第四章 平面问题的极坐标解答)   第五章 复变函数解答 [第五章 平面问题的复变函数解答](#第五章 平面">
+<meta property="og:type" content="article">
+<meta property="og:title" content="弹性力学（徐芝纶上册）· 平面问题解答">
+<meta property="og:url" content="http://caizhimoning.github.io/project/2026/06/11/em-xu-vol1-plane-solution/index.html">
+<meta property="og:site_name" content="Moning&#39;s Blog">
+<meta property="og:description" content="总览 → 弹性力学学习笔记（徐芝纶 · 上册） · 前置 → 弹性力学（徐芝纶上册）· 绪论与平面理论   目录   章 跳转到    第三章 直角坐标解答 [第三章 平面问题的直角坐标解答](#第三章 平面问题的直角坐标解答)   第四章 极坐标解答 [第四章 平面问题的极坐标解答](#第四章 平面问题的极坐标解答)   第五章 复变函数解答 [第五章 平面问题的复变函数解答](#第五章 平面">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=800&q=80">
+<meta property="article:published_time" content="2026-06-11T09:54:46.000Z">
+<meta property="article:modified_time" content="2026-06-23T07:26:25.895Z">
+<meta property="article:author" content="caizhimoning">
+<meta property="article:tag" content="复变函数">
+<meta property="article:tag" content="弹性力学">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=800&q=80"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "弹性力学（徐芝纶上册）· 平面问题解答",
+  "url": "http://caizhimoning.github.io/project/2026/06/11/em-xu-vol1-plane-solution/",
+  "image": "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=800&q=80",
+  "datePublished": "2026-06-11T09:54:46.000Z",
+  "dateModified": "2026-06-23T07:26:25.895Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "caizhimoning",
+      "url": "http://caizhimoning.github.io/project"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/project/img/favicon.svg"><link rel="canonical" href="http://caizhimoning.github.io/project/2026/06/11/em-xu-vol1-plane-solution/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/project/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&amp;family=Noto+Serif+SC:wght@500;600;700&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/project/',
+  algolia: undefined,
+  localSearch: {"path":"/project/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"pagination":{"enable":true,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'medium_zoom',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: true,
+  islazyloadPlugin: true,
+  isAnchor: false,
+  percent: {
+    toc: false,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '弹性力学（徐芝纶上册）· 平面问题解答',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/project/css/layout.css"><link rel="stylesheet" href="/project/css/custom.css"><link rel="stylesheet" href="/project/css/archive.css"><link rel="stylesheet" href="/project/css/projects.css"><link rel="stylesheet" href="/project/css/post-toc.css"><link rel="stylesheet" href="/project/css/post-tag-panel.css"><meta name="generator" content="Hexo 8.1.2"><script id="post-tag-index-data" type="application/json">{"posts":[{"path":"/2026/06/11/em-li-2021-fundamentals/","title":"弹性力学（李刚）· 绪论与基本方程","tags":["弹性力学","李刚"]},{"path":"/2026/06/11/em-li-2021-space-torsion/","title":"弹性力学（李刚）· 空间问题与扭转","tags":["弹性力学","空间问题","扭转"]},{"path":"/2026/06/11/em-li-2021-variational-fem/","title":"弹性力学（李刚）· 能量原理与有限元","tags":["弹性力学","变分法","有限元"]},{"path":"/2026/06/11/em-li-2021/","title":"弹性力学学习笔记（李刚 · 2021）","tags":["弹性力学","李刚","科学出版社"]},{"path":"/2026/06/11/em-xu-vol1-plane-solution/","title":"弹性力学（徐芝纶上册）· 平面问题解答","tags":["弹性力学","复变函数"]},{"path":"/2026/06/11/em-xu-vol1-plane-theory/","title":"弹性力学（徐芝纶上册）· 绪论与平面理论","tags":["弹性力学","徐芝纶"]},{"path":"/2026/06/11/em-li-2021-plane/","title":"弹性力学（李刚）· 平面问题","tags":["弹性力学","平面问题"]},{"path":"/2026/06/11/em-xu-vol1-space-torsion-energy/","title":"弹性力学（徐芝纶上册）· 空间·扭转·能量·波","tags":["弹性力学","弹性波"]},{"path":"/2026/06/11/em-xu-vol1-temperature-fdm/","title":"弹性力学（徐芝纶上册）· 温度应力与差分法","tags":["弹性力学","热应力"]},{"path":"/2026/06/11/em-xu-vol1/","title":"弹性力学学习笔记（徐芝纶 · 上册）","tags":["弹性力学","徐芝纶","高等教育出版社"]},{"path":"/2026/06/11/fm-wu-ch01-field/","title":"流体力学（吴望一）· 场论与张量","tags":["流体力学","场论"]},{"path":"/2026/06/11/em-xu-vol2/","title":"弹性力学学习笔记（徐芝纶 · 下册）","tags":["弹性力学","薄板","壳体"]},{"path":"/2026/06/11/fm-wu-ch02-03/","title":"流体力学（吴望一）· 基本概念与方程组","tags":["流体力学"]},{"path":"/2026/06/11/fm-wu-ch04-07/","title":"流体力学（吴望一）· 涡旋·静力学·理想流","tags":["流体力学","伯努利"]},{"path":"/2026/06/11/em-xu-vol2-shell/","title":"弹性力学（徐芝纶下册）· 壳体理论","tags":["弹性力学","壳体"]},{"path":"/2026/06/11/fm-wu-ch08-10/","title":"流体力学（吴望一）· 波浪·黏性·气体动力学","tags":["流体力学","气体动力学"]},{"path":"/2026/06/11/fm-wu/","title":"流体力学学习笔记（吴望一）","tags":["流体力学","吴望一","北京大学出版社"]},{"path":"/2026/06/11/em-xu-vol2-plate/","title":"弹性力学（徐芝纶下册）· 薄板问题","tags":["弹性力学","薄板"]},{"path":"/2026/06/11/tm-hit-8-vol2-analytical/","title":"理论力学（Ⅱ）· 分析力学基础","tags":["理论力学","分析力学","拉格朗日方程"]},{"path":"/2026/06/11/tm-hit-8-vol2-collision/","title":"理论力学（Ⅱ）· 碰撞","tags":["理论力学","碰撞","恢复因数"]},{"path":"/2026/06/11/tm-hit-8-vol2-gyroscope/","title":"理论力学（Ⅱ）· 定点运动与陀螺","tags":["理论力学","陀螺仪","定点运动"]},{"path":"/2026/06/11/tm-hit-8-vol2-non-inertial/","title":"理论力学（Ⅱ）· 非惯性系中的质点动力学","tags":["理论力学","非惯性系","科氏力"]},{"path":"/2026/06/11/tm-hit-8-vol2-variable-mass/","title":"理论力学（Ⅱ）· 变质量动力学","tags":["理论力学","变质量","火箭方程"]},{"path":"/2026/06/11/tm-hit-8-vol2-vibration/","title":"理论力学（Ⅱ）· 机械振动基础","tags":["理论力学","机械振动","固有频率"]},{"path":"/2026/06/11/tm-hit-8-vol2/","title":"理论力学（Ⅱ）学习笔记","tags":["理论力学","哈尔滨工业大学","第8版"]},{"path":"/2026/06/10/machine-learning/","title":"机器学习课程学习笔记","tags":["机器学习","监督学习","深度学习","数学基础"]},{"path":"/2026/06/09/wsl-setting/","title":"WSL 常用设置：Linux 应用打开 Windows 浏览器","tags":["WSL2","Obsidian","浏览器"]},{"path":"/2026/06/09/obsidian-plugins/","title":"Obsidian 社区插件与本库选用","tags":["Obsidian","插件"]},{"path":"/2026/06/06/obsidian-setting/","title":"Obsidian 设置：字体、外观与 Properties","tags":["WSL2","Obsidian","设置"]},{"path":"/2026/06/08/tm-hit-8-vol1-dynamics/","title":"理论力学（Ⅰ）· 动力学","tags":["理论力学","动力学"]},{"path":"/2026/06/08/tm-hit-8-vol1-kinematics/","title":"理论力学（Ⅰ）· 运动学","tags":["理论力学","运动学"]},{"path":"/2026/06/08/tm-hit-8-vol1-statics/","title":"理论力学（Ⅰ）· 静力学","tags":["理论力学","静力学"]},{"path":"/2026/06/08/tm-hit-8-vol1/","title":"理论力学（Ⅰ）学习笔记","tags":["理论力学","哈尔滨工业大学","第8版"]},{"path":"/2026/06/07/cursor-guide/","title":"Cursor 使用入门：AGENTS.md、Rules 与 WSL 全局约定","tags":["Cursor","AI","工作流","WSL2"]},{"path":"/2026/06/06/markdown-syntax/","title":"Markdown 语法入门","tags":["Markdown","写作","语法"]},{"path":"/2026/06/05/zotero-guide/","title":"Zotero 使用指南","tags":["ai生成","学术写作","Zotero","文献管理"]},{"path":"/2026/06/05/abaqus-python/","title":"Abaqus Python 使用入门","tags":["ai生成","Abaqus","仿真","Python"]},{"path":"/2026/06/05/abaqus-install/","title":"Abaqus 安装与许可配置","tags":["ai生成","Abaqus","仿真","安装"]},{"path":"/2026/06/05/latex-syntax/","title":"LaTeX 语法入门","tags":["ai生成","LaTeX","学术写作","排版"]},{"path":"/2026/06/05/hardware-ram-slots/","title":"内存条安装：插槽位置与双通道规则","tags":["ai生成","装机","内存","双通道"]},{"path":"/2026/06/05/hardware-pc-build/","title":"DIY 装机流程：从配件到点亮","tags":["ai生成","装机","DIY"]},{"path":"/2026/06/05/hardware-storage/","title":"存储选购：固态、机械硬盘与接口","tags":["ai生成","装机","存储","SSD","NVMe"]},{"path":"/2026/06/05/hardware-cooler/","title":"散热器选购：风冷、水冷与机箱风扇","tags":["ai生成","装机","散热器","风冷","水冷"]},{"path":"/2026/06/05/hardware-case/","title":"机箱选购：规格、风道与兼容性","tags":["ai生成","机箱","装机","散热"]},{"path":"/2026/06/05/hardware-psu/","title":"电源选购：功率、认证与模组","tags":["ai生成","装机","电源","PSU"]},{"path":"/2026/06/05/hardware-ram/","title":"内存选购：DDR4 / DDR5、品牌与频率","tags":["ai生成","装机","内存","RAM","DDR5"]},{"path":"/2026/06/05/hardware-motherboard/","title":"主板选购：芯片组、命名与平台搭配","tags":["ai生成","装机","Intel","AMD","主板"]},{"path":"/2026/06/05/hardware-gpu/","title":"显卡选购：品牌、命名与性能分级","tags":["ai生成","装机","AMD","GPU","显卡","NVIDIA"]},{"path":"/2026/06/05/hardware-cpu/","title":"CPU 选购：品牌、命名与性能分级","tags":["ai生成","装机","CPU","Intel","AMD"]},{"path":"/2026/06/05/ssh-basics/","title":"SSH 基础：远程登录与密钥认证","tags":["GitHub","Linux","SSH","安全"]},{"path":"/2026/06/05/git-basics/","title":"Git 基础：版本管理与常用操作","tags":["Linux","Git","版本控制"]},{"path":"/2026/06/05/hexo-github-publish/","title":"Hexo 博客发布 GitHub 与自动化","tags":["Hexo","GitHub","部署"]},{"path":"/2026/06/05/obsidian-win-wsl-install/","title":"Obsidian 在 Windows 与 WSL2 中的安装与库路径选择","tags":["安装","WSL2","Obsidian","Windows"]},{"path":"/2026/06/05/wsl2-install/","title":"WSL2 安装与首次配置","tags":["安装","WSL2","Windows"]},{"path":"/2026/06/05/wsl2-basic-commands/","title":"WSL2 基本命令","tags":["WSL2","Windows","命令行"]},{"path":"/2026/06/05/cursor-agent-reading-order/","title":"Agent 读库顺序与 Reuse（草案）","tags":["Cursor","AI","工作流","知识管理"]},{"path":"/2026/06/04/obsidian-guide/","title":"Obsidian 学习与用法手册","tags":["知识管理","Hexo","WSL2","Obsidian"]},{"path":"/2026/06/03/linux-filesystem/","title":"Linux 文件系统","tags":["Linux","文件系统"]},{"path":"/2026/06/01/welcome-to-my-blog/","title":"欢迎来到我的博客","tags":["欢迎","博客"]}]}</script><script id="post-header-meta" type="application/json">{"title":"弹性力学（徐芝纶上册）· 平面问题解答","subtitle":"第 3–5 章","series":"mechanics","seriesPath":"","author":"","readTime":"","date":"2026-06-11","updated":"2026-06-23","tags":[{"name":"弹性力学","path":"tags/弹性力学/"},{"name":"复变函数","path":"tags/复变函数/"}],"categories":[],"cover":"https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=800&q=80"}</script></head><body><div class="bg-animation" id="web_bg" style="background: transparent;"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/project/img/avatar.svg" onerror="this.onerror=null;this.src='/project/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/project/archives/"><div class="headline">文章</div><div class="length-num">59</div></a><a href="/project/tags/"><div class="headline">标签</div><div class="length-num">101</div></a><a href="/project/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/project/archives/"><i class="fa-fw fas fa-book-open"></i><span> 文章</span></a></div><div class="menus_item"><a class="site-page" href="/project/projects/"><i class="fa-fw fas fa-code-branch"></i><span> 项目</span></a></div><div class="menus_item"><a class="site-page" href="/project/dynamics/"><i class="fa-fw fas fa-comment-dots"></i><span> 动态</span></a></div><div class="menus_item"><a class="site-page" href="/project/domain/"><i class="fa-fw fas fa-layer-group"></i><span> 专题</span></a></div><div class="menus_item"><a class="site-page" href="/project/about/"><i class="fa-fw fas fa-user"></i><span> 关于我</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img fixed" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/project/"><img class="site-icon" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/project/img/logo.svg" alt="Logo"></a><a class="nav-page-title" href="/project/"><span class="site-name">弹性力学（徐芝纶上册）· 平面问题解答</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/project/archives/"><i class="fa-fw fas fa-book-open"></i><span> 文章</span></a></div><div class="menus_item"><a class="site-page" href="/project/projects/"><i class="fa-fw fas fa-code-branch"></i><span> 项目</span></a></div><div class="menus_item"><a class="site-page" href="/project/dynamics/"><i class="fa-fw fas fa-comment-dots"></i><span> 动态</span></a></div><div class="menus_item"><a class="site-page" href="/project/domain/"><i class="fa-fw fas fa-layer-group"></i><span> 专题</span></a></div><div class="menus_item"><a class="site-page" href="/project/about/"><i class="fa-fw fas fa-user"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">弹性力学（徐芝纶上册）· 平面问题解答</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon far fa-calendar-alt"></i><span class="post-meta-label">发表于</span><time datetime="2026-06-11T09:54:46.000Z" title="发表于 2026-06-11 17:54:46">2026-06-11</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="container post-content" id="article-container"><blockquote>
+<p>总览 → <a href="/project/2026/06/11/em-xu-vol1/">弹性力学学习笔记（徐芝纶 · 上册）</a> · 前置 → <a href="/project/2026/06/11/em-xu-vol1-plane-theory/">弹性力学（徐芝纶上册）· 绪论与平面理论</a></p>
+</blockquote>
+<hr>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><table>
+<thead>
+<tr>
+<th>章</th>
+<th>跳转到</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>第三章 直角坐标解答</td>
+<td>[第三章 平面问题的直角坐标解答](#第三章 平面问题的直角坐标解答)</td>
+</tr>
+<tr>
+<td>第四章 极坐标解答</td>
+<td>[第四章 平面问题的极坐标解答](#第四章 平面问题的极坐标解答)</td>
+</tr>
+<tr>
+<td>第五章 复变函数解答</td>
+<td>[第五章 平面问题的复变函数解答](#第五章 平面问题的复变函数解答)</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="第三章-平面问题的直角坐标解答"><a href="#第三章-平面问题的直角坐标解答" class="headerlink" title="第三章 平面问题的直角坐标解答"></a>第三章 平面问题的直角坐标解答</h2><h3 id="§3-1-多项式解答"><a href="#§3-1-多项式解答" class="headerlink" title="§3-1 多项式解答"></a>§3-1 多项式解答</h3><p>（同李刚书 [[em-li-2021-plane#§3-7 多项式逆解法]]。）</p>
+<p><strong>阶次选择经验</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>荷载特征</th>
+<th>建议 $\phi$ 阶次</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>均匀拉压</td>
+<td>二次</td>
+</tr>
+<tr>
+<td>线性弯矩（纯弯）</td>
+<td>二次</td>
+</tr>
+<tr>
+<td>端部集中力（悬臂）</td>
+<td>三次</td>
+</tr>
+<tr>
+<td>均布荷载</td>
+<td>四次</td>
+</tr>
+<tr>
+<td>楔体自重</td>
+<td>三次或四次</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="§3-2-端部受集中力的悬臂梁"><a href="#§3-2-端部受集中力的悬臂梁" class="headerlink" title="§3-2 端部受集中力的悬臂梁"></a>§3-2 端部受集中力的悬臂梁</h3><p>$$\sigma_x &#x3D; -\frac{P}{I}y\left(x - \frac{l}{2}\right), \quad \tau_{xy} &#x3D; -\frac{P}{2I}\left(\frac{h^2}{4} - y^2\right)$$</p>
+<hr>
+<h3 id="§3-3-受均布荷载的简支梁"><a href="#§3-3-受均布荷载的简支梁" class="headerlink" title="§3-3 受均布荷载的简支梁"></a>§3-3 受均布荷载的简支梁</h3><p>弯矩-曲率关系与材料力学一致；弹性力学给出横向正应力 $\sigma_y$ 的修正（通常较小）。</p>
+<p><strong>横向正应力</strong>（近似）：</p>
+<p>$$\sigma_y \approx -\frac{q_0}{2}\left(1 - \frac{y^2}{h^2&#x2F;4}\right) - \frac{q_0 y^2}{2h^2}\left(1 - \frac{y^2}{h^2&#x2F;4}\right)$$</p>
+<p>量级约为 $\sigma_y \sim q_0$；与 $\sigma_x \sim q_0 (l&#x2F;h)^2$ 相比通常可忽略，但<strong>短梁</strong> $l&#x2F;h$ 较小时需考虑。</p>
+<hr>
+<h3 id="§3-4-楔形体受重力和液体压力"><a href="#§3-4-楔形体受重力和液体压力" class="headerlink" title="§3-4 楔形体受重力和液体压力"></a>§3-4 楔形体受重力和液体压力</h3><p>用三次、四次应力函数；楔角 $\alpha$ 与荷载决定应力场。</p>
+<hr>
+<h3 id="§3-5-半无限平面体在边界上受法向集中力"><a href="#§3-5-半无限平面体在边界上受法向集中力" class="headerlink" title="§3-5 半无限平面体在边界上受法向集中力"></a>§3-5 半无限平面体在边界上受法向集中力</h3><p>Boussinesq 平面问题（厚度方向平面应变）：表面集中力 $P$ 的应力场——为空间 Boussinesq 解的平面类比。</p>
+<hr>
+<h3 id="§3-6-孔口附近的应力集中"><a href="#§3-6-孔口附近的应力集中" class="headerlink" title="§3-6 孔口附近的应力集中"></a>§3-6 孔口附近的应力集中</h3><p>小圆孔 $r&#x3D;a$，远场 $\sigma_x &#x3D; S$：孔边最大切向应力 $3S$（[[em-li-2021-plane#§4-5 含小圆孔的无限大板受拉]]）。</p>
+<hr>
+<h2 id="第四章-平面问题的极坐标解答"><a href="#第四章-平面问题的极坐标解答" class="headerlink" title="第四章 平面问题的极坐标解答"></a>第四章 平面问题的极坐标解答</h2><h3 id="§4-1-轴对称应力与位移"><a href="#§4-1-轴对称应力与位移" class="headerlink" title="§4-1 轴对称应力与位移"></a>§4-1 轴对称应力与位移</h3><p>$\phi &#x3D; \phi(r)$，$\tau_{r\theta} &#x3D; 0$。</p>
+<hr>
+<h3 id="§4-2-厚壁圆筒受均匀压力"><a href="#§4-2-厚壁圆筒受均匀压力" class="headerlink" title="§4-2 厚壁圆筒受均匀压力"></a>§4-2 厚壁圆筒受均匀压力</h3><p>Lamé 公式（[[em-li-2021-plane#§4-3 圆环或圆筒（Lamé 解）]]）。</p>
+<hr>
+<h3 id="§4-3-曲梁的纯弯曲"><a href="#§4-3-曲梁的纯弯曲" class="headerlink" title="§4-3 曲梁的纯弯曲"></a>§4-3 曲梁的纯弯曲</h3><p>中性轴不在几何中心；径向应力不可忽略。</p>
+<hr>
+<h3 id="§4-4-圆孔的应力集中"><a href="#§4-4-圆孔的应力集中" class="headerlink" title="§4-4 圆孔的应力集中"></a>§4-4 圆孔的应力集中</h3><p>Kirsch 解；应力集中系数、孔边切向应力分布。</p>
+<hr>
+<h3 id="§4-5-楔形体在楔顶或楔面受力"><a href="#§4-5-楔形体在楔顶或楔面受力" class="headerlink" title="§4-5 楔形体在楔顶或楔面受力"></a>§4-5 楔形体在楔顶或楔面受力</h3><p>集中力 $P$ 作用于楔顶，应力 $\sigma \sim 1&#x2F;r$ 奇异性（理想化点力）。</p>
+<hr>
+<h3 id="§4-6-半无限楔或半无限平面"><a href="#§4-6-半无限楔或半无限平面" class="headerlink" title="§4-6 半无限楔或半无限平面"></a>§4-6 半无限楔或半无限平面</h3><p>边界受分布荷载的积分叠加。</p>
+<hr>
+<h2 id="第五章-平面问题的复变函数解答"><a href="#第五章-平面问题的复变函数解答" class="headerlink" title="第五章 平面问题的复变函数解答"></a>第五章 平面问题的复变函数解答</h2><h3 id="§5-1-应力函数与复变函数表示"><a href="#§5-1-应力函数与复变函数表示" class="headerlink" title="§5-1 应力函数与复变函数表示"></a>§5-1 应力函数与复变函数表示</h3><h4 id="复变量"><a href="#复变量" class="headerlink" title="复变量"></a>复变量</h4><p>令 $z &#x3D; x + iy$，$\bar{z} &#x3D; x - iy$。Airy 应力函数 $\phi(x,y)$ 为实函数，可表为解析函数组合的实部。</p>
+<h4 id="Kolosov-Muskhelishvili-表示的导出思路"><a href="#Kolosov-Muskhelishvili-表示的导出思路" class="headerlink" title="Kolosov-Muskhelishvili 表示的导出思路"></a>Kolosov-Muskhelishvili 表示的导出思路</h4><p>定义组合应力</p>
+<p>$$\Theta &#x3D; \sigma_x + \sigma_y &#x3D; \nabla^2 \phi, \quad \Xi &#x3D; \sigma_y - \sigma_x + 2i\tau_{xy}$$</p>
+<p>由 $\nabla^4\phi&#x3D;0$ 知 $\Theta$ 为调和函数，可表为解析函数 $\varphi’(z)$ 的实部：$\Theta &#x3D; 4\operatorname{Re}\varphi’(z)$。进一步可证 $\Xi$ 与 $z$、$\bar{z}$ 及 $\varphi,\psi$ 的导数满足</p>
+<p>$$\sigma_x + \sigma_y &#x3D; 4\operatorname{Re}\varphi’(z)$$</p>
+<p>$$\sigma_y - \sigma_x + 2i\tau_{xy} &#x3D; 2\left[\bar{z}\varphi’’(z) + \psi’(z)\right]$$</p>
+<p>$\varphi(z),\psi(z)$ 为解析函数（<strong>复位势</strong>）。一旦求得 $\varphi,\psi$，应力分量由上述两式解出。复变法的优势：解析函数、共形映射可系统处理孔、裂纹等多连通域。</p>
+<hr>
+<h3 id="§5-2-边界条件的复变形式"><a href="#§5-2-边界条件的复变形式" class="headerlink" title="§5-2 边界条件的复变形式"></a>§5-2 边界条件的复变形式</h3><p>给定边界力 $\bar{f}_x + i\bar{f}_y$：</p>
+<p>$$\varphi(t) + t\overline{\varphi’(t)} + \overline{\psi(t)} &#x3D; i\int (\bar{f}_x + i\bar{f}_y),\mathrm{d}s$$</p>
+<p>$t$ 为边界点复坐标。</p>
+<hr>
+<h3 id="§5-3-有限域与无限域"><a href="#§5-3-有限域与无限域" class="headerlink" title="§5-3 有限域与无限域"></a>§5-3 有限域与无限域</h3><ul>
+<li><strong>有限单连通域</strong>：$\varphi, \psi$ 单值；</li>
+<li><strong>无限域含孔</strong>：$\varphi’(z), \psi’(z)$ 在无穷远趋于常数（远场应力给定）。</li>
+</ul>
+<hr>
+<h3 id="§5-4-圆孔含无限大板受拉"><a href="#§5-4-圆孔含无限大板受拉" class="headerlink" title="§5-4 圆孔含无限大板受拉"></a>§5-4 圆孔含无限大板受拉</h3><p>用 $z &#x3D; \zeta + \frac{a^2}{\zeta}$ 将圆外映射到圆环，求 $\varphi, \psi$，得 Kirsch 解。</p>
+<hr>
+<h3 id="§5-5-椭圆孔"><a href="#§5-5-椭圆孔" class="headerlink" title="§5-5 椭圆孔"></a>§5-5 椭圆孔</h3><p>共形映射 $z &#x3D; z(\zeta)$ 将椭圆外域映到圆外，求应力；椭圆孔边应力集中与长短轴比有关。</p>
+<hr>
+<h3 id="§5-6-裂纹尖端应力（Griffith）"><a href="#§5-6-裂纹尖端应力（Griffith）" class="headerlink" title="§5-6 裂纹尖端应力（Griffith）"></a>§5-6 裂纹尖端应力（Griffith）</h3><p>裂纹尖端 $r \to 0$，应力 $\sigma \sim 1&#x2F;\sqrt{r}$；<strong>应力强度因子</strong> $K_I$ 表征奇异性强度，为断裂力学基础。</p>
+<h4 id="复变法解题流程（概要）"><a href="#复变法解题流程（概要）" class="headerlink" title="复变法解题流程（概要）"></a>复变法解题流程（概要）</h4><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1. 写出远场应力 → 定 φ&#x27;(∞), ψ&#x27;(∞)</span><br><span class="line">2. 选映射（圆孔：z = ζ + a²/ζ）将物理域映到辅助平面</span><br><span class="line">3. 在边界上列 φ, ψ 的边界条件（积分形式）</span><br><span class="line">4. 求 φ(ζ), ψ(ζ) 后回代得 σ_x, σ_y, τ_xy</span><br></pre></td></tr></table></figure>
+
+<p><strong>与应力函数法关系</strong>：复变表示是 Airy 函数的解析函数形式，便于处理孔、裂纹等多连通域。</p>
+<hr>
+<h2 id="相关"><a href="#相关" class="headerlink" title="相关"></a>相关</h2><ul>
+<li><a href="/project/2026/06/11/em-xu-vol1/">弹性力学学习笔记（徐芝纶 · 上册）</a>、<a href="/project/2026/06/11/em-xu-vol1-temperature-fdm/">弹性力学（徐芝纶上册）· 温度应力与差分法</a>、<a href="/project/2026/06/11/em-li-2021-plane/">弹性力学（李刚）· 平面问题</a></li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://caizhimoning.github.io/project">caizhimoning</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://caizhimoning.github.io/project/2026/06/11/em-xu-vol1-plane-solution/">http://caizhimoning.github.io/project/2026/06/11/em-xu-vol1-plane-solution/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://caizhimoning.github.io/project" target="_blank">Moning's Blog</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&amp;fit=crop&amp;w=800&amp;q=80" data-sites="wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/project/2026/06/11/em-xu-vol1-plane-theory/" title="弹性力学（徐芝纶上册）· 绪论与平面理论"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://images.unsplash.com/photo-1522441815192-d9f04eb0615c?auto=format&amp;fit=crop&amp;w=800&amp;q=80" onerror="onerror=null;src='/project/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">弹性力学（徐芝纶上册）· 绪论与平面理论</div></div><div class="info-2"><div class="info-item-1"> 总览 → 弹性力学学习笔记（徐芝纶 · 上册）   目录   章&#x2F;节 跳转到    第一章 绪论 [第一章 绪论](#第一章 绪论)   §1-1–§1-4 见章内   第二章 平面问题的基本理论 [第二章 平面问题的基本...</div></div></div></a><a class="pagination-related" href="/project/2026/06/11/em-li-2021/" title="弹性力学学习笔记（李刚 · 2021）"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&amp;fit=crop&amp;w=800&amp;q=80" onerror="onerror=null;src='/project/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">弹性力学学习笔记（李刚 · 2021）</div></div><div class="info-2"><div class="info-item-1">本书笔记对应李刚主编《弹性力学》（第 1 版，科学出版社，2021，ISBN 978-7-03-068066-2）。教材基于大连理工大学工程力学系多年教学积累，从基本理论出发系统阐述应力、应变、本构关系、边值问题及平面&#x2F;空间...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/project/2026/06/11/em-xu-vol1-space-torsion-energy/" title="弹性力学（徐芝纶上册）· 空间·扭转·能量·波"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=800&q=80" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-06-11</div><div class="info-item-2">弹性力学（徐芝纶上册）· 空间·扭转·能量·波</div></div><div class="info-2"><div class="info-item-1"> 总览 → 弹性力学学习笔记（徐芝纶 · 上册）   目录   章 跳转到    第八章 空间问题的基本理论 [第八章 空间问题的基本理论](#第八章 空间问题的基本理论)   第九章 空间问题的解答 [第九章 空间问题的解答](#第...</div></div></div></a><a class="pagination-related" href="/project/2026/06/11/em-xu-vol1-plane-theory/" title="弹性力学（徐芝纶上册）· 绪论与平面理论"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://images.unsplash.com/photo-1522441815192-d9f04eb0615c?auto=format&fit=crop&w=800&q=80" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-06-11</div><div class="info-item-2">弹性力学（徐芝纶上册）· 绪论与平面理论</div></div><div class="info-2"><div class="info-item-1"> 总览 → 弹性力学学习笔记（徐芝纶 · 上册）   目录   章&#x2F;节 跳转到    第一章 绪论 [第一章 绪论](#第一章 绪论)   §1-1–§1-4 见章内   第二章 平面问题的基本理论 [第二章 平面问题的基本...</div></div></div></a><a class="pagination-related" href="/project/2026/06/11/em-li-2021-variational-fem/" title="弹性力学（李刚）· 能量原理与有限元"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://images.unsplash.com/photo-1522441815192-d9f04eb0615c?auto=format&fit=crop&w=800&q=80" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-06-11</div><div class="info-item-2">弹性力学（李刚）· 能量原理与有限元</div></div><div class="info-2"><div class="info-item-1"> 总览 → 弹性力学学习笔记（李刚 · 2021） · 前置 → [[tm-hit-8-vol1-dynamics#第十四章 虚位移原理]]   目录   章 跳转到    第七章 能量原理与变分法 [第七章 能量原理与变分法](#第...</div></div></div></a><a class="pagination-related" href="/project/2026/06/11/em-li-2021/" title="弹性力学学习笔记（李刚 · 2021）"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=800&q=80" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-06-11</div><div class="info-item-2">弹性力学学习笔记（李刚 · 2021）</div></div><div class="info-2"><div class="info-item-1">本书笔记对应李刚主编《弹性力学》（第 1 版，科学出版社，2021，ISBN 978-7-03-068066-2）。教材基于大连理工大学工程力学系多年教学积累，从基本理论出发系统阐述应力、应变、本构关系、边值问题及平面&#x2F;空间...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95"><span class="toc-number">1.</span> <span class="toc-text">目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%B9%B3%E9%9D%A2%E9%97%AE%E9%A2%98%E7%9A%84%E7%9B%B4%E8%A7%92%E5%9D%90%E6%A0%87%E8%A7%A3%E7%AD%94"><span class="toc-number">2.</span> <span class="toc-text">第三章 平面问题的直角坐标解答</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A73-1-%E5%A4%9A%E9%A1%B9%E5%BC%8F%E8%A7%A3%E7%AD%94"><span class="toc-number">2.1.</span> <span class="toc-text">§3-1 多项式解答</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A73-2-%E7%AB%AF%E9%83%A8%E5%8F%97%E9%9B%86%E4%B8%AD%E5%8A%9B%E7%9A%84%E6%82%AC%E8%87%82%E6%A2%81"><span class="toc-number">2.2.</span> <span class="toc-text">§3-2 端部受集中力的悬臂梁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A73-3-%E5%8F%97%E5%9D%87%E5%B8%83%E8%8D%B7%E8%BD%BD%E7%9A%84%E7%AE%80%E6%94%AF%E6%A2%81"><span class="toc-number">2.3.</span> <span class="toc-text">§3-3 受均布荷载的简支梁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A73-4-%E6%A5%94%E5%BD%A2%E4%BD%93%E5%8F%97%E9%87%8D%E5%8A%9B%E5%92%8C%E6%B6%B2%E4%BD%93%E5%8E%8B%E5%8A%9B"><span class="toc-number">2.4.</span> <span class="toc-text">§3-4 楔形体受重力和液体压力</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A73-5-%E5%8D%8A%E6%97%A0%E9%99%90%E5%B9%B3%E9%9D%A2%E4%BD%93%E5%9C%A8%E8%BE%B9%E7%95%8C%E4%B8%8A%E5%8F%97%E6%B3%95%E5%90%91%E9%9B%86%E4%B8%AD%E5%8A%9B"><span class="toc-number">2.5.</span> <span class="toc-text">§3-5 半无限平面体在边界上受法向集中力</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A73-6-%E5%AD%94%E5%8F%A3%E9%99%84%E8%BF%91%E7%9A%84%E5%BA%94%E5%8A%9B%E9%9B%86%E4%B8%AD"><span class="toc-number">2.6.</span> <span class="toc-text">§3-6 孔口附近的应力集中</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E5%B9%B3%E9%9D%A2%E9%97%AE%E9%A2%98%E7%9A%84%E6%9E%81%E5%9D%90%E6%A0%87%E8%A7%A3%E7%AD%94"><span class="toc-number">3.</span> <span class="toc-text">第四章 平面问题的极坐标解答</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A74-1-%E8%BD%B4%E5%AF%B9%E7%A7%B0%E5%BA%94%E5%8A%9B%E4%B8%8E%E4%BD%8D%E7%A7%BB"><span class="toc-number">3.1.</span> <span class="toc-text">§4-1 轴对称应力与位移</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A74-2-%E5%8E%9A%E5%A3%81%E5%9C%86%E7%AD%92%E5%8F%97%E5%9D%87%E5%8C%80%E5%8E%8B%E5%8A%9B"><span class="toc-number">3.2.</span> <span class="toc-text">§4-2 厚壁圆筒受均匀压力</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A74-3-%E6%9B%B2%E6%A2%81%E7%9A%84%E7%BA%AF%E5%BC%AF%E6%9B%B2"><span class="toc-number">3.3.</span> <span class="toc-text">§4-3 曲梁的纯弯曲</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A74-4-%E5%9C%86%E5%AD%94%E7%9A%84%E5%BA%94%E5%8A%9B%E9%9B%86%E4%B8%AD"><span class="toc-number">3.4.</span> <span class="toc-text">§4-4 圆孔的应力集中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A74-5-%E6%A5%94%E5%BD%A2%E4%BD%93%E5%9C%A8%E6%A5%94%E9%A1%B6%E6%88%96%E6%A5%94%E9%9D%A2%E5%8F%97%E5%8A%9B"><span class="toc-number">3.5.</span> <span class="toc-text">§4-5 楔形体在楔顶或楔面受力</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A74-6-%E5%8D%8A%E6%97%A0%E9%99%90%E6%A5%94%E6%88%96%E5%8D%8A%E6%97%A0%E9%99%90%E5%B9%B3%E9%9D%A2"><span class="toc-number">3.6.</span> <span class="toc-text">§4-6 半无限楔或半无限平面</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E5%B9%B3%E9%9D%A2%E9%97%AE%E9%A2%98%E7%9A%84%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0%E8%A7%A3%E7%AD%94"><span class="toc-number">4.</span> <span class="toc-text">第五章 平面问题的复变函数解答</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A75-1-%E5%BA%94%E5%8A%9B%E5%87%BD%E6%95%B0%E4%B8%8E%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0%E8%A1%A8%E7%A4%BA"><span class="toc-number">4.1.</span> <span class="toc-text">§5-1 应力函数与复变函数表示</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%8D%E5%8F%98%E9%87%8F"><span class="toc-number">4.1.1.</span> <span class="toc-text">复变量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Kolosov-Muskhelishvili-%E8%A1%A8%E7%A4%BA%E7%9A%84%E5%AF%BC%E5%87%BA%E6%80%9D%E8%B7%AF"><span class="toc-number">4.1.2.</span> <span class="toc-text">Kolosov-Muskhelishvili 表示的导出思路</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A75-2-%E8%BE%B9%E7%95%8C%E6%9D%A1%E4%BB%B6%E7%9A%84%E5%A4%8D%E5%8F%98%E5%BD%A2%E5%BC%8F"><span class="toc-number">4.2.</span> <span class="toc-text">§5-2 边界条件的复变形式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A75-3-%E6%9C%89%E9%99%90%E5%9F%9F%E4%B8%8E%E6%97%A0%E9%99%90%E5%9F%9F"><span class="toc-number">4.3.</span> <span class="toc-text">§5-3 有限域与无限域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A75-4-%E5%9C%86%E5%AD%94%E5%90%AB%E6%97%A0%E9%99%90%E5%A4%A7%E6%9D%BF%E5%8F%97%E6%8B%89"><span class="toc-number">4.4.</span> <span class="toc-text">§5-4 圆孔含无限大板受拉</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A75-5-%E6%A4%AD%E5%9C%86%E5%AD%94"><span class="toc-number">4.5.</span> <span class="toc-text">§5-5 椭圆孔</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A75-6-%E8%A3%82%E7%BA%B9%E5%B0%96%E7%AB%AF%E5%BA%94%E5%8A%9B%EF%BC%88Griffith%EF%BC%89"><span class="toc-number">4.6.</span> <span class="toc-text">§5-6 裂纹尖端应力（Griffith）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%8D%E5%8F%98%E6%B3%95%E8%A7%A3%E9%A2%98%E6%B5%81%E7%A8%8B%EF%BC%88%E6%A6%82%E8%A6%81%EF%BC%89"><span class="toc-number">4.6.1.</span> <span class="toc-text">复变法解题流程（概要）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3"><span class="toc-number">5.</span> <span class="toc-text">相关</span></a></li></ol></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/project/js/utils.js?v=5.5.4"></script><script src="/project/js/main.js?v=5.5.4"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@19.1.3/dist/lazyload.iife.min.js"></script><div class="js-pjax"></div><script src="/project/js/sakura.js"></script><script src="/project/js/rain.js"></script><script src="/project/js/custom.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="可搜索标题、标签以及文章内任意内容" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/project/js/search/local-search.js?v=5.5.4"></script></div></div></body></html>

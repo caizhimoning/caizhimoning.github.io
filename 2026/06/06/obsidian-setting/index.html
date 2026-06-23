@@ -1,0 +1,436 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Obsidian 设置：字体、外观与 Properties | Moning's Blog</title><meta name="author" content="caizhimoning"><meta name="copyright" content="caizhimoning"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="界面发虚、中文变 □（tofu）、Properties 显示异常，多半是 字体与外观 未配好。WSLg 下写中文需 fcitx5；本库提供 一键启动脚本（输入法 + Obsidian）。用法与双链见 Obsidian 学习与用法手册；Win&#x2F;WSL 安装见 Obsidian 在 Windows 与 WSL2 中的安装与库路径选择。 一、中文方框：安装系统字体（WSL &#x2F; Lin">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Obsidian 设置：字体、外观与 Properties">
+<meta property="og:url" content="http://caizhimoning.github.io/project/2026/06/06/obsidian-setting/index.html">
+<meta property="og:site_name" content="Moning&#39;s Blog">
+<meta property="og:description" content="界面发虚、中文变 □（tofu）、Properties 显示异常，多半是 字体与外观 未配好。WSLg 下写中文需 fcitx5；本库提供 一键启动脚本（输入法 + Obsidian）。用法与双链见 Obsidian 学习与用法手册；Win&#x2F;WSL 安装见 Obsidian 在 Windows 与 WSL2 中的安装与库路径选择。 一、中文方框：安装系统字体（WSL &#x2F; Lin">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=800&q=80">
+<meta property="article:published_time" content="2026-06-09T09:32:17.000Z">
+<meta property="article:modified_time" content="2026-06-23T09:17:07.552Z">
+<meta property="article:author" content="caizhimoning">
+<meta property="article:tag" content="Obsidian">
+<meta property="article:tag" content="WSL2">
+<meta property="article:tag" content="设置">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=800&q=80"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Obsidian 设置：字体、外观与 Properties",
+  "url": "http://caizhimoning.github.io/project/2026/06/06/obsidian-setting/",
+  "image": "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=800&q=80",
+  "datePublished": "2026-06-09T09:32:17.000Z",
+  "dateModified": "2026-06-23T09:17:07.552Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "caizhimoning",
+      "url": "http://caizhimoning.github.io/project"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/project/img/favicon.svg"><link rel="canonical" href="http://caizhimoning.github.io/project/2026/06/06/obsidian-setting/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/project/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&amp;family=Noto+Serif+SC:wght@500;600;700&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/project/',
+  algolia: undefined,
+  localSearch: {"path":"/project/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"pagination":{"enable":true,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'medium_zoom',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: true,
+  islazyloadPlugin: true,
+  isAnchor: false,
+  percent: {
+    toc: false,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Obsidian 设置：字体、外观与 Properties',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/project/css/layout.css"><link rel="stylesheet" href="/project/css/custom.css"><link rel="stylesheet" href="/project/css/archive.css"><link rel="stylesheet" href="/project/css/projects.css"><link rel="stylesheet" href="/project/css/post-toc.css"><link rel="stylesheet" href="/project/css/post-tag-panel.css"><meta name="generator" content="Hexo 8.1.2"><script id="post-tag-index-data" type="application/json">{"posts":[{"path":"/2026/06/11/em-li-2021-fundamentals/","title":"弹性力学（李刚）· 绪论与基本方程","tags":["弹性力学","李刚"]},{"path":"/2026/06/11/em-li-2021-space-torsion/","title":"弹性力学（李刚）· 空间问题与扭转","tags":["弹性力学","空间问题","扭转"]},{"path":"/2026/06/11/em-li-2021-variational-fem/","title":"弹性力学（李刚）· 能量原理与有限元","tags":["弹性力学","变分法","有限元"]},{"path":"/2026/06/11/em-li-2021/","title":"弹性力学学习笔记（李刚 · 2021）","tags":["弹性力学","李刚","科学出版社"]},{"path":"/2026/06/11/em-xu-vol1-plane-solution/","title":"弹性力学（徐芝纶上册）· 平面问题解答","tags":["弹性力学","复变函数"]},{"path":"/2026/06/11/em-xu-vol1-plane-theory/","title":"弹性力学（徐芝纶上册）· 绪论与平面理论","tags":["弹性力学","徐芝纶"]},{"path":"/2026/06/11/em-li-2021-plane/","title":"弹性力学（李刚）· 平面问题","tags":["弹性力学","平面问题"]},{"path":"/2026/06/11/em-xu-vol1-space-torsion-energy/","title":"弹性力学（徐芝纶上册）· 空间·扭转·能量·波","tags":["弹性力学","弹性波"]},{"path":"/2026/06/11/em-xu-vol1-temperature-fdm/","title":"弹性力学（徐芝纶上册）· 温度应力与差分法","tags":["弹性力学","热应力"]},{"path":"/2026/06/11/em-xu-vol1/","title":"弹性力学学习笔记（徐芝纶 · 上册）","tags":["弹性力学","徐芝纶","高等教育出版社"]},{"path":"/2026/06/11/fm-wu-ch01-field/","title":"流体力学（吴望一）· 场论与张量","tags":["流体力学","场论"]},{"path":"/2026/06/11/em-xu-vol2/","title":"弹性力学学习笔记（徐芝纶 · 下册）","tags":["弹性力学","薄板","壳体"]},{"path":"/2026/06/11/fm-wu-ch02-03/","title":"流体力学（吴望一）· 基本概念与方程组","tags":["流体力学"]},{"path":"/2026/06/11/fm-wu-ch04-07/","title":"流体力学（吴望一）· 涡旋·静力学·理想流","tags":["流体力学","伯努利"]},{"path":"/2026/06/11/em-xu-vol2-shell/","title":"弹性力学（徐芝纶下册）· 壳体理论","tags":["弹性力学","壳体"]},{"path":"/2026/06/11/fm-wu-ch08-10/","title":"流体力学（吴望一）· 波浪·黏性·气体动力学","tags":["流体力学","气体动力学"]},{"path":"/2026/06/11/fm-wu/","title":"流体力学学习笔记（吴望一）","tags":["流体力学","吴望一","北京大学出版社"]},{"path":"/2026/06/11/em-xu-vol2-plate/","title":"弹性力学（徐芝纶下册）· 薄板问题","tags":["弹性力学","薄板"]},{"path":"/2026/06/11/tm-hit-8-vol2-analytical/","title":"理论力学（Ⅱ）· 分析力学基础","tags":["理论力学","分析力学","拉格朗日方程"]},{"path":"/2026/06/11/tm-hit-8-vol2-collision/","title":"理论力学（Ⅱ）· 碰撞","tags":["理论力学","碰撞","恢复因数"]},{"path":"/2026/06/11/tm-hit-8-vol2-gyroscope/","title":"理论力学（Ⅱ）· 定点运动与陀螺","tags":["理论力学","陀螺仪","定点运动"]},{"path":"/2026/06/11/tm-hit-8-vol2-non-inertial/","title":"理论力学（Ⅱ）· 非惯性系中的质点动力学","tags":["理论力学","非惯性系","科氏力"]},{"path":"/2026/06/11/tm-hit-8-vol2-variable-mass/","title":"理论力学（Ⅱ）· 变质量动力学","tags":["理论力学","变质量","火箭方程"]},{"path":"/2026/06/11/tm-hit-8-vol2-vibration/","title":"理论力学（Ⅱ）· 机械振动基础","tags":["理论力学","机械振动","固有频率"]},{"path":"/2026/06/11/tm-hit-8-vol2/","title":"理论力学（Ⅱ）学习笔记","tags":["理论力学","哈尔滨工业大学","第8版"]},{"path":"/2026/06/10/machine-learning/","title":"机器学习课程学习笔记","tags":["机器学习","监督学习","深度学习","数学基础"]},{"path":"/2026/06/09/wsl-setting/","title":"WSL 常用设置：Linux 应用打开 Windows 浏览器","tags":["WSL2","Obsidian","浏览器"]},{"path":"/2026/06/09/obsidian-plugins/","title":"Obsidian 社区插件与本库选用","tags":["Obsidian","插件"]},{"path":"/2026/06/06/obsidian-setting/","title":"Obsidian 设置：字体、外观与 Properties","tags":["WSL2","Obsidian","设置"]},{"path":"/2026/06/08/tm-hit-8-vol1-dynamics/","title":"理论力学（Ⅰ）· 动力学","tags":["理论力学","动力学"]},{"path":"/2026/06/08/tm-hit-8-vol1-kinematics/","title":"理论力学（Ⅰ）· 运动学","tags":["理论力学","运动学"]},{"path":"/2026/06/08/tm-hit-8-vol1-statics/","title":"理论力学（Ⅰ）· 静力学","tags":["理论力学","静力学"]},{"path":"/2026/06/08/tm-hit-8-vol1/","title":"理论力学（Ⅰ）学习笔记","tags":["理论力学","哈尔滨工业大学","第8版"]},{"path":"/2026/06/07/cursor-guide/","title":"Cursor 使用入门：AGENTS.md、Rules 与 WSL 全局约定","tags":["Cursor","AI","工作流","WSL2"]},{"path":"/2026/06/06/markdown-syntax/","title":"Markdown 语法入门","tags":["Markdown","写作","语法"]},{"path":"/2026/06/05/zotero-guide/","title":"Zotero 使用指南","tags":["ai生成","学术写作","Zotero","文献管理"]},{"path":"/2026/06/05/abaqus-python/","title":"Abaqus Python 使用入门","tags":["ai生成","Abaqus","仿真","Python"]},{"path":"/2026/06/05/abaqus-install/","title":"Abaqus 安装与许可配置","tags":["ai生成","Abaqus","仿真","安装"]},{"path":"/2026/06/05/latex-syntax/","title":"LaTeX 语法入门","tags":["ai生成","LaTeX","学术写作","排版"]},{"path":"/2026/06/05/hardware-ram-slots/","title":"内存条安装：插槽位置与双通道规则","tags":["ai生成","装机","内存","双通道"]},{"path":"/2026/06/05/hardware-pc-build/","title":"DIY 装机流程：从配件到点亮","tags":["ai生成","装机","DIY"]},{"path":"/2026/06/05/hardware-storage/","title":"存储选购：固态、机械硬盘与接口","tags":["ai生成","装机","存储","SSD","NVMe"]},{"path":"/2026/06/05/hardware-cooler/","title":"散热器选购：风冷、水冷与机箱风扇","tags":["ai生成","装机","散热器","风冷","水冷"]},{"path":"/2026/06/05/hardware-case/","title":"机箱选购：规格、风道与兼容性","tags":["ai生成","机箱","装机","散热"]},{"path":"/2026/06/05/hardware-psu/","title":"电源选购：功率、认证与模组","tags":["ai生成","装机","电源","PSU"]},{"path":"/2026/06/05/hardware-ram/","title":"内存选购：DDR4 / DDR5、品牌与频率","tags":["ai生成","装机","内存","RAM","DDR5"]},{"path":"/2026/06/05/hardware-motherboard/","title":"主板选购：芯片组、命名与平台搭配","tags":["ai生成","装机","Intel","AMD","主板"]},{"path":"/2026/06/05/hardware-gpu/","title":"显卡选购：品牌、命名与性能分级","tags":["ai生成","装机","AMD","GPU","显卡","NVIDIA"]},{"path":"/2026/06/05/hardware-cpu/","title":"CPU 选购：品牌、命名与性能分级","tags":["ai生成","装机","CPU","Intel","AMD"]},{"path":"/2026/06/05/ssh-basics/","title":"SSH 基础：远程登录与密钥认证","tags":["GitHub","Linux","SSH","安全"]},{"path":"/2026/06/05/git-basics/","title":"Git 基础：版本管理与常用操作","tags":["Linux","Git","版本控制"]},{"path":"/2026/06/05/hexo-github-publish/","title":"Hexo 博客发布 GitHub 与自动化","tags":["Hexo","GitHub","部署"]},{"path":"/2026/06/05/obsidian-win-wsl-install/","title":"Obsidian 在 Windows 与 WSL2 中的安装与库路径选择","tags":["安装","WSL2","Obsidian","Windows"]},{"path":"/2026/06/05/wsl2-install/","title":"WSL2 安装与首次配置","tags":["安装","WSL2","Windows"]},{"path":"/2026/06/05/wsl2-basic-commands/","title":"WSL2 基本命令","tags":["WSL2","Windows","命令行"]},{"path":"/2026/06/05/cursor-agent-reading-order/","title":"Agent 读库顺序与 Reuse（草案）","tags":["Cursor","AI","工作流","知识管理"]},{"path":"/2026/06/04/obsidian-guide/","title":"Obsidian 学习与用法手册","tags":["知识管理","Hexo","WSL2","Obsidian"]},{"path":"/2026/06/03/linux-filesystem/","title":"Linux 文件系统","tags":["Linux","文件系统"]},{"path":"/2026/06/01/welcome-to-my-blog/","title":"欢迎来到我的博客","tags":["欢迎","博客"]}]}</script><script id="post-header-meta" type="application/json">{"title":"Obsidian 设置：字体、外观与 Properties","subtitle":"WSL2 中文显示、fcitx5 输入法、一键启动、appearance.json","series":"Hexo-Butterfly","seriesPath":"","author":"","readTime":"10 分钟","date":"2026-06-09","updated":"2026-06-23","tags":[{"name":"WSL2","path":"tags/WSL2/"},{"name":"Obsidian","path":"tags/Obsidian/"},{"name":"设置","path":"tags/设置/"}],"categories":[],"cover":"https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=800&q=80"}</script></head><body><div class="bg-animation" id="web_bg" style="background: transparent;"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/project/img/avatar.svg" onerror="this.onerror=null;this.src='/project/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/project/archives/"><div class="headline">文章</div><div class="length-num">59</div></a><a href="/project/tags/"><div class="headline">标签</div><div class="length-num">101</div></a><a href="/project/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/project/archives/"><i class="fa-fw fas fa-book-open"></i><span> 文章</span></a></div><div class="menus_item"><a class="site-page" href="/project/projects/"><i class="fa-fw fas fa-code-branch"></i><span> 项目</span></a></div><div class="menus_item"><a class="site-page" href="/project/dynamics/"><i class="fa-fw fas fa-comment-dots"></i><span> 动态</span></a></div><div class="menus_item"><a class="site-page" href="/project/domain/"><i class="fa-fw fas fa-layer-group"></i><span> 专题</span></a></div><div class="menus_item"><a class="site-page" href="/project/about/"><i class="fa-fw fas fa-user"></i><span> 关于我</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img fixed" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/project/"><img class="site-icon" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/project/img/logo.svg" alt="Logo"></a><a class="nav-page-title" href="/project/"><span class="site-name">Obsidian 设置：字体、外观与 Properties</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/project/archives/"><i class="fa-fw fas fa-book-open"></i><span> 文章</span></a></div><div class="menus_item"><a class="site-page" href="/project/projects/"><i class="fa-fw fas fa-code-branch"></i><span> 项目</span></a></div><div class="menus_item"><a class="site-page" href="/project/dynamics/"><i class="fa-fw fas fa-comment-dots"></i><span> 动态</span></a></div><div class="menus_item"><a class="site-page" href="/project/domain/"><i class="fa-fw fas fa-layer-group"></i><span> 专题</span></a></div><div class="menus_item"><a class="site-page" href="/project/about/"><i class="fa-fw fas fa-user"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">Obsidian 设置：字体、外观与 Properties</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon far fa-calendar-alt"></i><span class="post-meta-label">发表于</span><time datetime="2026-06-09T09:32:17.000Z" title="发表于 2026-06-09 17:32:17">2026-06-09</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="container post-content" id="article-container"><p>界面发虚、中文变 <strong>□（tofu）</strong>、Properties 显示异常，多半是 <strong>字体与外观</strong> 未配好。WSLg 下写中文需 <strong>fcitx5</strong>；本库提供 <strong>一键启动脚本</strong>（输入法 + Obsidian）。用法与双链见 <a href="/project/2026/06/04/obsidian-guide/">Obsidian 学习与用法手册</a>；Win&#x2F;WSL 安装见 <a href="/project/2026/06/05/obsidian-win-wsl-install/">Obsidian 在 Windows 与 WSL2 中的安装与库路径选择</a>。</p>
+<h2 id="一、中文方框：安装系统字体（WSL-Linux）"><a href="#一、中文方框：安装系统字体（WSL-Linux）" class="headerlink" title="一、中文方框：安装系统字体（WSL &#x2F; Linux）"></a>一、中文方框：安装系统字体（WSL &#x2F; Linux）</h2><p>Properties 里 <code>title</code>、<code>subtitle</code> 等出现方框，说明 <strong>系统缺少 CJK 字体</strong>，Obsidian 界面字体无法渲染汉字。</p>
+<p>在 WSL Ubuntu 终端执行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get update</span><br><span class="line"><span class="built_in">sudo</span> apt-get install -y fonts-noto-cjk fonts-noto-cjk-extra</span><br></pre></td></tr></table></figure>
+
+<p>安装后必须：</p>
+<ol>
+<li><strong>完全退出</strong> Obsidian（不是只关窗口）</li>
+<li>重新执行 <code>obsidian &quot;/home/moning/obsidian_dir&quot;</code></li>
+<li>仍异常时：<code>wsl --shutdown</code>，再进 WSL 后重开 Obsidian</li>
+</ol>
+<h3 id="验证字体是否可用"><a href="#验证字体是否可用" class="headerlink" title="验证字体是否可用"></a>验证字体是否可用</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fc-list :lang=zh family | <span class="built_in">head</span> -5</span><br></pre></td></tr></table></figure>
+
+<p>应能看到 <code>Noto Sans CJK SC</code>、<code>Noto Serif CJK SC</code> 等。</p>
+<h2 id="二、标题-Emoji-变方框（如-welcome-to-my-blog）"><a href="#二、标题-Emoji-变方框（如-welcome-to-my-blog）" class="headerlink" title="二、标题 Emoji 变方框（如 welcome-to-my-blog）"></a>二、标题 Emoji 变方框（如 welcome-to-my-blog）</h2><p><code>welcome-to-my-blog</code> 等笔记标题里的 <strong>🌟 📝 🎯</strong> 是 <strong>Emoji</strong>，不是汉字。缺 <strong>彩色 Emoji 字体</strong> 时会显示成方框（☒）。</p>
+<h3 id="安装-Noto-Color-Emoji"><a href="#安装-Noto-Color-Emoji" class="headerlink" title="安装 Noto Color Emoji"></a>安装 Noto Color Emoji</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get install -y fonts-noto-color-emoji</span><br><span class="line">fc-cache -fv</span><br></pre></td></tr></table></figure>
+
+<p>安装后<strong>完全退出并重启 Obsidian</strong>。验证：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fc-list | grep -i <span class="string">&quot;Noto Color Emoji&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>本库 <code>appearance.json</code> 已在界面&#x2F;正文&#x2F;代码字体栈末尾加入 <code>Noto Color Emoji</code> 作为回退。</p>
+<h3 id="若仍不显示"><a href="#若仍不显示" class="headerlink" title="若仍不显示"></a>若仍不显示</h3><ol>
+<li><strong>设置 → 外观 → 字体</strong>：在正文字体栈中确认系统能选到 Noto Color Emoji（部分版本仅走系统 fontconfig，列表里可能不显示属正常）</li>
+<li>或把标题改成纯文字，例如 <code>## 关于这个博客</code>（去掉 Emoji），Hexo 与 Obsidian 均不依赖 Emoji 字体</li>
+</ol>
+<h2 id="三、本库-appearance-json"><a href="#三、本库-appearance-json" class="headerlink" title="三、本库 appearance.json"></a>三、本库 appearance.json</h2><p>路径：<code>.obsidian/appearance.json</code>（已写入，一般无需手改）</p>
+<table>
+<thead>
+<tr>
+<th>项</th>
+<th>当前值</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>theme</code></td>
+<td><code>obsidian</code></td>
+<td>内置浅色&#x2F;深色主题名</td>
+</tr>
+<tr>
+<td><code>baseFontSize</code></td>
+<td><code>16</code></td>
+<td>正文字号</td>
+</tr>
+<tr>
+<td><code>interfaceFontFamily</code></td>
+<td>Noto Sans CJK SC, …</td>
+<td>侧栏、菜单、Properties</td>
+</tr>
+<tr>
+<td><code>textFontFamily</code></td>
+<td>Noto Serif CJK SC, …</td>
+<td>编辑区正文</td>
+</tr>
+<tr>
+<td><code>monospaceFontFamily</code></td>
+<td>JetBrains Mono, Noto Sans Mono CJK SC</td>
+<td>代码块、行内代码</td>
+</tr>
+</tbody></table>
+<p>若界面仍无中文，在 Obsidian 内：<strong>设置 → 外观 → 字体</strong>，三项分别手动选 <strong>Noto Sans CJK SC</strong>（界面）、<strong>Noto Serif CJK SC</strong>（正文）、<strong>Noto Sans Mono CJK SC</strong>（代码）。</p>
+<h3 id="可选：安装-JetBrains-Mono"><a href="#可选：安装-JetBrains-Mono" class="headerlink" title="可选：安装 JetBrains Mono"></a>可选：安装 JetBrains Mono</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get install -y fonts-jetbrains-mono</span><br></pre></td></tr></table></figure>
+
+<p>未安装时代码字体列表会回退到 Noto Mono CJK，不影响中文。</p>
+<h2 id="四、Properties-视图-vs-源码"><a href="#四、Properties-视图-vs-源码" class="headerlink" title="四、Properties 视图 vs 源码"></a>四、Properties 视图 vs 源码</h2><p>Obsidian 1.4+ 默认把 YAML front matter 渲染为 <strong>Properties 表单</strong>（键值列表）。</p>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>设置路径</th>
+<th>适合</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>表单（默认）</td>
+<td>编辑器 → 文档中的 Properties → <strong>显示</strong></td>
+<td>填 <code>title</code>、<code>tags</code> 等</td>
+</tr>
+<tr>
+<td>源码</td>
+<td>同上 → <strong>源码（Source）</strong></td>
+<td>与 Hexo、Git diff 对齐</td>
+</tr>
+</tbody></table>
+<p>Hexo 发布读的是 <strong>YAML 文本</strong>，两种视图数据相同。写博客 front matter 时若需对照模板，可临时切源码。</p>
+<h3 id="常用-Properties-类型"><a href="#常用-Properties-类型" class="headerlink" title="常用 Properties 类型"></a>常用 Properties 类型</h3><ul>
+<li>文本：<code>title</code>、<code>subtitle</code></li>
+<li>列表：<code>tags</code>（每项一行）</li>
+<li>数字：<code>sticky</code></li>
+<li>布尔：<code>comment</code>（勾选框）</li>
+</ul>
+<p>在表单视图点属性名旁 <strong>+</strong> 可新增字段；与 [[Templates&#x2F;post-knowledge]] 字段保持一致即可。</p>
+<h2 id="五、主题与观感"><a href="#五、主题与观感" class="headerlink" title="五、主题与观感"></a>五、主题与观感</h2><h3 id="内置主题"><a href="#内置主题" class="headerlink" title="内置主题"></a>内置主题</h3><p><strong>设置 → 外观 → 主题</strong>：<code>Obsidian</code>（默认）、<code>Moonstone</code> 等，可切换浅色&#x2F;深色。</p>
+<h3 id="社区主题"><a href="#社区主题" class="headerlink" title="社区主题"></a>社区主题</h3><ol>
+<li><strong>设置 → 外观 → 主题</strong> → <strong>管理</strong></li>
+<li>搜索并安装，例如：<code>Minimal</code>、<code>Blue Topaz</code>、<code>Things</code></li>
+<li>启用后可在「CSS 代码片段」里微调（进阶）</li>
+</ol>
+<p>社区主题可能影响 Properties、表格样式；若与 Hexo 预览差异大，写作时以 <strong>默认主题 + 本库字体</strong> 为准。</p>
+<h3 id="与博客视觉的区别"><a href="#与博客视觉的区别" class="headerlink" title="与博客视觉的区别"></a>与博客视觉的区别</h3><p>博客「樱花风」来自 <strong>Hexo Butterfly</strong>，与 Obsidian 编辑器无关。Obsidian 只负责 <strong>写作体验</strong>；发布后在浏览器看最终版。</p>
+<h2 id="六、其它常用设置"><a href="#六、其它常用设置" class="headerlink" title="六、其它常用设置"></a>六、其它常用设置</h2><table>
+<thead>
+<tr>
+<th>需求</th>
+<th>设置位置</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>新笔记默认进收件箱</td>
+<td>文件与链接 → 新建笔记存放位置 → <code>00-inbox</code></td>
+</tr>
+<tr>
+<td>附件目录</td>
+<td>文件与链接 → 附件默认路径 → <code>notes/attachments</code></td>
+</tr>
+<tr>
+<td>模板文件夹</td>
+<td>核心插件 → 模板 → 模板文件夹 <code>Templates</code></td>
+</tr>
+<tr>
+<td>日记模板</td>
+<td><code>.obsidian/daily-notes.json</code> → <code>Templates/inbox-capture</code></td>
+</tr>
+<tr>
+<td>始终更新链接</td>
+<td>文件与链接 → 自动更新内部链接（本库已开）</td>
+</tr>
+</tbody></table>
+<h2 id="七、WSLg-中文输入法与一键启动"><a href="#七、WSLg-中文输入法与一键启动" class="headerlink" title="七、WSLg 中文输入法与一键启动"></a>七、WSLg 中文输入法与一键启动</h2><p>WSL 内 Obsidian 是 Electron&#x2F;GTK 应用，<strong>不能</strong>直接用 Windows 输入法。本库用 <strong>fcitx5 + 拼音</strong>，并通过脚本在启动 Obsidian 前自动拉起输入法。</p>
+<h3 id="脚本一览"><a href="#脚本一览" class="headerlink" title="脚本一览"></a>脚本一览</h3><table>
+<thead>
+<tr>
+<th>脚本</th>
+<th>作用</th>
+<th>何时运行</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>scripts/install-chinese-ime-wsl.sh</code></td>
+<td>安装 fcitx5、拼音、GTK&#x2F;Qt 前端；写入 <code>~/.config/fcitx5</code> 与 <code>~/.bashrc</code> 环境变量</td>
+<td><strong>一次性</strong>（需 sudo）</td>
+</tr>
+<tr>
+<td><code>scripts/start-fcitx5-wsl.sh</code></td>
+<td>启动 fcitx5（已运行则跳过）</td>
+<td>单独调试输入法，或由一键脚本调用</td>
+</tr>
+<tr>
+<td><code>scripts/obsidian-wsl.sh</code></td>
+<td><strong>一键启动</strong>：fcitx5 → Obsidian</td>
+<td><strong>日常</strong></td>
+</tr>
+<tr>
+<td><code>scripts/setup-obsidian-launcher.ps1</code></td>
+<td>在 Windows 桌面创建 <code>Obsidian-WSL.lnk</code> 快捷方式</td>
+<td><strong>一次性</strong>（PowerShell）</td>
+</tr>
+<tr>
+<td><code>scripts/install-wsl-browser-bridge.sh</code></td>
+<td>Linux 点链接 → Windows Chrome（<code>wslview</code>）</td>
+<td><strong>一次性</strong>（需 sudo）</td>
+</tr>
+</tbody></table>
+<p>Linux 应用打开网页链接（Obsidian 点 <code>source</code> 等）详见 <a href="/project/2026/06/09/wsl-setting/">WSL 常用设置：Linux 应用打开 Windows 浏览器</a>。</p>
+<p>可选（Win 截图 Ctrl+V 贴图，WSLg 下效果因环境而异）：</p>
+<table>
+<thead>
+<tr>
+<th>脚本</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>scripts/install-clipboard-bridge-wsl.sh</code></td>
+<td>安装 <code>wsl-clipboard-png-bridge</code>（BMP→PNG）</td>
+</tr>
+<tr>
+<td><code>scripts/start-clipboard-bridge-wsl.sh</code></td>
+<td>确保桥接守护进程在运行</td>
+</tr>
+<tr>
+<td><code>scripts/uninstall-clipboard-bridge-wsl.sh</code></td>
+<td>卸载桥接</td>
+</tr>
+</tbody></table>
+<h3 id="1-安装输入法（一次性）"><a href="#1-安装输入法（一次性）" class="headerlink" title="1. 安装输入法（一次性）"></a>1. 安装输入法（一次性）</h3><p>在 WSL 终端执行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash ~/obsidian_dir/scripts/install-chinese-ime-wsl.sh</span><br></pre></td></tr></table></figure>
+
+<p>脚本会：</p>
+<ul>
+<li>安装 <code>fcitx5</code>、<code>fcitx5-chinese-addons</code>、GTK&#x2F;Qt 前端等</li>
+<li>在 <code>~/.config/fcitx5/conf/wayland.conf</code> 中 <strong>禁用 Wayland 模块</strong>（WSLg 下否则 fcitx5 易秒退）</li>
+<li>默认输入法组：<strong>美式键盘 + 拼音</strong></li>
+<li>在 <code>~/.bashrc</code> 写入 <code>GTK_IM_MODULE=fcitx</code> 等（<strong>不会</strong>每次开终端自动启动 fcitx5）</li>
+</ul>
+<p>安装后按提示验证：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bash ~/obsidian_dir/scripts/start-fcitx5-wsl.sh</span><br><span class="line">bash ~/obsidian_dir/scripts/obsidian-wsl.sh</span><br></pre></td></tr></table></figure>
+
+<p>在 Obsidian 编辑区按 <strong>Ctrl+Space</strong> 切换中&#x2F;英。</p>
+<h3 id="2-日常一键启动"><a href="#2-日常一键启动" class="headerlink" title="2. 日常一键启动"></a>2. 日常一键启动</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash ~/obsidian_dir/scripts/obsidian-wsl.sh</span><br></pre></td></tr></table></figure>
+
+<p>默认打开库 <code>/home/moning/obsidian_dir</code>；指定其它库：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash ~/obsidian_dir/scripts/obsidian-wsl.sh /path/to/vault</span><br></pre></td></tr></table></figure>
+
+<p><code>obsidian-wsl.sh</code> 依次执行：</p>
+<ol>
+<li><code>start-fcitx5-wsl.sh</code> — 启动输入法（<code>fcitx5 --disable=wayland --disable=waylandim</code>）</li>
+<li>若已装 <code>wslview</code> 则设置 <code>BROWSER=wslview</code>（点链接用 Windows Chrome）</li>
+<li>设置 <code>GDK_BACKEND=x11</code>、<code>ELECTRON_OZONE_PLATFORM_HINT=x11</code> 等，再 <code>exec obsidian</code></li>
+</ol>
+<p><strong>不要</strong>在已配好输入法的环境里单独执行裸 <code>obsidian .</code>，否则可能缺 fcitx5 或环境变量不全。</p>
+<p>若将 Obsidian 加入 PATH（<code>~/.local/bin/obsidian</code>），该命令是 <strong>CLI 小工具</strong>，不能用来启动窗口；会报 <code>The CLI is unable to find Obsidian</code>。<code>obsidian-wsl.sh</code> 已改为调用 <code>/opt/Obsidian/obsidian</code> 主程序。</p>
+<h3 id="3-Windows-桌面快捷方式（可选）"><a href="#3-Windows-桌面快捷方式（可选）" class="headerlink" title="3. Windows 桌面快捷方式（可选）"></a>3. Windows 桌面快捷方式（可选）</h3><p>在 <strong>Windows PowerShell</strong> 执行（发行版名非 <code>Ubuntu</code> 时改路径中的名称）：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">powershell <span class="literal">-ExecutionPolicy</span> Bypass <span class="operator">-File</span> <span class="string">&quot;\\wsl<span class="variable">$</span>\Ubuntu\home\moning\obsidian_dir\scripts\setup-obsidian-launcher.ps1&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>会在桌面生成 <strong>Obsidian-WSL.lnk</strong>，双击等价于：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl.exe -d Ubuntu -e bash -lc &quot;/home/moning/obsidian_dir/scripts/obsidian-wsl.sh&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-截图与剪贴板（补充）"><a href="#4-截图与剪贴板（补充）" class="headerlink" title="4. 截图与剪贴板（补充）"></a>4. 截图与剪贴板（补充）</h3><ul>
+<li>WSLg 下 <strong>Linux 截图工具</strong>（如 Flameshot）通常不可用；<strong>Win+Shift+S</strong> → 保存到 <code>notes/attachments/</code> → Obsidian <strong>拖入</strong> 最稳。</li>
+<li>若需尝试 <strong>Ctrl+V 贴 Windows 截图</strong>，可安装剪贴板桥接（见上表）；本环境实测 <code>wl-paste</code> 读 BMP 常失败，桥接未必生效。</li>
+</ul>
+<p>验证 Linux 剪贴板类型（截图后）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wl-paste -l</span><br></pre></td></tr></table></figure>
+
+<h2 id="八、排错清单"><a href="#八、排错清单" class="headerlink" title="八、排错清单"></a>八、排错清单</h2><table>
+<thead>
+<tr>
+<th>现象</th>
+<th>处理</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>全局中文方框</td>
+<td>装 <code>fonts-noto-cjk</code>，重启 Obsidian</td>
+</tr>
+<tr>
+<td>仅 Emoji（🌟📝）方框</td>
+<td>装 <code>fonts-noto-color-emoji</code>，重启 Obsidian</td>
+</tr>
+<tr>
+<td>仅代码块方框</td>
+<td>装 <code>fonts-jetbrains-mono</code> 或改 monospace 为 Noto Sans Mono CJK SC</td>
+</tr>
+<tr>
+<td>Properties 键名英文、值方框</td>
+<td>同上；检查界面字体</td>
+</tr>
+<tr>
+<td>Obsidian 里打不出中文</td>
+<td>先 <code>install-chinese-ime-wsl.sh</code>，再用 <code>obsidian-wsl.sh</code> 启动；<strong>Ctrl+Space</strong> 切到拼音</td>
+</tr>
+<tr>
+<td>fcitx5 启动后秒退</td>
+<td>确认 <code>~/.config/fcitx5/conf/wayland.conf</code> 中 <code>Enabled=False</code>；用 <code>start-fcitx5-wsl.sh</code> 启动</td>
+</tr>
+<tr>
+<td>保存后脚本报错 <code>^M</code></td>
+<td>勿用 Windows 版 Obsidian 打开 WSL 库；见 <a href="/project/2026/06/05/obsidian-win-wsl-install/">Obsidian 在 Windows 与 WSL2 中的安装与库路径选择</a></td>
+</tr>
+<tr>
+<td>Ctrl+V 贴不进截图</td>
+<td>用 Win+Shift+S 存 <code>notes/attachments/</code> 后拖入；或试 <code>install-clipboard-bridge-wsl.sh</code></td>
+</tr>
+<tr>
+<td>Obsidian 点链接无反应</td>
+<td>见 <a href="/project/2026/06/09/wsl-setting/">WSL 常用设置：Linux 应用打开 Windows 浏览器</a>：<code>install-wsl-browser-bridge.sh</code> + <code>obsidian-wsl.sh</code></td>
+</tr>
+<tr>
+<td>主题安装失败</td>
+<td>检查网络；国内可稍后重试或用手动 CSS 片段</td>
+</tr>
+</tbody></table>
+<h2 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h2><ul>
+<li><a href="/project/2026/06/04/obsidian-guide/">Obsidian 学习与用法手册</a> · <a href="/project/2026/06/05/obsidian-win-wsl-install/">Obsidian 在 Windows 与 WSL2 中的安装与库路径选择</a> · <a href="/project/2026/06/09/wsl-setting/">WSL 常用设置：Linux 应用打开 Windows 浏览器</a></li>
+<li><a href="/project/series/hexo-butterfly/">Obsidian</a> · <a href="/project/series/cursor/">Cursor</a></li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://caizhimoning.github.io/project">caizhimoning</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://caizhimoning.github.io/project/2026/06/06/obsidian-setting/">http://caizhimoning.github.io/project/2026/06/06/obsidian-setting/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://caizhimoning.github.io/project" target="_blank">Moning's Blog</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&amp;fit=crop&amp;w=800&amp;q=80" data-sites="wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/project/2026/06/09/obsidian-plugins/" title="Obsidian 社区插件与本库选用"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://images.unsplash.com/photo-1522441815192-d9f04eb0615c?auto=format&amp;fit=crop&amp;w=800&amp;q=80" onerror="onerror=null;src='/project/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">Obsidian 社区插件与本库选用</div></div><div class="info-2"><div class="info-item-1">本库在核心插件之外另装一批社区插件，覆盖网页剪藏、设置检索、增强搜索、最近文件与 PDF 阅读批注。安装路径：设置 → 社区插件 → 浏览；用法总览见 Obsidian 学习与用法手册，WSL 环境见 Obsidian 设置：字体、外...</div></div></div></a><a class="pagination-related" href="/project/2026/06/08/tm-hit-8-vol1-dynamics/" title="理论力学（Ⅰ）· 动力学"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&amp;fit=crop&amp;w=800&amp;q=80" onerror="onerror=null;src='/project/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">理论力学（Ⅰ）· 动力学</div></div><div class="info-2"><div class="info-item-1"> 总览 → 理论力学（Ⅰ）学习笔记 · 运动学 → 理论力学（Ⅰ）· 运动学   目录   章 节 跳转到    9 质点动力学的基本方程  [第九章 质点动力学的基本方程](#第九章 质点动力学的基本方程)    §9-1 动力学的...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/project/2026/06/04/obsidian-guide/" title="Obsidian 学习与用法手册"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=800&q=80" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-06-04</div><div class="info-item-2">Obsidian 学习与用法手册</div></div><div class="info-2"><div class="info-item-1">Obsidian 把笔记存成本地 .md 文件，用 双向链接 连成知识网络。本库 obsidian_dir 只负责写作；定稿后复制到 my_blog/source/_posts/... 发布。  设置与字体（中文方框、主题、Prope...</div></div></div></a><a class="pagination-related" href="/project/2026/06/05/obsidian-win-wsl-install/" title="Obsidian 在 Windows 与 WSL2 中的安装与库路径选择"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=800&q=80" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-06-05</div><div class="info-item-2">Obsidian 在 Windows 与 WSL2 中的安装与库路径选择</div></div><div class="info-2"><div class="info-item-1">同一套笔记库 obsidian_dir 可以放在 WSL 的 Linux 文件系统里（例如 /home/moning/obsidian_dir）。Windows 版 Obsidian 不要用资源管理器挂载出来的 L:、\\wsl$\....</div></div></div></a><a class="pagination-related" href="/project/2026/06/09/wsl-setting/" title="WSL 常用设置：Linux 应用打开 Windows 浏览器"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=800&q=80" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-06-09</div><div class="info-item-2">WSL 常用设置：Linux 应用打开 Windows 浏览器</div></div><div class="info-2"><div class="info-item-1">WSL 里通常不装图形浏览器；Linux 应用（如 Obsidian）点 http(s):// 链接时，需把请求转给 Windows 上的 Chrome。本库用 wslview（wslu 包）做桥接。输入法与 Obsidian 一键启...</div></div></div></a><a class="pagination-related" href="/project/2026/06/07/cursor-guide/" title="Cursor 使用入门：AGENTS.md、Rules 与 WSL 全局约定"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://images.unsplash.com/photo-1522441815192-d9f04eb0615c?auto=format&fit=crop&w=800&q=80" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-06-07</div><div class="info-item-2">Cursor 使用入门：AGENTS.md、Rules 与 WSL 全局约定</div></div><div class="info-2"><div class="info-item-1">在 Cursor 里用 AI 写笔记、生成原子知识时，需要让模型知道：本库怎么组织、博客怎么发布、以及 只能在 WSL Linux 文件系统里改文件。本文说明 AGENTS.md、项目 Rules（.mdc）、User Rules（全...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E4%B8%AD%E6%96%87%E6%96%B9%E6%A1%86%EF%BC%9A%E5%AE%89%E8%A3%85%E7%B3%BB%E7%BB%9F%E5%AD%97%E4%BD%93%EF%BC%88WSL-Linux%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">一、中文方框：安装系统字体（WSL &#x2F; Linux）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AA%8C%E8%AF%81%E5%AD%97%E4%BD%93%E6%98%AF%E5%90%A6%E5%8F%AF%E7%94%A8"><span class="toc-number">1.1.</span> <span class="toc-text">验证字体是否可用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%A0%87%E9%A2%98-Emoji-%E5%8F%98%E6%96%B9%E6%A1%86%EF%BC%88%E5%A6%82-welcome-to-my-blog%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">二、标题 Emoji 变方框（如 welcome-to-my-blog）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-Noto-Color-Emoji"><span class="toc-number">2.1.</span> <span class="toc-text">安装 Noto Color Emoji</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8B%A5%E4%BB%8D%E4%B8%8D%E6%98%BE%E7%A4%BA"><span class="toc-number">2.2.</span> <span class="toc-text">若仍不显示</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E6%9C%AC%E5%BA%93-appearance-json"><span class="toc-number">3.</span> <span class="toc-text">三、本库 appearance.json</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E9%80%89%EF%BC%9A%E5%AE%89%E8%A3%85-JetBrains-Mono"><span class="toc-number">3.1.</span> <span class="toc-text">可选：安装 JetBrains Mono</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81Properties-%E8%A7%86%E5%9B%BE-vs-%E6%BA%90%E7%A0%81"><span class="toc-number">4.</span> <span class="toc-text">四、Properties 视图 vs 源码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8-Properties-%E7%B1%BB%E5%9E%8B"><span class="toc-number">4.1.</span> <span class="toc-text">常用 Properties 类型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E4%B8%BB%E9%A2%98%E4%B8%8E%E8%A7%82%E6%84%9F"><span class="toc-number">5.</span> <span class="toc-text">五、主题与观感</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E7%BD%AE%E4%B8%BB%E9%A2%98"><span class="toc-number">5.1.</span> <span class="toc-text">内置主题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BE%E5%8C%BA%E4%B8%BB%E9%A2%98"><span class="toc-number">5.2.</span> <span class="toc-text">社区主题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8E%E5%8D%9A%E5%AE%A2%E8%A7%86%E8%A7%89%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">5.3.</span> <span class="toc-text">与博客视觉的区别</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E5%85%B6%E5%AE%83%E5%B8%B8%E7%94%A8%E8%AE%BE%E7%BD%AE"><span class="toc-number">6.</span> <span class="toc-text">六、其它常用设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81WSLg-%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95%E4%B8%8E%E4%B8%80%E9%94%AE%E5%90%AF%E5%8A%A8"><span class="toc-number">7.</span> <span class="toc-text">七、WSLg 中文输入法与一键启动</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%84%9A%E6%9C%AC%E4%B8%80%E8%A7%88"><span class="toc-number">7.1.</span> <span class="toc-text">脚本一览</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%AE%89%E8%A3%85%E8%BE%93%E5%85%A5%E6%B3%95%EF%BC%88%E4%B8%80%E6%AC%A1%E6%80%A7%EF%BC%89"><span class="toc-number">7.2.</span> <span class="toc-text">1. 安装输入法（一次性）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%97%A5%E5%B8%B8%E4%B8%80%E9%94%AE%E5%90%AF%E5%8A%A8"><span class="toc-number">7.3.</span> <span class="toc-text">2. 日常一键启动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Windows-%E6%A1%8C%E9%9D%A2%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89"><span class="toc-number">7.4.</span> <span class="toc-text">3. Windows 桌面快捷方式（可选）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%88%AA%E5%9B%BE%E4%B8%8E%E5%89%AA%E8%B4%B4%E6%9D%BF%EF%BC%88%E8%A1%A5%E5%85%85%EF%BC%89"><span class="toc-number">7.5.</span> <span class="toc-text">4. 截图与剪贴板（补充）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AB%E3%80%81%E6%8E%92%E9%94%99%E6%B8%85%E5%8D%95"><span class="toc-number">8.</span> <span class="toc-text">八、排错清单</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E9%93%BE%E6%8E%A5"><span class="toc-number">9.</span> <span class="toc-text">相关链接</span></a></li></ol></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/project/js/utils.js?v=5.5.4"></script><script src="/project/js/main.js?v=5.5.4"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@19.1.3/dist/lazyload.iife.min.js"></script><div class="js-pjax"></div><script src="/project/js/sakura.js"></script><script src="/project/js/rain.js"></script><script src="/project/js/custom.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="可搜索标题、标签以及文章内任意内容" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/project/js/search/local-search.js?v=5.5.4"></script></div></div></body></html>

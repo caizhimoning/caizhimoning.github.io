@@ -1,0 +1,176 @@
+/**
+ * 文章页右侧：按标签筛选相关文章（可多选 AND）
+ */
+
+#post-tag-panel {
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 183, 197, 0.45);
+  background: linear-gradient(
+    165deg,
+    rgba(255, 255, 255, 0.98) 0%,
+    rgba(255, 248, 250, 0.96) 100%
+  );
+  box-shadow: 0 12px 40px rgba(255, 139, 167, 0.14);
+  pointer-events: auto;
+}
+
+#post-tag-panel.is-open {
+  display: flex;
+}
+
+#post-tag-panel .post-tag-panel__head {
+  flex-shrink: 0;
+  padding: 16px 16px 12px;
+  border-bottom: 1px solid rgba(255, 183, 197, 0.35);
+}
+
+#post-tag-panel .post-tag-panel__title {
+  margin: 0 0 6px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #3d4450;
+}
+
+#post-tag-panel .post-tag-panel__hint {
+  margin: 0;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: #94a3b8;
+}
+
+#post-tag-panel .post-tag-panel__active {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+#post-tag-panel .post-tag-panel__pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border: none;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  color: var(--sakura-pink);
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--sakura-pink-mist);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+#post-tag-panel .post-tag-panel__pill:hover {
+  background: var(--sakura-pink);
+  color: #fff;
+}
+
+#post-tag-panel .post-tag-panel__pill i {
+  font-size: 0.7rem;
+  opacity: 0.85;
+}
+
+#post-tag-panel .post-tag-panel__count {
+  flex-shrink: 0;
+  padding: 8px 16px;
+  font-size: 0.8rem;
+  color: #64748b;
+  border-bottom: 1px solid rgba(255, 183, 197, 0.2);
+}
+
+#post-tag-panel .post-tag-panel__list {
+  flex: 1;
+  overflow-y: auto;
+  margin: 0;
+  padding: 10px 12px 14px;
+  list-style: none;
+  scrollbar-width: thin;
+}
+
+#post-tag-panel .post-tag-panel__item {
+  margin: 0 0 4px;
+}
+
+#post-tag-panel .post-tag-panel__link {
+  display: block;
+  padding: 8px 10px;
+  border-radius: 10px;
+  font-size: 0.86rem;
+  line-height: 1.45;
+  color: #475569;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+#post-tag-panel .post-tag-panel__link:hover {
+  color: var(--sakura-pink);
+  background: rgba(255, 183, 197, 0.15);
+}
+
+#post-tag-panel .post-tag-panel__empty {
+  padding: 16px;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: #94a3b8;
+  text-align: center;
+}
+
+/* 文内可点击标签 */
+button.post-hero__chip.post-hero__chip--tag {
+  font: inherit;
+  cursor: pointer;
+}
+
+.js-post-tag-filter {
+  cursor: pointer;
+}
+
+.js-post-tag-filter.is-active {
+  background: var(--sakura-pink) !important;
+  color: #fff !important;
+  border-color: var(--sakura-pink) !important;
+}
+
+@media (max-width: 1100px) {
+  #post-tag-panel {
+    width: 100%;
+    max-height: 280px;
+    margin-bottom: 12px;
+  }
+
+  #post-tag-panel.is-open {
+    display: flex;
+  }
+}
+
+[data-theme="dark"] #post-tag-panel {
+  background: linear-gradient(
+    165deg,
+    rgba(18, 26, 42, 0.98) 0%,
+    rgba(12, 20, 36, 0.96) 100%
+  );
+  border-color: rgba(74, 144, 226, 0.28);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+}
+
+[data-theme="dark"] #post-tag-panel .post-tag-panel__title {
+  color: #e8eef8;
+}
+
+[data-theme="dark"] #post-tag-panel .post-tag-panel__link {
+  color: #b8c8dc;
+}
+
+[data-theme="dark"] #post-tag-panel .post-tag-panel__link:hover {
+  color: #9ec5ff;
+  background: rgba(74, 144, 226, 0.12);
+}
+
+[data-theme="dark"] .js-post-tag-filter.is-active {
+  background: #4a90e2 !important;
+  color: #fff !important;
+  border-color: #4a90e2 !important;
+}

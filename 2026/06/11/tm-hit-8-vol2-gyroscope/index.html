@@ -1,0 +1,299 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>理论力学（Ⅱ）· 定点运动与陀螺 | Moning's Blog</title><meta name="author" content="caizhimoning"><meta name="copyright" content="caizhimoning"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="总览 → 理论力学（Ⅱ）学习笔记 · 前置 → [[tm-hit-8-vol1-kinematics#第六章 刚体的简单运动]]   目录   节 跳转到    §5-1 刚体绕定点运动的运动学描述 [§5-1 刚体绕定点运动的运动学描述](#§5-1 刚体绕定点运动的运动学描述)   §5-2 自由刚体的运动 [§5-2 自由刚体的运动](#§5-2 自由刚体的运动)   §5-3 刚体运动的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="理论力学（Ⅱ）· 定点运动与陀螺">
+<meta property="og:url" content="http://caizhimoning.github.io/project/2026/06/11/tm-hit-8-vol2-gyroscope/index.html">
+<meta property="og:site_name" content="Moning&#39;s Blog">
+<meta property="og:description" content="总览 → 理论力学（Ⅱ）学习笔记 · 前置 → [[tm-hit-8-vol1-kinematics#第六章 刚体的简单运动]]   目录   节 跳转到    §5-1 刚体绕定点运动的运动学描述 [§5-1 刚体绕定点运动的运动学描述](#§5-1 刚体绕定点运动的运动学描述)   §5-2 自由刚体的运动 [§5-2 自由刚体的运动](#§5-2 自由刚体的运动)   §5-3 刚体运动的">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=800&q=80">
+<meta property="article:published_time" content="2026-06-11T09:44:49.000Z">
+<meta property="article:modified_time" content="2026-06-23T07:26:25.903Z">
+<meta property="article:author" content="caizhimoning">
+<meta property="article:tag" content="定点运动">
+<meta property="article:tag" content="理论力学">
+<meta property="article:tag" content="陀螺仪">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=800&q=80"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "理论力学（Ⅱ）· 定点运动与陀螺",
+  "url": "http://caizhimoning.github.io/project/2026/06/11/tm-hit-8-vol2-gyroscope/",
+  "image": "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=800&q=80",
+  "datePublished": "2026-06-11T09:44:49.000Z",
+  "dateModified": "2026-06-23T07:26:25.903Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "caizhimoning",
+      "url": "http://caizhimoning.github.io/project"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/project/img/favicon.svg"><link rel="canonical" href="http://caizhimoning.github.io/project/2026/06/11/tm-hit-8-vol2-gyroscope/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/project/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&amp;family=Noto+Serif+SC:wght@500;600;700&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/project/',
+  algolia: undefined,
+  localSearch: {"path":"/project/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"pagination":{"enable":true,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'medium_zoom',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: true,
+  islazyloadPlugin: true,
+  isAnchor: false,
+  percent: {
+    toc: false,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '理论力学（Ⅱ）· 定点运动与陀螺',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/project/css/layout.css"><link rel="stylesheet" href="/project/css/custom.css"><link rel="stylesheet" href="/project/css/archive.css"><link rel="stylesheet" href="/project/css/projects.css"><link rel="stylesheet" href="/project/css/post-toc.css"><link rel="stylesheet" href="/project/css/post-tag-panel.css"><meta name="generator" content="Hexo 8.1.2"><script id="post-tag-index-data" type="application/json">{"posts":[{"path":"/2026/06/11/em-li-2021-fundamentals/","title":"弹性力学（李刚）· 绪论与基本方程","tags":["弹性力学","李刚"]},{"path":"/2026/06/11/em-li-2021-space-torsion/","title":"弹性力学（李刚）· 空间问题与扭转","tags":["弹性力学","空间问题","扭转"]},{"path":"/2026/06/11/em-li-2021-variational-fem/","title":"弹性力学（李刚）· 能量原理与有限元","tags":["弹性力学","变分法","有限元"]},{"path":"/2026/06/11/em-li-2021/","title":"弹性力学学习笔记（李刚 · 2021）","tags":["弹性力学","李刚","科学出版社"]},{"path":"/2026/06/11/em-xu-vol1-plane-solution/","title":"弹性力学（徐芝纶上册）· 平面问题解答","tags":["弹性力学","复变函数"]},{"path":"/2026/06/11/em-xu-vol1-plane-theory/","title":"弹性力学（徐芝纶上册）· 绪论与平面理论","tags":["弹性力学","徐芝纶"]},{"path":"/2026/06/11/em-li-2021-plane/","title":"弹性力学（李刚）· 平面问题","tags":["弹性力学","平面问题"]},{"path":"/2026/06/11/em-xu-vol1-space-torsion-energy/","title":"弹性力学（徐芝纶上册）· 空间·扭转·能量·波","tags":["弹性力学","弹性波"]},{"path":"/2026/06/11/em-xu-vol1-temperature-fdm/","title":"弹性力学（徐芝纶上册）· 温度应力与差分法","tags":["弹性力学","热应力"]},{"path":"/2026/06/11/em-xu-vol1/","title":"弹性力学学习笔记（徐芝纶 · 上册）","tags":["弹性力学","徐芝纶","高等教育出版社"]},{"path":"/2026/06/11/fm-wu-ch01-field/","title":"流体力学（吴望一）· 场论与张量","tags":["流体力学","场论"]},{"path":"/2026/06/11/em-xu-vol2/","title":"弹性力学学习笔记（徐芝纶 · 下册）","tags":["弹性力学","薄板","壳体"]},{"path":"/2026/06/11/fm-wu-ch02-03/","title":"流体力学（吴望一）· 基本概念与方程组","tags":["流体力学"]},{"path":"/2026/06/11/fm-wu-ch04-07/","title":"流体力学（吴望一）· 涡旋·静力学·理想流","tags":["流体力学","伯努利"]},{"path":"/2026/06/11/em-xu-vol2-shell/","title":"弹性力学（徐芝纶下册）· 壳体理论","tags":["弹性力学","壳体"]},{"path":"/2026/06/11/fm-wu-ch08-10/","title":"流体力学（吴望一）· 波浪·黏性·气体动力学","tags":["流体力学","气体动力学"]},{"path":"/2026/06/11/fm-wu/","title":"流体力学学习笔记（吴望一）","tags":["流体力学","吴望一","北京大学出版社"]},{"path":"/2026/06/11/em-xu-vol2-plate/","title":"弹性力学（徐芝纶下册）· 薄板问题","tags":["弹性力学","薄板"]},{"path":"/2026/06/11/tm-hit-8-vol2-analytical/","title":"理论力学（Ⅱ）· 分析力学基础","tags":["理论力学","分析力学","拉格朗日方程"]},{"path":"/2026/06/11/tm-hit-8-vol2-collision/","title":"理论力学（Ⅱ）· 碰撞","tags":["理论力学","碰撞","恢复因数"]},{"path":"/2026/06/11/tm-hit-8-vol2-gyroscope/","title":"理论力学（Ⅱ）· 定点运动与陀螺","tags":["理论力学","陀螺仪","定点运动"]},{"path":"/2026/06/11/tm-hit-8-vol2-non-inertial/","title":"理论力学（Ⅱ）· 非惯性系中的质点动力学","tags":["理论力学","非惯性系","科氏力"]},{"path":"/2026/06/11/tm-hit-8-vol2-variable-mass/","title":"理论力学（Ⅱ）· 变质量动力学","tags":["理论力学","变质量","火箭方程"]},{"path":"/2026/06/11/tm-hit-8-vol2-vibration/","title":"理论力学（Ⅱ）· 机械振动基础","tags":["理论力学","机械振动","固有频率"]},{"path":"/2026/06/11/tm-hit-8-vol2/","title":"理论力学（Ⅱ）学习笔记","tags":["理论力学","哈尔滨工业大学","第8版"]},{"path":"/2026/06/10/machine-learning/","title":"机器学习课程学习笔记","tags":["机器学习","监督学习","深度学习","数学基础"]},{"path":"/2026/06/09/wsl-setting/","title":"WSL 常用设置：Linux 应用打开 Windows 浏览器","tags":["WSL2","Obsidian","浏览器"]},{"path":"/2026/06/09/obsidian-plugins/","title":"Obsidian 社区插件与本库选用","tags":["Obsidian","插件"]},{"path":"/2026/06/06/obsidian-setting/","title":"Obsidian 设置：字体、外观与 Properties","tags":["WSL2","Obsidian","设置"]},{"path":"/2026/06/08/tm-hit-8-vol1-dynamics/","title":"理论力学（Ⅰ）· 动力学","tags":["理论力学","动力学"]},{"path":"/2026/06/08/tm-hit-8-vol1-kinematics/","title":"理论力学（Ⅰ）· 运动学","tags":["理论力学","运动学"]},{"path":"/2026/06/08/tm-hit-8-vol1-statics/","title":"理论力学（Ⅰ）· 静力学","tags":["理论力学","静力学"]},{"path":"/2026/06/08/tm-hit-8-vol1/","title":"理论力学（Ⅰ）学习笔记","tags":["理论力学","哈尔滨工业大学","第8版"]},{"path":"/2026/06/07/cursor-guide/","title":"Cursor 使用入门：AGENTS.md、Rules 与 WSL 全局约定","tags":["Cursor","AI","工作流","WSL2"]},{"path":"/2026/06/06/markdown-syntax/","title":"Markdown 语法入门","tags":["Markdown","写作","语法"]},{"path":"/2026/06/05/zotero-guide/","title":"Zotero 使用指南","tags":["ai生成","学术写作","Zotero","文献管理"]},{"path":"/2026/06/05/abaqus-python/","title":"Abaqus Python 使用入门","tags":["ai生成","Abaqus","仿真","Python"]},{"path":"/2026/06/05/abaqus-install/","title":"Abaqus 安装与许可配置","tags":["ai生成","Abaqus","仿真","安装"]},{"path":"/2026/06/05/latex-syntax/","title":"LaTeX 语法入门","tags":["ai生成","LaTeX","学术写作","排版"]},{"path":"/2026/06/05/hardware-ram-slots/","title":"内存条安装：插槽位置与双通道规则","tags":["ai生成","装机","内存","双通道"]},{"path":"/2026/06/05/hardware-pc-build/","title":"DIY 装机流程：从配件到点亮","tags":["ai生成","装机","DIY"]},{"path":"/2026/06/05/hardware-storage/","title":"存储选购：固态、机械硬盘与接口","tags":["ai生成","装机","存储","SSD","NVMe"]},{"path":"/2026/06/05/hardware-cooler/","title":"散热器选购：风冷、水冷与机箱风扇","tags":["ai生成","装机","散热器","风冷","水冷"]},{"path":"/2026/06/05/hardware-case/","title":"机箱选购：规格、风道与兼容性","tags":["ai生成","机箱","装机","散热"]},{"path":"/2026/06/05/hardware-psu/","title":"电源选购：功率、认证与模组","tags":["ai生成","装机","电源","PSU"]},{"path":"/2026/06/05/hardware-ram/","title":"内存选购：DDR4 / DDR5、品牌与频率","tags":["ai生成","装机","内存","RAM","DDR5"]},{"path":"/2026/06/05/hardware-motherboard/","title":"主板选购：芯片组、命名与平台搭配","tags":["ai生成","装机","Intel","AMD","主板"]},{"path":"/2026/06/05/hardware-gpu/","title":"显卡选购：品牌、命名与性能分级","tags":["ai生成","装机","AMD","GPU","显卡","NVIDIA"]},{"path":"/2026/06/05/hardware-cpu/","title":"CPU 选购：品牌、命名与性能分级","tags":["ai生成","装机","CPU","Intel","AMD"]},{"path":"/2026/06/05/ssh-basics/","title":"SSH 基础：远程登录与密钥认证","tags":["GitHub","Linux","SSH","安全"]},{"path":"/2026/06/05/git-basics/","title":"Git 基础：版本管理与常用操作","tags":["Linux","Git","版本控制"]},{"path":"/2026/06/05/hexo-github-publish/","title":"Hexo 博客发布 GitHub 与自动化","tags":["Hexo","GitHub","部署"]},{"path":"/2026/06/05/obsidian-win-wsl-install/","title":"Obsidian 在 Windows 与 WSL2 中的安装与库路径选择","tags":["安装","WSL2","Obsidian","Windows"]},{"path":"/2026/06/05/wsl2-install/","title":"WSL2 安装与首次配置","tags":["安装","WSL2","Windows"]},{"path":"/2026/06/05/wsl2-basic-commands/","title":"WSL2 基本命令","tags":["WSL2","Windows","命令行"]},{"path":"/2026/06/05/cursor-agent-reading-order/","title":"Agent 读库顺序与 Reuse（草案）","tags":["Cursor","AI","工作流","知识管理"]},{"path":"/2026/06/04/obsidian-guide/","title":"Obsidian 学习与用法手册","tags":["知识管理","Hexo","WSL2","Obsidian"]},{"path":"/2026/06/03/linux-filesystem/","title":"Linux 文件系统","tags":["Linux","文件系统"]},{"path":"/2026/06/01/welcome-to-my-blog/","title":"欢迎来到我的博客","tags":["欢迎","博客"]}]}</script><script id="post-header-meta" type="application/json">{"title":"理论力学（Ⅱ）· 定点运动与陀螺","subtitle":"哈工大第8版 · 第 5 章","series":"mechanics","seriesPath":"","author":"","readTime":"","date":"2026-06-11","updated":"2026-06-23","tags":[{"name":"理论力学","path":"tags/理论力学/"},{"name":"陀螺仪","path":"tags/陀螺仪/"},{"name":"定点运动","path":"tags/定点运动/"}],"categories":[],"cover":"https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=800&q=80"}</script></head><body><div class="bg-animation" id="web_bg" style="background: transparent;"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/project/img/avatar.svg" onerror="this.onerror=null;this.src='/project/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/project/archives/"><div class="headline">文章</div><div class="length-num">59</div></a><a href="/project/tags/"><div class="headline">标签</div><div class="length-num">101</div></a><a href="/project/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/project/archives/"><i class="fa-fw fas fa-book-open"></i><span> 文章</span></a></div><div class="menus_item"><a class="site-page" href="/project/projects/"><i class="fa-fw fas fa-code-branch"></i><span> 项目</span></a></div><div class="menus_item"><a class="site-page" href="/project/dynamics/"><i class="fa-fw fas fa-comment-dots"></i><span> 动态</span></a></div><div class="menus_item"><a class="site-page" href="/project/domain/"><i class="fa-fw fas fa-layer-group"></i><span> 专题</span></a></div><div class="menus_item"><a class="site-page" href="/project/about/"><i class="fa-fw fas fa-user"></i><span> 关于我</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img fixed" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/project/"><img class="site-icon" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/project/img/logo.svg" alt="Logo"></a><a class="nav-page-title" href="/project/"><span class="site-name">理论力学（Ⅱ）· 定点运动与陀螺</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/project/archives/"><i class="fa-fw fas fa-book-open"></i><span> 文章</span></a></div><div class="menus_item"><a class="site-page" href="/project/projects/"><i class="fa-fw fas fa-code-branch"></i><span> 项目</span></a></div><div class="menus_item"><a class="site-page" href="/project/dynamics/"><i class="fa-fw fas fa-comment-dots"></i><span> 动态</span></a></div><div class="menus_item"><a class="site-page" href="/project/domain/"><i class="fa-fw fas fa-layer-group"></i><span> 专题</span></a></div><div class="menus_item"><a class="site-page" href="/project/about/"><i class="fa-fw fas fa-user"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">理论力学（Ⅱ）· 定点运动与陀螺</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon far fa-calendar-alt"></i><span class="post-meta-label">发表于</span><time datetime="2026-06-11T09:44:49.000Z" title="发表于 2026-06-11 17:44:49">2026-06-11</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="container post-content" id="article-container"><blockquote>
+<p>总览 → <a href="/project/2026/06/11/tm-hit-8-vol2/">理论力学（Ⅱ）学习笔记</a> · 前置 → [[tm-hit-8-vol1-kinematics#第六章 刚体的简单运动]]</p>
+</blockquote>
+<hr>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><table>
+<thead>
+<tr>
+<th>节</th>
+<th>跳转到</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>§5-1 刚体绕定点运动的运动学描述</td>
+<td>[§5-1 刚体绕定点运动的运动学描述](#§5-1 刚体绕定点运动的运动学描述)</td>
+</tr>
+<tr>
+<td>§5-2 自由刚体的运动</td>
+<td>[§5-2 自由刚体的运动](#§5-2 自由刚体的运动)</td>
+</tr>
+<tr>
+<td>§5-3 刚体运动的合成</td>
+<td>[§5-3 刚体运动的合成](#§5-3 刚体运动的合成)</td>
+</tr>
+<tr>
+<td>§5-4 陀螺仪近似理论</td>
+<td>[§5-4 陀螺仪近似理论](#§5-4 陀螺仪近似理论)</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="第五章-刚体定点运动、自由刚体运动、刚体运动的合成-·-陀螺仪近似理论"><a href="#第五章-刚体定点运动、自由刚体运动、刚体运动的合成-·-陀螺仪近似理论" class="headerlink" title="第五章 刚体定点运动、自由刚体运动、刚体运动的合成 · 陀螺仪近似理论"></a>第五章 刚体定点运动、自由刚体运动、刚体运动的合成 · 陀螺仪近似理论</h2><p>本章将运动学从平面与定轴转动推广到<strong>三维空间</strong>：绕定点转动、自由刚体六自由度运动，以及陀螺的进动与定轴性。</p>
+<h3 id="从第（Ⅰ）册到本章"><a href="#从第（Ⅰ）册到本章" class="headerlink" title="从第（Ⅰ）册到本章"></a>从第（Ⅰ）册到本章</h3><table>
+<thead>
+<tr>
+<th>运动类型</th>
+<th>第（Ⅰ）册</th>
+<th>本章</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>定轴转动</td>
+<td>第六章：$\omega$ 沿固定轴</td>
+<td>定点转动：$\boldsymbol{\omega}$ 方向<strong>瞬时变化</strong></td>
+</tr>
+<tr>
+<td>平面运动</td>
+<td>第八章：3 自由度（2 平动 + 1 转）</td>
+<td>自由刚体：<strong>6</strong> 自由度</td>
+</tr>
+<tr>
+<td>动量矩</td>
+<td>$L_z&#x3D;J_z\omega$（标量）</td>
+<td>$\mathbf{L}&#x3D;\mathbf{J}\boldsymbol{\omega}$（矢量，一般不正平行）</td>
+</tr>
+</tbody></table>
+<h3 id="§5-1-刚体绕定点运动的运动学描述"><a href="#§5-1-刚体绕定点运动的运动学描述" class="headerlink" title="§5-1 刚体绕定点运动的运动学描述"></a>§5-1 刚体绕定点运动的运动学描述</h3><h4 id="自由度"><a href="#自由度" class="headerlink" title="自由度"></a>自由度</h4><p>刚体绕空间定点 $O$ 转动，<strong>自由度为 3</strong>。位形由 3 个独立角参数确定，常用<strong>欧拉角</strong> $(\psi, \theta, \varphi)$：</p>
+<table>
+<thead>
+<tr>
+<th>角</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$\psi$</td>
+<td>进动角（绕定轴 $Oz$）</td>
+</tr>
+<tr>
+<td>$\theta$</td>
+<td>章动角（绕节线）</td>
+</tr>
+<tr>
+<td>$\varphi$</td>
+<td>自转角（绕动轴 $Oz’$）</td>
+</tr>
+</tbody></table>
+<p><strong>欧拉角转动顺序</strong>（教材常用）：先绕定轴 $z$ 转 $\psi$（进动）→ 绕节线 $n$ 转 $\theta$（章动）→ 绕动轴 $z’$ 转 $\varphi$（自转）。</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">   Oz（定轴）</span><br><span class="line">    ↑  ψ 进动</span><br><span class="line">    |</span><br><span class="line">────●──── 节线 n</span><br><span class="line">   / θ 章动</span><br><span class="line">  / φ 自转（动轴 Oz&#x27;）</span><br></pre></td></tr></table></figure>
+
+<p>初学不必死记欧拉角微分关系，先建立<strong>三个角独立确定姿态</strong>的概念。</p>
+<h4 id="角速度"><a href="#角速度" class="headerlink" title="角速度"></a>角速度</h4><p>刚体瞬时角速度 $\boldsymbol{\omega}$ 沿<strong>瞬轴</strong>方向。欧拉角对时间求导与 $\boldsymbol{\omega}$ 在连体坐标系或定系中的分量通过方向余弦联系：</p>
+<p>$$\boldsymbol{\omega} &#x3D; \dot{\psi}\mathbf{e}_z + \dot{\theta}\mathbf{e}<em>n + \dot{\varphi}\mathbf{e}</em>{z’}$$</p>
+<p>（$\mathbf{e}_n$ 为节线方向。）</p>
+<h4 id="角加速度"><a href="#角加速度" class="headerlink" title="角加速度"></a>角加速度</h4><p>$$\boldsymbol{\alpha} &#x3D; \frac{\mathrm{d}\boldsymbol{\omega}}{\mathrm{d}t}$$</p>
+<p>定点转动时 $\boldsymbol{\alpha}$ 一般与 $\boldsymbol{\omega}$ 不共线。</p>
+<h4 id="刚体上点的速度与加速度"><a href="#刚体上点的速度与加速度" class="headerlink" title="刚体上点的速度与加速度"></a>刚体上点的速度与加速度</h4><p>$$\mathbf{v} &#x3D; \boldsymbol{\omega} \times \mathbf{r}, \quad \mathbf{a} &#x3D; \boldsymbol{\alpha} \times \mathbf{r} + \boldsymbol{\omega} \times (\boldsymbol{\omega} \times \mathbf{r})$$</p>
+<p>$\mathbf{r}$ 为点相对定点的位矢。</p>
+<hr>
+<h3 id="§5-2-自由刚体的运动"><a href="#§5-2-自由刚体的运动" class="headerlink" title="§5-2 自由刚体的运动"></a>§5-2 自由刚体的运动</h3><h4 id="自由度-1"><a href="#自由度-1" class="headerlink" title="自由度"></a>自由度</h4><p>自由刚体在空间有 <strong>6 个自由度</strong>：质心平动 3 + 绕质心转动 3。</p>
+<p>$$\mathbf{r}_C &#x3D; \mathbf{r}_C(t), \quad \text{姿态：欧拉角或方向余弦矩阵}$$</p>
+<h4 id="运动方程（动力学）"><a href="#运动方程（动力学）" class="headerlink" title="运动方程（动力学）"></a>运动方程（动力学）</h4><ul>
+<li>质心运动定理：$M\mathbf{a}_C &#x3D; \sum \mathbf{F}^{(e)}$</li>
+<li>对质心的动量矩定理：$\dfrac{\mathrm{d}\mathbf{L}_C}{\mathrm{d}t} &#x3D; \mathbf{M}_C^{(e)}$</li>
+</ul>
+<p>对一般刚体，$\mathbf{L}_C &#x3D; \mathbf{J}_C \boldsymbol{\omega}$，$\mathbf{J}_C$ 为对质心的惯量张量（对称矩阵）。</p>
+<h4 id="动能"><a href="#动能" class="headerlink" title="动能"></a>动能</h4><p>$$T &#x3D; \frac{1}{2}M v_C^2 + \frac{1}{2}\boldsymbol{\omega}^\top \mathbf{J}_C \boldsymbol{\omega}$$</p>
+<p>平动动能 + 转动动能。</p>
+<hr>
+<h3 id="§5-3-刚体运动的合成"><a href="#§5-3-刚体运动的合成" class="headerlink" title="§5-3 刚体运动的合成"></a>§5-3 刚体运动的合成</h3><h4 id="绕两平行轴转动的合成"><a href="#绕两平行轴转动的合成" class="headerlink" title="绕两平行轴转动的合成"></a>绕两平行轴转动的合成</h4><p>同向平行轴 $\omega_1, \omega_2$，间距 $d$：</p>
+<p>$$\omega &#x3D; \omega_1 + \omega_2, \quad \text{瞬轴位置由平行轴定理确定}$$</p>
+<p>反向时 $\omega &#x3D; |\omega_1 - \omega_2|$。</p>
+<h4 id="绕相交轴转动的合成"><a href="#绕相交轴转动的合成" class="headerlink" title="绕相交轴转动的合成"></a>绕相交轴转动的合成</h4><p>角速度 $\boldsymbol{\omega}_1$、$\boldsymbol{\omega}_2$ 交于一点，合成</p>
+<p>$$\boldsymbol{\omega} &#x3D; \boldsymbol{\omega}_1 + \boldsymbol{\omega}_2$$</p>
+<p>瞬轴沿 $\boldsymbol{\omega}$ 方向。</p>
+<h4 id="瞬轴与瞬心"><a href="#瞬轴与瞬心" class="headerlink" title="瞬轴与瞬心"></a>瞬轴与瞬心</h4><p>定点运动：过定点有<strong>瞬时转轴</strong>（瞬轴），刚体瞬时绕该轴转动。<br>平面运动：瞬轴退化为平面内<strong>瞬心</strong>（见 [[tm-hit-8-vol1-kinematics#第八章 刚体的平面运动]]）。</p>
+<hr>
+<h3 id="§5-4-陀螺仪近似理论"><a href="#§5-4-陀螺仪近似理论" class="headerlink" title="§5-4 陀螺仪近似理论"></a>§5-4 陀螺仪近似理论</h3><h4 id="陀螺"><a href="#陀螺" class="headerlink" title="陀螺"></a>陀螺</h4><p>高速旋转的刚体，角动量 $\mathbf{L}_O &#x3D; \mathbf{J}<em>O \boldsymbol{\omega}$ 很大。对称陀螺：对称轴 $Oz’$，自转角速度 $\omega</em>\varphi$ 很大。</p>
+<h4 id="陀螺的定轴性"><a href="#陀螺的定轴性" class="headerlink" title="陀螺的定轴性"></a>陀螺的定轴性</h4><p>无外力矩时，角动量 $\mathbf{L}_O$ 方向守恒，对称轴在空间方向保持不变——<strong>定轴性</strong>（用于定向、导航）。</p>
+<h4 id="进动"><a href="#进动" class="headerlink" title="进动"></a>进动</h4><p>重力矩 $M_O$ 垂直于 $\mathbf{L}_O$，由动量矩定理：</p>
+<p>$$\frac{\mathrm{d}\mathbf{L}_O}{\mathrm{d}t} &#x3D; \mathbf{M}_O$$</p>
+<p>$\mathbf{L}_O$ 端点作圆周运动，对称轴绕铅垂轴<strong>进动</strong>。</p>
+<h4 id="近似公式"><a href="#近似公式" class="headerlink" title="近似公式"></a>近似公式</h4><p>设陀螺对定点角动量大小 $H_O &#x3D; J_z \omega_z$，重力矩 $M_O &#x3D; mg l \sin\theta$（$l$ 为质心到定点距离，$\theta$ 为轴与铅垂线夹角），进动角速度：</p>
+<p>$$\omega_e &#x3D; \frac{M_O}{H_O \sin\theta} &#x3D; \frac{mg l}{J_z \omega_z}$$</p>
+<p><strong>结论</strong>：</p>
+<ul>
+<li>自转 $\omega_z$ 越大，进动 $\omega_e$ 越慢；</li>
+<li>高速陀螺对轴扰动有「稳定性」。</li>
+</ul>
+<h4 id="章动"><a href="#章动" class="headerlink" title="章动"></a>章动</h4><p>精确分析中，除进动外还有 $\theta$ 的微小周期性变化——<strong>章动</strong>；高速情形下章动幅值很小，常忽略。</p>
+<h4 id="完整例题：近似陀螺进动角速度"><a href="#完整例题：近似陀螺进动角速度" class="headerlink" title="完整例题：近似陀螺进动角速度"></a>完整例题：近似陀螺进动角速度</h4><p>对称陀螺，质量 $m$，对定点惯量 $J_z$（沿对称轴），质心到定点距离 $l$，自转角速度 $\omega_z$ 很大，重力 $mg$。</p>
+<ul>
+<li>角动量大小 $H_O \approx J_z \omega_z$（沿对称轴）</li>
+<li>重力矩 $M_O &#x3D; mgl\sin\theta$（$\theta$ 为轴与铅垂线夹角）</li>
+<li>由 $\dfrac{\mathrm{d}H_O}{\mathrm{d}t} &#x3D; M_O$，进动角速度：</li>
+</ul>
+<p>$$\omega_e &#x3D; \frac{M_O}{H_O\sin\theta} &#x3D; \frac{mgl\sin\theta}{J_z\omega_z\sin\theta} &#x3D; \frac{mgl}{J_z\omega_z}$$</p>
+<p><strong>数值例</strong>：$m&#x3D;0.5,\text{kg}$，$l&#x3D;0.1,\text{m}$，$J_z&#x3D;10^{-3},\text{kg·m}^2$，$\omega_z&#x3D;200,\text{rad&#x2F;s}$：</p>
+<p>$$\omega_e &#x3D; \frac{0.5\times 9.8\times 0.1}{10^{-3}\times 200} \approx 2.45,\text{rad&#x2F;s}$$</p>
+<p>自转越快，进动越慢。</p>
+<h4 id="定轴性的日常理解"><a href="#定轴性的日常理解" class="headerlink" title="定轴性的日常理解"></a>定轴性的日常理解</h4><p>高速旋转的陀螺 &#x2F; 自行车轮：角动量 $\mathbf{L}$ 方向不易改变。轻微推轴时，轴绕铅垂线<strong>进动</strong>而非倒下——这是 $\mathbf{M}&#x3D;\dfrac{\mathrm{d}\mathbf{L}}{\mathrm{d}t}$ 使 $\mathbf{L}$ 端点绕水平圆运动，而非 $\mathbf{L}$ 立刻倒向重力方向。</p>
+<h3 id="本章小结"><a href="#本章小结" class="headerlink" title="本章小结"></a>本章小结</h3><ul>
+<li><input disabled="" type="checkbox"> 定点转动 3 自由度，自由刚体 6 自由度</li>
+<li><input disabled="" type="checkbox"> $\mathbf{v}&#x3D;\boldsymbol{\omega}\times\mathbf{r}$，$\mathbf{a}$ 含向心项 $\boldsymbol{\omega}\times(\boldsymbol{\omega}\times\mathbf{r})$</li>
+<li><input disabled="" type="checkbox"> 绕相交轴合成：$\boldsymbol{\omega}&#x3D;\boldsymbol{\omega}_1+\boldsymbol{\omega}_2$</li>
+<li><input disabled="" type="checkbox"> 陀螺：$\omega_e &#x3D; M_O&#x2F;(H_O\sin\theta)$，自转越大进动越慢</li>
+</ul>
+<hr>
+<h2 id="相关"><a href="#相关" class="headerlink" title="相关"></a>相关</h2><ul>
+<li><a href="/project/2026/06/11/tm-hit-8-vol2/">理论力学（Ⅱ）学习笔记</a>、[[tm-hit-8-vol1-kinematics#第六章 刚体的简单运动]]、[[tm-hit-8-vol1-dynamics#§11-5 刚体对质心的动量矩定理]]</li>
+<li><a href="/project/series/mechanics/">mechanics</a></li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://caizhimoning.github.io/project">caizhimoning</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://caizhimoning.github.io/project/2026/06/11/tm-hit-8-vol2-gyroscope/">http://caizhimoning.github.io/project/2026/06/11/tm-hit-8-vol2-gyroscope/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://caizhimoning.github.io/project" target="_blank">Moning's Blog</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&amp;fit=crop&amp;w=800&amp;q=80" data-sites="wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/project/2026/06/11/tm-hit-8-vol2-non-inertial/" title="理论力学（Ⅱ）· 非惯性系中的质点动力学"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://images.unsplash.com/photo-1522441815192-d9f04eb0615c?auto=format&amp;fit=crop&amp;w=800&amp;q=80" onerror="onerror=null;src='/project/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">理论力学（Ⅱ）· 非惯性系中的质点动力学</div></div><div class="info-2"><div class="info-item-1"> 总览 → 理论力学（Ⅱ）学习笔记 · 前置 → [[tm-hit-8-vol1-kinematics#第七章 点的合成运动]]   目录   节 跳转到    §2-1 非惯性系中质点动力学的基本方程 [§2-1 非惯性系中质点动力...</div></div></div></a><a class="pagination-related" href="/project/2026/06/11/tm-hit-8-vol2-collision/" title="理论力学（Ⅱ）· 碰撞"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&amp;fit=crop&amp;w=800&amp;q=80" onerror="onerror=null;src='/project/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">理论力学（Ⅱ）· 碰撞</div></div><div class="info-2"><div class="info-item-1"> 总览 → 理论力学（Ⅱ）学习笔记 · 前置 → [[tm-hit-8-vol1-dynamics#第十章 动量定理]]   目录   节 跳转到    §3-1 碰撞的分类 · 碰撞问题的简化 [§3-1 碰撞的分类 · 碰撞问题的...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/project/2026/06/11/tm-hit-8-vol2-collision/" title="理论力学（Ⅱ）· 碰撞"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=800&q=80" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-06-11</div><div class="info-item-2">理论力学（Ⅱ）· 碰撞</div></div><div class="info-2"><div class="info-item-1"> 总览 → 理论力学（Ⅱ）学习笔记 · 前置 → [[tm-hit-8-vol1-dynamics#第十章 动量定理]]   目录   节 跳转到    §3-1 碰撞的分类 · 碰撞问题的简化 [§3-1 碰撞的分类 · 碰撞问题的...</div></div></div></a><a class="pagination-related" href="/project/2026/06/11/tm-hit-8-vol2-vibration/" title="理论力学（Ⅱ）· 机械振动基础"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=800&q=80" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-06-11</div><div class="info-item-2">理论力学（Ⅱ）· 机械振动基础</div></div><div class="info-2"><div class="info-item-1"> 总览 → 理论力学（Ⅱ）学习笔记 · 前置 → [[tm-hit-8-vol1-dynamics#第十二章 动能定理]]   目录   节 跳转到    §4-1 单自由度系统的自由振动 [§4-1 单自由度系统的自由振动](#§4...</div></div></div></a><a class="pagination-related" href="/project/2026/06/11/tm-hit-8-vol2-variable-mass/" title="理论力学（Ⅱ）· 变质量动力学"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=800&q=80" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-06-11</div><div class="info-item-2">理论力学（Ⅱ）· 变质量动力学</div></div><div class="info-2"><div class="info-item-1"> 总览 → 理论力学（Ⅱ）学习笔记 · 前置 → [[tm-hit-8-vol1-dynamics#第十章 动量定理]]   目录   节 跳转到    §6-1 变质量质点的运动微分方程 [§6-1 变质量质点的运动微分方程](#§...</div></div></div></a><a class="pagination-related" href="/project/2026/06/08/tm-hit-8-vol1-kinematics/" title="理论力学（Ⅰ）· 运动学"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://images.unsplash.com/photo-1522441815192-d9f04eb0615c?auto=format&fit=crop&w=800&q=80" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-06-08</div><div class="info-item-2">理论力学（Ⅰ）· 运动学</div></div><div class="info-2"><div class="info-item-1"> 总览 → 理论力学（Ⅰ）学习笔记 · 静力学 → 理论力学（Ⅰ）· 静力学 · 动力学 → 理论力学（Ⅰ）· 动力学   运动学是研究物体运动的几何性质的科学。 目录   章 节 跳转到    5 点的运动学  [第五章 点的运动学...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95"><span class="toc-number">1.</span> <span class="toc-text">目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E5%88%9A%E4%BD%93%E5%AE%9A%E7%82%B9%E8%BF%90%E5%8A%A8%E3%80%81%E8%87%AA%E7%94%B1%E5%88%9A%E4%BD%93%E8%BF%90%E5%8A%A8%E3%80%81%E5%88%9A%E4%BD%93%E8%BF%90%E5%8A%A8%E7%9A%84%E5%90%88%E6%88%90-%C2%B7-%E9%99%80%E8%9E%BA%E4%BB%AA%E8%BF%91%E4%BC%BC%E7%90%86%E8%AE%BA"><span class="toc-number">2.</span> <span class="toc-text">第五章 刚体定点运动、自由刚体运动、刚体运动的合成 · 陀螺仪近似理论</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8E%E7%AC%AC%EF%BC%88%E2%85%A0%EF%BC%89%E5%86%8C%E5%88%B0%E6%9C%AC%E7%AB%A0"><span class="toc-number">2.1.</span> <span class="toc-text">从第（Ⅰ）册到本章</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A75-1-%E5%88%9A%E4%BD%93%E7%BB%95%E5%AE%9A%E7%82%B9%E8%BF%90%E5%8A%A8%E7%9A%84%E8%BF%90%E5%8A%A8%E5%AD%A6%E6%8F%8F%E8%BF%B0"><span class="toc-number">2.2.</span> <span class="toc-text">§5-1 刚体绕定点运动的运动学描述</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E7%94%B1%E5%BA%A6"><span class="toc-number">2.2.1.</span> <span class="toc-text">自由度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%92%E9%80%9F%E5%BA%A6"><span class="toc-number">2.2.2.</span> <span class="toc-text">角速度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%92%E5%8A%A0%E9%80%9F%E5%BA%A6"><span class="toc-number">2.2.3.</span> <span class="toc-text">角加速度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9A%E4%BD%93%E4%B8%8A%E7%82%B9%E7%9A%84%E9%80%9F%E5%BA%A6%E4%B8%8E%E5%8A%A0%E9%80%9F%E5%BA%A6"><span class="toc-number">2.2.4.</span> <span class="toc-text">刚体上点的速度与加速度</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A75-2-%E8%87%AA%E7%94%B1%E5%88%9A%E4%BD%93%E7%9A%84%E8%BF%90%E5%8A%A8"><span class="toc-number">2.3.</span> <span class="toc-text">§5-2 自由刚体的运动</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E7%94%B1%E5%BA%A6-1"><span class="toc-number">2.3.1.</span> <span class="toc-text">自由度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%90%E5%8A%A8%E6%96%B9%E7%A8%8B%EF%BC%88%E5%8A%A8%E5%8A%9B%E5%AD%A6%EF%BC%89"><span class="toc-number">2.3.2.</span> <span class="toc-text">运动方程（动力学）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A8%E8%83%BD"><span class="toc-number">2.3.3.</span> <span class="toc-text">动能</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A75-3-%E5%88%9A%E4%BD%93%E8%BF%90%E5%8A%A8%E7%9A%84%E5%90%88%E6%88%90"><span class="toc-number">2.4.</span> <span class="toc-text">§5-3 刚体运动的合成</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%95%E4%B8%A4%E5%B9%B3%E8%A1%8C%E8%BD%B4%E8%BD%AC%E5%8A%A8%E7%9A%84%E5%90%88%E6%88%90"><span class="toc-number">2.4.1.</span> <span class="toc-text">绕两平行轴转动的合成</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%95%E7%9B%B8%E4%BA%A4%E8%BD%B4%E8%BD%AC%E5%8A%A8%E7%9A%84%E5%90%88%E6%88%90"><span class="toc-number">2.4.2.</span> <span class="toc-text">绕相交轴转动的合成</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9E%AC%E8%BD%B4%E4%B8%8E%E7%9E%AC%E5%BF%83"><span class="toc-number">2.4.3.</span> <span class="toc-text">瞬轴与瞬心</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A75-4-%E9%99%80%E8%9E%BA%E4%BB%AA%E8%BF%91%E4%BC%BC%E7%90%86%E8%AE%BA"><span class="toc-number">2.5.</span> <span class="toc-text">§5-4 陀螺仪近似理论</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%99%80%E8%9E%BA"><span class="toc-number">2.5.1.</span> <span class="toc-text">陀螺</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%99%80%E8%9E%BA%E7%9A%84%E5%AE%9A%E8%BD%B4%E6%80%A7"><span class="toc-number">2.5.2.</span> <span class="toc-text">陀螺的定轴性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9B%E5%8A%A8"><span class="toc-number">2.5.3.</span> <span class="toc-text">进动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%91%E4%BC%BC%E5%85%AC%E5%BC%8F"><span class="toc-number">2.5.4.</span> <span class="toc-text">近似公式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AB%A0%E5%8A%A8"><span class="toc-number">2.5.5.</span> <span class="toc-text">章动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%8C%E6%95%B4%E4%BE%8B%E9%A2%98%EF%BC%9A%E8%BF%91%E4%BC%BC%E9%99%80%E8%9E%BA%E8%BF%9B%E5%8A%A8%E8%A7%92%E9%80%9F%E5%BA%A6"><span class="toc-number">2.5.6.</span> <span class="toc-text">完整例题：近似陀螺进动角速度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E8%BD%B4%E6%80%A7%E7%9A%84%E6%97%A5%E5%B8%B8%E7%90%86%E8%A7%A3"><span class="toc-number">2.5.7.</span> <span class="toc-text">定轴性的日常理解</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%AC%E7%AB%A0%E5%B0%8F%E7%BB%93"><span class="toc-number">2.6.</span> <span class="toc-text">本章小结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3"><span class="toc-number">3.</span> <span class="toc-text">相关</span></a></li></ol></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/project/js/utils.js?v=5.5.4"></script><script src="/project/js/main.js?v=5.5.4"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@19.1.3/dist/lazyload.iife.min.js"></script><div class="js-pjax"></div><script src="/project/js/sakura.js"></script><script src="/project/js/rain.js"></script><script src="/project/js/custom.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="可搜索标题、标签以及文章内任意内容" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/project/js/search/local-search.js?v=5.5.4"></script></div></div></body></html>

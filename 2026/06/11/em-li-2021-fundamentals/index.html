@@ -1,0 +1,488 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>弹性力学（李刚）· 绪论与基本方程 | Moning's Blog</title><meta name="author" content="caizhimoning"><meta name="copyright" content="caizhimoning"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="总览 → 弹性力学学习笔记（李刚 · 2021）   目录   章&#x2F;节 跳转到    第一章 绪论 [第一章 绪论](#第一章 绪论)   §1-1 任务和研究对象 [§1-1 弹性力学的任务和研究对象](#§1-1 弹性力学的任务和研究对象)   §1-2 基本假设 [§1-2 弹性力学的基本假设](#§1-2 弹性力学的基本假设)   §1-3 研究方法与发展 [§1-3 研究方法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="弹性力学（李刚）· 绪论与基本方程">
+<meta property="og:url" content="http://caizhimoning.github.io/project/2026/06/11/em-li-2021-fundamentals/index.html">
+<meta property="og:site_name" content="Moning&#39;s Blog">
+<meta property="og:description" content="总览 → 弹性力学学习笔记（李刚 · 2021）   目录   章&#x2F;节 跳转到    第一章 绪论 [第一章 绪论](#第一章 绪论)   §1-1 任务和研究对象 [§1-1 弹性力学的任务和研究对象](#§1-1 弹性力学的任务和研究对象)   §1-2 基本假设 [§1-2 弹性力学的基本假设](#§1-2 弹性力学的基本假设)   §1-3 研究方法与发展 [§1-3 研究方法">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=800&q=80">
+<meta property="article:published_time" content="2026-06-11T09:54:46.000Z">
+<meta property="article:modified_time" content="2026-06-23T07:26:25.891Z">
+<meta property="article:author" content="caizhimoning">
+<meta property="article:tag" content="弹性力学">
+<meta property="article:tag" content="李刚">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=800&q=80"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "弹性力学（李刚）· 绪论与基本方程",
+  "url": "http://caizhimoning.github.io/project/2026/06/11/em-li-2021-fundamentals/",
+  "image": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=800&q=80",
+  "datePublished": "2026-06-11T09:54:46.000Z",
+  "dateModified": "2026-06-23T07:26:25.891Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "caizhimoning",
+      "url": "http://caizhimoning.github.io/project"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/project/img/favicon.svg"><link rel="canonical" href="http://caizhimoning.github.io/project/2026/06/11/em-li-2021-fundamentals/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/project/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&amp;family=Noto+Serif+SC:wght@500;600;700&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/project/',
+  algolia: undefined,
+  localSearch: {"path":"/project/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"pagination":{"enable":true,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'medium_zoom',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: true,
+  islazyloadPlugin: true,
+  isAnchor: false,
+  percent: {
+    toc: false,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '弹性力学（李刚）· 绪论与基本方程',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/project/css/layout.css"><link rel="stylesheet" href="/project/css/custom.css"><link rel="stylesheet" href="/project/css/archive.css"><link rel="stylesheet" href="/project/css/projects.css"><link rel="stylesheet" href="/project/css/post-toc.css"><link rel="stylesheet" href="/project/css/post-tag-panel.css"><meta name="generator" content="Hexo 8.1.2"><script id="post-tag-index-data" type="application/json">{"posts":[{"path":"/2026/06/11/em-li-2021-fundamentals/","title":"弹性力学（李刚）· 绪论与基本方程","tags":["弹性力学","李刚"]},{"path":"/2026/06/11/em-li-2021-space-torsion/","title":"弹性力学（李刚）· 空间问题与扭转","tags":["弹性力学","空间问题","扭转"]},{"path":"/2026/06/11/em-li-2021-variational-fem/","title":"弹性力学（李刚）· 能量原理与有限元","tags":["弹性力学","变分法","有限元"]},{"path":"/2026/06/11/em-li-2021/","title":"弹性力学学习笔记（李刚 · 2021）","tags":["弹性力学","李刚","科学出版社"]},{"path":"/2026/06/11/em-xu-vol1-plane-solution/","title":"弹性力学（徐芝纶上册）· 平面问题解答","tags":["弹性力学","复变函数"]},{"path":"/2026/06/11/em-xu-vol1-plane-theory/","title":"弹性力学（徐芝纶上册）· 绪论与平面理论","tags":["弹性力学","徐芝纶"]},{"path":"/2026/06/11/em-li-2021-plane/","title":"弹性力学（李刚）· 平面问题","tags":["弹性力学","平面问题"]},{"path":"/2026/06/11/em-xu-vol1-space-torsion-energy/","title":"弹性力学（徐芝纶上册）· 空间·扭转·能量·波","tags":["弹性力学","弹性波"]},{"path":"/2026/06/11/em-xu-vol1-temperature-fdm/","title":"弹性力学（徐芝纶上册）· 温度应力与差分法","tags":["弹性力学","热应力"]},{"path":"/2026/06/11/em-xu-vol1/","title":"弹性力学学习笔记（徐芝纶 · 上册）","tags":["弹性力学","徐芝纶","高等教育出版社"]},{"path":"/2026/06/11/fm-wu-ch01-field/","title":"流体力学（吴望一）· 场论与张量","tags":["流体力学","场论"]},{"path":"/2026/06/11/em-xu-vol2/","title":"弹性力学学习笔记（徐芝纶 · 下册）","tags":["弹性力学","薄板","壳体"]},{"path":"/2026/06/11/fm-wu-ch02-03/","title":"流体力学（吴望一）· 基本概念与方程组","tags":["流体力学"]},{"path":"/2026/06/11/fm-wu-ch04-07/","title":"流体力学（吴望一）· 涡旋·静力学·理想流","tags":["流体力学","伯努利"]},{"path":"/2026/06/11/em-xu-vol2-shell/","title":"弹性力学（徐芝纶下册）· 壳体理论","tags":["弹性力学","壳体"]},{"path":"/2026/06/11/fm-wu-ch08-10/","title":"流体力学（吴望一）· 波浪·黏性·气体动力学","tags":["流体力学","气体动力学"]},{"path":"/2026/06/11/fm-wu/","title":"流体力学学习笔记（吴望一）","tags":["流体力学","吴望一","北京大学出版社"]},{"path":"/2026/06/11/em-xu-vol2-plate/","title":"弹性力学（徐芝纶下册）· 薄板问题","tags":["弹性力学","薄板"]},{"path":"/2026/06/11/tm-hit-8-vol2-analytical/","title":"理论力学（Ⅱ）· 分析力学基础","tags":["理论力学","分析力学","拉格朗日方程"]},{"path":"/2026/06/11/tm-hit-8-vol2-collision/","title":"理论力学（Ⅱ）· 碰撞","tags":["理论力学","碰撞","恢复因数"]},{"path":"/2026/06/11/tm-hit-8-vol2-gyroscope/","title":"理论力学（Ⅱ）· 定点运动与陀螺","tags":["理论力学","陀螺仪","定点运动"]},{"path":"/2026/06/11/tm-hit-8-vol2-non-inertial/","title":"理论力学（Ⅱ）· 非惯性系中的质点动力学","tags":["理论力学","非惯性系","科氏力"]},{"path":"/2026/06/11/tm-hit-8-vol2-variable-mass/","title":"理论力学（Ⅱ）· 变质量动力学","tags":["理论力学","变质量","火箭方程"]},{"path":"/2026/06/11/tm-hit-8-vol2-vibration/","title":"理论力学（Ⅱ）· 机械振动基础","tags":["理论力学","机械振动","固有频率"]},{"path":"/2026/06/11/tm-hit-8-vol2/","title":"理论力学（Ⅱ）学习笔记","tags":["理论力学","哈尔滨工业大学","第8版"]},{"path":"/2026/06/10/machine-learning/","title":"机器学习课程学习笔记","tags":["机器学习","监督学习","深度学习","数学基础"]},{"path":"/2026/06/09/wsl-setting/","title":"WSL 常用设置：Linux 应用打开 Windows 浏览器","tags":["WSL2","Obsidian","浏览器"]},{"path":"/2026/06/09/obsidian-plugins/","title":"Obsidian 社区插件与本库选用","tags":["Obsidian","插件"]},{"path":"/2026/06/06/obsidian-setting/","title":"Obsidian 设置：字体、外观与 Properties","tags":["WSL2","Obsidian","设置"]},{"path":"/2026/06/08/tm-hit-8-vol1-dynamics/","title":"理论力学（Ⅰ）· 动力学","tags":["理论力学","动力学"]},{"path":"/2026/06/08/tm-hit-8-vol1-kinematics/","title":"理论力学（Ⅰ）· 运动学","tags":["理论力学","运动学"]},{"path":"/2026/06/08/tm-hit-8-vol1-statics/","title":"理论力学（Ⅰ）· 静力学","tags":["理论力学","静力学"]},{"path":"/2026/06/08/tm-hit-8-vol1/","title":"理论力学（Ⅰ）学习笔记","tags":["理论力学","哈尔滨工业大学","第8版"]},{"path":"/2026/06/07/cursor-guide/","title":"Cursor 使用入门：AGENTS.md、Rules 与 WSL 全局约定","tags":["Cursor","AI","工作流","WSL2"]},{"path":"/2026/06/06/markdown-syntax/","title":"Markdown 语法入门","tags":["Markdown","写作","语法"]},{"path":"/2026/06/05/zotero-guide/","title":"Zotero 使用指南","tags":["ai生成","学术写作","Zotero","文献管理"]},{"path":"/2026/06/05/abaqus-python/","title":"Abaqus Python 使用入门","tags":["ai生成","Abaqus","仿真","Python"]},{"path":"/2026/06/05/abaqus-install/","title":"Abaqus 安装与许可配置","tags":["ai生成","Abaqus","仿真","安装"]},{"path":"/2026/06/05/latex-syntax/","title":"LaTeX 语法入门","tags":["ai生成","LaTeX","学术写作","排版"]},{"path":"/2026/06/05/hardware-ram-slots/","title":"内存条安装：插槽位置与双通道规则","tags":["ai生成","装机","内存","双通道"]},{"path":"/2026/06/05/hardware-pc-build/","title":"DIY 装机流程：从配件到点亮","tags":["ai生成","装机","DIY"]},{"path":"/2026/06/05/hardware-storage/","title":"存储选购：固态、机械硬盘与接口","tags":["ai生成","装机","存储","SSD","NVMe"]},{"path":"/2026/06/05/hardware-cooler/","title":"散热器选购：风冷、水冷与机箱风扇","tags":["ai生成","装机","散热器","风冷","水冷"]},{"path":"/2026/06/05/hardware-case/","title":"机箱选购：规格、风道与兼容性","tags":["ai生成","机箱","装机","散热"]},{"path":"/2026/06/05/hardware-psu/","title":"电源选购：功率、认证与模组","tags":["ai生成","装机","电源","PSU"]},{"path":"/2026/06/05/hardware-ram/","title":"内存选购：DDR4 / DDR5、品牌与频率","tags":["ai生成","装机","内存","RAM","DDR5"]},{"path":"/2026/06/05/hardware-motherboard/","title":"主板选购：芯片组、命名与平台搭配","tags":["ai生成","装机","Intel","AMD","主板"]},{"path":"/2026/06/05/hardware-gpu/","title":"显卡选购：品牌、命名与性能分级","tags":["ai生成","装机","AMD","GPU","显卡","NVIDIA"]},{"path":"/2026/06/05/hardware-cpu/","title":"CPU 选购：品牌、命名与性能分级","tags":["ai生成","装机","CPU","Intel","AMD"]},{"path":"/2026/06/05/ssh-basics/","title":"SSH 基础：远程登录与密钥认证","tags":["GitHub","Linux","SSH","安全"]},{"path":"/2026/06/05/git-basics/","title":"Git 基础：版本管理与常用操作","tags":["Linux","Git","版本控制"]},{"path":"/2026/06/05/hexo-github-publish/","title":"Hexo 博客发布 GitHub 与自动化","tags":["Hexo","GitHub","部署"]},{"path":"/2026/06/05/obsidian-win-wsl-install/","title":"Obsidian 在 Windows 与 WSL2 中的安装与库路径选择","tags":["安装","WSL2","Obsidian","Windows"]},{"path":"/2026/06/05/wsl2-install/","title":"WSL2 安装与首次配置","tags":["安装","WSL2","Windows"]},{"path":"/2026/06/05/wsl2-basic-commands/","title":"WSL2 基本命令","tags":["WSL2","Windows","命令行"]},{"path":"/2026/06/05/cursor-agent-reading-order/","title":"Agent 读库顺序与 Reuse（草案）","tags":["Cursor","AI","工作流","知识管理"]},{"path":"/2026/06/04/obsidian-guide/","title":"Obsidian 学习与用法手册","tags":["知识管理","Hexo","WSL2","Obsidian"]},{"path":"/2026/06/03/linux-filesystem/","title":"Linux 文件系统","tags":["Linux","文件系统"]},{"path":"/2026/06/01/welcome-to-my-blog/","title":"欢迎来到我的博客","tags":["欢迎","博客"]}]}</script><script id="post-header-meta" type="application/json">{"title":"弹性力学（李刚）· 绪论与基本方程","subtitle":"第 1–2 章","series":"mechanics","seriesPath":"","author":"","readTime":"","date":"2026-06-11","updated":"2026-06-23","tags":[{"name":"弹性力学","path":"tags/弹性力学/"},{"name":"李刚","path":"tags/李刚/"}],"categories":[],"cover":"https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=800&q=80"}</script></head><body><div class="bg-animation" id="web_bg" style="background: transparent;"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/project/img/avatar.svg" onerror="this.onerror=null;this.src='/project/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/project/archives/"><div class="headline">文章</div><div class="length-num">59</div></a><a href="/project/tags/"><div class="headline">标签</div><div class="length-num">101</div></a><a href="/project/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/project/archives/"><i class="fa-fw fas fa-book-open"></i><span> 文章</span></a></div><div class="menus_item"><a class="site-page" href="/project/projects/"><i class="fa-fw fas fa-code-branch"></i><span> 项目</span></a></div><div class="menus_item"><a class="site-page" href="/project/dynamics/"><i class="fa-fw fas fa-comment-dots"></i><span> 动态</span></a></div><div class="menus_item"><a class="site-page" href="/project/domain/"><i class="fa-fw fas fa-layer-group"></i><span> 专题</span></a></div><div class="menus_item"><a class="site-page" href="/project/about/"><i class="fa-fw fas fa-user"></i><span> 关于我</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img fixed" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/project/"><img class="site-icon" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/project/img/logo.svg" alt="Logo"></a><a class="nav-page-title" href="/project/"><span class="site-name">弹性力学（李刚）· 绪论与基本方程</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/project/archives/"><i class="fa-fw fas fa-book-open"></i><span> 文章</span></a></div><div class="menus_item"><a class="site-page" href="/project/projects/"><i class="fa-fw fas fa-code-branch"></i><span> 项目</span></a></div><div class="menus_item"><a class="site-page" href="/project/dynamics/"><i class="fa-fw fas fa-comment-dots"></i><span> 动态</span></a></div><div class="menus_item"><a class="site-page" href="/project/domain/"><i class="fa-fw fas fa-layer-group"></i><span> 专题</span></a></div><div class="menus_item"><a class="site-page" href="/project/about/"><i class="fa-fw fas fa-user"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">弹性力学（李刚）· 绪论与基本方程</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon far fa-calendar-alt"></i><span class="post-meta-label">发表于</span><time datetime="2026-06-11T09:54:46.000Z" title="发表于 2026-06-11 17:54:46">2026-06-11</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="container post-content" id="article-container"><blockquote>
+<p>总览 → <a href="/project/2026/06/11/em-li-2021/">弹性力学学习笔记（李刚 · 2021）</a></p>
+</blockquote>
+<hr>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><table>
+<thead>
+<tr>
+<th>章&#x2F;节</th>
+<th>跳转到</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>第一章 绪论</td>
+<td>[第一章 绪论](#第一章 绪论)</td>
+</tr>
+<tr>
+<td>§1-1 任务和研究对象</td>
+<td>[§1-1 弹性力学的任务和研究对象](#§1-1 弹性力学的任务和研究对象)</td>
+</tr>
+<tr>
+<td>§1-2 基本假设</td>
+<td>[§1-2 弹性力学的基本假设](#§1-2 弹性力学的基本假设)</td>
+</tr>
+<tr>
+<td>§1-3 研究方法与发展</td>
+<td>[§1-3 研究方法与发展简史](#§1-3 研究方法与发展简史)</td>
+</tr>
+<tr>
+<td>第二章 基本方程和一般定理</td>
+<td>[第二章 弹性力学的基本方程和一般定理](#第二章 弹性力学的基本方程和一般定理)</td>
+</tr>
+<tr>
+<td>§2-1–§2-6</td>
+<td>[§2-1 荷载与应力](#§2-1 荷载与应力)</td>
+</tr>
+<tr>
+<td>§2-7–§2-11</td>
+<td>[§2-7 指标表示法](#§2-7 指标表示法)</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="第一章-绪论"><a href="#第一章-绪论" class="headerlink" title="第一章 绪论"></a>第一章 绪论</h2><h3 id="§1-1-弹性力学的任务和研究对象"><a href="#§1-1-弹性力学的任务和研究对象" class="headerlink" title="§1-1 弹性力学的任务和研究对象"></a>§1-1 弹性力学的任务和研究对象</h3><h4 id="任务"><a href="#任务" class="headerlink" title="任务"></a>任务</h4><p><strong>弹性力学</strong>研究弹性体在荷载作用下的<strong>变形</strong>与<strong>内力</strong>分布规律，建立应力、应变与位移之间的定量关系，为强度、刚度与稳定性设计提供理论依据。</p>
+<p>与材料力学的区别：</p>
+<table>
+<thead>
+<tr>
+<th>对比项</th>
+<th>材料力学</th>
+<th>弹性力学</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>研究对象</td>
+<td>杆、梁、轴等简化构件</td>
+<td>一般形状的弹性体</td>
+</tr>
+<tr>
+<td>假设</td>
+<td>平截面、单向应力等</td>
+<td>更少几何简化，三维应力应变</td>
+</tr>
+<tr>
+<td>方程</td>
+<td>常微分方程为主</td>
+<td>偏微分方程边值问题</td>
+</tr>
+<tr>
+<td>典型问题</td>
+<td>梁弯曲、轴扭转</td>
+<td>孔边应力集中、接触、厚壁筒</td>
+</tr>
+</tbody></table>
+<h4 id="研究对象"><a href="#研究对象" class="headerlink" title="研究对象"></a>研究对象</h4><p><strong>弹性体</strong>：变形在外力去除后能完全恢复；本课程在<strong>小变形</strong>、<strong>线弹性</strong>范围内。</p>
+<p><strong>荷载</strong>：</p>
+<ul>
+<li><strong>体力</strong> $\mathbf{f}$（单位体积力，N&#x2F;m³）：重力、惯性力、电磁力等；</li>
+<li><strong>面力</strong> $\bar{\mathbf{f}}$（单位面积力，N&#x2F;m²）：接触压力、液体压力。</li>
+</ul>
+<p><strong>基本未知量</strong>（三维共 15 个分量，其中应力、应变各 6 个独立）：</p>
+<ul>
+<li>位移 $\mathbf{u} &#x3D; (u, v, w)$ — 3 个；</li>
+<li>应变 $\boldsymbol{\varepsilon}$（6 个独立分量）；</li>
+<li>应力 $\boldsymbol{\sigma}$（6 个独立分量）。</li>
+</ul>
+<h4 id="从材料力学到弹性力学：同一概念的不同层次"><a href="#从材料力学到弹性力学：同一概念的不同层次" class="headerlink" title="从材料力学到弹性力学：同一概念的不同层次"></a>从材料力学到弹性力学：同一概念的不同层次</h4><table>
+<thead>
+<tr>
+<th>材料力学</th>
+<th>弹性力学</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>正应力 $\sigma$ 沿杆轴</td>
+<td>$\sigma_x,\sigma_y,\sigma_z$ 三个正应力并存</td>
+</tr>
+<tr>
+<td>切应力 $\tau$ 在横截面</td>
+<td>$\tau_{xy},\tau_{yz},\tau_{zx}$ 描述任意斜面</td>
+</tr>
+<tr>
+<td>线应变 $\varepsilon$</td>
+<td>正应变 + 剪应变 $\gamma_{xy}$ 等</td>
+</tr>
+<tr>
+<td>梁挠度 $w(x)$</td>
+<td>位移场 $u(x,y,z),v(x,y,z),w(x,y,z)$</td>
+</tr>
+</tbody></table>
+<p><strong>典型工程问题</strong>：带孔平板、键槽、接触面、厚壁压力容器——材料力学公式不再适用，需弹性力学边值问题。</p>
+<hr>
+<h3 id="§1-2-弹性力学的基本假设"><a href="#§1-2-弹性力学的基本假设" class="headerlink" title="§1-2 弹性力学的基本假设"></a>§1-2 弹性力学的基本假设</h3><h4 id="1-连续性假设"><a href="#1-连续性假设" class="headerlink" title="1. 连续性假设"></a>1. 连续性假设</h4><p>介质无空隙，可视为连续体。应力、应变、位移均为位置的单值连续函数，才能对坐标求导，建立微分方程。对宏观工程构件，微观晶体间隙的影响可忽略。</p>
+<h4 id="2-均匀性假设"><a href="#2-均匀性假设" class="headerlink" title="2. 均匀性假设"></a>2. 均匀性假设</h4><p>各点弹性性质相同，$E$、$\nu$、$G$ 等与坐标无关。非均匀材料（功能梯度材料等）需放弃此假设。</p>
+<h4 id="3-各向同性假设"><a href="#3-各向同性假设" class="headerlink" title="3. 各向同性假设"></a>3. 各向同性假设</h4><p>各点沿任意方向的弹性性质相同，应力-应变关系在坐标旋转下形式不变，独立弹性常数仅 2 个。复合材料单层往往各向异性。</p>
+<h4 id="4-小变形假设"><a href="#4-小变形假设" class="headerlink" title="4. 小变形假设"></a>4. 小变形假设</h4><table>
+<thead>
+<tr>
+<th>含义</th>
+<th>数学表述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>位移远小于特征尺寸</td>
+<td>$|\mathbf{u}| \ll L$</td>
+</tr>
+<tr>
+<td>应变分量一阶小量</td>
+<td>$\varepsilon_{ij} \ll 1$</td>
+</tr>
+<tr>
+<td>平衡用未变形位形</td>
+<td>忽略 $u_{i,j} u_{j,k}$ 等高阶项</td>
+</tr>
+<tr>
+<td>本构用原始几何</td>
+<td>胡克定律用工程应变</td>
+</tr>
+</tbody></table>
+<p>几何方程 $\varepsilon_{ij}&#x3D;\dfrac{1}{2}(u_{i,j}+u_{j,i})$ 即由小变形下略去位移乘积项得到。若变形较大，须用 Green 应变等非线性度量，并考虑几何非线性平衡。</p>
+<h4 id="5-无初应力假设"><a href="#5-无初应力假设" class="headerlink" title="5. 无初应力假设"></a>5. 无初应力假设</h4><p>自然状态（无外力、无温度变化）时应力为零。加工残余应力、预应力结构需将初应力场叠加到解上。</p>
+<hr>
+<h3 id="§1-3-研究方法与发展简史"><a href="#§1-3-研究方法与发展简史" class="headerlink" title="§1-3 研究方法与发展简史"></a>§1-3 研究方法与发展简史</h3><h4 id="研究方法"><a href="#研究方法" class="headerlink" title="研究方法"></a>研究方法</h4><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">力学模型（假设）→ 基本方程 + 边界条件（边值问题）</span><br><span class="line">    → 解析解 / 近似解（变分、差分、有限元）</span><br><span class="line">    → 应力、应变、位移</span><br></pre></td></tr></table></figure>
+
+<p>三种经典提法：</p>
+<ol>
+<li><strong>位移法</strong>：以 $\mathbf{u}$ 为基本未知量；</li>
+<li><strong>应力法</strong>：以 $\boldsymbol{\sigma}$ 为基本未知量（需相容方程）；</li>
+<li><strong>应力函数法</strong>（平面）：引入 Airy 函数降低阶数。</li>
+</ol>
+<h4 id="发展简史（提要）"><a href="#发展简史（提要）" class="headerlink" title="发展简史（提要）"></a>发展简史（提要）</h4><ul>
+<li>17–18 世纪：胡克定律、弯曲理论萌芽；</li>
+<li>19 世纪：Navier、Cauchy、Saint-Venant、Love 建立三维理论；</li>
+<li>20 世纪：复变函数法、变分法、有限元（Turner、Clough 等）；</li>
+<li>现代：复合材料、断裂、计算力学、多物理场耦合。</li>
+</ul>
+<hr>
+<h2 id="第二章-弹性力学的基本方程和一般定理"><a href="#第二章-弹性力学的基本方程和一般定理" class="headerlink" title="第二章 弹性力学的基本方程和一般定理"></a>第二章 弹性力学的基本方程和一般定理</h2><h3 id="§2-1-荷载与应力"><a href="#§2-1-荷载与应力" class="headerlink" title="§2-1 荷载与应力"></a>§2-1 荷载与应力</h3><h4 id="应力矢量的概念"><a href="#应力矢量的概念" class="headerlink" title="应力矢量的概念"></a>应力矢量的概念</h4><p>过物体内任一点 $P$，取一微元面积 $\Delta A$，其外法线为 $\mathbf{n}$。微元面上内力的合力为 $\Delta \mathbf{F}$。<strong>应力矢量</strong>（面力）定义为</p>
+<p>$$\mathbf{T}<em>n &#x3D; \lim</em>{\Delta A \to 0} \frac{\Delta \mathbf{F}}{\Delta A}$$</p>
+<p>物理意义：$\mathbf{T}_n$ 描述通过 $P$ 点、法向为 $\mathbf{n}$ 的截面上，单位面积所受内力。它是<strong>矢量</strong>，方向一般与 $\mathbf{n}$ 不一致（既有法向分量也有切向分量）。</p>
+<h4 id="应力分量与应力张量"><a href="#应力分量与应力张量" class="headerlink" title="应力分量与应力张量"></a>应力分量与应力张量</h4><p>在 $P$ 点建立直角坐标系 $Oxyz$。分别取外法向与 $x,y,z$ 轴平行的三个微元面（<strong>正面</strong>：外法向与坐标轴同向），面上应力矢量沿坐标轴分解，得 9 个分量：</p>
+<p>$$\boldsymbol{\sigma} &#x3D; \begin{bmatrix} \sigma_x &amp; \tau_{xy} &amp; \tau_{xz} \ \tau_{yx} &amp; \sigma_y &amp; \tau_{yz} \ \tau_{zx} &amp; \tau_{zy} &amp; \sigma_z \end{bmatrix}$$</p>
+<ul>
+<li>下标 $i$：作用面法向；</li>
+<li>下标 $j$：应力分量方向；</li>
+<li>$\sigma_x,\sigma_y,\sigma_z$ 为正应力，$\tau_{xy}$ 等为剪应力。</li>
+</ul>
+<h4 id="剪应力互等定律的推导"><a href="#剪应力互等定律的推导" class="headerlink" title="剪应力互等定律的推导"></a>剪应力互等定律的推导</h4><p>取微元体，中心在 $P$，边长 $dx,dy,dz$。对过形心、平行 $z$ 轴的线取矩。$x$ 面上 $\tau_{zx}$ 与反面 $\tau_{zx}$ 对 $z$ 轴力矩相互抵消；$y$ 面上同理。$x$ 面上 $\tau_{xy} dy,dz$ 的力臂为 $dx&#x2F;2$，反面上力臂也为 $dx&#x2F;2$，力矩之和为 $\tau_{xy} dy,dz \cdot dx$。$y$ 面上 $\tau_{yx} dx,dz$ 对 $z$ 轴力矩为 $-\tau_{yx} dx,dz \cdot dy$（力臂 $dy&#x2F;2$，两侧相加）。静力平衡 $\sum M_z &#x3D; 0$：</p>
+<p>$$\tau_{xy},dx,dy,dz - \tau_{yx},dx,dy,dz &#x3D; 0 \quad \Rightarrow \quad \tau_{xy} &#x3D; \tau_{yx}$$</p>
+<p>同理 $\tau_{yz}&#x3D;\tau_{zy}$，$\tau_{zx}&#x3D;\tau_{xz}$。故 9 个分量中只有 <strong>6 个独立</strong>。</p>
+<h4 id="斜截面应力（Cauchy-公式）的推导"><a href="#斜截面应力（Cauchy-公式）的推导" class="headerlink" title="斜截面应力（Cauchy 公式）的推导"></a>斜截面应力（Cauchy 公式）的推导</h4><p>在 $P$ 点取微四面体：三个面分别平行坐标面，第四个面法向为 $\mathbf{n}$，面积为 $\Delta S$，其余三面面积分别为 $\Delta S_x &#x3D; l,\Delta S$，$\Delta S_y &#x3D; m,\Delta S$，$\Delta S_z &#x3D; n,\Delta S$（$l,m,n$ 为方向余弦）。</p>
+<p>对四面体列 $x$ 向力平衡（静力，含体力 $f_x \Delta V$，体积 $\Delta V$ 为四阶小量可略）：</p>
+<p>$$T_{nx},\Delta S - \sigma_x,\Delta S_x - \tau_{yx},\Delta S_y - \tau_{zx},\Delta S_z &#x3D; 0$$</p>
+<p>代入 $\Delta S_x &#x3D; l\Delta S$ 等，两边除以 $\Delta S$：</p>
+<p>$$T_{nx} &#x3D; \sigma_x l + \tau_{xy} m + \tau_{xz} n$$</p>
+<p>同理</p>
+<p>$$T_{ny} &#x3D; \tau_{xy} l + \sigma_y m + \tau_{yz} n, \quad T_{nz} &#x3D; \tau_{xz} l + \tau_{yz} m + \sigma_z n$$</p>
+<p>合并为 <strong>Cauchy 公式</strong>：</p>
+<p>$$\mathbf{T}_n &#x3D; \boldsymbol{\sigma} \cdot \mathbf{n}$$</p>
+<p>即：任意斜面上的应力矢量，由 6 个独立应力分量与法向方向余弦线性确定——这是弹性力学将”内力”从截面合力推广到<strong>点</strong>的关键一步。</p>
+<h4 id="主应力与应力不变量"><a href="#主应力与应力不变量" class="headerlink" title="主应力与应力不变量"></a>主应力与应力不变量</h4><p>斜面上正应力 $\sigma_n &#x3D; \mathbf{T}_n \cdot \mathbf{n}$。使 $\sigma_n$ 取极值的方向即<strong>主方向</strong>，对应正应力为主应力 $\sigma$。由 $\mathbf{T}_n &#x3D; \sigma \mathbf{n}$（切应力为零）得</p>
+<p>$$(\boldsymbol{\sigma} - \sigma \mathbf{I}) \cdot \mathbf{n} &#x3D; 0$$</p>
+<p>非零解要求 $\det(\boldsymbol{\sigma} - \sigma \mathbf{I}) &#x3D; 0$，即特征方程</p>
+<p>$$\sigma^3 - I_1 \sigma^2 + I_2 \sigma - I_3 &#x3D; 0$$</p>
+<p>其中<strong>应力不变量</strong>（坐标变换下不变）：</p>
+<p>$$I_1 &#x3D; \sigma_x + \sigma_y + \sigma_z$$</p>
+<p>$$I_2 &#x3D; \sigma_x\sigma_y + \sigma_y\sigma_z + \sigma_z\sigma_x - \tau_{xy}^2 - \tau_{yz}^2 - \tau_{zx}^2$$</p>
+<p>$$I_3 &#x3D; \det(\boldsymbol{\sigma})$$</p>
+<p>三个实根 $\sigma_1 \geq \sigma_2 \geq \sigma_3$ 即主应力。</p>
+<h4 id="最大切应力"><a href="#最大切应力" class="headerlink" title="最大切应力"></a>最大切应力</h4><p>在与 $\sigma_2$ 垂直的主平面内，最大切应力为</p>
+<p>$$\tau_{\max} &#x3D; \frac{\sigma_1 - \sigma_3}{2}$$</p>
+<p>作用面法向与 $\sigma_1$、$\sigma_3$ 方向成 $45°$。</p>
+<hr>
+<h3 id="§2-2-平衡（运动）微分方程"><a href="#§2-2-平衡（运动）微分方程" class="headerlink" title="§2-2 平衡（运动）微分方程"></a>§2-2 平衡（运动）微分方程</h3><h4 id="微元体的力平衡推导"><a href="#微元体的力平衡推导" class="headerlink" title="微元体的力平衡推导"></a>微元体的力平衡推导</h4><p>取以 $P$ 为中心的微元正交六面体，边长 $dx,dy,dz$。以 $x$ 向为例列力平衡（静力，略去体力高阶小量后保留 $f_x,dx,dy,dz$）：</p>
+<table>
+<thead>
+<tr>
+<th>面</th>
+<th>应力（一阶泰勒展开）</th>
+<th>合力 $x$ 分量</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$x+\frac{dx}{2}$</td>
+<td>$\sigma_x + \dfrac{\partial\sigma_x}{\partial x}\dfrac{dx}{2}$</td>
+<td>$+\left(\sigma_x + \dfrac{\partial\sigma_x}{\partial x}dx\right)dy,dz$</td>
+</tr>
+<tr>
+<td>$x-\frac{dx}{2}$</td>
+<td>$\sigma_x$</td>
+<td>$-\sigma_x,dy,dz$</td>
+</tr>
+<tr>
+<td>$y+\frac{dy}{2}$</td>
+<td>$\tau_{yx} + \dfrac{\partial\tau_{yx}}{\partial y}\dfrac{dy}{2}$</td>
+<td>$+\left(\tau_{yx} + \dfrac{\partial\tau_{yx}}{\partial y}dy\right)dx,dz$</td>
+</tr>
+<tr>
+<td>$y-\frac{dy}{2}$</td>
+<td>$\tau_{yx}$</td>
+<td>$-\tau_{yx},dx,dz$</td>
+</tr>
+<tr>
+<td>$z$ 两面</td>
+<td>同理 $\tau_{zx}$</td>
+<td>$\dfrac{\partial\tau_{zx}}{\partial z}dx,dy,dz$</td>
+</tr>
+</tbody></table>
+<p>合并并除以 $dx,dy,dz$，令微元趋于零：</p>
+<p>$$\frac{\partial \sigma_x}{\partial x} + \frac{\partial \tau_{yx}}{\partial y} + \frac{\partial \tau_{zx}}{\partial z} + f_x &#x3D; 0$$</p>
+<p>由 $\tau_{yx}&#x3D;\tau_{xy}$，$\tau_{zx}&#x3D;\tau_{xz}$，常写为</p>
+<p>$$\frac{\partial \sigma_x}{\partial x} + \frac{\partial \tau_{xy}}{\partial y} + \frac{\partial \tau_{xz}}{\partial z} + f_x &#x3D; 0$$</p>
+<p>对 $y,z$ 同理，共 <strong>3 个平衡微分方程</strong>。含惯性力时右端改为 $-\rho \ddot{u}_i$。</p>
+<h4 id="指标形式"><a href="#指标形式" class="headerlink" title="指标形式"></a>指标形式</h4><p>采用求和约定（§2-7）：</p>
+<p>$$\sigma_{ji,j} + f_i &#x3D; 0$$</p>
+<p>注意下标：对第二指标求导，第一指标为应力作用面法向。</p>
+<hr>
+<h3 id="§2-3-斜面应力公式与应力边界条件"><a href="#§2-3-斜面应力公式与应力边界条件" class="headerlink" title="§2-3 斜面应力公式与应力边界条件"></a>§2-3 斜面应力公式与应力边界条件</h3><h4 id="应力边界条件"><a href="#应力边界条件" class="headerlink" title="应力边界条件"></a>应力边界条件</h4><p>在表面 $S_\sigma$ 上给定面力 $\bar{\mathbf{f}}$：</p>
+<p>$$\mathbf{T}_n &#x3D; \boldsymbol{\sigma} \cdot \mathbf{n} &#x3D; \bar{\mathbf{f}}$$</p>
+<h4 id="主矢量与主矩（圣维南等效）"><a href="#主矢量与主矩（圣维南等效）" class="headerlink" title="主矢量与主矩（圣维南等效）"></a>主矢量与主矩（圣维南等效）</h4><p>局部区域上外力主矢量、主矩与内力效应等效——圣维南原理（§2-11）的基础。</p>
+<hr>
+<h3 id="§2-4-位移、应变与位移边界条件"><a href="#§2-4-位移、应变与位移边界条件" class="headerlink" title="§2-4 位移、应变与位移边界条件"></a>§2-4 位移、应变与位移边界条件</h3><h4 id="位移"><a href="#位移" class="headerlink" title="位移"></a>位移</h4><p>$$\mathbf{u} &#x3D; (u, v, w)$$</p>
+<h4 id="位移边界条件"><a href="#位移边界条件" class="headerlink" title="位移边界条件"></a>位移边界条件</h4><p>在 $S_u$ 上：</p>
+<p>$$u &#x3D; \bar{u}, \quad v &#x3D; \bar{v}, \quad w &#x3D; \bar{w}$$</p>
+<h4 id="刚体位移"><a href="#刚体位移" class="headerlink" title="刚体位移"></a>刚体位移</h4><p>不含应变的位移：平动 + 转动。平面问题 3 个刚体位移分量，空间问题 6 个。</p>
+<hr>
+<h3 id="§2-5-几何方程（应变-位移关系）"><a href="#§2-5-几何方程（应变-位移关系）" class="headerlink" title="§2-5 几何方程（应变-位移关系）"></a>§2-5 几何方程（应变-位移关系）</h3><h4 id="正应变的推导"><a href="#正应变的推导" class="headerlink" title="正应变的推导"></a>正应变的推导</h4><p>设 $P$ 点位移为 $(u,v,w)$。邻近点 $P’$ 相对 $P$ 坐标增量为 $(dx,dy,dz)$，由泰勒展开（小变形，只保留一阶）：</p>
+<p>$$u’ &#x3D; u + \frac{\partial u}{\partial x}dx + \frac{\partial u}{\partial y}dy + \frac{\partial u}{\partial z}dz$$</p>
+<p>沿 $x$ 轴方向的线段 $PP_x$ 原长 $dx$，变形后 $x$ 向伸长量为 $\dfrac{\partial u}{\partial x}dx$，故<strong>线应变</strong></p>
+<p>$$\varepsilon_x &#x3D; \frac{\partial u}{\partial x}$$</p>
+<p>同理 $\varepsilon_y &#x3D; \dfrac{\partial v}{\partial y}$，$\varepsilon_z &#x3D; \dfrac{\partial w}{\partial z}$。</p>
+<h4 id="剪应变的推导"><a href="#剪应变的推导" class="headerlink" title="剪应变的推导"></a>剪应变的推导</h4><p>考察 $xy$ 平面内两微线段：沿 $x$ 的 $dx$ 与沿 $y$ 的 $dy$。变形后，原直角的两边分别转动：</p>
+<ul>
+<li>$x$ 边绕 $z$ 转角 $\alpha \approx \dfrac{\partial v}{\partial x}$（$y$ 位移沿 $x$ 的变化率）；</li>
+<li>$y$ 边绕 $z$ 转角 $\beta \approx \dfrac{\partial u}{\partial y}$。</li>
+</ul>
+<p><strong>剪应变</strong> $\gamma_{xy}$ 定义为直角改变量（弧度，夹角减小为正）：</p>
+<p>$$\gamma_{xy} &#x3D; \alpha + \beta &#x3D; \frac{\partial u}{\partial y} + \frac{\partial v}{\partial x}$$</p>
+<p>其余 $\gamma_{yz}$、$\gamma_{zx}$ 同理。</p>
+<h4 id="指标对称形式"><a href="#指标对称形式" class="headerlink" title="指标对称形式"></a>指标对称形式</h4><p>定义 $\varepsilon_{ij} &#x3D; \dfrac{1}{2}(u_{i,j} + u_{j,i})$，则 $\varepsilon_{xx}&#x3D;\varepsilon_x$，$\gamma_{xy}&#x3D;2\varepsilon_{xy}$。对称性 $\varepsilon_{ij}&#x3D;\varepsilon_{ji}$ 保证 6 个独立应变分量。</p>
+<hr>
+<h3 id="§2-6-广义胡克定律（本构方程）"><a href="#§2-6-广义胡克定律（本构方程）" class="headerlink" title="§2-6 广义胡克定律（本构方程）"></a>§2-6 广义胡克定律（本构方程）</h3><h4 id="单向应力与泊松效应"><a href="#单向应力与泊松效应" class="headerlink" title="单向应力与泊松效应"></a>单向应力与泊松效应</h4><p>实验：杆沿 $x$ 受均匀拉应力 $\sigma_x$，其余应力为零时</p>
+<p>$$\varepsilon_x &#x3D; \frac{\sigma_x}{E}, \quad \varepsilon_y &#x3D; \varepsilon_z &#x3D; -\nu \frac{\sigma_x}{E}$$</p>
+<p>$E$ 为弹性模量，$\nu$ 为泊松比。负号表示横向收缩。</p>
+<h4 id="叠加原理导出三维形式"><a href="#叠加原理导出三维形式" class="headerlink" title="叠加原理导出三维形式"></a>叠加原理导出三维形式</h4><p>线弹性、小变形下，各应力分量引起的应变可叠加。$x$ 向正应力 $\sigma_x$ 产生 $\varepsilon_x&#x3D;\sigma_x&#x2F;E$ 及横向 $-\nu\sigma_x&#x2F;E$；$y,z$ 向正应力同理。剪应力 $\tau_{xy}$ 仅产生 $\gamma_{xy}&#x3D;\tau_{xy}&#x2F;G$，与正应力解耦（各向同性）。</p>
+<p>合并得<strong>正应变</strong>：</p>
+<p>$$\varepsilon_x &#x3D; \frac{1}{E}\left[\sigma_x - \nu(\sigma_y + \sigma_z)\right]$$</p>
+<p>$\varepsilon_y$、$\varepsilon_z$ 由指标轮换得到。<strong>剪应力关系</strong>：</p>
+<p>$$\gamma_{xy} &#x3D; \frac{\tau_{xy}}{G}, \quad \gamma_{yz} &#x3D; \frac{\tau_{yz}}{G}, \quad \gamma_{zx} &#x3D; \frac{\tau_{zx}}{G}$$</p>
+<h4 id="G-与-E-nu-的关系"><a href="#G-与-E-nu-的关系" class="headerlink" title="$G$ 与 $E,\nu$ 的关系"></a>$G$ 与 $E,\nu$ 的关系</h4><p>取纯剪状态 $\sigma_x&#x3D;-\sigma_y&#x3D;\tau$，$\sigma_z&#x3D;\tau_{xy}&#x3D;0$。由正应变公式</p>
+<p>$$\varepsilon_x &#x3D; \frac{1+\nu}{E}\tau, \quad \varepsilon_y &#x3D; -\frac{1+\nu}{E}\tau$$</p>
+<p>主应变差 $\varepsilon_x-\varepsilon_y &#x3D; \dfrac{2(1+\nu)}{E}\tau$。另一方面纯剪时 $\gamma_{xy}&#x3D;2\varepsilon_{\max}&#x3D;\dfrac{2\tau}{G}$（主应变与剪应变关系），联立得</p>
+<p>$$G &#x3D; \frac{E}{2(1+\nu)}$$</p>
+<p>体积模量 $K &#x3D; \dfrac{E}{3(1-2\nu)}$。各向同性体仅 <strong>2 个独立</strong>弹性常数。</p>
+<h4 id="用应变表示应力（逆本构）"><a href="#用应变表示应力（逆本构）" class="headerlink" title="用应变表示应力（逆本构）"></a>用应变表示应力（逆本构）</h4><p>令 $\theta &#x3D; \varepsilon_x + \varepsilon_y + \varepsilon_z$ 为体积应变，引入拉梅常数 $\lambda &#x3D; \dfrac{E\nu}{(1+\nu)(1-2\nu)}$，可写为</p>
+<p>$$\sigma_x &#x3D; \lambda\theta + 2G\varepsilon_x, \quad \sigma_y &#x3D; \lambda\theta + 2G\varepsilon_y, \quad \sigma_z &#x3D; \lambda\theta + 2G\varepsilon_z$$</p>
+<p>$$\tau_{xy} &#x3D; G\gamma_{xy}, \quad \tau_{yz} &#x3D; G\gamma_{yz}, \quad \tau_{zx} &#x3D; G\gamma_{zx}$$</p>
+<p>此形式在推导 Navier 方程时更方便。</p>
+<h4 id="应变能密度"><a href="#应变能密度" class="headerlink" title="应变能密度"></a>应变能密度</h4><p>$$U &#x3D; \frac{1}{2}\sigma_{ij}\varepsilon_{ij} &#x3D; \frac{1}{2E}\left[\sigma_x^2 + \sigma_y^2 + \sigma_z^2 - 2\nu(\sigma_x\sigma_y + \sigma_y\sigma_z + \sigma_z\sigma_x) + 2(1+\nu)(\tau_{xy}^2 + \tau_{yz}^2 + \tau_{zx}^2)\right]$$</p>
+<hr>
+<h3 id="§2-7-指标表示法"><a href="#§2-7-指标表示法" class="headerlink" title="§2-7 指标表示法"></a>§2-7 指标表示法</h3><h4 id="求和约定"><a href="#求和约定" class="headerlink" title="求和约定"></a>求和约定</h4><p>同一指标上下标出现两次表示对该指标求和：$a_i b_i &#x3D; \sum_i a_i b_i$。</p>
+<h4 id="克罗内克符号"><a href="#克罗内克符号" class="headerlink" title="克罗内克符号"></a>克罗内克符号</h4><p>$$\delta_{ij} &#x3D; \begin{cases} 1, &amp; i&#x3D;j \ 0, &amp; i \neq j \end{cases}$$</p>
+<h4 id="置换符号"><a href="#置换符号" class="headerlink" title="置换符号"></a>置换符号</h4><p>$$\varepsilon_{ijk} &#x3D; \begin{cases} 1, &amp; (ijk) \text{ 偶排列} \ -1, &amp; \text{奇排列} \ 0, &amp; \text{有重复指标} \end{cases}$$</p>
+<h4 id="常用公式"><a href="#常用公式" class="headerlink" title="常用公式"></a>常用公式</h4><p>$$\mathbf{a} \cdot \mathbf{b} &#x3D; a_i b_i, \quad (\mathbf{a} \times \mathbf{b})<em>i &#x3D; \varepsilon</em>{ijk} a_j b_k$$</p>
+<p>平衡：$\sigma_{ji,j} + f_i &#x3D; 0$；几何：$\varepsilon_{ij} &#x3D; \frac{1}{2}(u_{i,j} + u_{j,i})$。</p>
+<hr>
+<h3 id="§2-8-弹性力学问题的一般提法"><a href="#§2-8-弹性力学问题的一般提法" class="headerlink" title="§2-8 弹性力学问题的一般提法"></a>§2-8 弹性力学问题的一般提法</h3><h4 id="方程组的封闭性"><a href="#方程组的封闭性" class="headerlink" title="方程组的封闭性"></a>方程组的封闭性</h4><p>域 $V$ 内：</p>
+<table>
+<thead>
+<tr>
+<th>方程</th>
+<th>个数</th>
+<th>联系</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>平衡微分方程</td>
+<td>3</td>
+<td>$\sigma_{ij}$ 与 $f_i$</td>
+</tr>
+<tr>
+<td>几何方程</td>
+<td>6</td>
+<td>$\varepsilon_{ij}$ 与 $u_i$</td>
+</tr>
+<tr>
+<td>本构方程</td>
+<td>6</td>
+<td>$\sigma_{ij}$ 与 $\varepsilon_{ij}$</td>
+</tr>
+</tbody></table>
+<p>共 15 个方程。未知量：$u_i$（3 个）+ 独立 $\varepsilon_{ij}$（6 个）+ 独立 $\sigma_{ij}$（6 个），共 15 个——方程组封闭。</p>
+<h4 id="边值问题的提法"><a href="#边值问题的提法" class="headerlink" title="边值问题的提法"></a>边值问题的提法</h4><p>边界 $\partial V &#x3D; S_\sigma \cup S_u$：</p>
+<ul>
+<li><strong>应力边</strong> $S_\sigma$：$\boldsymbol{\sigma}\cdot\mathbf{n}&#x3D;\bar{\mathbf{f}}$（给定面力）；</li>
+<li><strong>位移边</strong> $S_u$：$\mathbf{u}&#x3D;\bar{\mathbf{u}}$（给定位移）。</li>
+</ul>
+<p>每点 3 个边界条件，整条边界上共 3 个自由度&#x2F;点。全部边界给应力时，须满足整体平衡 $\int_{S_\sigma}\bar{\mathbf{f}},\mathrm{d}S + \int_V \mathbf{f},\mathrm{d}V &#x3D; \mathbf{0}$，否则无解。</p>
+<hr>
+<h3 id="§2-9-叠加原理"><a href="#§2-9-叠加原理" class="headerlink" title="§2-9 叠加原理"></a>§2-9 叠加原理</h3><p>线弹性、小变形下，若干组荷载共同作用 &#x3D; 各组荷载单独作用效应的叠加。</p>
+<p><strong>限制</strong>：不能用于稳定问题、接触非线性、材料非线性。</p>
+<hr>
+<h3 id="§2-10-解的唯一性定理"><a href="#§2-10-解的唯一性定理" class="headerlink" title="§2-10 解的唯一性定理"></a>§2-10 解的唯一性定理</h3><p>在适当连续性与边界条件下，弹性力学边值问题的解<strong>至多一个</strong>（位移确定到刚体位移）。</p>
+<hr>
+<h3 id="§2-11-圣维南原理"><a href="#§2-11-圣维南原理" class="headerlink" title="§2-11 圣维南原理"></a>§2-11 圣维南原理</h3><p>若局部平衡力系静力等效（主矢量、主矩相同），则远离该区域的应力仅受相差高阶小量影响。</p>
+<p><strong>应用</strong>：用等效分布力代替集中力；杆端荷载用平均应力代替。</p>
+<p>若荷载作用区特征尺度为 $a$，在距该区域 $r \gg a$ 处，静力等效的两个力系所引起的应力差随 $r$ 增大而迅速衰减——这就是用”平均应力”代替杆端集中力的理论依据。</p>
+<hr>
+<h2 id="相关"><a href="#相关" class="headerlink" title="相关"></a>相关</h2><ul>
+<li><a href="/project/2026/06/11/em-li-2021/">弹性力学学习笔记（李刚 · 2021）</a>、<a href="/project/2026/06/11/em-li-2021-plane/">弹性力学（李刚）· 平面问题</a></li>
+<li><a href="/project/2026/06/11/em-xu-vol1-plane-theory/">弹性力学（徐芝纶上册）· 绪论与平面理论</a>（徐芝纶平面理论对照）</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://caizhimoning.github.io/project">caizhimoning</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://caizhimoning.github.io/project/2026/06/11/em-li-2021-fundamentals/">http://caizhimoning.github.io/project/2026/06/11/em-li-2021-fundamentals/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://caizhimoning.github.io/project" target="_blank">Moning's Blog</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&amp;fit=crop&amp;w=800&amp;q=80" data-sites="wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/project/2026/06/11/em-li-2021-space-torsion/" title="弹性力学（李刚）· 空间问题与扭转"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&amp;fit=crop&amp;w=800&amp;q=80" onerror="onerror=null;src='/project/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">弹性力学（李刚）· 空间问题与扭转</div></div><div class="info-2"><div class="info-item-1"> 总览 → 弹性力学学习笔记（李刚 · 2021） · 前置 → 弹性力学（李刚）· 平面问题   目录   章 跳转到    第五章 空间问题 [第五章 空间问题的基本理论与解答](#第五章 空间问题的基本理论与解答)   第六章 ...</div></div></div></a><a class="pagination-related" href="/project/2026/06/11/tm-hit-8-vol2/" title="理论力学（Ⅱ）学习笔记"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://images.unsplash.com/photo-1522441815192-d9f04eb0615c?auto=format&amp;fit=crop&amp;w=800&amp;q=80" onerror="onerror=null;src='/project/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">理论力学（Ⅱ）学习笔记</div></div><div class="info-2"><div class="info-item-1">本书笔记对应哈尔滨工业大学理论力学教研室编《理论力学》（第8版）（Ⅱ）（高等教育出版社，2016，ISBN 978-7-04-045993-7）。本册为专题篇，在 理论力学（Ⅰ）学习笔记 静力学、运动学、动力学基础上，讲授分析力学、非...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/project/2026/06/11/em-li-2021/" title="弹性力学学习笔记（李刚 · 2021）"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=800&q=80" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-06-11</div><div class="info-item-2">弹性力学学习笔记（李刚 · 2021）</div></div><div class="info-2"><div class="info-item-1">本书笔记对应李刚主编《弹性力学》（第 1 版，科学出版社，2021，ISBN 978-7-03-068066-2）。教材基于大连理工大学工程力学系多年教学积累，从基本理论出发系统阐述应力、应变、本构关系、边值问题及平面&#x2F;空间...</div></div></div></a><a class="pagination-related" href="/project/2026/06/11/em-xu-vol1-temperature-fdm/" title="弹性力学（徐芝纶上册）· 温度应力与差分法"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://images.unsplash.com/photo-1522441815192-d9f04eb0615c?auto=format&fit=crop&w=800&q=80" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-06-11</div><div class="info-item-2">弹性力学（徐芝纶上册）· 温度应力与差分法</div></div><div class="info-2"><div class="info-item-1"> 总览 → 弹性力学学习笔记（徐芝纶 · 上册）   目录   章 跳转到    第六章 温度应力的平面问题 [第六章 温度应力的平面问题](#第六章 温度应力的平面问题)   第七章 平面问题的差分近似解 [第七章 平面问题的差分近...</div></div></div></a><a class="pagination-related" href="/project/2026/06/11/em-xu-vol1-plane-theory/" title="弹性力学（徐芝纶上册）· 绪论与平面理论"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://images.unsplash.com/photo-1522441815192-d9f04eb0615c?auto=format&fit=crop&w=800&q=80" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-06-11</div><div class="info-item-2">弹性力学（徐芝纶上册）· 绪论与平面理论</div></div><div class="info-2"><div class="info-item-1"> 总览 → 弹性力学学习笔记（徐芝纶 · 上册）   目录   章&#x2F;节 跳转到    第一章 绪论 [第一章 绪论](#第一章 绪论)   §1-1–§1-4 见章内   第二章 平面问题的基本理论 [第二章 平面问题的基本...</div></div></div></a><a class="pagination-related" href="/project/2026/06/11/em-li-2021-variational-fem/" title="弹性力学（李刚）· 能量原理与有限元"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://images.unsplash.com/photo-1522441815192-d9f04eb0615c?auto=format&fit=crop&w=800&q=80" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-06-11</div><div class="info-item-2">弹性力学（李刚）· 能量原理与有限元</div></div><div class="info-2"><div class="info-item-1"> 总览 → 弹性力学学习笔记（李刚 · 2021） · 前置 → [[tm-hit-8-vol1-dynamics#第十四章 虚位移原理]]   目录   章 跳转到    第七章 能量原理与变分法 [第七章 能量原理与变分法](#第...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95"><span class="toc-number">1.</span> <span class="toc-text">目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%BB%AA%E8%AE%BA"><span class="toc-number">2.</span> <span class="toc-text">第一章 绪论</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A71-1-%E5%BC%B9%E6%80%A7%E5%8A%9B%E5%AD%A6%E7%9A%84%E4%BB%BB%E5%8A%A1%E5%92%8C%E7%A0%94%E7%A9%B6%E5%AF%B9%E8%B1%A1"><span class="toc-number">2.1.</span> <span class="toc-text">§1-1 弹性力学的任务和研究对象</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%BB%E5%8A%A1"><span class="toc-number">2.1.1.</span> <span class="toc-text">任务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A0%94%E7%A9%B6%E5%AF%B9%E8%B1%A1"><span class="toc-number">2.1.2.</span> <span class="toc-text">研究对象</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%8E%E6%9D%90%E6%96%99%E5%8A%9B%E5%AD%A6%E5%88%B0%E5%BC%B9%E6%80%A7%E5%8A%9B%E5%AD%A6%EF%BC%9A%E5%90%8C%E4%B8%80%E6%A6%82%E5%BF%B5%E7%9A%84%E4%B8%8D%E5%90%8C%E5%B1%82%E6%AC%A1"><span class="toc-number">2.1.3.</span> <span class="toc-text">从材料力学到弹性力学：同一概念的不同层次</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A71-2-%E5%BC%B9%E6%80%A7%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%81%87%E8%AE%BE"><span class="toc-number">2.2.</span> <span class="toc-text">§1-2 弹性力学的基本假设</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E8%BF%9E%E7%BB%AD%E6%80%A7%E5%81%87%E8%AE%BE"><span class="toc-number">2.2.1.</span> <span class="toc-text">1. 连续性假设</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%9D%87%E5%8C%80%E6%80%A7%E5%81%87%E8%AE%BE"><span class="toc-number">2.2.2.</span> <span class="toc-text">2. 均匀性假设</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%90%84%E5%90%91%E5%90%8C%E6%80%A7%E5%81%87%E8%AE%BE"><span class="toc-number">2.2.3.</span> <span class="toc-text">3. 各向同性假设</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E5%B0%8F%E5%8F%98%E5%BD%A2%E5%81%87%E8%AE%BE"><span class="toc-number">2.2.4.</span> <span class="toc-text">4. 小变形假设</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E6%97%A0%E5%88%9D%E5%BA%94%E5%8A%9B%E5%81%87%E8%AE%BE"><span class="toc-number">2.2.5.</span> <span class="toc-text">5. 无初应力假设</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A71-3-%E7%A0%94%E7%A9%B6%E6%96%B9%E6%B3%95%E4%B8%8E%E5%8F%91%E5%B1%95%E7%AE%80%E5%8F%B2"><span class="toc-number">2.3.</span> <span class="toc-text">§1-3 研究方法与发展简史</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A0%94%E7%A9%B6%E6%96%B9%E6%B3%95"><span class="toc-number">2.3.1.</span> <span class="toc-text">研究方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%91%E5%B1%95%E7%AE%80%E5%8F%B2%EF%BC%88%E6%8F%90%E8%A6%81%EF%BC%89"><span class="toc-number">2.3.2.</span> <span class="toc-text">发展简史（提要）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E5%BC%B9%E6%80%A7%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%96%B9%E7%A8%8B%E5%92%8C%E4%B8%80%E8%88%AC%E5%AE%9A%E7%90%86"><span class="toc-number">3.</span> <span class="toc-text">第二章 弹性力学的基本方程和一般定理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A72-1-%E8%8D%B7%E8%BD%BD%E4%B8%8E%E5%BA%94%E5%8A%9B"><span class="toc-number">3.1.</span> <span class="toc-text">§2-1 荷载与应力</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BA%94%E5%8A%9B%E7%9F%A2%E9%87%8F%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-number">3.1.1.</span> <span class="toc-text">应力矢量的概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BA%94%E5%8A%9B%E5%88%86%E9%87%8F%E4%B8%8E%E5%BA%94%E5%8A%9B%E5%BC%A0%E9%87%8F"><span class="toc-number">3.1.2.</span> <span class="toc-text">应力分量与应力张量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%89%AA%E5%BA%94%E5%8A%9B%E4%BA%92%E7%AD%89%E5%AE%9A%E5%BE%8B%E7%9A%84%E6%8E%A8%E5%AF%BC"><span class="toc-number">3.1.3.</span> <span class="toc-text">剪应力互等定律的推导</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%9C%E6%88%AA%E9%9D%A2%E5%BA%94%E5%8A%9B%EF%BC%88Cauchy-%E5%85%AC%E5%BC%8F%EF%BC%89%E7%9A%84%E6%8E%A8%E5%AF%BC"><span class="toc-number">3.1.4.</span> <span class="toc-text">斜截面应力（Cauchy 公式）的推导</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BB%E5%BA%94%E5%8A%9B%E4%B8%8E%E5%BA%94%E5%8A%9B%E4%B8%8D%E5%8F%98%E9%87%8F"><span class="toc-number">3.1.5.</span> <span class="toc-text">主应力与应力不变量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%80%E5%A4%A7%E5%88%87%E5%BA%94%E5%8A%9B"><span class="toc-number">3.1.6.</span> <span class="toc-text">最大切应力</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A72-2-%E5%B9%B3%E8%A1%A1%EF%BC%88%E8%BF%90%E5%8A%A8%EF%BC%89%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B"><span class="toc-number">3.2.</span> <span class="toc-text">§2-2 平衡（运动）微分方程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%AE%E5%85%83%E4%BD%93%E7%9A%84%E5%8A%9B%E5%B9%B3%E8%A1%A1%E6%8E%A8%E5%AF%BC"><span class="toc-number">3.2.1.</span> <span class="toc-text">微元体的力平衡推导</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%87%E6%A0%87%E5%BD%A2%E5%BC%8F"><span class="toc-number">3.2.2.</span> <span class="toc-text">指标形式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A72-3-%E6%96%9C%E9%9D%A2%E5%BA%94%E5%8A%9B%E5%85%AC%E5%BC%8F%E4%B8%8E%E5%BA%94%E5%8A%9B%E8%BE%B9%E7%95%8C%E6%9D%A1%E4%BB%B6"><span class="toc-number">3.3.</span> <span class="toc-text">§2-3 斜面应力公式与应力边界条件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BA%94%E5%8A%9B%E8%BE%B9%E7%95%8C%E6%9D%A1%E4%BB%B6"><span class="toc-number">3.3.1.</span> <span class="toc-text">应力边界条件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BB%E7%9F%A2%E9%87%8F%E4%B8%8E%E4%B8%BB%E7%9F%A9%EF%BC%88%E5%9C%A3%E7%BB%B4%E5%8D%97%E7%AD%89%E6%95%88%EF%BC%89"><span class="toc-number">3.3.2.</span> <span class="toc-text">主矢量与主矩（圣维南等效）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A72-4-%E4%BD%8D%E7%A7%BB%E3%80%81%E5%BA%94%E5%8F%98%E4%B8%8E%E4%BD%8D%E7%A7%BB%E8%BE%B9%E7%95%8C%E6%9D%A1%E4%BB%B6"><span class="toc-number">3.4.</span> <span class="toc-text">§2-4 位移、应变与位移边界条件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%8D%E7%A7%BB"><span class="toc-number">3.4.1.</span> <span class="toc-text">位移</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%8D%E7%A7%BB%E8%BE%B9%E7%95%8C%E6%9D%A1%E4%BB%B6"><span class="toc-number">3.4.2.</span> <span class="toc-text">位移边界条件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9A%E4%BD%93%E4%BD%8D%E7%A7%BB"><span class="toc-number">3.4.3.</span> <span class="toc-text">刚体位移</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A72-5-%E5%87%A0%E4%BD%95%E6%96%B9%E7%A8%8B%EF%BC%88%E5%BA%94%E5%8F%98-%E4%BD%8D%E7%A7%BB%E5%85%B3%E7%B3%BB%EF%BC%89"><span class="toc-number">3.5.</span> <span class="toc-text">§2-5 几何方程（应变-位移关系）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A3%E5%BA%94%E5%8F%98%E7%9A%84%E6%8E%A8%E5%AF%BC"><span class="toc-number">3.5.1.</span> <span class="toc-text">正应变的推导</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%89%AA%E5%BA%94%E5%8F%98%E7%9A%84%E6%8E%A8%E5%AF%BC"><span class="toc-number">3.5.2.</span> <span class="toc-text">剪应变的推导</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%87%E6%A0%87%E5%AF%B9%E7%A7%B0%E5%BD%A2%E5%BC%8F"><span class="toc-number">3.5.3.</span> <span class="toc-text">指标对称形式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A72-6-%E5%B9%BF%E4%B9%89%E8%83%A1%E5%85%8B%E5%AE%9A%E5%BE%8B%EF%BC%88%E6%9C%AC%E6%9E%84%E6%96%B9%E7%A8%8B%EF%BC%89"><span class="toc-number">3.6.</span> <span class="toc-text">§2-6 广义胡克定律（本构方程）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%95%E5%90%91%E5%BA%94%E5%8A%9B%E4%B8%8E%E6%B3%8A%E6%9D%BE%E6%95%88%E5%BA%94"><span class="toc-number">3.6.1.</span> <span class="toc-text">单向应力与泊松效应</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%A0%E5%8A%A0%E5%8E%9F%E7%90%86%E5%AF%BC%E5%87%BA%E4%B8%89%E7%BB%B4%E5%BD%A2%E5%BC%8F"><span class="toc-number">3.6.2.</span> <span class="toc-text">叠加原理导出三维形式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#G-%E4%B8%8E-E-nu-%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">3.6.3.</span> <span class="toc-text">$G$ 与 $E,\nu$ 的关系</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%A8%E5%BA%94%E5%8F%98%E8%A1%A8%E7%A4%BA%E5%BA%94%E5%8A%9B%EF%BC%88%E9%80%86%E6%9C%AC%E6%9E%84%EF%BC%89"><span class="toc-number">3.6.4.</span> <span class="toc-text">用应变表示应力（逆本构）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BA%94%E5%8F%98%E8%83%BD%E5%AF%86%E5%BA%A6"><span class="toc-number">3.6.5.</span> <span class="toc-text">应变能密度</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A72-7-%E6%8C%87%E6%A0%87%E8%A1%A8%E7%A4%BA%E6%B3%95"><span class="toc-number">3.7.</span> <span class="toc-text">§2-7 指标表示法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B1%82%E5%92%8C%E7%BA%A6%E5%AE%9A"><span class="toc-number">3.7.1.</span> <span class="toc-text">求和约定</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%8B%E7%BD%97%E5%86%85%E5%85%8B%E7%AC%A6%E5%8F%B7"><span class="toc-number">3.7.2.</span> <span class="toc-text">克罗内克符号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BD%AE%E6%8D%A2%E7%AC%A6%E5%8F%B7"><span class="toc-number">3.7.3.</span> <span class="toc-text">置换符号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%85%AC%E5%BC%8F"><span class="toc-number">3.7.4.</span> <span class="toc-text">常用公式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A72-8-%E5%BC%B9%E6%80%A7%E5%8A%9B%E5%AD%A6%E9%97%AE%E9%A2%98%E7%9A%84%E4%B8%80%E8%88%AC%E6%8F%90%E6%B3%95"><span class="toc-number">3.8.</span> <span class="toc-text">§2-8 弹性力学问题的一般提法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E7%A8%8B%E7%BB%84%E7%9A%84%E5%B0%81%E9%97%AD%E6%80%A7"><span class="toc-number">3.8.1.</span> <span class="toc-text">方程组的封闭性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BE%B9%E5%80%BC%E9%97%AE%E9%A2%98%E7%9A%84%E6%8F%90%E6%B3%95"><span class="toc-number">3.8.2.</span> <span class="toc-text">边值问题的提法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A72-9-%E5%8F%A0%E5%8A%A0%E5%8E%9F%E7%90%86"><span class="toc-number">3.9.</span> <span class="toc-text">§2-9 叠加原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A72-10-%E8%A7%A3%E7%9A%84%E5%94%AF%E4%B8%80%E6%80%A7%E5%AE%9A%E7%90%86"><span class="toc-number">3.10.</span> <span class="toc-text">§2-10 解的唯一性定理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A72-11-%E5%9C%A3%E7%BB%B4%E5%8D%97%E5%8E%9F%E7%90%86"><span class="toc-number">3.11.</span> <span class="toc-text">§2-11 圣维南原理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3"><span class="toc-number">4.</span> <span class="toc-text">相关</span></a></li></ol></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/project/js/utils.js?v=5.5.4"></script><script src="/project/js/main.js?v=5.5.4"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@19.1.3/dist/lazyload.iife.min.js"></script><div class="js-pjax"></div><script src="/project/js/sakura.js"></script><script src="/project/js/rain.js"></script><script src="/project/js/custom.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="可搜索标题、标签以及文章内任意内容" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/project/js/search/local-search.js?v=5.5.4"></script></div></div></body></html>

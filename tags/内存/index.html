@@ -1,0 +1,137 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>标签: 内存 | Moning's Blog</title><meta name="author" content="caizhimoning"><meta name="copyright" content="caizhimoning"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
+<meta property="og:title" content="Moning&#39;s Blog">
+<meta property="og:url" content="http://caizhimoning.github.io/project/tags/%E5%86%85%E5%AD%98/index.html">
+<meta property="og:site_name" content="Moning&#39;s Blog">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://caizhimoning.github.io/project/img/avatar.svg">
+<meta property="article:author" content="caizhimoning">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://caizhimoning.github.io/project/img/avatar.svg"><script type="application/ld+json"></script><link rel="shortcut icon" href="/project/img/favicon.svg"><link rel="canonical" href="http://caizhimoning.github.io/project/tags/%E5%86%85%E5%AD%98/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/project/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&amp;family=Noto+Serif+SC:wght@500;600;700&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/project/',
+  algolia: undefined,
+  localSearch: {"path":"/project/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"pagination":{"enable":true,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'medium_zoom',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: true,
+  islazyloadPlugin: true,
+  isAnchor: false,
+  percent: {
+    toc: false,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '标签: 内存',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'tag'
+}</script><link rel="stylesheet" href="/project/css/layout.css"><link rel="stylesheet" href="/project/css/custom.css"><link rel="stylesheet" href="/project/css/archive.css"><link rel="stylesheet" href="/project/css/projects.css"><link rel="stylesheet" href="/project/css/post-toc.css"><link rel="stylesheet" href="/project/css/post-tag-panel.css"><meta name="generator" content="Hexo 8.1.2"></head><body><div class="bg-animation" id="web_bg" style="background: transparent;"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/project/img/avatar.svg" onerror="this.onerror=null;this.src='/project/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/project/archives/"><div class="headline">文章</div><div class="length-num">59</div></a><a href="/project/tags/"><div class="headline">标签</div><div class="length-num">101</div></a><a href="/project/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/project/archives/"><i class="fa-fw fas fa-book-open"></i><span> 文章</span></a></div><div class="menus_item"><a class="site-page" href="/project/projects/"><i class="fa-fw fas fa-code-branch"></i><span> 项目</span></a></div><div class="menus_item"><a class="site-page" href="/project/dynamics/"><i class="fa-fw fas fa-comment-dots"></i><span> 动态</span></a></div><div class="menus_item"><a class="site-page" href="/project/domain/"><i class="fa-fw fas fa-layer-group"></i><span> 专题</span></a></div><div class="menus_item"><a class="site-page" href="/project/about/"><i class="fa-fw fas fa-user"></i><span> 关于我</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-top-img fixed" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/project/"><img class="site-icon" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/project/img/logo.svg" alt="Logo"></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/project/archives/"><i class="fa-fw fas fa-book-open"></i><span> 文章</span></a></div><div class="menus_item"><a class="site-page" href="/project/projects/"><i class="fa-fw fas fa-code-branch"></i><span> 项目</span></a></div><div class="menus_item"><a class="site-page" href="/project/dynamics/"><i class="fa-fw fas fa-comment-dots"></i><span> 动态</span></a></div><div class="menus_item"><a class="site-page" href="/project/domain/"><i class="fa-fw fas fa-layer-group"></i><span> 专题</span></a></div><div class="menus_item"><a class="site-page" href="/project/about/"><i class="fa-fw fas fa-user"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><h1 class="title-seo">内存</h1></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="post_cover"><a href="/project/2026/06/05/hardware-ram-slots/" title="内存条安装：插槽位置与双通道规则"><img class="post-bg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://images.unsplash.com/photo-1522441815192-d9f04eb0615c?auto=format&amp;fit=crop&amp;w=800&amp;q=80" onerror="this.onerror=null;this.src='/project/img/404.jpg'" alt="内存条安装：插槽位置与双通道规则"></a></div><div class="recent-post-info"><a class="article-title" href="/project/2026/06/05/hardware-ram-slots/" title="内存条安装：插槽位置与双通道规则">内存条安装：插槽位置与双通道规则</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-06-05T08:18:09.000Z" title="发表于 2026-06-05 16:18:09">2026-06-05</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/project/tags/ai%E7%94%9F%E6%88%90/">ai生成</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/project/tags/%E8%A3%85%E6%9C%BA/">装机</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/project/tags/%E5%86%85%E5%AD%98/">内存</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/project/tags/%E5%8F%8C%E9%80%9A%E9%81%93/">双通道</a></span></div><div class="content">内存须插入主板 DIMM 插槽 并启用 双通道 才能发挥带宽。插错槽位可能导致只跑单通道、无法开机或识别容量不全。内存规格与选购见 内存选购：DDR4 &#x2F; DDR5、品牌与频率；整机顺序见 DIY 装机流程：从配件到点亮。 ...</div></div></div><div class="recent-post-item"><div class="post_cover"><a href="/project/2026/06/05/hardware-ram/" title="内存选购：DDR4 / DDR5、品牌与频率"><img class="post-bg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://images.unsplash.com/photo-1522441815192-d9f04eb0615c?auto=format&amp;fit=crop&amp;w=800&amp;q=80" onerror="this.onerror=null;this.src='/project/img/404.jpg'" alt="内存选购：DDR4 / DDR5、品牌与频率"></a></div><div class="recent-post-info"><a class="article-title" href="/project/2026/06/05/hardware-ram/" title="内存选购：DDR4 / DDR5、品牌与频率">内存选购：DDR4 / DDR5、品牌与频率</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-06-05T08:03:45.000Z" title="发表于 2026-06-05 16:03:45">2026-06-05</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/project/tags/ai%E7%94%9F%E6%88%90/">ai生成</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/project/tags/%E8%A3%85%E6%9C%BA/">装机</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/project/tags/%E5%86%85%E5%AD%98/">内存</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/project/tags/RAM/">RAM</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/project/tags/DDR5/">DDR5</a></span></div><div class="content">内存（RAM）为 CPU 与程序提供高速工作空间；容量与频率直接影响多任务、游戏与创作流畅度。须与 主板选购：芯片组、命名与平台搭配 支持的 DDR4 或 DDR5 一致，并与 CPU 选购：品牌、命名与性能分级 平台匹配。下文介绍主...</div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/project/img/avatar.svg" onerror="this.onerror=null;this.src='/project/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">caizhimoning</div><div class="author-info-description">记录生活，分享技术<br>持续学习，持续成长 🌸</div><div class="site-data"><a href="/project/archives/"><div class="headline">文章</div><div class="length-num">59</div></a><a href="/project/tags/"><div class="headline">标签</div><div class="length-num">101</div></a><a href="/project/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" href="about/"><i class="fas fa-heart"></i><span>了解更多</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/caizhimoning" target="_blank" title="GitHub"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:moningblog@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #ff8ba7;"></i></a><a class="social-icon" href="/project/subscribe/" target="_blank" title="订阅"><i class="fas fa-rss" style="color: #f26c4f;"></i></a></div></div><div class="sticky_layout"><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/project/tags/ai%E7%94%9F%E6%88%90/" class="tag-cloud-item tag-color-0" style="font-size: 1.45em; color: #ffb7c5;">ai生成</a><a href="/project/tags/Abaqus/" class="tag-cloud-item tag-color-1" style="font-size: 1.22em; color: #ff8ba7;">Abaqus</a><a href="/project/tags/%E4%BB%BF%E7%9C%9F/" class="tag-cloud-item tag-color-2" style="font-size: 1.22em; color: #ec4899;">仿真</a><a href="/project/tags/%E5%AE%89%E8%A3%85/" class="tag-cloud-item tag-color-3" style="font-size: 1.3em; color: #fda4af;">安装</a><a href="/project/tags/Python/" class="tag-cloud-item tag-color-4" style="font-size: 1.15em; color: #fecdd3;">Python</a><a href="/project/tags/%E6%9C%BA%E7%AE%B1/" class="tag-cloud-item tag-color-0" style="font-size: 1.15em; color: #ffb7c5;">机箱</a><a href="/project/tags/%E8%A3%85%E6%9C%BA/" class="tag-cloud-item tag-color-1" style="font-size: 1.38em; color: #ff8ba7;">装机</a><a href="/project/tags/%E6%95%A3%E7%83%AD/" class="tag-cloud-item tag-color-2" style="font-size: 1.15em; color: #ec4899;">散热</a><a href="/project/tags/%E6%95%A3%E7%83%AD%E5%99%A8/" class="tag-cloud-item tag-color-3" style="font-size: 1.15em; color: #fda4af;">散热器</a><a href="/project/tags/%E9%A3%8E%E5%86%B7/" class="tag-cloud-item tag-color-4" style="font-size: 1.15em; color: #fecdd3;">风冷</a><a href="/project/tags/%E6%B0%B4%E5%86%B7/" class="tag-cloud-item tag-color-0" style="font-size: 1.15em; color: #ffb7c5;">水冷</a><a href="/project/tags/CPU/" class="tag-cloud-item tag-color-1" style="font-size: 1.15em; color: #ff8ba7;">CPU</a><a href="/project/tags/Intel/" class="tag-cloud-item tag-color-2" style="font-size: 1.22em; color: #ec4899;">Intel</a><a href="/project/tags/AMD/" class="tag-cloud-item tag-color-3" style="font-size: 1.3em; color: #fda4af;">AMD</a><a href="/project/tags/GPU/" class="tag-cloud-item tag-color-4" style="font-size: 1.15em; color: #fecdd3;">GPU</a><a href="/project/tags/%E6%98%BE%E5%8D%A1/" class="tag-cloud-item tag-color-0" style="font-size: 1.15em; color: #ffb7c5;">显卡</a><a href="/project/tags/NVIDIA/" class="tag-cloud-item tag-color-1" style="font-size: 1.15em; color: #ff8ba7;">NVIDIA</a><a href="/project/tags/DIY/" class="tag-cloud-item tag-color-2" style="font-size: 1.15em; color: #ec4899;">DIY</a><a href="/project/tags/%E7%94%B5%E6%BA%90/" class="tag-cloud-item tag-color-3" style="font-size: 1.15em; color: #fda4af;">电源</a><a href="/project/tags/PSU/" class="tag-cloud-item tag-color-4" style="font-size: 1.15em; color: #fecdd3;">PSU</a></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/project/js/utils.js?v=5.5.4"></script><script src="/project/js/main.js?v=5.5.4"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@19.1.3/dist/lazyload.iife.min.js"></script><div class="js-pjax"></div><script src="/project/js/sakura.js"></script><script src="/project/js/rain.js"></script><script src="/project/js/custom.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="可搜索标题、标签以及文章内任意内容" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/project/js/search/local-search.js?v=5.5.4"></script></div></div></body></html>

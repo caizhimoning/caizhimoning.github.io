@@ -1,0 +1,558 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>理论力学（Ⅰ）· 运动学 | Moning's Blog</title><meta name="author" content="caizhimoning"><meta name="copyright" content="caizhimoning"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="总览 → 理论力学（Ⅰ）学习笔记 · 静力学 → 理论力学（Ⅰ）· 静力学 · 动力学 → 理论力学（Ⅰ）· 动力学   运动学是研究物体运动的几何性质的科学。 目录   章 节 跳转到    5 点的运动学  [第五章 点的运动学](#第五章 点的运动学)    §5-1 矢量法 [§5-1 矢量法](#§5-1 矢量法)    §5-2 直角坐标法 [§5-2 直角坐标法](#§5-2 直角">
+<meta property="og:type" content="article">
+<meta property="og:title" content="理论力学（Ⅰ）· 运动学">
+<meta property="og:url" content="http://caizhimoning.github.io/project/2026/06/08/tm-hit-8-vol1-kinematics/index.html">
+<meta property="og:site_name" content="Moning&#39;s Blog">
+<meta property="og:description" content="总览 → 理论力学（Ⅰ）学习笔记 · 静力学 → 理论力学（Ⅰ）· 静力学 · 动力学 → 理论力学（Ⅰ）· 动力学   运动学是研究物体运动的几何性质的科学。 目录   章 节 跳转到    5 点的运动学  [第五章 点的运动学](#第五章 点的运动学)    §5-1 矢量法 [§5-1 矢量法](#§5-1 矢量法)    §5-2 直角坐标法 [§5-2 直角坐标法](#§5-2 直角">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://images.unsplash.com/photo-1522441815192-d9f04eb0615c?auto=format&fit=crop&w=800&q=80">
+<meta property="article:published_time" content="2026-06-08T09:31:54.000Z">
+<meta property="article:modified_time" content="2026-06-23T07:26:25.899Z">
+<meta property="article:author" content="caizhimoning">
+<meta property="article:tag" content="理论力学">
+<meta property="article:tag" content="运动学">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1522441815192-d9f04eb0615c?auto=format&fit=crop&w=800&q=80"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "理论力学（Ⅰ）· 运动学",
+  "url": "http://caizhimoning.github.io/project/2026/06/08/tm-hit-8-vol1-kinematics/",
+  "image": "https://images.unsplash.com/photo-1522441815192-d9f04eb0615c?auto=format&fit=crop&w=800&q=80",
+  "datePublished": "2026-06-08T09:31:54.000Z",
+  "dateModified": "2026-06-23T07:26:25.899Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "caizhimoning",
+      "url": "http://caizhimoning.github.io/project"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/project/img/favicon.svg"><link rel="canonical" href="http://caizhimoning.github.io/project/2026/06/08/tm-hit-8-vol1-kinematics/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/project/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&amp;family=Noto+Serif+SC:wght@500;600;700&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/project/',
+  algolia: undefined,
+  localSearch: {"path":"/project/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"pagination":{"enable":true,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'medium_zoom',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: true,
+  islazyloadPlugin: true,
+  isAnchor: false,
+  percent: {
+    toc: false,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '理论力学（Ⅰ）· 运动学',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/project/css/layout.css"><link rel="stylesheet" href="/project/css/custom.css"><link rel="stylesheet" href="/project/css/archive.css"><link rel="stylesheet" href="/project/css/projects.css"><link rel="stylesheet" href="/project/css/post-toc.css"><link rel="stylesheet" href="/project/css/post-tag-panel.css"><meta name="generator" content="Hexo 8.1.2"><script id="post-tag-index-data" type="application/json">{"posts":[{"path":"/2026/06/11/em-li-2021-fundamentals/","title":"弹性力学（李刚）· 绪论与基本方程","tags":["弹性力学","李刚"]},{"path":"/2026/06/11/em-li-2021-space-torsion/","title":"弹性力学（李刚）· 空间问题与扭转","tags":["弹性力学","空间问题","扭转"]},{"path":"/2026/06/11/em-li-2021-variational-fem/","title":"弹性力学（李刚）· 能量原理与有限元","tags":["弹性力学","变分法","有限元"]},{"path":"/2026/06/11/em-li-2021/","title":"弹性力学学习笔记（李刚 · 2021）","tags":["弹性力学","李刚","科学出版社"]},{"path":"/2026/06/11/em-xu-vol1-plane-solution/","title":"弹性力学（徐芝纶上册）· 平面问题解答","tags":["弹性力学","复变函数"]},{"path":"/2026/06/11/em-xu-vol1-plane-theory/","title":"弹性力学（徐芝纶上册）· 绪论与平面理论","tags":["弹性力学","徐芝纶"]},{"path":"/2026/06/11/em-li-2021-plane/","title":"弹性力学（李刚）· 平面问题","tags":["弹性力学","平面问题"]},{"path":"/2026/06/11/em-xu-vol1-space-torsion-energy/","title":"弹性力学（徐芝纶上册）· 空间·扭转·能量·波","tags":["弹性力学","弹性波"]},{"path":"/2026/06/11/em-xu-vol1-temperature-fdm/","title":"弹性力学（徐芝纶上册）· 温度应力与差分法","tags":["弹性力学","热应力"]},{"path":"/2026/06/11/em-xu-vol1/","title":"弹性力学学习笔记（徐芝纶 · 上册）","tags":["弹性力学","徐芝纶","高等教育出版社"]},{"path":"/2026/06/11/fm-wu-ch01-field/","title":"流体力学（吴望一）· 场论与张量","tags":["流体力学","场论"]},{"path":"/2026/06/11/em-xu-vol2/","title":"弹性力学学习笔记（徐芝纶 · 下册）","tags":["弹性力学","薄板","壳体"]},{"path":"/2026/06/11/fm-wu-ch02-03/","title":"流体力学（吴望一）· 基本概念与方程组","tags":["流体力学"]},{"path":"/2026/06/11/fm-wu-ch04-07/","title":"流体力学（吴望一）· 涡旋·静力学·理想流","tags":["流体力学","伯努利"]},{"path":"/2026/06/11/em-xu-vol2-shell/","title":"弹性力学（徐芝纶下册）· 壳体理论","tags":["弹性力学","壳体"]},{"path":"/2026/06/11/fm-wu-ch08-10/","title":"流体力学（吴望一）· 波浪·黏性·气体动力学","tags":["流体力学","气体动力学"]},{"path":"/2026/06/11/fm-wu/","title":"流体力学学习笔记（吴望一）","tags":["流体力学","吴望一","北京大学出版社"]},{"path":"/2026/06/11/em-xu-vol2-plate/","title":"弹性力学（徐芝纶下册）· 薄板问题","tags":["弹性力学","薄板"]},{"path":"/2026/06/11/tm-hit-8-vol2-analytical/","title":"理论力学（Ⅱ）· 分析力学基础","tags":["理论力学","分析力学","拉格朗日方程"]},{"path":"/2026/06/11/tm-hit-8-vol2-collision/","title":"理论力学（Ⅱ）· 碰撞","tags":["理论力学","碰撞","恢复因数"]},{"path":"/2026/06/11/tm-hit-8-vol2-gyroscope/","title":"理论力学（Ⅱ）· 定点运动与陀螺","tags":["理论力学","陀螺仪","定点运动"]},{"path":"/2026/06/11/tm-hit-8-vol2-non-inertial/","title":"理论力学（Ⅱ）· 非惯性系中的质点动力学","tags":["理论力学","非惯性系","科氏力"]},{"path":"/2026/06/11/tm-hit-8-vol2-variable-mass/","title":"理论力学（Ⅱ）· 变质量动力学","tags":["理论力学","变质量","火箭方程"]},{"path":"/2026/06/11/tm-hit-8-vol2-vibration/","title":"理论力学（Ⅱ）· 机械振动基础","tags":["理论力学","机械振动","固有频率"]},{"path":"/2026/06/11/tm-hit-8-vol2/","title":"理论力学（Ⅱ）学习笔记","tags":["理论力学","哈尔滨工业大学","第8版"]},{"path":"/2026/06/10/machine-learning/","title":"机器学习课程学习笔记","tags":["机器学习","监督学习","深度学习","数学基础"]},{"path":"/2026/06/09/wsl-setting/","title":"WSL 常用设置：Linux 应用打开 Windows 浏览器","tags":["WSL2","Obsidian","浏览器"]},{"path":"/2026/06/09/obsidian-plugins/","title":"Obsidian 社区插件与本库选用","tags":["Obsidian","插件"]},{"path":"/2026/06/06/obsidian-setting/","title":"Obsidian 设置：字体、外观与 Properties","tags":["WSL2","Obsidian","设置"]},{"path":"/2026/06/08/tm-hit-8-vol1-dynamics/","title":"理论力学（Ⅰ）· 动力学","tags":["理论力学","动力学"]},{"path":"/2026/06/08/tm-hit-8-vol1-kinematics/","title":"理论力学（Ⅰ）· 运动学","tags":["理论力学","运动学"]},{"path":"/2026/06/08/tm-hit-8-vol1-statics/","title":"理论力学（Ⅰ）· 静力学","tags":["理论力学","静力学"]},{"path":"/2026/06/08/tm-hit-8-vol1/","title":"理论力学（Ⅰ）学习笔记","tags":["理论力学","哈尔滨工业大学","第8版"]},{"path":"/2026/06/07/cursor-guide/","title":"Cursor 使用入门：AGENTS.md、Rules 与 WSL 全局约定","tags":["Cursor","AI","工作流","WSL2"]},{"path":"/2026/06/06/markdown-syntax/","title":"Markdown 语法入门","tags":["Markdown","写作","语法"]},{"path":"/2026/06/05/zotero-guide/","title":"Zotero 使用指南","tags":["ai生成","学术写作","Zotero","文献管理"]},{"path":"/2026/06/05/abaqus-python/","title":"Abaqus Python 使用入门","tags":["ai生成","Abaqus","仿真","Python"]},{"path":"/2026/06/05/abaqus-install/","title":"Abaqus 安装与许可配置","tags":["ai生成","Abaqus","仿真","安装"]},{"path":"/2026/06/05/latex-syntax/","title":"LaTeX 语法入门","tags":["ai生成","LaTeX","学术写作","排版"]},{"path":"/2026/06/05/hardware-ram-slots/","title":"内存条安装：插槽位置与双通道规则","tags":["ai生成","装机","内存","双通道"]},{"path":"/2026/06/05/hardware-pc-build/","title":"DIY 装机流程：从配件到点亮","tags":["ai生成","装机","DIY"]},{"path":"/2026/06/05/hardware-storage/","title":"存储选购：固态、机械硬盘与接口","tags":["ai生成","装机","存储","SSD","NVMe"]},{"path":"/2026/06/05/hardware-cooler/","title":"散热器选购：风冷、水冷与机箱风扇","tags":["ai生成","装机","散热器","风冷","水冷"]},{"path":"/2026/06/05/hardware-case/","title":"机箱选购：规格、风道与兼容性","tags":["ai生成","机箱","装机","散热"]},{"path":"/2026/06/05/hardware-psu/","title":"电源选购：功率、认证与模组","tags":["ai生成","装机","电源","PSU"]},{"path":"/2026/06/05/hardware-ram/","title":"内存选购：DDR4 / DDR5、品牌与频率","tags":["ai生成","装机","内存","RAM","DDR5"]},{"path":"/2026/06/05/hardware-motherboard/","title":"主板选购：芯片组、命名与平台搭配","tags":["ai生成","装机","Intel","AMD","主板"]},{"path":"/2026/06/05/hardware-gpu/","title":"显卡选购：品牌、命名与性能分级","tags":["ai生成","装机","AMD","GPU","显卡","NVIDIA"]},{"path":"/2026/06/05/hardware-cpu/","title":"CPU 选购：品牌、命名与性能分级","tags":["ai生成","装机","CPU","Intel","AMD"]},{"path":"/2026/06/05/ssh-basics/","title":"SSH 基础：远程登录与密钥认证","tags":["GitHub","Linux","SSH","安全"]},{"path":"/2026/06/05/git-basics/","title":"Git 基础：版本管理与常用操作","tags":["Linux","Git","版本控制"]},{"path":"/2026/06/05/hexo-github-publish/","title":"Hexo 博客发布 GitHub 与自动化","tags":["Hexo","GitHub","部署"]},{"path":"/2026/06/05/obsidian-win-wsl-install/","title":"Obsidian 在 Windows 与 WSL2 中的安装与库路径选择","tags":["安装","WSL2","Obsidian","Windows"]},{"path":"/2026/06/05/wsl2-install/","title":"WSL2 安装与首次配置","tags":["安装","WSL2","Windows"]},{"path":"/2026/06/05/wsl2-basic-commands/","title":"WSL2 基本命令","tags":["WSL2","Windows","命令行"]},{"path":"/2026/06/05/cursor-agent-reading-order/","title":"Agent 读库顺序与 Reuse（草案）","tags":["Cursor","AI","工作流","知识管理"]},{"path":"/2026/06/04/obsidian-guide/","title":"Obsidian 学习与用法手册","tags":["知识管理","Hexo","WSL2","Obsidian"]},{"path":"/2026/06/03/linux-filesystem/","title":"Linux 文件系统","tags":["Linux","文件系统"]},{"path":"/2026/06/01/welcome-to-my-blog/","title":"欢迎来到我的博客","tags":["欢迎","博客"]}]}</script><script id="post-header-meta" type="application/json">{"title":"理论力学（Ⅰ）· 运动学","subtitle":"哈工大第8版 · 第 5–8 章","series":"mechanics","seriesPath":"","author":"","readTime":"","date":"2026-06-08","updated":"2026-06-23","tags":[{"name":"理论力学","path":"tags/理论力学/"},{"name":"运动学","path":"tags/运动学/"}],"categories":[],"cover":"https://images.unsplash.com/photo-1522441815192-d9f04eb0615c?auto=format&fit=crop&w=800&q=80"}</script></head><body><div class="bg-animation" id="web_bg" style="background: transparent;"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/project/img/avatar.svg" onerror="this.onerror=null;this.src='/project/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/project/archives/"><div class="headline">文章</div><div class="length-num">59</div></a><a href="/project/tags/"><div class="headline">标签</div><div class="length-num">101</div></a><a href="/project/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/project/archives/"><i class="fa-fw fas fa-book-open"></i><span> 文章</span></a></div><div class="menus_item"><a class="site-page" href="/project/projects/"><i class="fa-fw fas fa-code-branch"></i><span> 项目</span></a></div><div class="menus_item"><a class="site-page" href="/project/dynamics/"><i class="fa-fw fas fa-comment-dots"></i><span> 动态</span></a></div><div class="menus_item"><a class="site-page" href="/project/domain/"><i class="fa-fw fas fa-layer-group"></i><span> 专题</span></a></div><div class="menus_item"><a class="site-page" href="/project/about/"><i class="fa-fw fas fa-user"></i><span> 关于我</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img fixed" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/project/"><img class="site-icon" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/project/img/logo.svg" alt="Logo"></a><a class="nav-page-title" href="/project/"><span class="site-name">理论力学（Ⅰ）· 运动学</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/project/archives/"><i class="fa-fw fas fa-book-open"></i><span> 文章</span></a></div><div class="menus_item"><a class="site-page" href="/project/projects/"><i class="fa-fw fas fa-code-branch"></i><span> 项目</span></a></div><div class="menus_item"><a class="site-page" href="/project/dynamics/"><i class="fa-fw fas fa-comment-dots"></i><span> 动态</span></a></div><div class="menus_item"><a class="site-page" href="/project/domain/"><i class="fa-fw fas fa-layer-group"></i><span> 专题</span></a></div><div class="menus_item"><a class="site-page" href="/project/about/"><i class="fa-fw fas fa-user"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">理论力学（Ⅰ）· 运动学</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon far fa-calendar-alt"></i><span class="post-meta-label">发表于</span><time datetime="2026-06-08T09:31:54.000Z" title="发表于 2026-06-08 17:31:54">2026-06-08</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="container post-content" id="article-container"><blockquote>
+<p>总览 → <a href="/project/2026/06/08/tm-hit-8-vol1/">理论力学（Ⅰ）学习笔记</a> · 静力学 → <a href="/project/2026/06/08/tm-hit-8-vol1-statics/">理论力学（Ⅰ）· 静力学</a> · 动力学 → <a href="/project/2026/06/08/tm-hit-8-vol1-dynamics/">理论力学（Ⅰ）· 动力学</a></p>
+</blockquote>
+<hr>
+<p>运动学是研究物体运动的几何性质的科学。</p>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><table>
+<thead>
+<tr>
+<th>章</th>
+<th>节</th>
+<th>跳转到</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>5</strong> 点的运动学</td>
+<td></td>
+<td>[第五章 点的运动学](#第五章 点的运动学)</td>
+</tr>
+<tr>
+<td></td>
+<td>§5-1 矢量法</td>
+<td>[§5-1 矢量法](#§5-1 矢量法)</td>
+</tr>
+<tr>
+<td></td>
+<td>§5-2 直角坐标法</td>
+<td>[§5-2 直角坐标法](#§5-2 直角坐标法)</td>
+</tr>
+<tr>
+<td></td>
+<td>§5-3 自然法（弧坐标法）</td>
+<td>[§5-3 自然法（弧坐标法）](#§5-3 自然法（弧坐标法）)</td>
+</tr>
+<tr>
+<td><strong>6</strong> 刚体的简单运动</td>
+<td></td>
+<td>[第六章 刚体的简单运动](#第六章 刚体的简单运动)</td>
+</tr>
+<tr>
+<td></td>
+<td>§6-1 平行移动（平动）</td>
+<td>[§6-1 平行移动（平动）](#§6-1 平行移动（平动）)</td>
+</tr>
+<tr>
+<td></td>
+<td>§6-2 定轴转动</td>
+<td>[§6-2 定轴转动](#§6-2 定轴转动)</td>
+</tr>
+<tr>
+<td></td>
+<td>§6-3 角速度、角加速度的矢量表示</td>
+<td>[§6-3 角速度、角加速度的矢量表示](#§6-3 角速度、角加速度的矢量表示)</td>
+</tr>
+<tr>
+<td><strong>7</strong> 点的合成运动</td>
+<td></td>
+<td>[第七章 点的合成运动](#第七章 点的合成运动)</td>
+</tr>
+<tr>
+<td></td>
+<td>§7-1 基本概念</td>
+<td>[§7-1 基本概念](#§7-1 基本概念)</td>
+</tr>
+<tr>
+<td></td>
+<td>§7-2 点的速度合成定理</td>
+<td>[§7-2 点的速度合成定理](#§7-2 点的速度合成定理)</td>
+</tr>
+<tr>
+<td></td>
+<td>§7-3 牵连运动为平动时点的加速度合成定理</td>
+<td>[§7-3 牵连运动为平动时点的加速度合成定理](#§7-3 牵连运动为平动时点的加速度合成定理)</td>
+</tr>
+<tr>
+<td></td>
+<td>§7-4 牵连运动为定轴转动时点的加速度合成定理</td>
+<td>[§7-4 牵连运动为定轴转动时点的加速度合成定理](#§7-4 牵连运动为定轴转动时点的加速度合成定理)</td>
+</tr>
+<tr>
+<td><strong>8</strong> 刚体的平面运动</td>
+<td></td>
+<td>[第八章 刚体的平面运动](#第八章 刚体的平面运动)</td>
+</tr>
+<tr>
+<td></td>
+<td>§8-1 刚体平面运动的运动方程</td>
+<td>[§8-1 刚体平面运动的运动方程](#§8-1 刚体平面运动的运动方程)</td>
+</tr>
+<tr>
+<td></td>
+<td>§8-2 平面图形运动的分解</td>
+<td>[§8-2 平面图形运动的分解](#§8-2 平面图形运动的分解)</td>
+</tr>
+<tr>
+<td></td>
+<td>§8-3 平面图形上各点的速度</td>
+<td>[§8-3 平面图形上各点的速度](#§8-3 平面图形上各点的速度)</td>
+</tr>
+<tr>
+<td></td>
+<td>§8-4 平面图形上各点的速度 · 瞬心法</td>
+<td>[§8-4 平面图形上各点的速度 · 瞬心法](#§8-4 平面图形上各点的速度 · 瞬心法)</td>
+</tr>
+<tr>
+<td></td>
+<td>§8-5 平面图形上各点的加速度</td>
+<td>[§8-5 平面图形上各点的加速度](#§8-5 平面图形上各点的加速度)</td>
+</tr>
+<tr>
+<td></td>
+<td>§8-6 运动学综合应用</td>
+<td>[§8-6 运动学综合应用](#§8-6 运动学综合应用)</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="第五章-点的运动学"><a href="#第五章-点的运动学" class="headerlink" title="第五章 点的运动学"></a>第五章 点的运动学</h2><h3 id="§5-1-矢量法"><a href="#§5-1-矢量法" class="headerlink" title="§5-1 矢量法"></a>§5-1 矢量法</h3><h4 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h4><ul>
+<li><strong>轨迹</strong>：动点运动时在空间（或平面）描出的曲线。</li>
+<li><strong>矢径</strong> $\mathbf{r}$：动点 $M$ 相对定点 $O$ 的位置矢量，$\mathbf{r} &#x3D; \overrightarrow{OM}$。</li>
+<li><strong>速度</strong> $\mathbf{v}$：描述运动快慢与方向。</li>
+</ul>
+<h4 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h4><p>$$\mathbf{v} &#x3D; \lim_{\Delta t \to 0} \frac{\Delta \mathbf{r}}{\Delta t} &#x3D; \frac{d\mathbf{r}}{dt} &#x3D; \dot{\mathbf{r}}$$</p>
+<p>$$\mathbf{a} &#x3D; \lim_{\Delta t \to 0} \frac{\Delta \mathbf{v}}{\Delta t} &#x3D; \frac{d\mathbf{v}}{dt} &#x3D; \frac{d^2\mathbf{r}}{dt^2} &#x3D; \ddot{\mathbf{r}}$$</p>
+<ul>
+<li>$\mathbf{v}$ 沿轨迹切线，指向前进方向。</li>
+<li>$\mathbf{a}$ 一般既有切向分量也有法向分量。</li>
+</ul>
+<hr>
+<h3 id="§5-2-直角坐标法"><a href="#§5-2-直角坐标法" class="headerlink" title="§5-2 直角坐标法"></a>§5-2 直角坐标法</h3><h4 id="运动方程"><a href="#运动方程" class="headerlink" title="运动方程"></a>运动方程</h4><p>$$x &#x3D; f_1(t), \quad y &#x3D; f_2(t), \quad z &#x3D; f_3(t)$$</p>
+<p>消去 $t$ 得轨迹方程。</p>
+<h4 id="速度与加速度"><a href="#速度与加速度" class="headerlink" title="速度与加速度"></a>速度与加速度</h4><p>$$v_x &#x3D; \dot{x},\quad v_y &#x3D; \dot{y},\quad v_z &#x3D; \dot{z}$$</p>
+<p>$$v &#x3D; \sqrt{v_x^2 + v_y^2 + v_z^2}$$</p>
+<p>$$\cos(\mathbf{v}, x) &#x3D; \frac{v_x}{v},\quad \cos(\mathbf{v}, y) &#x3D; \frac{v_y}{v},\quad \cos(\mathbf{v}, z) &#x3D; \frac{v_z}{v}$$</p>
+<p>$$a_x &#x3D; \ddot{x},\quad a_y &#x3D; \ddot{y},\quad a_z &#x3D; \ddot{z}$$</p>
+<p>$$a &#x3D; \sqrt{a_x^2 + a_y^2 + a_z^2}$$</p>
+<hr>
+<h3 id="§5-3-自然法（弧坐标法）"><a href="#§5-3-自然法（弧坐标法）" class="headerlink" title="§5-3 自然法（弧坐标法）"></a>§5-3 自然法（弧坐标法）</h3><h4 id="自然轴系"><a href="#自然轴系" class="headerlink" title="自然轴系"></a>自然轴系</h4><p>在轨迹上取 $M$ 点，建立正交标架 $(\mathbf{e}_t, \mathbf{e}_n, \mathbf{e}_b)$：</p>
+<table>
+<thead>
+<tr>
+<th>单位矢量</th>
+<th>方向</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$\mathbf{e}_t$（切向）</td>
+<td>沿轨迹切线，指向 $s$ 增加方向</td>
+</tr>
+<tr>
+<td>$\mathbf{e}_n$（主法向）</td>
+<td>在密切平面内，指向曲率中心</td>
+</tr>
+<tr>
+<td>$\mathbf{e}_b$（副法向）</td>
+<td>$\mathbf{e}_b &#x3D; \mathbf{e}_t \times \mathbf{e}_n$</td>
+</tr>
+<tr>
+<td>![[Snipaste_2026-06-10_19-52-55.png]]</td>
+<td></td>
+</tr>
+</tbody></table>
+<h4 id="弧坐标-s"><a href="#弧坐标-s" class="headerlink" title="弧坐标 $s$"></a>弧坐标 $s$</h4><p>沿轨迹从基点 $O$ 至 $M$ 的弧长，正向与运动方向一致。</p>
+<h4 id="运动方程-1"><a href="#运动方程-1" class="headerlink" title="运动方程"></a>运动方程</h4><p>$$s &#x3D; s(t)$$</p>
+<h4 id="速度"><a href="#速度" class="headerlink" title="速度:"></a>速度:</h4><p>速度的大小等于动点的弧坐标对时间的一阶导数的绝对值。<br>$$\mathrm{d}\boldsymbol{r} &#x3D; \boldsymbol{e}_t , \mathrm{d}s $$<br>$$\mathbf{v} &#x3D; v \mathbf{e}_t, \quad v &#x3D; \dot{s}$$</p>
+<h4 id="加速度分解"><a href="#加速度分解" class="headerlink" title="加速度分解"></a>加速度分解</h4><p>$$\mathbf{a} &#x3D; a_t \mathbf{e}_t + a_n \mathbf{e}_n$$</p>
+<p><strong>切向加速度</strong>（反映速度大小变化）：</p>
+<p>$$a_t &#x3D; \dot{v} &#x3D; \ddot{s}$$</p>
+<ul>
+<li>$a_t &gt; 0$：加速；$a_t &lt; 0$：减速。</li>
+</ul>
+<p><strong>法向加速度</strong>（反映速度方向变化）：</p>
+<p>$$a_n &#x3D; \frac{v^2}{\rho}$$</p>
+<p>$\rho$ 为轨迹在 $M$ 点的<strong>曲率半径</strong>。</p>
+<p><strong>全加速度大小</strong>：</p>
+<p>$$a &#x3D; \sqrt{a_t^2 + a_n^2}$$</p>
+<h4 id="平面曲线曲率半径"><a href="#平面曲线曲率半径" class="headerlink" title="平面曲线曲率半径"></a>平面曲线曲率半径</h4><p>$$\rho &#x3D; \frac{ds}{d\theta}$$</p>
+<p>$\theta$ 为切线与某固定轴夹角。</p>
+<hr>
+<h2 id="第六章-刚体的简单运动"><a href="#第六章-刚体的简单运动" class="headerlink" title="第六章 刚体的简单运动"></a>第六章 刚体的简单运动</h2><h3 id="§6-1-平行移动（平动）"><a href="#§6-1-平行移动（平动）" class="headerlink" title="§6-1 平行移动（平动）"></a>§6-1 平行移动（平动）</h3><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>刚体运动时，体内任意直线始终与初始位置平行，称<strong>平动</strong>（平行移动）。</p>
+<h4 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h4><p>平动刚体上各点轨迹形状相同；同一时刻各点速度、加速度相同。</p>
+<p>$$\mathbf{v}_A &#x3D; \mathbf{v}_B, \quad \mathbf{a}_A &#x3D; \mathbf{a}_B$$</p>
+<p>刚体平动可用其上任一点（基点）的运动完全描述。</p>
+<hr>
+<h3 id="§6-2-定轴转动"><a href="#§6-2-定轴转动" class="headerlink" title="§6-2 定轴转动"></a>§6-2 定轴转动</h3><h4 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h4><p>刚体上有两点保持不动，连线为<strong>转轴</strong>，刚体绕该轴转动。</p>
+<h4 id="运动方程-2"><a href="#运动方程-2" class="headerlink" title="运动方程"></a>运动方程</h4><p>转角 $\varphi &#x3D; \varphi(t)$（弧度）。</p>
+<h4 id="角速度与角加速度"><a href="#角速度与角加速度" class="headerlink" title="角速度与角加速度"></a>角速度与角加速度</h4><p>$$\omega &#x3D; \frac{d\varphi}{dt} &#x3D; \dot{\varphi}$$</p>
+<p>$$\alpha &#x3D; \frac{d\omega}{dt} &#x3D; \dot{\omega} &#x3D; \ddot{\varphi}$$</p>
+<ul>
+<li>$\omega &gt; 0$：逆时针（按右手定则绕轴正向）。</li>
+<li>$\alpha$ 与 $\omega$ 同号加速，异号减速。</li>
+</ul>
+<h4 id="体内各点速度"><a href="#体内各点速度" class="headerlink" title="体内各点速度"></a>体内各点速度</h4><p>距转轴垂直距离 $r$ 的点：</p>
+<p>$$v &#x3D; r \omega$$</p>
+<p>方向沿圆周切线，与 $\omega$ 转向一致。</p>
+<h4 id="体内各点加速度"><a href="#体内各点加速度" class="headerlink" title="体内各点加速度"></a>体内各点加速度</h4><p><strong>切向加速度</strong>：</p>
+<p>$$a_t &#x3D; r \alpha$$</p>
+<p><strong>法向加速度</strong>：</p>
+<p>$$a_n &#x3D; r \omega^2 &#x3D; \frac{v^2}{r}$$</p>
+<p>指向转轴（曲率中心）。</p>
+<p>$$a &#x3D; \sqrt{a_t^2 + a_n^2}$$</p>
+<hr>
+<h3 id="§6-3-角速度、角加速度的矢量表示"><a href="#§6-3-角速度、角加速度的矢量表示" class="headerlink" title="§6-3 角速度、角加速度的矢量表示"></a>§6-3 角速度、角加速度的矢量表示</h3><h4 id="矢量表示"><a href="#矢量表示" class="headerlink" title="矢量表示"></a>矢量表示</h4><p>转轴单位矢量 $\mathbf{k}$（按右手定则）：</p>
+<p>$$\boldsymbol{\omega} &#x3D; \omega \mathbf{k}, \quad \boldsymbol{\alpha} &#x3D; \alpha \mathbf{k}$$</p>
+<h4 id="速度公式"><a href="#速度公式" class="headerlink" title="速度公式"></a>速度公式</h4><p>$$\mathbf{v} &#x3D; \boldsymbol{\omega} \times \mathbf{r}$$</p>
+<p>$\mathbf{r}$：该点相对轴上任意点的位矢，$\mathbf{r} \perp \mathbf{k}$。</p>
+<h4 id="加速度公式"><a href="#加速度公式" class="headerlink" title="加速度公式"></a>加速度公式</h4><p>角速度对时间的变化率，即 $$\alpha &#x3D; \dot{\omega} &#x3D; \ddot{\varphi}$$<br>$$\mathbf{a} &#x3D; \boldsymbol{\alpha} \times \mathbf{r} + \boldsymbol{\omega} \times (\boldsymbol{\omega} \times \mathbf{r})$$</p>
+<ul>
+<li>第一项：切向加速度 $\mathbf{a}_t &#x3D; \boldsymbol{\alpha} \times \mathbf{r}$</li>
+<li>第二项：法向加速度 $\mathbf{a}_n &#x3D; \boldsymbol{\omega} \times (\boldsymbol{\omega} \times \mathbf{r})$，指向转轴</li>
+</ul>
+<p>当 $\mathbf{r} \perp \mathbf{k}$ 时：$|\boldsymbol{\omega} \times (\boldsymbol{\omega} \times \mathbf{r})| &#x3D; \omega^2 r$。</p>
+<hr>
+<h2 id="第七章-点的合成运动"><a href="#第七章-点的合成运动" class="headerlink" title="第七章 点的合成运动"></a>第七章 点的合成运动</h2><h3 id="§7-1-基本概念"><a href="#§7-1-基本概念" class="headerlink" title="§7-1 基本概念"></a>§7-1 基本概念</h3><h4 id="参考系"><a href="#参考系" class="headerlink" title="参考系"></a>参考系</h4><ul>
+<li><strong>定参考系（静系）</strong>：一般取地面或机架。</li>
+<li><strong>动参考系（动系）</strong>：固连在运动的参考物体上。</li>
+</ul>
+<h4 id="三种运动"><a href="#三种运动" class="headerlink" title="三种运动"></a>三种运动</h4><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>定义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>绝对运动</strong></td>
+<td>动点相对定系的运动</td>
+</tr>
+<tr>
+<td><strong>相对运动</strong></td>
+<td>动点相对动系的运动</td>
+</tr>
+<tr>
+<td><strong>牵连运动</strong></td>
+<td>动系相对定系的运动</td>
+</tr>
+</tbody></table>
+<h4 id="牵连点"><a href="#牵连点" class="headerlink" title="牵连点"></a>牵连点</h4><p>某瞬时动系上与动点 $M$ 相重合的点 $M_e$，称该瞬时的<strong>牵连点</strong>。</p>
+<h4 id="速度、加速度记号"><a href="#速度、加速度记号" class="headerlink" title="速度、加速度记号"></a>速度、加速度记号</h4><table>
+<thead>
+<tr>
+<th></th>
+<th>绝对</th>
+<th>相对</th>
+<th>牵连</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>速度</td>
+<td>$\mathbf{v}_a$</td>
+<td>$\mathbf{v}_r$</td>
+<td>$\mathbf{v}_e$（牵连点速度）</td>
+</tr>
+<tr>
+<td>加速度</td>
+<td>$\mathbf{a}_a$</td>
+<td>$\mathbf{a}_r$</td>
+<td>$\mathbf{a}_e$（牵连点加速度）</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="§7-2-点的速度合成定理"><a href="#§7-2-点的速度合成定理" class="headerlink" title="§7-2 点的速度合成定理"></a>§7-2 点的速度合成定理</h3><h4 id="定理"><a href="#定理" class="headerlink" title="定理"></a>定理</h4><p>动点在某瞬时的绝对速度，等于它在该瞬时的牵连速度与相对速度的矢量和：</p>
+<p>$$\mathbf{v}_a &#x3D; \mathbf{v}_e + \mathbf{v}_r$$</p>
+<p>对每一分量：</p>
+<p>$$v_{ax} &#x3D; v_{ex} + v_{rx}, \quad v_{ay} &#x3D; v_{ey} + v_{ry}$$</p>
+<h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><ul>
+<li>$\mathbf{v}_r$ 沿相对轨迹切线。</li>
+<li>$\mathbf{v}_e$ 由牵连运动（动系的运动）决定，为牵连点速度。</li>
+</ul>
+<hr>
+<h3 id="§7-3-牵连运动为平动时点的加速度合成定理"><a href="#§7-3-牵连运动为平动时点的加速度合成定理" class="headerlink" title="§7-3 牵连运动为平动时点的加速度合成定理"></a>§7-3 牵连运动为平动时点的加速度合成定理</h3><p>牵连运动为平动时，动系作平动，各点加速度相同：</p>
+<p>$$\mathbf{a}_a &#x3D; \mathbf{a}_e + \mathbf{a}_r$$</p>
+<hr>
+<h3 id="§7-4-牵连运动为定轴转动时点的加速度合成定理"><a href="#§7-4-牵连运动为定轴转动时点的加速度合成定理" class="headerlink" title="§7-4 牵连运动为定轴转动时点的加速度合成定理"></a>§7-4 牵连运动为定轴转动时点的加速度合成定理</h3><h4 id="第一步：定义位置矢量"><a href="#第一步：定义位置矢量" class="headerlink" title="第一步：定义位置矢量"></a>第一步：定义位置矢量</h4><p>取两个坐标系：</p>
+<ul>
+<li>静系 $OXYZ$（固定在地面）</li>
+<li>动系 $oxyz$（原点 $o$，可以平动和转动，角速度 $\boldsymbol{\omega}$）</li>
+</ul>
+<p>设动点为 $P$，在静系中的位置矢量：</p>
+<p>$$\mathbf{r}_a &#x3D; \mathbf{r}_o + \mathbf{r}_r$$</p>
+<ul>
+<li>$\mathbf{r}_o$：动系原点 $o$ 在静系中的位置</li>
+<li>$\mathbf{r}_r$：动点相对于动系的位置矢量，在动系坐标下可写为：</li>
+</ul>
+<p>$$\mathbf{r}_r &#x3D; x\mathbf{i} + y\mathbf{j} + z\mathbf{k}$$</p>
+<p>$\mathbf{i}, \mathbf{j}, \mathbf{k}$ 是动系的基矢量，它们随时间变化（因为动系转动）。</p>
+<hr>
+<h4 id="第二步：求速度（为加速度做准备）"><a href="#第二步：求速度（为加速度做准备）" class="headerlink" title="第二步：求速度（为加速度做准备）"></a>第二步：求速度（为加速度做准备）</h4><p>绝对速度 $\mathbf{v}_a &#x3D; \left.\dfrac{\mathrm{d}\mathbf{r}<em>a}{\mathrm{d}t}\right|</em>{\text{静}}$。</p>
+<p>求导时注意：基矢量 $\mathbf{i}, \mathbf{j}, \mathbf{k}$ 也要对时间求导。在静系中看，一个旋转基矢的导数满足：</p>
+<p>$$\frac{\mathrm{d}\mathbf{i}}{\mathrm{d}t} &#x3D; \boldsymbol{\omega} \times \mathbf{i}, \quad \frac{\mathrm{d}\mathbf{j}}{\mathrm{d}t} &#x3D; \boldsymbol{\omega} \times \mathbf{j}, \quad \frac{\mathrm{d}\mathbf{k}}{\mathrm{d}t} &#x3D; \boldsymbol{\omega} \times \mathbf{k}$$</p>
+<p>这是刚体运动学的基本结论。</p>
+<p>于是：</p>
+<p>$$\begin{aligned}<br>\mathbf{v}_a &amp;&#x3D; \frac{\mathrm{d}\mathbf{r}_o}{\mathrm{d}t} + \frac{\mathrm{d}}{\mathrm{d}t}(x\mathbf{i} + y\mathbf{j} + z\mathbf{k}) \<br>&amp;&#x3D; \mathbf{v}_o + (\dot{x}\mathbf{i} + \dot{y}\mathbf{j} + \dot{z}\mathbf{k}) + \left(x\frac{\mathrm{d}\mathbf{i}}{\mathrm{d}t} + y\frac{\mathrm{d}\mathbf{j}}{\mathrm{d}t} + z\frac{\mathrm{d}\mathbf{k}}{\mathrm{d}t}\right) \<br>&amp;&#x3D; \mathbf{v}_o + \mathbf{v}_r + (x\boldsymbol{\omega} \times \mathbf{i} + y\boldsymbol{\omega} \times \mathbf{j} + z\boldsymbol{\omega} \times \mathbf{k}) \<br>&amp;&#x3D; \mathbf{v}_o + \mathbf{v}_r + \boldsymbol{\omega} \times (x\mathbf{i} + y\mathbf{j} + z\mathbf{k}) \<br>&amp;&#x3D; \mathbf{v}_o + \mathbf{v}_r + \boldsymbol{\omega} \times \mathbf{r}_r<br>\end{aligned}$$</p>
+<p>其中：</p>
+<ul>
+<li>$\mathbf{v}_o$：动系原点速度</li>
+<li>$\mathbf{v}_r &#x3D; \dot{x}\mathbf{i} + \dot{y}\mathbf{j} + \dot{z}\mathbf{k}$：相对速度（在动系中看到的动点速度）</li>
+<li>$\boldsymbol{\omega} \times \mathbf{r}_r$：由动系转动带来的附加速度</li>
+</ul>
+<p>牵连速度定义为 $\mathbf{v}_e &#x3D; \mathbf{v}_o + \boldsymbol{\omega} \times \mathbf{r}_r$，所以速度合成公式为：</p>
+<p>$$\mathbf{v}_a &#x3D; \mathbf{v}_e + \mathbf{v}_r$$</p>
+<hr>
+<h4 id="第三步：求加速度"><a href="#第三步：求加速度" class="headerlink" title="第三步：求加速度"></a>第三步：求加速度</h4><p>对 $\mathbf{v}_a$ 再求一次时间导数（在静系中）：</p>
+<p>$$\mathbf{a}_a &#x3D; \left.\frac{\mathrm{d}\mathbf{v}<em>a}{\mathrm{d}t}\right|</em>{\text{静}} &#x3D; \frac{\mathrm{d}}{\mathrm{d}t}(\mathbf{v}_o + \boldsymbol{\omega} \times \mathbf{r}_r + \mathbf{v}_r)$$</p>
+<p>我们一项一项来。</p>
+<h3 id="1-第一项-dfrac-mathrm-d-mathbf-v-o-mathrm-d-t"><a href="#1-第一项-dfrac-mathrm-d-mathbf-v-o-mathrm-d-t" class="headerlink" title="1. 第一项 $\dfrac{\mathrm{d}\mathbf{v}_o}{\mathrm{d}t}$"></a>1. 第一项 $\dfrac{\mathrm{d}\mathbf{v}_o}{\mathrm{d}t}$</h3><p>$$\frac{\mathrm{d}\mathbf{v}_o}{\mathrm{d}t} &#x3D; \mathbf{a}_o \quad \text{（动系原点在静系中的加速度）}$$</p>
+<h3 id="2-第二项-dfrac-mathrm-d-mathrm-d-t-boldsymbol-omega-times-mathbf-r-r"><a href="#2-第二项-dfrac-mathrm-d-mathrm-d-t-boldsymbol-omega-times-mathbf-r-r" class="headerlink" title="2. 第二项 $\dfrac{\mathrm{d}}{\mathrm{d}t}(\boldsymbol{\omega} \times \mathbf{r}_r)$"></a>2. 第二项 $\dfrac{\mathrm{d}}{\mathrm{d}t}(\boldsymbol{\omega} \times \mathbf{r}_r)$</h3><p>使用积的求导法则：</p>
+<p>$$\frac{\mathrm{d}}{\mathrm{d}t}(\boldsymbol{\omega} \times \mathbf{r}_r) &#x3D; \dot{\boldsymbol{\omega}} \times \mathbf{r}_r + \boldsymbol{\omega} \times \left.\frac{\mathrm{d}\mathbf{r}<em>r}{\mathrm{d}t}\right|</em>{\text{静}}$$</p>
+<p>而 $\left.\dfrac{\mathrm{d}\mathbf{r}<em>r}{\mathrm{d}t}\right|</em>{\text{静}}$ 我们在第二步已经算过：就是 $\mathbf{v}_r + \boldsymbol{\omega} \times \mathbf{r}_r$，所以：</p>
+<p>$$&#x3D; \dot{\boldsymbol{\omega}} \times \mathbf{r}_r + \boldsymbol{\omega} \times \mathbf{v}_r + \boldsymbol{\omega} \times (\boldsymbol{\omega} \times \mathbf{r}_r)$$</p>
+<h3 id="3-第三项-left-dfrac-mathrm-d-mathbf-v-r-mathrm-d-t-right-text-静"><a href="#3-第三项-left-dfrac-mathrm-d-mathbf-v-r-mathrm-d-t-right-text-静" class="headerlink" title="3. 第三项 $\left.\dfrac{\mathrm{d}\mathbf{v}r}{\mathrm{d}t}\right|{\text{静}}$"></a>3. 第三项 $\left.\dfrac{\mathrm{d}\mathbf{v}<em>r}{\mathrm{d}t}\right|</em>{\text{静}}$</h3><p>$\mathbf{v}_r &#x3D; \dot{x}\mathbf{i} + \dot{y}\mathbf{j} + \dot{z}\mathbf{k}$ 也是相对于动系的分量形式。再对时间求导（静系视角）：</p>
+<p>$$\frac{\mathrm{d}\mathbf{v}_r}{\mathrm{d}t} &#x3D; (\ddot{x}\mathbf{i} + \ddot{y}\mathbf{j} + \ddot{z}\mathbf{k}) + \left(\dot{x}\frac{\mathrm{d}\mathbf{i}}{\mathrm{d}t} + \dot{y}\frac{\mathrm{d}\mathbf{j}}{\mathrm{d}t} + \dot{z}\frac{\mathrm{d}\mathbf{k}}{\mathrm{d}t}\right)$$</p>
+<p>第一项是 $\mathbf{a}_r$（相对加速度，即动系中看到的加速度）。第二项：</p>
+<p>$$\dot{x}(\boldsymbol{\omega} \times \mathbf{i}) + \dot{y}(\boldsymbol{\omega} \times \mathbf{j}) + \dot{z}(\boldsymbol{\omega} \times \mathbf{k}) &#x3D; \boldsymbol{\omega} \times (\dot{x}\mathbf{i} + \dot{y}\mathbf{j} + \dot{z}\mathbf{k}) &#x3D; \boldsymbol{\omega} \times \mathbf{v}_r$$</p>
+<p>所以：</p>
+<p>$$\left.\frac{\mathrm{d}\mathbf{v}<em>r}{\mathrm{d}t}\right|</em>{\text{静}} &#x3D; \mathbf{a}_r + \boldsymbol{\omega} \times \mathbf{v}_r$$</p>
+<hr>
+<h2 id="合并所有项"><a href="#合并所有项" class="headerlink" title="合并所有项"></a>合并所有项</h2><p>$$\begin{aligned}<br>\mathbf{a}_a &amp;&#x3D; \mathbf{a}_o + \dot{\boldsymbol{\omega}} \times \mathbf{r}_r + \boldsymbol{\omega} \times \mathbf{v}_r + \boldsymbol{\omega} \times (\boldsymbol{\omega} \times \mathbf{r}_r) + \mathbf{a}_r + \boldsymbol{\omega} \times \mathbf{v}_r \<br>&amp;&#x3D; \underbrace{[\mathbf{a}_o + \dot{\boldsymbol{\omega}} \times \mathbf{r}_r + \boldsymbol{\omega} \times (\boldsymbol{\omega} \times \mathbf{r}<em>r)]}</em>{\mathbf{a}_e} + \underbrace{\mathbf{a}<em>r}</em>{\text{相对加速度}} + \underbrace{2\boldsymbol{\omega} \times \mathbf{v}<em>r}</em>{\mathbf{a}_C}<br>\end{aligned}$$</p>
+<p>其中：</p>
+<ul>
+<li><p><strong>牵连加速度</strong> $\mathbf{a}_e &#x3D; \mathbf{a}_o + \dot{\boldsymbol{\omega}} \times \mathbf{r}_r + \boldsymbol{\omega} \times (\boldsymbol{\omega} \times \mathbf{r}_r)$</p>
+<ul>
+<li>$\mathbf{a}_o$：动系原点的平动加速度</li>
+<li>$\dot{\boldsymbol{\omega}} \times \mathbf{r}_r$：动系转动角加速度引起的切向加速度</li>
+<li>$\boldsymbol{\omega} \times (\boldsymbol{\omega} \times \mathbf{r}_r)$：动系转动引起的向心加速度</li>
+</ul>
+</li>
+<li><p><strong>相对加速度</strong> $\mathbf{a}_r$：在动系中观察到的加速度</p>
+</li>
+<li><p><strong>科氏加速度</strong> $\mathbf{a}_C &#x3D; 2\boldsymbol{\omega} \times \mathbf{v}_r$</p>
+<ul>
+<li>由动系转动和相对运动耦合产生</li>
+<li>方向垂直于 $\boldsymbol{\omega}$ 和 $\mathbf{v}_r$ 所在平面</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="最终公式"><a href="#最终公式" class="headerlink" title="最终公式"></a>最终公式</h2><p>$$\boxed{\mathbf{a}_a &#x3D; \mathbf{a}_e + \mathbf{a}_r + \mathbf{a}_C}$$</p>
+<p>这就是<strong>加速度合成定理</strong>（科里奥利定理），适用于动系既有平动又有转动的一般情况。</p>
+<h4 id="定理-1"><a href="#定理-1" class="headerlink" title="定理"></a>定理</h4><p>$$\mathbf{a}_a &#x3D; \mathbf{a}_e + \mathbf{a}_r + \mathbf{a}_C$$</p>
+<h4 id="科氏加速度"><a href="#科氏加速度" class="headerlink" title="科氏加速度"></a>科氏加速度</h4><p>$$\mathbf{a}_C &#x3D; 2 \boldsymbol{\omega}_e \times \mathbf{v}_r$$</p>
+<ul>
+<li>$\boldsymbol{\omega}_e$：牵连角速度矢量。</li>
+<li>大小：$a_C &#x3D; 2 \omega_e v_r \sin\theta$（$\theta$ 为 $\boldsymbol{\omega}_e$ 与 $\mathbf{v}_r$ 夹角）。</li>
+<li>方向：$\boldsymbol{\omega}_e \times \mathbf{v}_r$ 再转 $90°$（按 $\boldsymbol{\omega}_e$ 转向）。</li>
+</ul>
+<h4 id="出现条件"><a href="#出现条件" class="headerlink" title="出现条件"></a>出现条件</h4><p>牵连运动有转动分量且 $\mathbf{v}_r \neq 0$。牵连平动时 $\mathbf{a}_C &#x3D; 0$。</p>
+<h4 id="加速度分解-1"><a href="#加速度分解-1" class="headerlink" title="加速度分解"></a>加速度分解</h4><p>$\mathbf{a}_e$、$\mathbf{a}_r$ 均可分解为切向与法向分量：</p>
+<p>$$\mathbf{a}_e &#x3D; \mathbf{a}_e^t + \mathbf{a}_e^n, \quad \mathbf{a}_r &#x3D; \mathbf{a}_r^t + \mathbf{a}_r^n$$</p>
+<hr>
+<h2 id="第八章-刚体的平面运动"><a href="#第八章-刚体的平面运动" class="headerlink" title="第八章 刚体的平面运动"></a>第八章 刚体的平面运动</h2><h3 id="§8-1-刚体平面运动的运动方程"><a href="#§8-1-刚体平面运动的运动方程" class="headerlink" title="§8-1 刚体平面运动的运动方程"></a>§8-1 刚体平面运动的运动方程</h3><p>[[理论力学  1  第8版 – 哈尔滨工业大学理论力学教研室编, Ha er bin gong ye da xue li lun li xue jiao – 2016, 2016 – 北京：高等教育出版社.pdf#page&#x3D;230|理论力学  1  第8版 – 哈尔滨工业大学理论力学教研室编, Ha er bin gong ye da xue li lun li xue jiao – 2016, 2016 – 北京：高等教育出版社, p.000209.jpg]]</p>
+<h4 id="定义-2"><a href="#定义-2" class="headerlink" title="定义"></a>定义</h4><p>刚体运动时，刚体上的任意一点与某一固定平面始终保持相等的距离，称<strong>平面运动</strong>。</p>
+<h4 id="运动方程-3"><a href="#运动方程-3" class="headerlink" title="运动方程"></a>运动方程</h4><p>取基点 $O’$（连在刚体上）及固连在刚体上的动坐标系，平面图形位置由：</p>
+<p>$$x_{O’} &#x3D; x_{O’}(t), \quad y_{O’} &#x3D; y_{O’}(t), \quad \varphi &#x3D; \varphi(t)$$</p>
+<p>完全确定。$\varphi$ 为刚体转角。</p>
+<h4 id="任一点坐标变换"><a href="#任一点坐标变换" class="headerlink" title="任一点坐标变换"></a>任一点坐标变换</h4><p>$$\begin{cases} x &#x3D; x_{O’} + x’ \cos\varphi - y’ \sin\varphi \ y &#x3D; y_{O’} + x’ \sin\varphi + y’ \cos\varphi \end{cases}$$</p>
+<p>$(x’, y’)$ 为点在动系中坐标。</p>
+<hr>
+<h3 id="§8-2-平面图形运动的分解"><a href="#§8-2-平面图形运动的分解" class="headerlink" title="§8-2 平面图形运动的分解"></a>§8-2 平面图形运动的分解</h3><h4 id="分解定理"><a href="#分解定理" class="headerlink" title="分解定理"></a>分解定理</h4><p>平面运动可分解为：a</p>
+<ol>
+<li>基点 $O’$ 的<strong>平动</strong>（牵连平动）；</li>
+<li>绕基点的<strong>转动</strong>，角速度 $\omega$、角加速度 $\alpha$。</li>
+</ol>
+<p><strong>平动的速度加速度与基点的选择有关,角速度 $\omega$ 与角加速度 $\alpha$ 与基点选取无关</strong>（各基点转动相同）。</p>
+<hr>
+<h3 id="§8-3-平面图形上各点的速度"><a href="#§8-3-平面图形上各点的速度" class="headerlink" title="§8-3 平面图形上各点的速度"></a>§8-3 平面图形上各点的速度</h3><h4 id="基点法（速度合成）"><a href="#基点法（速度合成）" class="headerlink" title="基点法（速度合成）"></a>基点法（速度合成）</h4><p>平面图形内任一点的速度等于基点的速度与该点随图形绕基点转动速度的矢量和。</p>
+<p>$$ \mathbf{v}_B &#x3D; \mathbf{v}<em>A + \mathbf{v}</em>{BA} $$</p>
+<ul>
+<li>$\mathbf{v}_A$：基点 $A$ 速度。</li>
+<li>$\mathbf{v}_{BA}$：$B$ 相对 $A$ 的转动速度。</li>
+</ul>
+<p>大小方向：</p>
+<p>$$v_{BA} &#x3D; \omega \cdot AB$$</p>
+<p>$\mathbf{v}_{BA} \perp AB$，指向与 $\omega$ 转向一致。</p>
+<h4 id="速度投影定理"><a href="#速度投影定理" class="headerlink" title="速度投影定理"></a>速度投影定理</h4><p>刚体上两点 $A$、$B$ 的速度在 $AB$ 连线上的投影相等：</p>
+<p>$$(\mathbf{v}<em>A)</em>{AB} &#x3D; (\mathbf{v}<em>B)</em>{AB}$$</p>
+<hr>
+<h3 id="§8-4-平面图形上各点的速度-·-瞬心法"><a href="#§8-4-平面图形上各点的速度-·-瞬心法" class="headerlink" title="§8-4 平面图形上各点的速度 · 瞬心法"></a>§8-4 平面图形上各点的速度 · 瞬心法</h3><h4 id="瞬时速度中心（瞬心）"><a href="#瞬时速度中心（瞬心）" class="headerlink" title="瞬时速度中心（瞬心）"></a>瞬时速度中心（瞬心）</h4><p>平面图形作平面运动时，某瞬时图形上（或其延长线上）存在一点 $C$，该点速度为零，称<strong>瞬时速度中心</strong>。<br>平面图形内任一点的速度等于该点随图形绕瞬时速度中心转动的速度</p>
+<h4 id="速度关系"><a href="#速度关系" class="headerlink" title="速度关系"></a>速度关系</h4><p>$$v_B &#x3D; \omega \cdot BC$$</p>
+<p>$\mathbf{v}_B \perp BC$，指向与 $\omega$ 一致。</p>
+<h4 id="求瞬心"><a href="#求瞬心" class="headerlink" title="求瞬心"></a>求瞬心</h4><ol>
+<li>已知 $A$、$B$ 两点速度方向，过两点作速度垂线，交点即为 $C$（两线平行时瞬心在无穷远，图形作瞬时平动）。</li>
+<li>纯滚动：接触点常为瞬心。</li>
+</ol>
+<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><p>瞬心位置随时间变化；$\omega$ 随瞬心位置与基点速度确定。</p>
+<hr>
+<h3 id="§8-5-平面图形上各点的加速度"><a href="#§8-5-平面图形上各点的加速度" class="headerlink" title="§8-5 平面图形上各点的加速度"></a>§8-5 平面图形上各点的加速度</h3><h4 id="基点法"><a href="#基点法" class="headerlink" title="基点法"></a>基点法</h4><p>$$\mathbf{a}<em>B &#x3D; \mathbf{a}<em>A + \mathbf{a}</em>{BA}^t + \mathbf{a}</em>{BA}^n$$</p>
+<p><strong>相对转动切向加速度</strong>：</p>
+<p>$$a_{BA}^t &#x3D; \alpha \cdot AB$$</p>
+<p>方向 $\perp AB$，与 $\alpha$ 转向一致。</p>
+<p><strong>相对转动法向加速度</strong>：</p>
+<p>$$a_{BA}^n &#x3D; \omega^2 \cdot AB$$</p>
+<p>方向沿 $BA$，指向基点 $A$。</p>
+<h4 id="瞬心与加速度"><a href="#瞬心与加速度" class="headerlink" title="瞬心与加速度"></a>瞬心与加速度</h4><p><strong>瞬心一般不是加速度中心</strong>，不能直接用「绕瞬心纯转动」写加速度关系（与速度分析不同）。</p>
+<hr>
+<h3 id="§8-6-运动学综合应用"><a href="#§8-6-运动学综合应用" class="headerlink" title="§8-6 运动学综合应用"></a>§8-6 运动学综合应用</h3><p>平面运动理论用来分析同一平面运动刚体上两个不同点间的速度和加速度联系。当两个刚体相接触而有相对滑动时，则需用合成运动的理论分析这两个不同刚体上关联点的速度和加速度联系。两物体间有相互运动，虽不接触，其关联点的运动也符合合成运动的关系</p>
+<p>机构分析中常组合：定轴转动杆、滑块（平动）、平面运动杆。对每构件判运动类型，分别用本章及第六、七章公式，再以铰链处速度、加速度关系联立。</p>
+<hr>
+<h2 id="相关"><a href="#相关" class="headerlink" title="相关"></a>相关</h2><ul>
+<li><a href="/project/2026/06/08/tm-hit-8-vol1/">理论力学（Ⅰ）学习笔记</a>、<a href="/project/2026/06/08/tm-hit-8-vol1-statics/">理论力学（Ⅰ）· 静力学</a>、<a href="/project/2026/06/08/tm-hit-8-vol1-dynamics/">理论力学（Ⅰ）· 动力学</a></li>
+<li><a href="/project/series/mechanics/">mechanics</a></li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://caizhimoning.github.io/project">caizhimoning</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://caizhimoning.github.io/project/2026/06/08/tm-hit-8-vol1-kinematics/">http://caizhimoning.github.io/project/2026/06/08/tm-hit-8-vol1-kinematics/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://caizhimoning.github.io/project" target="_blank">Moning's Blog</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="https://images.unsplash.com/photo-1522441815192-d9f04eb0615c?auto=format&amp;fit=crop&amp;w=800&amp;q=80" data-sites="wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/project/2026/06/08/tm-hit-8-vol1-dynamics/" title="理论力学（Ⅰ）· 动力学"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&amp;fit=crop&amp;w=800&amp;q=80" onerror="onerror=null;src='/project/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">理论力学（Ⅰ）· 动力学</div></div><div class="info-2"><div class="info-item-1"> 总览 → 理论力学（Ⅰ）学习笔记 · 运动学 → 理论力学（Ⅰ）· 运动学   目录   章 节 跳转到    9 质点动力学的基本方程  [第九章 质点动力学的基本方程](#第九章 质点动力学的基本方程)    §9-1 动力学的...</div></div></div></a><a class="pagination-related" href="/project/2026/06/08/tm-hit-8-vol1-statics/" title="理论力学（Ⅰ）· 静力学"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&amp;fit=crop&amp;w=800&amp;q=80" onerror="onerror=null;src='/project/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">理论力学（Ⅰ）· 静力学</div></div><div class="info-2"><div class="info-item-1"> 总览 → 理论力学（Ⅰ）学习笔记 · 运动学 → 理论力学（Ⅰ）· 运动学   目录   章 节 跳转到    1 静力学公理和物体的受力分析  [第一章 静力学公理和物体的受力分析](#第一章 静力学公理和物体的受力分析)    ...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/project/2026/06/11/tm-hit-8-vol2-variable-mass/" title="理论力学（Ⅱ）· 变质量动力学"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=800&q=80" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-06-11</div><div class="info-item-2">理论力学（Ⅱ）· 变质量动力学</div></div><div class="info-2"><div class="info-item-1"> 总览 → 理论力学（Ⅱ）学习笔记 · 前置 → [[tm-hit-8-vol1-dynamics#第十章 动量定理]]   目录   节 跳转到    §6-1 变质量质点的运动微分方程 [§6-1 变质量质点的运动微分方程](#§...</div></div></div></a><a class="pagination-related" href="/project/2026/06/11/tm-hit-8-vol2-vibration/" title="理论力学（Ⅱ）· 机械振动基础"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=800&q=80" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-06-11</div><div class="info-item-2">理论力学（Ⅱ）· 机械振动基础</div></div><div class="info-2"><div class="info-item-1"> 总览 → 理论力学（Ⅱ）学习笔记 · 前置 → [[tm-hit-8-vol1-dynamics#第十二章 动能定理]]   目录   节 跳转到    §4-1 单自由度系统的自由振动 [§4-1 单自由度系统的自由振动](#§4...</div></div></div></a><a class="pagination-related" href="/project/2026/06/08/tm-hit-8-vol1/" title="理论力学（Ⅰ）学习笔记"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=800&q=80" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-06-08</div><div class="info-item-2">理论力学（Ⅰ）学习笔记</div></div><div class="info-2"><div class="info-item-1">本书笔记对应哈尔滨工业大学理论力学教研室编《理论力学》（第8版）（Ⅰ）（高等教育出版社，2016，ISBN 978-7-04-045992-0）。教材为静力学、运动学、动力学基础篇，一般中等学时专业以本册为主；第（Ⅱ）册专题笔记见 理...</div></div></div></a><a class="pagination-related" href="/project/2026/06/08/tm-hit-8-vol1-dynamics/" title="理论力学（Ⅰ）· 动力学"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=800&q=80" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-06-08</div><div class="info-item-2">理论力学（Ⅰ）· 动力学</div></div><div class="info-2"><div class="info-item-1"> 总览 → 理论力学（Ⅰ）学习笔记 · 运动学 → 理论力学（Ⅰ）· 运动学   目录   章 节 跳转到    9 质点动力学的基本方程  [第九章 质点动力学的基本方程](#第九章 质点动力学的基本方程)    §9-1 动力学的...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95"><span class="toc-number">1.</span> <span class="toc-text">目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E7%82%B9%E7%9A%84%E8%BF%90%E5%8A%A8%E5%AD%A6"><span class="toc-number">2.</span> <span class="toc-text">第五章 点的运动学</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A75-1-%E7%9F%A2%E9%87%8F%E6%B3%95"><span class="toc-number">2.1.</span> <span class="toc-text">§5-1 矢量法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">2.1.1.</span> <span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%AC%E5%BC%8F"><span class="toc-number">2.1.2.</span> <span class="toc-text">公式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A75-2-%E7%9B%B4%E8%A7%92%E5%9D%90%E6%A0%87%E6%B3%95"><span class="toc-number">2.2.</span> <span class="toc-text">§5-2 直角坐标法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%90%E5%8A%A8%E6%96%B9%E7%A8%8B"><span class="toc-number">2.2.1.</span> <span class="toc-text">运动方程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%9F%E5%BA%A6%E4%B8%8E%E5%8A%A0%E9%80%9F%E5%BA%A6"><span class="toc-number">2.2.2.</span> <span class="toc-text">速度与加速度</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A75-3-%E8%87%AA%E7%84%B6%E6%B3%95%EF%BC%88%E5%BC%A7%E5%9D%90%E6%A0%87%E6%B3%95%EF%BC%89"><span class="toc-number">2.3.</span> <span class="toc-text">§5-3 自然法（弧坐标法）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E7%84%B6%E8%BD%B4%E7%B3%BB"><span class="toc-number">2.3.1.</span> <span class="toc-text">自然轴系</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%A7%E5%9D%90%E6%A0%87-s"><span class="toc-number">2.3.2.</span> <span class="toc-text">弧坐标 $s$</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%90%E5%8A%A8%E6%96%B9%E7%A8%8B-1"><span class="toc-number">2.3.3.</span> <span class="toc-text">运动方程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%9F%E5%BA%A6"><span class="toc-number">2.3.4.</span> <span class="toc-text">速度:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A0%E9%80%9F%E5%BA%A6%E5%88%86%E8%A7%A3"><span class="toc-number">2.3.5.</span> <span class="toc-text">加速度分解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B9%B3%E9%9D%A2%E6%9B%B2%E7%BA%BF%E6%9B%B2%E7%8E%87%E5%8D%8A%E5%BE%84"><span class="toc-number">2.3.6.</span> <span class="toc-text">平面曲线曲率半径</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0-%E5%88%9A%E4%BD%93%E7%9A%84%E7%AE%80%E5%8D%95%E8%BF%90%E5%8A%A8"><span class="toc-number">3.</span> <span class="toc-text">第六章 刚体的简单运动</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A76-1-%E5%B9%B3%E8%A1%8C%E7%A7%BB%E5%8A%A8%EF%BC%88%E5%B9%B3%E5%8A%A8%EF%BC%89"><span class="toc-number">3.1.</span> <span class="toc-text">§6-1 平行移动（平动）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89"><span class="toc-number">3.1.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%A7%E8%B4%A8"><span class="toc-number">3.1.2.</span> <span class="toc-text">性质</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A76-2-%E5%AE%9A%E8%BD%B4%E8%BD%AC%E5%8A%A8"><span class="toc-number">3.2.</span> <span class="toc-text">§6-2 定轴转动</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89-1"><span class="toc-number">3.2.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%90%E5%8A%A8%E6%96%B9%E7%A8%8B-2"><span class="toc-number">3.2.2.</span> <span class="toc-text">运动方程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%92%E9%80%9F%E5%BA%A6%E4%B8%8E%E8%A7%92%E5%8A%A0%E9%80%9F%E5%BA%A6"><span class="toc-number">3.2.3.</span> <span class="toc-text">角速度与角加速度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%93%E5%86%85%E5%90%84%E7%82%B9%E9%80%9F%E5%BA%A6"><span class="toc-number">3.2.4.</span> <span class="toc-text">体内各点速度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%93%E5%86%85%E5%90%84%E7%82%B9%E5%8A%A0%E9%80%9F%E5%BA%A6"><span class="toc-number">3.2.5.</span> <span class="toc-text">体内各点加速度</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A76-3-%E8%A7%92%E9%80%9F%E5%BA%A6%E3%80%81%E8%A7%92%E5%8A%A0%E9%80%9F%E5%BA%A6%E7%9A%84%E7%9F%A2%E9%87%8F%E8%A1%A8%E7%A4%BA"><span class="toc-number">3.3.</span> <span class="toc-text">§6-3 角速度、角加速度的矢量表示</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9F%A2%E9%87%8F%E8%A1%A8%E7%A4%BA"><span class="toc-number">3.3.1.</span> <span class="toc-text">矢量表示</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%9F%E5%BA%A6%E5%85%AC%E5%BC%8F"><span class="toc-number">3.3.2.</span> <span class="toc-text">速度公式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A0%E9%80%9F%E5%BA%A6%E5%85%AC%E5%BC%8F"><span class="toc-number">3.3.3.</span> <span class="toc-text">加速度公式</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0-%E7%82%B9%E7%9A%84%E5%90%88%E6%88%90%E8%BF%90%E5%8A%A8"><span class="toc-number">4.</span> <span class="toc-text">第七章 点的合成运动</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A77-1-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">4.1.</span> <span class="toc-text">§7-1 基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E7%B3%BB"><span class="toc-number">4.1.1.</span> <span class="toc-text">参考系</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%89%E7%A7%8D%E8%BF%90%E5%8A%A8"><span class="toc-number">4.1.2.</span> <span class="toc-text">三种运动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%89%B5%E8%BF%9E%E7%82%B9"><span class="toc-number">4.1.3.</span> <span class="toc-text">牵连点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%9F%E5%BA%A6%E3%80%81%E5%8A%A0%E9%80%9F%E5%BA%A6%E8%AE%B0%E5%8F%B7"><span class="toc-number">4.1.4.</span> <span class="toc-text">速度、加速度记号</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A77-2-%E7%82%B9%E7%9A%84%E9%80%9F%E5%BA%A6%E5%90%88%E6%88%90%E5%AE%9A%E7%90%86"><span class="toc-number">4.2.</span> <span class="toc-text">§7-2 点的速度合成定理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E7%90%86"><span class="toc-number">4.2.1.</span> <span class="toc-text">定理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%B4%E6%98%8E"><span class="toc-number">4.2.2.</span> <span class="toc-text">说明</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A77-3-%E7%89%B5%E8%BF%9E%E8%BF%90%E5%8A%A8%E4%B8%BA%E5%B9%B3%E5%8A%A8%E6%97%B6%E7%82%B9%E7%9A%84%E5%8A%A0%E9%80%9F%E5%BA%A6%E5%90%88%E6%88%90%E5%AE%9A%E7%90%86"><span class="toc-number">4.3.</span> <span class="toc-text">§7-3 牵连运动为平动时点的加速度合成定理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A77-4-%E7%89%B5%E8%BF%9E%E8%BF%90%E5%8A%A8%E4%B8%BA%E5%AE%9A%E8%BD%B4%E8%BD%AC%E5%8A%A8%E6%97%B6%E7%82%B9%E7%9A%84%E5%8A%A0%E9%80%9F%E5%BA%A6%E5%90%88%E6%88%90%E5%AE%9A%E7%90%86"><span class="toc-number">4.4.</span> <span class="toc-text">§7-4 牵连运动为定轴转动时点的加速度合成定理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5%EF%BC%9A%E5%AE%9A%E4%B9%89%E4%BD%8D%E7%BD%AE%E7%9F%A2%E9%87%8F"><span class="toc-number">4.4.1.</span> <span class="toc-text">第一步：定义位置矢量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5%EF%BC%9A%E6%B1%82%E9%80%9F%E5%BA%A6%EF%BC%88%E4%B8%BA%E5%8A%A0%E9%80%9F%E5%BA%A6%E5%81%9A%E5%87%86%E5%A4%87%EF%BC%89"><span class="toc-number">4.4.2.</span> <span class="toc-text">第二步：求速度（为加速度做准备）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5%EF%BC%9A%E6%B1%82%E5%8A%A0%E9%80%9F%E5%BA%A6"><span class="toc-number">4.4.3.</span> <span class="toc-text">第三步：求加速度</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%AC%AC%E4%B8%80%E9%A1%B9-dfrac-mathrm-d-mathbf-v-o-mathrm-d-t"><span class="toc-number">4.5.</span> <span class="toc-text">1. 第一项 $\dfrac{\mathrm{d}\mathbf{v}_o}{\mathrm{d}t}$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%AC%AC%E4%BA%8C%E9%A1%B9-dfrac-mathrm-d-mathrm-d-t-boldsymbol-omega-times-mathbf-r-r"><span class="toc-number">4.6.</span> <span class="toc-text">2. 第二项 $\dfrac{\mathrm{d}}{\mathrm{d}t}(\boldsymbol{\omega} \times \mathbf{r}_r)$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E7%AC%AC%E4%B8%89%E9%A1%B9-left-dfrac-mathrm-d-mathbf-v-r-mathrm-d-t-right-text-%E9%9D%99"><span class="toc-number">4.7.</span> <span class="toc-text">3. 第三项 $\left.\dfrac{\mathrm{d}\mathbf{v}r}{\mathrm{d}t}\right|{\text{静}}$</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%88%E5%B9%B6%E6%89%80%E6%9C%89%E9%A1%B9"><span class="toc-number">5.</span> <span class="toc-text">合并所有项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E7%BB%88%E5%85%AC%E5%BC%8F"><span class="toc-number">6.</span> <span class="toc-text">最终公式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E7%90%86-1"><span class="toc-number">6.1.</span> <span class="toc-text">定理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A7%91%E6%B0%8F%E5%8A%A0%E9%80%9F%E5%BA%A6"><span class="toc-number">6.2.</span> <span class="toc-text">科氏加速度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%87%BA%E7%8E%B0%E6%9D%A1%E4%BB%B6"><span class="toc-number">6.3.</span> <span class="toc-text">出现条件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A0%E9%80%9F%E5%BA%A6%E5%88%86%E8%A7%A3-1"><span class="toc-number">6.4.</span> <span class="toc-text">加速度分解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%85%AB%E7%AB%A0-%E5%88%9A%E4%BD%93%E7%9A%84%E5%B9%B3%E9%9D%A2%E8%BF%90%E5%8A%A8"><span class="toc-number">7.</span> <span class="toc-text">第八章 刚体的平面运动</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A78-1-%E5%88%9A%E4%BD%93%E5%B9%B3%E9%9D%A2%E8%BF%90%E5%8A%A8%E7%9A%84%E8%BF%90%E5%8A%A8%E6%96%B9%E7%A8%8B"><span class="toc-number">7.1.</span> <span class="toc-text">§8-1 刚体平面运动的运动方程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89-2"><span class="toc-number">7.1.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%90%E5%8A%A8%E6%96%B9%E7%A8%8B-3"><span class="toc-number">7.1.2.</span> <span class="toc-text">运动方程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%BB%E4%B8%80%E7%82%B9%E5%9D%90%E6%A0%87%E5%8F%98%E6%8D%A2"><span class="toc-number">7.1.3.</span> <span class="toc-text">任一点坐标变换</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A78-2-%E5%B9%B3%E9%9D%A2%E5%9B%BE%E5%BD%A2%E8%BF%90%E5%8A%A8%E7%9A%84%E5%88%86%E8%A7%A3"><span class="toc-number">7.2.</span> <span class="toc-text">§8-2 平面图形运动的分解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E8%A7%A3%E5%AE%9A%E7%90%86"><span class="toc-number">7.2.1.</span> <span class="toc-text">分解定理</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A78-3-%E5%B9%B3%E9%9D%A2%E5%9B%BE%E5%BD%A2%E4%B8%8A%E5%90%84%E7%82%B9%E7%9A%84%E9%80%9F%E5%BA%A6"><span class="toc-number">7.3.</span> <span class="toc-text">§8-3 平面图形上各点的速度</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E7%82%B9%E6%B3%95%EF%BC%88%E9%80%9F%E5%BA%A6%E5%90%88%E6%88%90%EF%BC%89"><span class="toc-number">7.3.1.</span> <span class="toc-text">基点法（速度合成）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%9F%E5%BA%A6%E6%8A%95%E5%BD%B1%E5%AE%9A%E7%90%86"><span class="toc-number">7.3.2.</span> <span class="toc-text">速度投影定理</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A78-4-%E5%B9%B3%E9%9D%A2%E5%9B%BE%E5%BD%A2%E4%B8%8A%E5%90%84%E7%82%B9%E7%9A%84%E9%80%9F%E5%BA%A6-%C2%B7-%E7%9E%AC%E5%BF%83%E6%B3%95"><span class="toc-number">7.4.</span> <span class="toc-text">§8-4 平面图形上各点的速度 · 瞬心法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9E%AC%E6%97%B6%E9%80%9F%E5%BA%A6%E4%B8%AD%E5%BF%83%EF%BC%88%E7%9E%AC%E5%BF%83%EF%BC%89"><span class="toc-number">7.4.1.</span> <span class="toc-text">瞬时速度中心（瞬心）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%9F%E5%BA%A6%E5%85%B3%E7%B3%BB"><span class="toc-number">7.4.2.</span> <span class="toc-text">速度关系</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B1%82%E7%9E%AC%E5%BF%83"><span class="toc-number">7.4.3.</span> <span class="toc-text">求瞬心</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F"><span class="toc-number">7.4.4.</span> <span class="toc-text">注意</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A78-5-%E5%B9%B3%E9%9D%A2%E5%9B%BE%E5%BD%A2%E4%B8%8A%E5%90%84%E7%82%B9%E7%9A%84%E5%8A%A0%E9%80%9F%E5%BA%A6"><span class="toc-number">7.5.</span> <span class="toc-text">§8-5 平面图形上各点的加速度</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E7%82%B9%E6%B3%95"><span class="toc-number">7.5.1.</span> <span class="toc-text">基点法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9E%AC%E5%BF%83%E4%B8%8E%E5%8A%A0%E9%80%9F%E5%BA%A6"><span class="toc-number">7.5.2.</span> <span class="toc-text">瞬心与加速度</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%C2%A78-6-%E8%BF%90%E5%8A%A8%E5%AD%A6%E7%BB%BC%E5%90%88%E5%BA%94%E7%94%A8"><span class="toc-number">7.6.</span> <span class="toc-text">§8-6 运动学综合应用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3"><span class="toc-number">8.</span> <span class="toc-text">相关</span></a></li></ol></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/project/js/utils.js?v=5.5.4"></script><script src="/project/js/main.js?v=5.5.4"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@19.1.3/dist/lazyload.iife.min.js"></script><div class="js-pjax"></div><script src="/project/js/sakura.js"></script><script src="/project/js/rain.js"></script><script src="/project/js/custom.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="可搜索标题、标签以及文章内任意内容" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/project/js/search/local-search.js?v=5.5.4"></script></div></div></body></html>

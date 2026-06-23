@@ -1,0 +1,411 @@
+/**
+ * 文章归档页 /archives/
+ */
+
+.page-archive-enhanced #archive {
+  width: 100%;
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* ===== 顶部介绍区 ===== */
+.archive-hero {
+  margin-bottom: 28px;
+  padding: 28px 32px 32px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 195, 205, 0.55);
+  background: linear-gradient(
+    145deg,
+    rgba(255, 252, 253, 0.98) 0%,
+    rgba(255, 240, 246, 0.92) 45%,
+    rgba(255, 232, 240, 0.88) 100%
+  );
+  box-shadow: 0 10px 40px rgba(255, 160, 180, 0.12);
+}
+
+.archive-hero__kicker {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 12px;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #94a3b8;
+}
+
+.archive-hero__vol {
+  color: var(--sakura-pink);
+  font-weight: 600;
+}
+
+.archive-hero__en {
+  font-style: italic;
+  font-family: var(--font-serif);
+  color: #b8a0a8;
+}
+
+.archive-hero__title {
+  margin: 0 0 24px;
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: #3d4450;
+  letter-spacing: 0.04em;
+}
+
+.archive-hero__dot {
+  color: var(--sakura-pink);
+}
+
+.archive-hero__grid {
+  display: grid;
+  grid-template-columns: minmax(120px, 1fr) minmax(0, 2fr);
+  gap: 24px 40px;
+  align-items: start;
+}
+
+.archive-hero__label {
+  margin: 0 0 10px;
+  font-size: 1.35rem;
+  font-weight: 700;
+  font-style: italic;
+  color: #4a4a4a;
+  letter-spacing: 0.02em;
+}
+
+.archive-hero__est {
+  display: inline-block;
+  padding: 4px 12px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #fff;
+  background: var(--sakura-pink);
+  border-radius: 4px;
+}
+
+.archive-hero__stat {
+  margin: 0 0 10px;
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  color: #475569;
+}
+
+.archive-hero__summary {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: 0.88rem;
+  font-style: italic;
+  line-height: 1.7;
+  color: #94a3b8;
+}
+
+/* ===== 年份分隔 ===== */
+.page-archive-enhanced .archive-year-label {
+  margin: 20px 0 12px !important;
+  padding: 0 4px 0 88px !important;
+  font-size: 1rem !important;
+  font-weight: 600;
+  font-family: var(--font-serif);
+  color: var(--sakura-pink) !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  position: relative;
+  z-index: 2;
+}
+
+.page-archive-enhanced .archive-year-label:first-of-type {
+  margin-top: 8px !important;
+}
+
+/* ===== 时间轴 + 文章列表 ===== */
+.page-archive-enhanced .article-sort {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+  padding-left: 0;
+}
+
+/* 纵向时间轴线（靠左） */
+.page-archive-enhanced .article-sort::before {
+  content: '';
+  position: absolute;
+  left: 18px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: linear-gradient(
+    180deg,
+    var(--sakura-pink-mist) 0%,
+    rgba(255, 183, 197, 0.55) 50%,
+    var(--sakura-pink-mist) 100%
+  );
+  border-radius: 1px;
+  z-index: 0;
+}
+
+.page-archive-enhanced .archive-list-item {
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.page-archive-enhanced .archive-list-item::before {
+  display: none !important;
+}
+
+/* 布局：时间轴留白 | 日期（轴右侧） | 卡片 */
+.archive-timeline__item {
+  display: grid;
+  grid-template-columns: 28px 52px minmax(0, 1fr);
+  gap: 0 12px;
+  align-items: start;
+  position: relative;
+}
+
+.archive-timeline__date {
+  grid-column: 2;
+  justify-self: start;
+  align-self: start;
+  margin: 0;
+  padding: 18px 0 0 10px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
+  color: var(--sakura-pink);
+  white-space: nowrap;
+}
+
+.archive-timeline__item .archive-card {
+  grid-column: 3;
+}
+
+.archive-card {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px 22px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 195, 205, 0.45);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.archive-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 139, 167, 0.55);
+  box-shadow: 0 12px 32px rgba(255, 139, 167, 0.18);
+}
+
+.archive-card__body {
+  flex: 1;
+  min-width: 0;
+  text-decoration: none;
+}
+
+/* 四色交替暖色底 */
+.page-archive-enhanced .archive-list-item[data-tone="0"] .archive-card {
+  background: linear-gradient(135deg, rgba(255, 251, 252, 0.98), rgba(255, 245, 248, 0.94));
+}
+
+.page-archive-enhanced .archive-list-item[data-tone="1"] .archive-card {
+  background: linear-gradient(135deg, rgba(255, 248, 250, 0.98), rgba(255, 238, 244, 0.92));
+}
+
+.page-archive-enhanced .archive-list-item[data-tone="2"] .archive-card {
+  background: linear-gradient(135deg, rgba(255, 252, 248, 0.98), rgba(255, 242, 235, 0.92));
+}
+
+.page-archive-enhanced .archive-list-item[data-tone="3"] .archive-card {
+  background: linear-gradient(135deg, rgba(252, 250, 255, 0.98), rgba(245, 240, 255, 0.92));
+}
+
+.archive-card__title {
+  margin: 0 0 8px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: #3d4450;
+  transition: color 0.2s ease;
+}
+
+.archive-card:hover .archive-card__title {
+  color: var(--sakura-pink);
+}
+
+.archive-card__desc {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: #64748b;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.archive-card__tags {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px 8px;
+  max-width: 46%;
+  min-width: 80px;
+}
+
+.archive-card__tag {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  color: var(--sakura-pink);
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid var(--sakura-pink-mist);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.archive-card__tag:hover {
+  background: var(--sakura-pink);
+  color: #fff;
+}
+
+/* 隐藏默认缩略图与时间 */
+.page-archive-enhanced .article-sort-item-img,
+.page-archive-enhanced .article-sort-item-time,
+.page-archive-enhanced .article-sort-item-info {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .archive-hero {
+    padding: 22px 20px 24px;
+  }
+
+  .archive-hero__grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .page-archive-enhanced .article-sort::before {
+    left: 14px;
+  }
+
+  .archive-timeline__item {
+    grid-template-columns: 22px 44px minmax(0, 1fr);
+    gap: 0 8px;
+  }
+
+  .archive-timeline__date {
+    font-size: 0.85rem;
+    padding-top: 16px;
+    padding-left: 8px;
+  }
+
+  .page-archive-enhanced .archive-year-label {
+    padding-left: 72px !important;
+  }
+
+  .archive-card {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .archive-card__tags {
+    justify-content: flex-start;
+    max-width: 100%;
+  }
+}
+
+/* 夜间 */
+[data-theme="dark"] .archive-hero {
+  background: linear-gradient(145deg, rgba(14, 22, 38, 0.96), rgba(10, 18, 32, 0.92));
+  border-color: rgba(74, 144, 226, 0.25);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+}
+
+[data-theme="dark"] .archive-hero__title {
+  color: #e8eef8;
+}
+
+[data-theme="dark"] .archive-hero__dot {
+  color: #7eb6ff;
+}
+
+[data-theme="dark"] .archive-hero__label {
+  color: #c8d4e8;
+}
+
+[data-theme="dark"] .archive-hero__est {
+  background: #3d6db5;
+}
+
+[data-theme="dark"] .archive-card__title {
+  color: #e8eef8;
+}
+
+[data-theme="dark"] .archive-card:hover .archive-card__title {
+  color: #9ec5ff;
+}
+
+[data-theme="dark"] .archive-card__desc {
+  color: #8fa3bc;
+}
+
+[data-theme="dark"] .archive-list-item[data-tone="0"] .archive-card {
+  background: linear-gradient(135deg, rgba(18, 28, 48, 0.95), rgba(14, 24, 42, 0.9));
+}
+
+[data-theme="dark"] .archive-list-item[data-tone="1"] .archive-card {
+  background: linear-gradient(135deg, rgba(20, 30, 52, 0.95), rgba(16, 26, 44, 0.9));
+}
+
+[data-theme="dark"] .archive-list-item[data-tone="2"] .archive-card {
+  background: linear-gradient(135deg, rgba(22, 32, 50, 0.95), rgba(18, 28, 46, 0.9));
+}
+
+[data-theme="dark"] .archive-list-item[data-tone="3"] .archive-card {
+  background: linear-gradient(135deg, rgba(24, 28, 52, 0.95), rgba(20, 24, 48, 0.9));
+}
+
+[data-theme="dark"] .archive-card {
+  border-color: rgba(74, 144, 226, 0.22);
+}
+
+[data-theme="dark"] .archive-card__tag {
+  background: rgba(12, 20, 36, 0.85);
+  border-color: rgba(74, 144, 226, 0.28);
+  color: #9ec5ff;
+}
+
+[data-theme="dark"] .archive-year-label {
+  color: #9ec5ff !important;
+}
+
+[data-theme="dark"] .page-archive-enhanced .article-sort::before {
+  background: linear-gradient(
+    180deg,
+    rgba(74, 144, 226, 0.25) 0%,
+    rgba(74, 144, 226, 0.45) 50%,
+    rgba(74, 144, 226, 0.25) 100%
+  );
+}
+
+[data-theme="dark"] .archive-timeline__date {
+  color: #9ec5ff;
+}
+
