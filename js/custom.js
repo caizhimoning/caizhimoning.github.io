@@ -28,54 +28,34 @@
 
   var DEMO_PROJECTS = [
     {
-      slug: 'sakura-blog',
-      img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
-      title: 'Sakura Blog',
-      subtitle: 'Hexo + Butterfly 樱花风个人博客',
-      desc: '支持日间/夜间双主题、樱花与雨效动画，以及自定义首页布局。',
-      tags: ['Hexo'],
-      link: 'projects/sakura-blog/',
-      date: '2026/6/1'
+      slug: "blog-setup",
+      img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
+      title: "博客建立",
+      subtitle: "Obsidian 笔记库 + Hexo 博客工程与发布流程",
+      desc: "Obsidian 笔记库 + Hexo 博客工程与发布流程",
+      tags: ["Hexo", "Obsidian"],
+      link: "projects/blog-setup/",
+      date: "2026/6/23"
     },
     {
-      slug: 'code-snippets',
-      img: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80',
-      title: 'Code Snippets',
-      subtitle: '常用代码片段收藏工具',
-      desc: '支持多语言高亮、标签分类与全文搜索，适合日常开发查阅。',
-      tags: ['Vue'],
-      link: 'projects/code-snippets/',
-      date: '2026/5/28'
+      slug: "latex2word",
+      img: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80",
+      title: "latex2word",
+      subtitle: "LaTeX 公式与文档向 Word 的转换",
+      desc: "LaTeX 公式与文档向 Word 的转换",
+      tags: ["LaTeX", "Word"],
+      link: "projects/latex2word/",
+      date: "2026/6/23"
     },
     {
-      slug: 'data-dashboard',
-      img: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
-      title: 'Data Dashboard',
-      subtitle: '轻量级数据可视化面板',
-      desc: '支持实时数据流接入与自定义图表组件，适合小型监控场景。',
-      tags: ['React'],
-      link: 'projects/data-dashboard/',
-      date: '2026/5/20'
-    },
-    {
-      slug: 'dev-notes',
-      img: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80',
-      title: 'Dev Notes',
-      subtitle: '开发者笔记与知识管理',
-      desc: 'Markdown 驱动，Git 同步，适合沉淀技术笔记与阅读摘要。',
-      tags: ['Markdown'],
-      link: 'projects/dev-notes/',
-      date: '2026/5/15'
-    },
-    {
-      slug: 'open-api-toolkit',
-      img: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80',
-      title: 'Open API Toolkit',
-      subtitle: 'REST API 调试与文档生成',
-      desc: '支持 OpenAPI 规范导入导出，便于接口联调与文档维护。',
-      tags: ['TypeScript'],
-      link: 'projects/open-api-toolkit/',
-      date: '2026/5/10'
+      slug: "research-group",
+      img: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80",
+      title: "课题组研究方向整理",
+      subtitle: "研究方向、成员与文献的结构化汇总",
+      desc: "研究方向、成员与文献的结构化汇总",
+      tags: ["科研", "Zotero"],
+      link: "projects/research-group/",
+      date: "2026/6/23"
     }
   ];
 
