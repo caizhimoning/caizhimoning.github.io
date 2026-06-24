@@ -1,13 +1,13 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><script>(function(){var p=location.pathname;if(p==="/project"||p.indexOf("/project/")===0){location.replace((p.replace(/^\/project/,"")||"/")+location.search+location.hash);}})();</script><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>latex2word | Moning's Blog</title><meta name="author" content="caizhimoning"><meta name="copyright" content="caizhimoning"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="将 LaTeX 公式与文档片段转换为 Word 可编辑格式的工具向项目。 背景协作与投稿常要求 Word 稿，而公式与符号在 LaTeX 中编写最顺手。手动复制公式到 Word 易丢格式、符号错乱。本项目探索 LaTeX → Word 的可重复工作流或小工具。 目标 支持常见数学公式、矩阵、希腊字母的可靠转换。 可选：整段 equation &#x2F; align 环境批量处理。 输出 .doc">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><script>(function(){var p=location.pathname;if(p==="/project"||p.indexOf("/project/")===0){location.replace((p.replace(/^\/project/,"")||"/")+location.search+location.hash);}})();</script><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>latex2word：武汉理工大学本科毕业论文 LaTeX 转 Word 工具链 | Moning's Blog</title><meta name="author" content="caizhimoning"><meta name="copyright" content="caizhimoning"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="latex2word面向武汉理工大学本科毕业论文的 LaTeX → Word 转换工具链。在 WHUT-Bachelor 模板之外，用 Pandoc 将 main_word.tex 导出为 .docx，尽量保留公式、图表编号、交叉引用与 GB&#x2F;T 7714 参考文献格式。 GitHub 仓库： caizhimoning&#x2F;LaTeX2Word_SpecForWHUTBachelo">
 <meta property="og:type" content="website">
-<meta property="og:title" content="latex2word">
+<meta property="og:title" content="latex2word：武汉理工大学本科毕业论文 LaTeX 转 Word 工具链">
 <meta property="og:url" content="https://caizhimoning.github.io/projects/latex2word/index.html">
 <meta property="og:site_name" content="Moning&#39;s Blog">
-<meta property="og:description" content="将 LaTeX 公式与文档片段转换为 Word 可编辑格式的工具向项目。 背景协作与投稿常要求 Word 稿，而公式与符号在 LaTeX 中编写最顺手。手动复制公式到 Word 易丢格式、符号错乱。本项目探索 LaTeX → Word 的可重复工作流或小工具。 目标 支持常见数学公式、矩阵、希腊字母的可靠转换。 可选：整段 equation &#x2F; align 环境批量处理。 输出 .doc">
+<meta property="og:description" content="latex2word面向武汉理工大学本科毕业论文的 LaTeX → Word 转换工具链。在 WHUT-Bachelor 模板之外，用 Pandoc 将 main_word.tex 导出为 .docx，尽量保留公式、图表编号、交叉引用与 GB&#x2F;T 7714 参考文献格式。 GitHub 仓库： caizhimoning&#x2F;LaTeX2Word_SpecForWHUTBachelo">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://caizhimoning.github.io/img/avatar.png">
-<meta property="article:published_time" content="2026-06-23T10:00:00.000Z">
-<meta property="article:modified_time" content="2026-06-23T10:25:10.172Z">
+<meta property="article:published_time" content="2026-06-24T04:00:00.000Z">
+<meta property="article:modified_time" content="2026-06-24T04:44:16.054Z">
 <meta property="article:author" content="caizhimoning">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://caizhimoning.github.io/img/avatar.png"><script type="application/ld+json"></script><link rel="shortcut icon" href="/img/favicon.svg"><link rel="canonical" href="https://caizhimoning.github.io/projects/latex2word/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
@@ -134,53 +134,288 @@
   },
   autoDarkmode: false
 }</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
-  title: 'latex2word',
+  title: 'latex2word：武汉理工大学本科毕业论文 LaTeX 转 Word 工具链',
   isHighlightShrink: false,
   isToc: false,
   pageType: 'page'
-}</script><link rel="stylesheet" href="/css/layout.css"><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="/css/archive.css"><link rel="stylesheet" href="/css/projects.css"><link rel="stylesheet" href="/css/post-toc.css"><link rel="stylesheet" href="/css/post-tag-panel.css"><meta name="generator" content="Hexo 8.1.2"></head><body><div class="bg-animation" id="web_bg" style="background: transparent;"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">59</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">101</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-book-open"></i><span> 文章</span></a></div><div class="menus_item"><a class="site-page" href="/projects/"><i class="fa-fw fas fa-code-branch"></i><span> 项目</span></a></div><div class="menus_item"><a class="site-page" href="/dynamics/"><i class="fa-fw fas fa-comment-dots"></i><span> 动态</span></a></div><div class="menus_item"><a class="site-page" href="/domain/"><i class="fa-fw fas fa-layer-group"></i><span> 专题</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于我</span></a></div></div></div></div><div class="page type-project" id="body-wrap"><header class="not-top-img fixed" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/logo.svg" alt="Logo"></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-book-open"></i><span> 文章</span></a></div><div class="menus_item"><a class="site-page" href="/projects/"><i class="fa-fw fas fa-code-branch"></i><span> 项目</span></a></div><div class="menus_item"><a class="site-page" href="/dynamics/"><i class="fa-fw fas fa-comment-dots"></i><span> 动态</span></a></div><div class="menus_item"><a class="site-page" href="/domain/"><i class="fa-fw fas fa-layer-group"></i><span> 专题</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><h1 class="title-seo">latex2word</h1></header><main class="layout" id="content-inner"><div id="page"><div class="page-title">latex2word</div><div class="container" id="article-container"><p>将 LaTeX 公式与文档片段转换为 Word 可编辑格式的工具向项目。</p>
-<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>协作与投稿常要求 Word 稿，而公式与符号在 LaTeX 中编写最顺手。手动复制公式到 Word 易丢格式、符号错乱。本项目探索 <strong>LaTeX → Word</strong> 的可重复工作流或小工具。</p>
-<h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ul>
-<li>支持常见数学公式、矩阵、希腊字母的可靠转换。</li>
-<li>可选：整段 <code>equation</code> &#x2F; <code>align</code> 环境批量处理。</li>
-<li>输出 <code>.docx</code> 或 Word 可粘贴的 OMML&#x2F;MathType 友好格式。</li>
+}</script><link rel="stylesheet" href="/css/layout.css"><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="/css/archive.css"><link rel="stylesheet" href="/css/projects.css"><link rel="stylesheet" href="/css/post-toc.css"><link rel="stylesheet" href="/css/post-tag-panel.css"><meta name="generator" content="Hexo 8.1.2"></head><body><div class="bg-animation" id="web_bg" style="background: transparent;"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">59</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">101</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-book-open"></i><span> 文章</span></a></div><div class="menus_item"><a class="site-page" href="/projects/"><i class="fa-fw fas fa-code-branch"></i><span> 项目</span></a></div><div class="menus_item"><a class="site-page" href="/dynamics/"><i class="fa-fw fas fa-comment-dots"></i><span> 动态</span></a></div><div class="menus_item"><a class="site-page" href="/domain/"><i class="fa-fw fas fa-layer-group"></i><span> 专题</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于我</span></a></div></div></div></div><div class="page type-project" id="body-wrap"><header class="not-top-img fixed" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/logo.svg" alt="Logo"></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-book-open"></i><span> 文章</span></a></div><div class="menus_item"><a class="site-page" href="/projects/"><i class="fa-fw fas fa-code-branch"></i><span> 项目</span></a></div><div class="menus_item"><a class="site-page" href="/dynamics/"><i class="fa-fw fas fa-comment-dots"></i><span> 动态</span></a></div><div class="menus_item"><a class="site-page" href="/domain/"><i class="fa-fw fas fa-layer-group"></i><span> 专题</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><h1 class="title-seo">latex2word：武汉理工大学本科毕业论文 LaTeX 转 Word 工具链</h1></header><main class="layout" id="content-inner"><div id="page"><div class="page-title">latex2word：武汉理工大学本科毕业论文 LaTeX 转 Word 工具链</div><div class="container" id="article-container"><h1 id="latex2word"><a href="#latex2word" class="headerlink" title="latex2word"></a>latex2word</h1><p>面向<strong>武汉理工大学本科毕业论文</strong>的 LaTeX → Word 转换工具链。在 <a target="_blank" rel="noopener" href="https://github.com/huangyxi/WHUT-Bachelor">WHUT-Bachelor</a> 模板之外，用 Pandoc 将 <code>main_word.tex</code> 导出为 <code>.docx</code>，尽量保留公式、图表编号、交叉引用与 GB&#x2F;T 7714 参考文献格式。</p>
+<p><strong>GitHub 仓库：</strong> <a target="_blank" rel="noopener" href="https://github.com/caizhimoning/LaTeX2Word_SpecForWHUTBachelorTheses">caizhimoning&#x2F;LaTeX2Word_SpecForWHUTBachelorTheses</a></p>
+<blockquote>
+<p>本项目为个人开源工具，<strong>非武汉理工大学官方发布</strong>。PDF 排版仍请以学校规范与官方模板为准。</p>
+</blockquote>
+<hr>
+<h2 id="查阅索引"><a href="#查阅索引" class="headerlink" title="查阅索引"></a>查阅索引</h2><ul>
+<li><a href="#%E9%A1%B9%E7%9B%AE%E8%83%8C%E6%99%AF">项目背景</a></li>
+<li><a href="#%E8%A7%A3%E5%86%B3%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98">解决什么问题</a></li>
+<li><a href="#%E9%80%82%E7%94%A8%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%AE%9A%E4%BD%8D">适用对象与定位</a></li>
+<li><a href="#%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84%E4%B8%8E%E6%B5%81%E6%B0%B4%E7%BA%BF">技术架构与流水线</a></li>
+<li><a href="#%E6%A0%B8%E5%BF%83%E8%83%BD%E5%8A%9B%E8%AF%B4%E6%98%8E">核心能力说明</a></li>
+<li><a href="#%E4%BB%93%E5%BA%93%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84">仓库目录结构</a></li>
+<li><a href="#%E8%B7%AF%E5%BE%84%E7%BA%A6%E5%AE%9A">路径约定</a></li>
+<li><a href="#%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8Bwsl">快速开始：WSL</a></li>
+<li><a href="#%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8Bwindows">快速开始：Windows</a></li>
+<li><a href="#%E5%8F%8C%E8%BD%A8-latex-%E6%BA%90">双轨 LaTeX 源</a></li>
+<li><a href="#demo-%E6%A0%B7%E4%BE%8B%E9%A1%B9%E7%9B%AE">Demo 样例项目</a></li>
+<li><a href="#%E9%85%8D%E7%BD%AE%E4%B8%8E%E8%87%AA%E5%AE%9A%E4%B9%89%E9%A1%B9%E7%9B%AE">配置与自定义项目</a></li>
+<li><a href="#%E5%BC%80%E6%BA%90%E4%B8%8E%E8%AE%B8%E5%8F%AF">开源与许可</a></li>
+<li><a href="#%E5%B7%B2%E7%9F%A5%E9%99%90%E5%88%B6">已知限制</a></li>
 </ul>
-<h2 id="技术路线"><a href="#技术路线" class="headerlink" title="技术路线"></a>技术路线</h2><p>以 <strong>Pandoc</strong> 为转换核心，用标准引用与格式文件约束输出，配合 <strong>crossref</strong> 与自建 <strong>Lua 过滤器</strong> 补齐 LaTeX 语义。</p>
+<hr>
+<h2 id="项目背景"><a href="#项目背景" class="headerlink" title="项目背景"></a>项目背景</h2><p>理工类本科毕设普遍用 LaTeX 写公式和正文，但查重、协作或个别环节仍可能要求 Word。手动从 PDF 复制、或用 Word 自带公式编辑器重录，容易丢格式、丢编号、丢引用。</p>
+<p><strong>latex2word</strong> 把「LaTeX → Word」固化为一条可重复流水线：同一套 <code>body/</code> 正文，一条线编译 PDF（<code>main.tex</code> + <code>whut-bachelor.cls</code>），另一条线导出 Word（<code>main_word.tex</code> + Pandoc），避免维护两份内容。</p>
+<hr>
+<h2 id="解决什么问题"><a href="#解决什么问题" class="headerlink" title="解决什么问题"></a>解决什么问题</h2><table>
+<thead>
+<tr>
+<th>痛点</th>
+<th>本项目的做法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>公式在 Word 里乱掉</td>
+<td>Pandoc 转 OMML；后处理统一公式段落样式</td>
+</tr>
+<tr>
+<td>图&#x2F;表&#x2F;式编号不一致</td>
+<td><code>pandoc-crossref</code> + 自建 Lua 过滤器，按「章.序号」重写</td>
+</tr>
+<tr>
+<td>参考文献格式不对</td>
+<td><code>citeproc</code> + GB&#x2F;T 7714 CSL；英文条目 locale 修正</td>
+</tr>
+<tr>
+<td>版式与学校 Word 习惯差太远</td>
+<td><code>reference.docx</code> 样式模板约束标题、摘要、公式等</td>
+</tr>
+<tr>
+<td>每次转换命令冗长</td>
+<td><code>convert.sh</code> &#x2F; <code>convert.ps1</code> 一键入口 + YAML 配置</td>
+</tr>
+<tr>
+<td>WSL 与 Windows 路径不一致</td>
+<td>全程<strong>相对路径</strong>，不写盘符</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="适用对象与定位"><a href="#适用对象与定位" class="headerlink" title="适用对象与定位"></a>适用对象与定位</h2><p><strong>适合：</strong></p>
+<ul>
+<li>使用 WHUT 本科 LaTeX 模板写毕设，偶尔需要 Word 稿的同学</li>
+<li>已在 LaTeX 中写好正文，希望批量、可复现地导出 <code>.docx</code> 的用户</li>
+</ul>
+<p><strong>注意：</strong></p>
+<ul>
+<li>转换后图片排版不会与latex完全一致</li>
+<li>封面页，声明页，目录页需在word中添加</li>
+</ul>
+<p><strong>定位：</strong> 第三方工具链，与 WHUT 官方无隶属关系；配合 <a target="_blank" rel="noopener" href="https://github.com/huangyxi/WHUT-Bachelor">WHUT-Bachelor</a> 使用。</p>
+<hr>
+<h2 id="技术架构与流水线"><a href="#技术架构与流水线" class="headerlink" title="技术架构与流水线"></a>技术架构与流水线</h2><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">main_word.tex</span><br><span class="line">  → Pandoc（latex → docx）</span><br><span class="line">  → pandoc-crossref        # 图 / 表 / 公式自动编号</span><br><span class="line">  → fix_crossrefs.lua      # 章.序号 交叉引用、题注重写</span><br><span class="line">  → citeproc + CSL         # GB/T 7714 参考文献</span><br><span class="line">  → fix_bibliography_locale.lua</span><br><span class="line">  → reference.docx         # Word 样式模板</span><br><span class="line">  → 后处理                 # WSL: Python / Windows: PowerShell</span><br><span class="line">  → output.docx</span><br></pre></td></tr></table></figure>
+
 <table>
 <thead>
 <tr>
 <th>组件</th>
-<th>说明</th>
+<th>作用</th>
 </tr>
 </thead>
 <tbody><tr>
+<td><strong>Pandoc</strong></td>
+<td>LaTeX 结构 → docx，数学公式 → OMML</td>
+</tr>
+<tr>
+<td><strong>pandoc-crossref</strong></td>
+<td>自动为 figure &#x2F; table &#x2F; equation 编号</td>
+</tr>
+<tr>
+<td><strong>Lua 过滤器</strong></td>
+<td>扫描源 <code>.tex</code> 建立 <code>\label{fig:}</code> &#x2F; <code>\label{tab:}</code> &#x2F; <code>\label{eq:}</code> 映射</td>
+</tr>
+<tr>
+<td><strong>CSL + citeproc</strong></td>
+<td>从 <code>ref.bib</code> 生成参考文献表</td>
+</tr>
+<tr>
+<td><strong>reference.docx</strong></td>
+<td>控制 Word 标题、摘要、公式段落等样式</td>
+</tr>
+<tr>
+<td><strong>后处理</strong></td>
+<td>公式 Tab 分隔编号、参考文献位置、摘要分节等</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="核心能力说明"><a href="#核心能力说明" class="headerlink" title="核心能力说明"></a>核心能力说明</h2><h3 id="交叉引用与编号"><a href="#交叉引用与编号" class="headerlink" title="交叉引用与编号"></a>交叉引用与编号</h3><ul>
+<li>按 <code>config/default.yaml</code> 中 <code>chapter_files</code> 列表顺序确定章号</li>
+<li>章内顺序计数 figure &#x2F; table &#x2F; equation</li>
+<li>输出格式：<code>1.2</code>、<code>2.1</code>；公式引用为 <code>(2.1)</code></li>
+<li>标签约定：<code>fig:</code>、<code>tab:</code>、<code>eq:</code> 前缀</li>
+</ul>
+<h3 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h3><ul>
+<li>行间公式应用 Word 自定义样式 <code>equation</code></li>
+<li>后处理将式号从 OMML 内提取到行尾，Tab 实现「居中公式 + 右对齐编号」</li>
+</ul>
+<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><ul>
+<li>默认 CSL：<code>font/GB-T-7714—2025.csl</code></li>
+<li>英文文献（<code>langid = {english}</code>）将「，等」改为「，et al.」</li>
+<li>参考文献块插入 <code>\section*{References}</code> 标题之后</li>
+</ul>
+<h3 id="平台差异"><a href="#平台差异" class="headerlink" title="平台差异"></a>平台差异</h3><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>WSL &#x2F; Linux</th>
+<th>Windows</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>入口</td>
+<td><code>./scripts/convert.sh</code></td>
+<td><code>.\scripts\convert.ps1</code> 或 <code>convert.cmd</code></td>
+</tr>
+<tr>
 <td>Pandoc</td>
-<td><code>latex</code> &#x2F; <code>md</code> → <code>docx</code>，数学引擎与文档结构转换</td>
-</tr>
-<tr>
-<td><code>.cls</code> 标准引用文件</td>
-<td>参考文献样式（如 <code>gbt7714</code>、<code>natbib</code> 对应 CSL）</td>
-</tr>
-<tr>
-<td><code>reference.docx</code></td>
-<td>Word 样式模板：标题、正文、图表、公式等版式基准</td>
+<td><code>bin/pandoc</code>（setup-deps 安装）</td>
+<td>系统 PATH</td>
 </tr>
 <tr>
 <td>crossref</td>
-<td>图&#x2F;表&#x2F;公式&#x2F;章节交叉引用与编号</td>
+<td><code>bin/pandoc-crossref</code></td>
+<td><code>latex_en/tools/pandoc-crossref.exe</code></td>
 </tr>
 <tr>
-<td>自建 Lua 过滤器</td>
-<td>定制 AST 变换：公式、引用、特殊宏与版式修补</td>
+<td>后处理</td>
+<td><code>scripts/postprocess_docx.py</code></td>
+<td><code>latex_en/tools/apply_equation_style.ps1</code></td>
 </tr>
 </tbody></table>
-<h2 id="当前状态"><a href="#当前状态" class="headerlink" title="当前状态"></a>当前状态</h2><ul>
-<li>技术路线已确定；代码仓库与 MVP 尚未创建。</li>
+<hr>
+<h2 id="仓库目录结构"><a href="#仓库目录结构" class="headerlink" title="仓库目录结构"></a>仓库目录结构</h2><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">latex2word/                      ← 仓库根</span><br><span class="line">├── README.md</span><br><span class="line">├── LICENSE</span><br><span class="line">├── convert.cmd</span><br><span class="line">├── config/</span><br><span class="line">│   ├── default.yaml             ← 默认配置</span><br><span class="line">│   └── README.md</span><br><span class="line">├── docs/</span><br><span class="line">│   ├── getting-started.md</span><br><span class="line">│   └── conversion-rules.md</span><br><span class="line">├── filters/                     ← Lua 过滤器（各项目共用）</span><br><span class="line">│   ├── fix_crossrefs.lua</span><br><span class="line">│   └── fix_bibliography_locale.lua</span><br><span class="line">├── scripts/</span><br><span class="line">│   ├── convert.sh / convert.ps1 / convert.py</span><br><span class="line">│   ├── postprocess_docx.py</span><br><span class="line">│   ├── setup-deps.sh / setup-deps.ps1</span><br><span class="line">│   └── generate_demo_figures.py</span><br><span class="line">├── bin/                         ← WSL 工具链（gitignore，本地生成）</span><br><span class="line">└── latex_en/                    ← 默认 LaTeX 项目（project）</span><br><span class="line">    ├── main_word.tex            ← Word 转换入口</span><br><span class="line">    ├── main.tex                 ← PDF 入口（WHUT 模板）</span><br><span class="line">    ├── reference.docx           ← Word 样式模板</span><br><span class="line">    ├── ref.bib</span><br><span class="line">    ├── body/                    ← 章节</span><br><span class="line">    ├── figure/                  ← 图片</span><br><span class="line">    ├── font/                    ← CSL 等</span><br><span class="line">    └── tools/                   ← Windows 后处理脚本</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="路径约定"><a href="#路径约定" class="headerlink" title="路径约定"></a>路径约定</h2><p>两层相对路径，<strong>禁止在 YAML 里写绝对路径</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>层级</th>
+<th>相对基准</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>仓库级</strong></td>
+<td>仓库根</td>
+<td><code>latex_en</code>、<code>config/default.yaml</code></td>
+</tr>
+<tr>
+<td><strong>项目级</strong></td>
+<td>项目目录（如 <code>latex_en/</code>）</td>
+<td><code>main_word.tex</code>、<code>body/chapter1.tex</code></td>
+</tr>
+</tbody></table>
+<p>命令行 <code>project</code> 与 <code>--config</code> 属仓库级；YAML 内 <code>main_tex</code>、<code>bib</code>、<code>chapter_files</code> 等属项目级。WSL 与 Windows 共用同一套相对路径。</p>
+<hr>
+<h2 id="快速开始：WSL"><a href="#快速开始：WSL" class="headerlink" title="快速开始：WSL"></a>快速开始：WSL</h2><p><strong>1. 克隆仓库</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/caizhimoning/LaTeX2Word_SpecForWHUTBachelorTheses.git</span><br><span class="line"><span class="built_in">cd</span> LaTeX2Word_SpecForWHUTBachelorTheses</span><br></pre></td></tr></table></figure>
+
+<p><strong>2. 安装依赖（首次）</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bash scripts/setup-deps.sh   <span class="comment"># 安装 bin/pandoc、bin/pandoc-crossref</span></span><br><span class="line">pip install pyyaml           <span class="comment"># 或 apt install python3-yaml</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>3. 转换</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./scripts/convert.sh</span><br></pre></td></tr></table></figure>
+
+<p><strong>4. 输出</strong></p>
+<p><code>latex_en/output.docx</code>（gitignore，每次重新生成）</p>
+<hr>
+<h2 id="快速开始：Windows"><a href="#快速开始：Windows" class="headerlink" title="快速开始：Windows"></a>快速开始：Windows</h2><p><strong>1. 前置条件</strong></p>
+<ul>
+<li>安装 <a target="_blank" rel="noopener" href="https://pandoc.org/installing.html">Pandoc</a> 并加入 PATH</li>
+<li><code>pip install pyyaml</code></li>
+<li>首次运行：<code>powershell -ExecutionPolicy Bypass -File scripts/setup-deps.ps1</code>（安装 <code>pandoc-crossref.exe</code>）</li>
 </ul>
-<h2 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h2><ul>
-<li><input disabled="" type="checkbox"> 用 10–20 个典型公式做转换质量对比</li>
-<li><input disabled="" type="checkbox"> 确定 CLI 或 Obsidian 插件式入口</li>
-<li><input disabled="" type="checkbox"> 与 <a href="/2026/06/05/latex-syntax/">LaTeX 语法入门</a> 笔记交叉引用常用语法</li>
+<p><strong>2. 转换（任选）</strong></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.\scripts\convert.ps1</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">convert</span>.<span class="built_in">cmd</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>3. 输出</strong></p>
+<p><code>latex_en\output.docx</code></p>
+<hr>
+<h2 id="双轨-LaTeX-源"><a href="#双轨-LaTeX-源" class="headerlink" title="双轨 LaTeX 源"></a>双轨 LaTeX 源</h2><table>
+<thead>
+<tr>
+<th>轨道</th>
+<th>入口</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>PDF</strong></td>
+<td><code>main.tex</code> + <code>whut-bachelor.cls</code></td>
+<td>正式排版、封面、目录、XeLaTeX + biber</td>
+</tr>
+<tr>
+<td><strong>Word</strong></td>
+<td><code>main_word.tex</code></td>
+<td>Pandoc 专用，标准 <code>report</code> 宏包，无模板专有命令</td>
+</tr>
+</tbody></table>
+<p>两条线<strong>共用</strong> <code>body/*.tex</code>、<code>ref.bib</code>、<code>figure/</code>。Word 线不在 tex 内 <code>\printbibliography</code>，参考文献由 Pandoc <code>--citeproc</code> 生成。</p>
+<hr>
+<h2 id="Demo-样例项目"><a href="#Demo-样例项目" class="headerlink" title="Demo 样例项目"></a>Demo 样例项目</h2><p>仓库内 <code>latex_en/</code> 为<strong>演示文档</strong>（2 章 + 3 张示例图），用于验证流水线，不含真实论文内容：</p>
+<table>
+<thead>
+<tr>
+<th>章节</th>
+<th>演示内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Chapter 1</td>
+<td>引用、单图、交叉引用</td>
+</tr>
+<tr>
+<td>Chapter 2</td>
+<td>表格、公式、子图、<code>\eqref</code></td>
+</tr>
+<tr>
+<td>Appendix</td>
+<td>符号表</td>
+</tr>
+<tr>
+<td>References</td>
+<td>中英文文献各若干条</td>
+</tr>
+</tbody></table>
+<p>替换为自己的论文时：改 <code>body/</code>、<code>figure/</code>、<code>ref.bib</code>，并同步 <code>config/default.yaml</code> 中的 <code>chapter_files</code>。</p>
+<hr>
+<h2 id="配置与自定义项目"><a href="#配置与自定义项目" class="headerlink" title="配置与自定义项目"></a>配置与自定义项目</h2><p>复制 <code>config/default.yaml</code>，修改例如：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">main_tex:</span> <span class="string">main_word.tex</span></span><br><span class="line"><span class="attr">bib:</span> <span class="string">ref.bib</span></span><br><span class="line"><span class="attr">reference_doc:</span> <span class="string">reference.docx</span></span><br><span class="line"><span class="attr">output_doc:</span> <span class="string">output.docx</span></span><br><span class="line"><span class="attr">chapter_files:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">body/chapter1.tex</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">body/chapter2.tex</span></span><br></pre></td></tr></table></figure>
+
+<p>运行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./scripts/convert.sh my_thesis --config config/my_thesis.yaml</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.\scripts\convert.ps1 <span class="literal">-Project</span> my_thesis <span class="literal">-Config</span> config/my_thesis.yaml</span><br></pre></td></tr></table></figure>
+
+<p>更细字段说明见仓库内 <code>config/README.md</code> 与 <code>docs/conversion-rules.md</code>。</p>
+<hr>
+<h2 id="开源与许可"><a href="#开源与许可" class="headerlink" title="开源与许可"></a>开源与许可</h2><ul>
+<li><strong>仓库：</strong> <a target="_blank" rel="noopener" href="https://github.com/caizhimoning/LaTeX2Word_SpecForWHUTBachelorTheses">GitHub — LaTeX2Word_SpecForWHUTBachelorTheses</a></li>
+<li><strong>版权：</strong> Copyright (c) 2026 moning</li>
+<li><strong>许可：</strong> 仓库内 <code>LICENSE</code> — <strong>允许非商业使用</strong>；禁止未授权商用；软件按「原样」提供，<strong>不提供担保、不追究作者责任</strong></li>
+<li><strong>未随仓库分发：</strong> <code>bin/</code> 工具链、<code>pandoc-crossref.exe</code>（&gt;100MB）、字体文件等，见 <code>.gitignore</code></li>
+</ul>
+<hr>
+<h2 id="已知限制"><a href="#已知限制" class="headerlink" title="已知限制"></a>已知限制</h2><ul>
+<li>Word 入口须为 Pandoc 可解析的 LaTeX 子集（避免 WHUT 模板专有命令）</li>
+<li>公式 Tab 编号依赖 Word OMML 结构；复杂 <code>align</code> 环境建议人工抽检</li>
+<li><code>pandoc-crossref</code> 与 Pandoc 版本不完全一致时可能有警告，一般不影响 demo 使用</li>
+<li>中文正文专用模板（<code>latex_zh/</code>）尚未单独提供，可按 demo 自行扩展</li>
+</ul>
+<hr>
+<h2 id="相关"><a href="#相关" class="headerlink" title="相关"></a>相关</h2><ul>
+<li>仓库 README 与 <code>docs/getting-started.md</code>、<code>docs/conversion-rules.md</code></li>
+<li>WHUT LaTeX 模板：<a target="_blank" rel="noopener" href="https://github.com/huangyxi/WHUT-Bachelor">WHUT-Bachelor</a></li>
+<li>Pandoc 文档：<a target="_blank" rel="noopener" href="https://pandoc.org/MANUAL.html">pandoc.org&#x2F;MANUAL.html</a></li>
 </ul>
 <p><a href="/projects/">← 返回项目列表</a></p>
-</div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">caizhimoning</div><div class="author-info-description">记录生活，分享技术<br>持续学习，持续成长 🌸</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">59</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">101</div></a><a href="/dynamics/"><div class="headline">动态</div><div class="length-num">1</div></a></div><a id="card-info-btn" href="/about/"><i class="fas fa-heart"></i><span>了解更多</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/caizhimoning" target="_blank" title="GitHub"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:moningblog@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #ff8ba7;"></i></a><a class="social-icon" href="/subscribe/" target="_blank" title="订阅"><i class="fas fa-rss" style="color: #f26c4f;"></i></a></div></div><div class="sticky_layout"><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/ai%E7%94%9F%E6%88%90/" class="tag-cloud-item tag-color-0" style="font-size: 1.45em; color: #ffb7c5;">ai生成</a><a href="/tags/Abaqus/" class="tag-cloud-item tag-color-1" style="font-size: 1.22em; color: #ff8ba7;">Abaqus</a><a href="/tags/%E4%BB%BF%E7%9C%9F/" class="tag-cloud-item tag-color-2" style="font-size: 1.22em; color: #ec4899;">仿真</a><a href="/tags/%E5%AE%89%E8%A3%85/" class="tag-cloud-item tag-color-3" style="font-size: 1.3em; color: #fda4af;">安装</a><a href="/tags/Python/" class="tag-cloud-item tag-color-4" style="font-size: 1.15em; color: #fecdd3;">Python</a><a href="/tags/%E6%9C%BA%E7%AE%B1/" class="tag-cloud-item tag-color-0" style="font-size: 1.15em; color: #ffb7c5;">机箱</a><a href="/tags/%E8%A3%85%E6%9C%BA/" class="tag-cloud-item tag-color-1" style="font-size: 1.38em; color: #ff8ba7;">装机</a><a href="/tags/%E6%95%A3%E7%83%AD/" class="tag-cloud-item tag-color-2" style="font-size: 1.15em; color: #ec4899;">散热</a><a href="/tags/%E6%95%A3%E7%83%AD%E5%99%A8/" class="tag-cloud-item tag-color-3" style="font-size: 1.15em; color: #fda4af;">散热器</a><a href="/tags/%E9%A3%8E%E5%86%B7/" class="tag-cloud-item tag-color-4" style="font-size: 1.15em; color: #fecdd3;">风冷</a><a href="/tags/%E6%B0%B4%E5%86%B7/" class="tag-cloud-item tag-color-0" style="font-size: 1.15em; color: #ffb7c5;">水冷</a><a href="/tags/CPU/" class="tag-cloud-item tag-color-1" style="font-size: 1.15em; color: #ff8ba7;">CPU</a><a href="/tags/Intel/" class="tag-cloud-item tag-color-2" style="font-size: 1.22em; color: #ec4899;">Intel</a><a href="/tags/AMD/" class="tag-cloud-item tag-color-3" style="font-size: 1.3em; color: #fda4af;">AMD</a><a href="/tags/GPU/" class="tag-cloud-item tag-color-4" style="font-size: 1.15em; color: #fecdd3;">GPU</a><a href="/tags/%E6%98%BE%E5%8D%A1/" class="tag-cloud-item tag-color-0" style="font-size: 1.15em; color: #ffb7c5;">显卡</a><a href="/tags/NVIDIA/" class="tag-cloud-item tag-color-1" style="font-size: 1.15em; color: #ff8ba7;">NVIDIA</a><a href="/tags/%E4%B8%BB%E6%9D%BF/" class="tag-cloud-item tag-color-2" style="font-size: 1.15em; color: #ec4899;">主板</a><a href="/tags/DIY/" class="tag-cloud-item tag-color-3" style="font-size: 1.15em; color: #fda4af;">DIY</a><a href="/tags/%E7%94%B5%E6%BA%90/" class="tag-cloud-item tag-color-4" style="font-size: 1.15em; color: #fecdd3;">电源</a></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@19.1.3/dist/lazyload.iife.min.js"></script><div class="js-pjax"></div><script src="/js/sakura.js"></script><script src="/js/rain.js"></script><script src="/js/custom.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="可搜索标题、标签以及文章内任意内容" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.4"></script></div></div></body></html>
+</div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">caizhimoning</div><div class="author-info-description">记录生活，分享技术<br>持续学习，持续成长 🌸</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">59</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">101</div></a><a href="/dynamics/"><div class="headline">动态</div><div class="length-num">1</div></a></div><a id="card-info-btn" href="/about/"><i class="fas fa-heart"></i><span>了解更多</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/caizhimoning" target="_blank" title="GitHub"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:moningblog@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #ff8ba7;"></i></a><a class="social-icon" href="/subscribe/" target="_blank" title="订阅"><i class="fas fa-rss" style="color: #f26c4f;"></i></a></div></div><div class="sticky_layout"><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/ai%E7%94%9F%E6%88%90/" class="tag-cloud-item tag-color-0" style="font-size: 1.45em; color: #ffb7c5;">ai生成</a><a href="/tags/Abaqus/" class="tag-cloud-item tag-color-1" style="font-size: 1.22em; color: #ff8ba7;">Abaqus</a><a href="/tags/%E4%BB%BF%E7%9C%9F/" class="tag-cloud-item tag-color-2" style="font-size: 1.22em; color: #ec4899;">仿真</a><a href="/tags/%E5%AE%89%E8%A3%85/" class="tag-cloud-item tag-color-3" style="font-size: 1.3em; color: #fda4af;">安装</a><a href="/tags/%E6%9C%BA%E7%AE%B1/" class="tag-cloud-item tag-color-4" style="font-size: 1.15em; color: #fecdd3;">机箱</a><a href="/tags/%E8%A3%85%E6%9C%BA/" class="tag-cloud-item tag-color-0" style="font-size: 1.38em; color: #ffb7c5;">装机</a><a href="/tags/%E6%95%A3%E7%83%AD/" class="tag-cloud-item tag-color-1" style="font-size: 1.15em; color: #ff8ba7;">散热</a><a href="/tags/%E6%95%A3%E7%83%AD%E5%99%A8/" class="tag-cloud-item tag-color-2" style="font-size: 1.15em; color: #ec4899;">散热器</a><a href="/tags/%E9%A3%8E%E5%86%B7/" class="tag-cloud-item tag-color-3" style="font-size: 1.15em; color: #fda4af;">风冷</a><a href="/tags/%E6%B0%B4%E5%86%B7/" class="tag-cloud-item tag-color-4" style="font-size: 1.15em; color: #fecdd3;">水冷</a><a href="/tags/Python/" class="tag-cloud-item tag-color-0" style="font-size: 1.15em; color: #ffb7c5;">Python</a><a href="/tags/CPU/" class="tag-cloud-item tag-color-1" style="font-size: 1.15em; color: #ff8ba7;">CPU</a><a href="/tags/Intel/" class="tag-cloud-item tag-color-2" style="font-size: 1.22em; color: #ec4899;">Intel</a><a href="/tags/AMD/" class="tag-cloud-item tag-color-3" style="font-size: 1.3em; color: #fda4af;">AMD</a><a href="/tags/GPU/" class="tag-cloud-item tag-color-4" style="font-size: 1.15em; color: #fecdd3;">GPU</a><a href="/tags/%E6%98%BE%E5%8D%A1/" class="tag-cloud-item tag-color-0" style="font-size: 1.15em; color: #ffb7c5;">显卡</a><a href="/tags/NVIDIA/" class="tag-cloud-item tag-color-1" style="font-size: 1.15em; color: #ff8ba7;">NVIDIA</a><a href="/tags/%E4%B8%BB%E6%9D%BF/" class="tag-cloud-item tag-color-2" style="font-size: 1.15em; color: #ec4899;">主板</a><a href="/tags/DIY/" class="tag-cloud-item tag-color-3" style="font-size: 1.15em; color: #fda4af;">DIY</a><a href="/tags/%E5%86%85%E5%AD%98/" class="tag-cloud-item tag-color-4" style="font-size: 1.22em; color: #fecdd3;">内存</a></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@19.1.3/dist/lazyload.iife.min.js"></script><div class="js-pjax"></div><script src="/js/sakura.js"></script><script src="/js/rain.js"></script><script src="/js/custom.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="可搜索标题、标签以及文章内任意内容" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.4"></script></div></div></body></html>

@@ -40,12 +40,12 @@
     {
       slug: "latex2word",
       img: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80",
-      title: "latex2word",
-      subtitle: "LaTeX 公式与文档向 Word 的转换",
-      desc: "LaTeX 公式与文档向 Word 的转换",
-      tags: ["LaTeX", "Word"],
+      title: "latex2word：武汉理工大学本科毕业论文 LaTeX 转 Word 工具链",
+      subtitle: "基于 Pandoc 的可重复导出流程，支持 WSL 与 Windows",
+      desc: "基于 Pandoc 的可重复导出流程，支持 WSL 与 Windows",
+      tags: ["LaTeX", "Word", "武汉理工", "WHUT", "Pandoc"],
       link: "projects/latex2word/",
-      date: "2026/6/23"
+      date: "2026/6/24"
     },
     {
       slug: "research-group",

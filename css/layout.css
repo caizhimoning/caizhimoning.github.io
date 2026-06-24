@@ -1181,6 +1181,7 @@
 
 .domain-hub {
   width: 100%;
+  overflow: visible;
 }
 
 .domain-hub-hero,
@@ -1509,21 +1510,14 @@
   }
 }
 
-/* 领域选择行 */
+/* 领域选择行：窄屏自动换行，避免末尾领域被裁切 */
 .domain-hub-tabs {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   gap: 10px;
   margin: 0 0 20px;
   padding: 4px 2px 12px;
-  overflow-x: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
   border-bottom: 1px solid var(--sakura-pink-mist);
-}
-
-.domain-hub-tabs::-webkit-scrollbar {
-  display: none;
 }
 
 .domain-hub-tab {
